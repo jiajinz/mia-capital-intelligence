@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "matter_id": "260526",
+      "title": "Third Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "series": "infrastructure_241354",
+      "reporting_basis": "explicit_memo_period",
+      "period_start": "2025-10-01",
+      "period_end": "2025-12-31",
+      "memo_date": "2026-03-24",
+      "introduced_date": "2026-03-25",
+      "accepted_date": "2026-04-21",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf",
+      "matter_url": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=260526&yearFolder=Y2026",
+      "verification_status": "identity_and_bytes_verified",
+      "http_status": 200,
+      "size_bytes": 963360,
+      "sha256": "eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878",
+      "page_count": 12,
+      "tables": [
+        {"label": "Exhibit A - Reserve Maintenance Program", "pdf_pages": [8, 9, 10], "printed_labels": ["MDC008", "MDC009", "MDC010"]},
+        {"label": "Exhibit B - Capital Improvement Program", "pdf_pages": [11, 12], "printed_labels": ["MDC011", "MDC012"]}
+      ]
+    },
+    {
+      "matter_id": "261402",
+      "title": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "series": "infrastructure_241354",
+      "reporting_basis": "explicit_memo_period",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "memo_date": "2026-08-06",
+      "introduced_date": "2026-08-06",
+      "accepted_date": "2026-10-20",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf",
+      "matter_url": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=261402&yearFolder=Y2026",
+      "verification_status": "identity_and_bytes_verified",
+      "http_status": 200,
+      "size_bytes": 1303763,
+      "sha256": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a",
+      "page_count": 13,
+      "tables": [
+        {"label": "Exhibit A - Reserve Maintenance Program", "pdf_pages": [9, 10, 11], "printed_labels": ["MDC009", "MDC010", "MDC011"]},
+        {"label": "Exhibit B - Capital Improvement Program", "pdf_pages": [12, 13], "printed_labels": ["MDC012", "MDC013"]}
+      ]
+    },
+    {
+      "matter_id": "261400",
+      "title": "Miami-Dade Aviation Department: Aviation Capital Program Report - September 2026",
+      "series": "aviation_capital_monthly",
+      "reporting_basis": "report_month_label",
+      "period_start": "2026-09-01",
+      "period_end": "2026-09-30",
+      "memo_date": "2026-10-06",
+      "introduced_date": "2026-08-06",
+      "accepted_date": "2026-10-06",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+      "matter_url": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=261400&yearFolder=Y2026",
+      "verification_status": "identity_and_bytes_verified",
+      "http_status": 200,
+      "size_bytes": 3916380,
+      "sha256": "ae45ec3eeaf1f54df04ad2255ed9ec3c0f3f647d3b2570b39272ff75efe9f9ae",
+      "page_count": 40,
+      "tables": [
+        {"label": "Summary of Changes", "pdf_pages": [21, 22], "printed_labels": ["MDC021 / Page 1 of 2", "MDC022 / Page 2 of 2"]},
+        {"label": "Exhibit A - Procurement Status", "pdf_pages": [23, 24, 25, 26, 27, 28], "printed_labels": ["MDC023", "MDC024", "MDC025", "MDC026", "MDC027", "MDC028"]},
+        {"label": "Exhibit B - Financial Status", "pdf_pages": [29, 30], "printed_labels": ["MDC029", "MDC030 / Page 1 of 1"]}
+      ]
+    }
+  ]
+}

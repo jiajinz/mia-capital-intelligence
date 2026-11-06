@@ -1,0 +1,11 @@
+[project]
+name = "mia-capital-intelligence"
+version = "0.1.0"
+description = "Independent airport capital program and infrastructure decision support"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.pytest.ini_options]
+minversion = "8.3"
+testpaths = ["tests"]
+pythonpath = ["src"]
