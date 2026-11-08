@@ -8,6 +8,36 @@ The current experience includes discovery, source dates, financial meaning, dire
 
 Stage 2 stops for independent review. Proposed Stage 2C is a small contract spending-history section, subject to source approval and reviewed financial controls. No standalone Financial Explorer, hosting or production ingestion expansion has been performed.
 
+## Package A closeout against d6d4f1e
+
+The directory search and chart previously selected separate records while the directory wrote its reference to the address bar. The browse route now has a neutral URL. Every source profile derives **Open profile permalink** and **Open official PDF** from its own selected record. Existing valid `?record=` links open a dedicated profile in a fresh session. Invalid, empty or repeated parameters show a recovery link. The profile precedes the chart value table so its two evidence links are near the selector. The chart uses USD millions for geometry and exact USD for hover, table and profile. Current availability precedes the roadmap wording.
+
+The browser acceptance flow ran at 618 × 731. CA176A search showed the later $3,191,832 record and its own permalink. A native click on V008B opened a separate profile for $896,021,864 with matter 261402, PDF p. 13 / MDC013 / row 6. Its permalink opened the exact record in a fresh tab without filters. The official link opened page 13 of 13. The chart selector's ArrowDown, End and Enter keys selected V042A after V008B. TMB returned three of 112, then three of 110 after switching reports. An unmatched chart search showed the empty state and zero matches. The reviewer separately verified the stale-link recovery. See [closeout profile screenshot](screenshots/stage2-closeout-v008b.jpg) and [permalink and run instructions](RUN_PUBLIC_DIRECTORY.md#share-a-versioned-source-profile).
+
+The August heading was corrected to “Cumulative Expenditures to Date”. A19-MDAD-01 retains both source descriptions and an unresolved airport attribution. The baseline checker accepted wrong financial and summary pages and an unrelated dash note even with verified PDF hashes. It also accepted a full-series swap of the two A19 contracts' financial and summary values. The revised research checker verifies pinned PDF bindings with `--pdf-dir` and rejects all these cases. It also rejects wrong financial headings, wrong summary rows and borrowed zero evidence. Without PDFs, the checker validates static pins and arithmetic. The balanced reassociation test deliberately shows why that mode cannot verify amounts against an original row. Named independent human confirmation of the transcriptions and financial definitions remains pending.
+
+Verified on Python 3.13.1 with these commands:
+
+```sh
+MIA_STUDY_PDF_DIR=/tmp/mia-financial-study .venv/bin/python -m pytest -q
+.venv/bin/python -m pip check
+.venv/bin/python scripts/check_financial_feasibility.py --pdf-dir /tmp/mia-financial-study
+PYTHONPATH=src .venv/bin/python - <<'PYCODE'
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from mia_capital_intelligence.public_registry import build_registry
+
+with TemporaryDirectory() as directory:
+    rebuilt = Path(directory) / "registry.json"
+    build_registry(output=rebuilt)
+    assert rebuilt.read_bytes() == Path("data/public/registry.json").read_bytes()
+PYCODE
+```
+
+Observed 145 passing tests, no broken requirements, three successfully bound and reconciled study issues, and a byte-identical registry rebuild. Browser health returned `ok` and the app returned HTTP 200. The study PDF directory can be replaced with any local directory containing the three pinned matter-ID files. Without the environment variable, pytest skips the eight real-PDF study tests.
+
+The proposed Stage 2C approval covers only the three pinned financial pages and their supporting summary pages, four contract selections, one monthly expenditure bar chart and an exact monthly/cumulative table. The source approval, financial definitions and named review are separate decisions. See [the exact approval package](FINANCIAL_FEASIBILITY.md#stage-2c-approval-package).
+
 ## Acceptance and implementation
 
 - **Profiles:** streamlit_app.render_detail is shared by directory and chart. It explains the source-record grain and estimate meaning; shows project description, documented airport, program, source coverage, memo/acceptance dates, PDF/printed page and row; retains raw description/header/value and versioned reference; exposes missing progress/milestones and separately navigable same-ID observations. Candidate identity remains unresolved.
@@ -28,7 +58,7 @@ Airport classification remains explicit unambiguous source tokens only: MIA 187,
 
 Three consecutive official report labels, July–September 2026, contain the same four financial contract rows. All 12 prior-plus-monthly checks, 15 printed column totals and eight contract roll-forwards reconcile. Monthly totals are $537,673.09, $206,061.07 and $194,680.63; cumulative totals are $41,520,433.89, $41,726,494.96 and $41,921,175.59. These are limited contract totals, not all-airport spending.
 
-The research preserves original financial headers and visually transcribed cells, explicit E20-MDAD--03 / E20-MDAD-03 alias evidence, dashed cells resolved only by the same issue's explicit summary zero, financial and summary page locators, document hashes and unknown ledger cutoffs. All three financial pages were rendered and inspected; summaries were cross-checked. Optional byte verification against all three local PDFs passes. Independent human transcription review is still pending. Arithmetic is not evidence of accounting completeness or an audited cash-payment basis.
+The research preserves original financial headers and visually transcribed cells, explicit E20-MDAD--03 / E20-MDAD-03 alias evidence, dashed cells resolved only by the same issue's explicit summary zero, financial and summary page locators, document hashes and unknown ledger cutoffs. All three financial pages were rendered and inspected; summaries were cross-checked. Closeout PDF source-binding verification against all three local PDFs passes. Independent human transcription review is still pending. Arithmetic is not evidence of accounting completeness or an audited cash-payment basis.
 
 V009A procurement reinspection distinguishes its TMB-specific Project Name / Description from the broader OMB project description covering multiple airports (September PDF pp. 24 and 28). That difference in field grain does not prove a conflict or quarterly project association. No financial contract was merged with a quarterly project. Report-month labels, memo dates and legislative dates remain distinct.
 
@@ -36,7 +66,7 @@ FINANCIAL_FEASIBILITY.md records source URLs, byte counts, hashes, pages, reprod
 
 ## Validation and actual UI inspection
 
-Full regression: **136 passed**, Python 3.13.1. The original 115 remain, with only UI assertions adapted to the authorized positioning and new tab layout. Added 10 estimate-query/selection cases, nine financial-research cases and two UI chart cases. Regressions cover report isolation, filtered denominators, unknown/zero amounts, invalid populations/limits, exact hover values, stale/multiple selections, accessible selection, chart empty state and persistent-event/manual-selection behavior. Research mutations test missing/duplicate contracts, wrong amounts/totals, missing zero evidence, summary disagreement, non-reconciling roll-forward and reordered months.
+The original Stage 2 baseline passed **136 tests**, Python 3.13.1. The original 115 remain, with only UI assertions adapted to the authorized positioning and new tab layout. Added 10 estimate-query/selection cases, nine financial-research cases and two UI chart cases. Regressions cover report isolation, filtered denominators, unknown/zero amounts, invalid populations/limits, exact hover values, stale/multiple selections, accessible selection, chart empty state and persistent-event/manual-selection behavior. Research mutations test missing/duplicate contracts, wrong amounts/totals, missing zero evidence, summary disagreement, non-reconciling roll-forward and reordered months.
 
 Streamlit AppTest simulates runtime and chart event return values. Actual browser QA separately verifies a native Plotly bar click. The local app returned HTTP 200 and a healthy Streamlit response. In the normal 618 × 731 browser viewport, selecting V008B changed the profile to $896,021,864, matter 261402, PDF p. 13 / MDC013 / row 6. Clicking its official link opened page 13 of 13 in the county PDF viewer. Airport filtering to TMB showed three matching records in the 112-row report; switching to the earlier report retained one report and a 110-row denominator. Five/ten-bar display limits were inspected. The chart fits the normal narrow viewport; longer source tables scroll horizontally. Other browser/device sizes and hosting remain unverified.
 
@@ -59,4 +89,4 @@ Outstanding: independent human financial review; unknown ledger/project freeze d
 
 ## Git handoff
 
-Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. Stage 2 uses local Conventional Commits with subjects `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Resolve final hashes with `git log -2 --format='%H %s'`; this avoids embedding a commit's own hash in its contents. Inspect each commit and the preserved README working-tree change separately. No push, deployment, tag, merge or history rewrite was performed.
+Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. Stage 2 uses local Conventional Commits with subjects `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Resolve the initial Stage 2 and Package A hashes with `git log -3 --format='%H %s'`; this avoids embedding a commit's own hash in its contents. Inspect each commit and the preserved README working-tree change separately. No push, deployment, tag, merge or history rewrite was performed.

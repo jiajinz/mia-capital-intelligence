@@ -1,6 +1,7 @@
 """Streamlit's simulated runtime checks the directory-to-evidence user flow."""
 
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 from streamlit.testing.v1 import AppTest
 
@@ -97,7 +98,8 @@ def test_versioned_record_deep_link_opens_individual_observation():
     linked.query_params["record"] = source_ref
     linked.run()
     assert not linked.exception
-    assert linked.selectbox(key="selected_record").value == source_ref
+    assert not linked.text_input and not linked.tabs
+    assert any(row.value == source_ref for row in linked.code)
     assert any(row.proto.url.endswith("/260526.pdf#page=11") for row in linked.get("link_button"))
 
 
@@ -107,7 +109,8 @@ def test_invalid_record_link_has_an_explicit_version_warning():
     result.run()
     assert not result.exception
     assert "outside the current registry version" in visible_copy(result)
-    assert result.metric[0].value
+    assert not result.metric
+    assert any(row.proto.label == "Browse project records" for row in result.get("link_button"))
 
 
 def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
@@ -165,3 +168,29 @@ def test_chart_event_resolves_to_detail_and_dropdown_can_override(monkeypatch):
     selector.set_value(other).run()
     assert not result.exception
     assert next(row for row in result.selectbox if row.label == "Explore a chart record").value == other
+
+
+def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
+    import streamlit as st
+
+    registry = load_registry()
+    reference = next(row.source_ref for row in registry.records
+                     if row.matter_id == "261402" and row.project_id == "V008B")
+    result = app()
+    result.text_input(key="search").input("CA176A").run()
+    directory_ref = result.selectbox(key="selected_record").value
+    monkeypatch.setattr(st, "plotly_chart", lambda *args, **kwargs: {
+        "selection": {"points": [{"customdata": [reference]}]},
+    })
+    result.run()
+    assert not result.exception and not result.query_params.get("record")
+    for tab, expected in zip(result.tabs[:2], (directory_ref, reference), strict=True):
+        link = next(row for row in tab.get("link_button") if row.proto.label == "Open profile permalink")
+        assert parse_qs(urlsplit(link.proto.url).query) == {"record": [expected]}
+
+    linked = AppTest.from_file(APP, default_timeout=15)
+    linked.query_params["record"] = reference
+    linked.run()
+    assert not linked.exception and not linked.tabs
+    assert linked.metric[0].value == "$ 896,021,864"
+    assert any(row.proto.url.endswith("/261402.pdf#page=13") for row in linked.get("link_button"))

@@ -3,6 +3,7 @@
 import sys
 from hashlib import sha256
 from pathlib import Path
+from urllib.parse import urlencode
 
 import pandas as pd
 import streamlit as st
@@ -31,12 +32,21 @@ def report_label(source: dict) -> str:
     return f"{source['period_start']} to {source['period_end']} · {source['matter_id']}"
 
 
+def profile_permalink(source_ref: str) -> str:
+    return "?" + urlencode({"record": source_ref})
+
+
 def render_detail(registry: PublicRegistry, source_ref: str) -> None:
     detail = source_detail(registry, source_ref)
     source = detail["source"]
     with st.container(border=True):
         st.caption(f"SOURCE RECORD · {detail['project_id']} · {source['matter_id']}")
         st.subheader(detail["project_name"])
+        st.link_button("Open profile permalink", profile_permalink(detail["source_ref"]))
+        st.link_button(
+            f"Open official PDF · page {detail['pdf_page']}",
+            detail["source_page_url"], type="primary",
+        )
         st.write(
             f"This report lists **{detail['project_id']}** in its Capital Improvement Program. "
             "The information below describes this individual source record."
@@ -57,10 +67,6 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
             st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
             st.caption("Coverage follows the memorandum. The project-data snapshot date is unconfirmed.")
             st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
-            st.link_button(
-                f"Open official PDF · page {detail['pdf_page']}",
-                detail["source_page_url"], type="primary",
-            )
             st.caption(detail["validation_status"] + ".")
         with st.expander("Original wording and evidence"):
             st.write("**Original project description**")
@@ -102,7 +108,7 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
                     )
                     st.link_button(
                         "Explore this related source record",
-                        "?record=" + related_ref,
+                        profile_permalink(related_ref),
                     )
 
 
@@ -142,7 +148,7 @@ def render_insights(registry: PublicRegistry) -> None:
         estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
         on_select="rerun", selection_mode="points", config={"displayModeBar": False, "scrollZoom": False},
     )
-    st.caption("Select a bar to open its source record, or use the accessible record selector below.")
+    st.caption("Select a bar or use the selector to open the profile and evidence links below.")
     selected = selected_source_ref(event, ranking)
     detail_key, event_key = f"chart-detail-{token}", f"chart-event-{token}"
     if selected and st.session_state.get(event_key) != selected:
@@ -153,6 +159,7 @@ def render_insights(registry: PublicRegistry) -> None:
         "Explore a chart record", list(by_ref), key=detail_key,
         format_func=lambda ref: f"{by_ref[ref]['project_id']} · {by_ref[ref]['project_name']}",
     )
+    render_detail(registry, reference)
     with st.expander("Chart values and source pages"):
         st.dataframe(pd.DataFrame([
             {"Project ID": row["project_id"], "Description": row["project_name"],
@@ -161,7 +168,6 @@ def render_insights(registry: PublicRegistry) -> None:
             for row in ranking.rows
         ]), hide_index=True, width="stretch",
             column_config={"Official evidence": st.column_config.LinkColumn("Official evidence")})
-    render_detail(registry, reference)
 
 
 def render_directory(registry: PublicRegistry) -> None:
@@ -215,19 +221,14 @@ def render_directory(registry: PublicRegistry) -> None:
     )
     refs = [row["source_ref"] for row in results]
     by_ref = {row["source_ref"]: row for row in results}
-    requested = st.query_params.get("record")
-    if requested and requested not in {row.source_ref for row in registry.records}:
-        st.warning("This record link is outside the current registry version. Choose an available result.")
     selected = st.selectbox(
         "Open a source record", refs,
-        index=refs.index(requested) if requested in refs else 0,
         format_func=lambda ref: (
             f"{by_ref[ref]['project_id']} · {by_ref[ref]['matter_id']} · "
             f"{by_ref[ref]['project_name'][:110]}"
         ),
         key="selected_record",
     )
-    st.query_params["record"] = selected
     render_detail(registry, selected)
 
 
@@ -277,9 +278,9 @@ def render_coverage(registry: PublicRegistry) -> None:
 
 st.title("MIA Capital Intelligence")
 st.markdown("### Airport Infrastructure & Capital Projects Explorer")
+st.caption("Available now: project records and reported cost estimates. Spending history and documented progress are under source evaluation.")
 st.write("Explore airport improvements, project investments, construction progress, and publicly reported financial information—all in one place.")
 st.caption("Discover projects. Understand investments. Follow progress.")
-st.caption("Available now: project records and reported cost estimates. Spending history and documented progress are under source evaluation.")
 try:
     registry = published_registry()
 except (ValueError, OSError, KeyError) as error:
@@ -288,6 +289,16 @@ except (ValueError, OSError, KeyError) as error:
         st.text(str(error))
     st.stop()
 
+if "record" in st.query_params:
+    requested = st.query_params.get_all("record")
+    st.link_button("Browse project records", "?")
+    if len(requested) == 1 and any(row.source_ref == requested[0] for row in registry.records):
+        render_detail(registry, requested[0])
+    else:
+        st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
+    st.stop()
+
+st.caption("Use Open profile permalink on a source record to share its exact report version.")
 st.caption(
     f"{len(registry.records)} source records · "
     f"{sum(row['indexed_record_count'] > 0 for row in registry.catalog)} partially indexed reports · "

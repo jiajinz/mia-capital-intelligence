@@ -47,7 +47,10 @@
           },
           "summary_pdf_page": 19,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 2,
+          "summary_contract_raw": "A19-MDAD-02",
+          "summary_description_raw": "Notice to Professional Consultants \u2013 Facility Design Services"
         },
         {
           "row_ordinal": 2,
@@ -69,7 +72,11 @@
           },
           "summary_pdf_page": 19,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "A19-MDAD-01",
+          "summary_description_raw": "MIA Terminal Wide Re-roofing and Lightning System Upgrades Miami Executive Airport",
+          "airport_attribution": null
         },
         {
           "row_ordinal": 3,
@@ -91,7 +98,10 @@
           },
           "summary_pdf_page": 20,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "E20-MDAD-03",
+          "summary_description_raw": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDar) Services"
         },
         {
           "row_ordinal": 4,
@@ -112,8 +122,11 @@
             "cumulative_expenditures_usd": "11,613,147.11"
           },
           "summary_pdf_page": 19,
-          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 19 explicitly reports $0.00.",
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "dash_resolution": "summary_explicit_zero",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 3,
+          "summary_contract_raw": "MDAD-CIP-V009A",
+          "summary_description_raw": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)"
         }
       ],
       "printed_totals": {
@@ -145,7 +158,7 @@
         "approved_budget_usd": "Current Approved Budget Amount",
         "prior_expenditures_usd": "Prior Expenditures",
         "monthly_expenditures_usd": "Current Month Expenditures",
-        "cumulative_expenditures_usd": "Current Cumulative Expenditures to Date"
+        "cumulative_expenditures_usd": "Cumulative Expenditures to Date"
       },
       "records": [
         {
@@ -168,7 +181,10 @@
           },
           "summary_pdf_page": 20,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 2,
+          "summary_contract_raw": "A19-MDAD-02",
+          "summary_description_raw": "Notice to Professional Consultants \u2013 Facility Design Services"
         },
         {
           "row_ordinal": 2,
@@ -190,7 +206,11 @@
           },
           "summary_pdf_page": 20,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "A19-MDAD-01",
+          "summary_description_raw": "MIA Terminal Wide Re-roofing and Lightning System Upgrades Miami Executive Airport",
+          "airport_attribution": null
         },
         {
           "row_ordinal": 3,
@@ -212,7 +232,10 @@
           },
           "summary_pdf_page": 21,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "E20-MDAD-03",
+          "summary_description_raw": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDar) Services"
         },
         {
           "row_ordinal": 4,
@@ -233,8 +256,11 @@
             "cumulative_expenditures_usd": "11,613,147.11"
           },
           "summary_pdf_page": 20,
-          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 20 explicitly reports $0.00.",
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "dash_resolution": "summary_explicit_zero",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 3,
+          "summary_contract_raw": "MDAD-CIP-V009A",
+          "summary_description_raw": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)"
         }
       ],
       "printed_totals": {
@@ -289,7 +315,10 @@
           },
           "summary_pdf_page": 21,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 2,
+          "summary_contract_raw": "A19-MDAD-02",
+          "summary_description_raw": "Notice to Professional Consultants \u2013 Facility Design Services"
         },
         {
           "row_ordinal": 2,
@@ -311,7 +340,11 @@
           },
           "summary_pdf_page": 21,
           "dash_resolution": null,
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "A19-MDAD-01",
+          "summary_description_raw": "MIA Terminal Wide Re-roofing and Lightning System Upgrades Miami Executive Airport",
+          "airport_attribution": null
         },
         {
           "row_ordinal": 3,
@@ -332,8 +365,11 @@
             "cumulative_expenditures_usd": "5,543,728.88"
           },
           "summary_pdf_page": 22,
-          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 22 explicitly reports $0.00.",
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "dash_resolution": "summary_explicit_zero",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 1,
+          "summary_contract_raw": "E20-MDAD-03",
+          "summary_description_raw": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDar) Services"
         },
         {
           "row_ordinal": 4,
@@ -354,8 +390,11 @@
             "cumulative_expenditures_usd": "11,613,147.11"
           },
           "summary_pdf_page": 21,
-          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 21 explicitly reports $0.00.",
-          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+          "dash_resolution": "summary_explicit_zero",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending",
+          "summary_row_ordinal": 3,
+          "summary_contract_raw": "MDAD-CIP-V009A",
+          "summary_description_raw": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)"
         }
       ],
       "printed_totals": {

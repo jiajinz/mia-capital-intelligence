@@ -56,11 +56,13 @@ def test_missing_estimate_is_excluded_but_zero_is_rankable(registry):
 
 def test_plot_geometry_and_hover_keep_exact_evidence(registry):
     ranking = largest_estimates(registry,'261402')
-    trace = estimate_figure(ranking).data[0]
+    figure = estimate_figure(ranking)
+    trace = figure.data[0]
     assert trace.orientation == 'h'
     assert trace.customdata[0][0] == ranking.rows[0]['source_ref']
     assert trace.customdata[0][2] == '$ 1,066,231,593'
-    assert list(trace.x) == [float(row['estimate_usd']) for row in ranking.rows]
+    assert trace.x[0] == 1066.231593
+    assert figure.layout.xaxis.title.text == 'Estimated cost (USD millions)'
     assert 'Estimated cost' in trace.hovertemplate
 
 

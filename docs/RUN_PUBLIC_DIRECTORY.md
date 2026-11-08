@@ -61,3 +61,15 @@ In PyCharm, keep the same repository-local interpreter and Streamlit module conf
 For debugging outside Streamlit, configure pytest for tests/test_estimate_insights.py. Synthetic missing-value cases are tests only; never alter production registry values to debug a chart. The financial study checker is a separate script run configuration, scripts/check_financial_feasibility.py. Its inputs are docs/research/financial_snapshots.json, not public runtime data. FINANCIAL_FEASIBILITY.md explains the source and date limitations.
 
 API references: [Streamlit 1.51 chart selection contract](https://docs.streamlit.io/1.51.0/develop/api-reference/charts/st.plotly_chart) and [Plotly horizontal bar charts](https://plotly.com/python/horizontal-bar-charts/). Plotly renders the validated query result; it does not query or validate the PDFs itself.
+
+## Share a versioned source profile
+
+Open **Open profile permalink** on the selected directory or chart profile. The new page contains the exact source record and its official PDF link. Copy that page's URL or copy the link target from the profile. A single percent-encoded `record` parameter carries the matter, full document SHA-256, exhibit, PDF page and data-row ordinal. Browse sessions use the explorer URL. A fresh permalink opens independently of any directory or chart filters, and **Browse project records** returns to browsing. A stale version, empty value or repeated record parameter opens the recovery view.
+
+With the app running on the default loopback port, the V008B acceptance URL is:
+
+```text
+http://127.0.0.1:8501/?record=261402%3A84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a%3AB%3A13%3A6
+```
+
+Search CA176A in the directory, then open Visual insights and click the V008B bar. Verify that the chart profile and its permalink agree on 261402, PDF p. 13, data row 6 and $896,021,864. The axis is USD millions. Exact dollar amounts are available in hover, the profile and the chart value table. The selector supports keyboard navigation. For a short viewport, the profile and its two links are directly below the chart selector. TMB has three matches in each report, with the separate 110 and 112 row denominators.

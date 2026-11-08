@@ -1,6 +1,7 @@
 """Single-document discovery queries and a presentation-only Plotly adapter."""
 
 from dataclasses import dataclass
+from decimal import Decimal
 from typing import Any, Mapping
 
 import plotly.graph_objects as go
@@ -44,7 +45,7 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
     """Convert only bar geometry to float; hover retains exact USD and evidence keys."""
     rows = ranking.rows
     figure = go.Figure(go.Bar(
-        x=[float(row["estimate_usd"]) for row in rows],
+        x=[float(row["estimate_usd"] / Decimal("1000000")) for row in rows],
         y=[row["project_id"] for row in rows], orientation="h",
         customdata=[[
             row["source_ref"], row["project_name"], format_usd(row["estimate_usd"]),
@@ -57,7 +58,7 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
     figure.update_layout(
         height=max(300, 38 * len(rows) + 90),
         margin=dict(l=15, r=25, t=15, b=45),
-        xaxis=dict(title="Estimated cost (USD)", tickprefix="$", tickformat="~s", rangemode="tozero"),
+        xaxis=dict(title="Estimated cost (USD millions)", tickformat=",~f", rangemode="tozero"),
         yaxis=dict(title=None, autorange="reversed", type="category"),
         clickmode="event+select", dragmode=False,
         font=dict(size=14, color="#152D36"), showlegend=False,
