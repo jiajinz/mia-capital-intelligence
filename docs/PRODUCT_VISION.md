@@ -1,31 +1,32 @@
 # MIA Capital Intelligence
 
-## Public Airport Infrastructure & Capital Projects Transparency Explorer
+## Airport Infrastructure & Capital Projects Explorer
 
-An independent public-information product with no affiliation with MDAD or HNTB. Its audience includes residents, researchers, journalists, contractors and other users of publicly documented airport investment information.
+Explore airport improvements, project investments, construction progress, and publicly reported financial information—all in one place.
 
-The product helps users discover, understand, explore and verify publicly reported airport infrastructure projects. Information is dispersed across reports and public repositories. This accessibility problem motivates a searchable source-backed directory. The product makes no claim about the availability or quality of MDAD's internal systems.
+Discover projects. Understand investments. Follow progress.
 
-## Approved Stage 1 vertical slice
+The product brings dispersed published records into one approachable information hub for residents, researchers, journalists, contractors and other interested users. Discovery, understandable investment information and direct evidence are its primary value. It is an independent data project, with underlying records attributed to their publishing organizations in Sources & methodology. It uses no official branding.
 
-Build a read-only Streamlit directory over the existing two controlled Exhibit B snapshots. Search by project ID and description/facility keywords, filter by documented airport and source report, sort records, open a single record's details and follow its official PDF page. Provide a catalog of all three already audited official documents with accurate partial-index coverage.
+## Authorized Stage 2 and current availability
 
-The initial directory contains 222 source records, with 110 from 260526 and 112 from 261402. Those numbers count document-scoped observations. Cross-report project identities remain unresolved. The registry preserves 107 explicitly unverified same-ID candidate associations and eight one-sided records. No verified cross-document project entity has been supplied.
+The owner authorized Stage 2A's stronger source-record profile and one Plotly discovery chart, plus Stage 2B's bounded financial feasibility study. The earlier Stage 1 directory and all integrity controls remain. Stage 2 stops for independent review. A complete financial dashboard, public ingestion of study-only sources, hosting and progress analytics are outside this authorization.
 
-Public display requires successful source-record validation and a clear account of its verification coverage. Cross-report comparability approval is unnecessary for showing one source observation. Cross-report financial or schedule claims retain the stricter scope and approval contract.
+Available now: search, airport/report filters, source-specific profiles, related observations, official evidence and Largest Reported Project Cost Estimates. The chart uses one selected Exhibit B report only, with 110 or 112 indexed rows before filters. It labels estimated cost in USD, not spending. Record population, excluded unknown estimates, coverage period and memo date remain visible. The actual project-data freeze date is unconfirmed.
 
-## Reuse, defer and remove from the active scope
+The directory preserves 222 document-scoped observations, 107 unverified candidate identity links, eight one-sided records and zero verified cross-document entities. A shared ID does not establish an integrated project history. Status, milestone dates, detailed facility classifications and project types remain unindexed. The primary description expresses the integrated product direction; the availability line explicitly identifies these current gaps.
 
-- **Retain as data integrity infrastructure.** Pinned official sources, checksums, raw field values, source row locators, independent row controls, exact financial amounts, regression tests, reproducible builds and the existing comparison gate.
-- **Defer as optional analytics.** Reviewed cross-report identity mapping, substantive comparison approvals, cost-change queries and like-for-like milestone analysis. These need additional evidence and separate scope review.
-- **Remove from the current product scope.** Internal management escalation queues, engineering-risk ratings, operational approval interfaces and replacement of internal project controls. Their workflow is outside the public directory's primary task.
+## Evidence boundaries
 
-Historical decisions and the comparison contract remain available in the repository and Git history.
+Retain versioned sources, raw fields, row locators, independent ID/amount controls, exact financial arithmetic, reproducible inputs and the separate comparison gate. Individual source observations need no comparison approval to be displayed. Cross-report identity, cost growth, overrun, delay and construction-progress conclusions need additional substantive evidence. Keep estimates, adopted/approved contract budgets, monthly expenditures, cumulative expenditures and physical progress distinct.
 
-## Roadmap
+The quarterly infrastructure index and monthly contract financial study have different grains and coverage. No description-only cross-series joins are allowed. The study inputs live under docs/research and do not enter the public registry or app.
 
-1. **Stage 1, authorized.** Searchable source-record directory, individual source profiles, accurate source coverage, direct citations and a reproducible real-record example. Stop for independent review after acceptance.
-2. **Stage 2, proposed.** Improve public-user navigation and documented source discovery, enrich reliable classifications, and evaluate evidence-backed project identity mapping. Review the sources and acceptance criteria with the owner before implementation.
-3. **Later, subject to evidence.** A broader project directory and verified project histories, coverage-aware transparency summaries, and optional metric-specific comparisons. Counts and distributions must retain explicit reporting boundaries and compatible financial definitions.
+## Recommended roadmap
 
-Status, facility classifications, milestone values and project-category breakdowns can expand when reliable source fields are extracted and verified. Stage 1 indexes the source section Capital Improvement Program as its program classification. Detailed project types, construction status and milestone fields remain unindexed. The directory explains these gaps explicitly.
+1. **Stage 2A delivered:** integrated source profiles and a single-report estimate ranking with chart-to-profile navigation, accessible record selection and exact-value table.
+2. **Stage 2B delivered:** three-month, four-contract feasibility evidence and reconciliation. See FINANCIAL_FEASIBILITY.md. No financial chart is implemented.
+3. **Stage 2C proposed, owner approval after review:** a small contract spending-history slice inside the same explorer, showing reported-month expenditures and cumulative expenditures separately. Require independent source transcription review, a controlled financial schema, explicit contract aliases and month-label/cutoff semantics before publishing. Four contracts justify a focused section, not a standalone Financial Explorer.
+4. **Later:** expand official source integration and verified contract/project membership; extract reliable facility/category fields. Evaluate milestone observations with forecast/actual distinctions before any timeline. Broader scope and new production sources require owner review.
+
+Internal escalation queues, engineering-risk ratings and operational project management remain outside the product mission. Historical decisions and comparison contracts remain available for lineage. The pending owner README edit is preserved; this document is the authoritative current positioning.

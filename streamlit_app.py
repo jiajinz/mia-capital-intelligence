@@ -1,6 +1,7 @@
 """Read-only public directory for controlled MDAD source observations."""
 
 import sys
+from hashlib import sha256
 from pathlib import Path
 
 import pandas as pd
@@ -13,6 +14,9 @@ from mia_capital_intelligence.directory_queries import (  # noqa: E402
     DirectoryFilters, SORTS, format_usd, search_records, source_detail,
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
+from mia_capital_intelligence.estimate_insights import (  # noqa: E402
+    estimate_figure, largest_estimates, selected_source_ref,
+)
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
 
@@ -33,17 +37,24 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
     with st.container(border=True):
         st.caption(f"SOURCE RECORD · {detail['project_id']} · {source['matter_id']}")
         st.subheader(detail["project_name"])
+        st.write(
+            f"This report lists **{detail['project_id']}** in its Capital Improvement Program. "
+            "The information below describes this individual source record."
+        )
         value, context = st.columns([1, 2], gap="large")
         with value:
             st.metric("Total estimated cost · reported USD", format_usd(detail["estimate_usd"]))
-            st.caption("Estimate as reported in this document.")
+            st.caption("A planning estimate as reported, not actual spending or an approved contract budget.")
             st.write(f"**Airport**  {detail['airport_name']}")
             st.write("**Program**  Capital Improvement Program")
             st.caption("Detailed project type, status and milestones are not indexed.")
+            st.write("**Construction progress**  Not available in the indexed fields")
+            st.write("**Milestone dates**  Not available in the indexed fields")
         with context:
             st.write("**Source report**")
             st.write(source["title"])
             st.write(f"Report coverage · {source['period_start']} to {source['period_end']}")
+            st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
             st.caption("Coverage follows the memorandum. The project-data snapshot date is unconfirmed.")
             st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
             st.link_button(
@@ -89,6 +100,68 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
                         f"Open related official source · page {related['pdf_page']}",
                         related["source_page_url"],
                     )
+                    st.link_button(
+                        "Explore this related source record",
+                        "?record=" + related_ref,
+                    )
+
+
+def render_insights(registry: PublicRegistry) -> None:
+    st.subheader("Largest Reported Project Cost Estimates")
+    st.write("Discover larger reported investments, then open a record to understand its source context.")
+    sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
+    report_col, airport_col, size_col = st.columns([2, 2, 1])
+    with report_col:
+        matter = st.selectbox("Chart source report", list(reversed(sources)),
+                              format_func=lambda key: report_label(sources[key]), key="chart_report")
+    with airport_col:
+        airport = st.selectbox("Chart airport", [None, *AIRPORTS, "Unknown"], key="chart_airport",
+                               format_func=lambda code: "All airports" if code is None else code)
+    with size_col:
+        limit = st.selectbox("Show largest", [5, 10, 20], index=1, key="chart_limit")
+    keyword = st.text_input("Find within this chart", key="chart_search", placeholder="Project ID or keyword")
+    ranking = largest_estimates(registry, matter, airport, keyword, limit)
+    source = sources[matter]
+    st.caption(
+        f"Single report · {matter} · Exhibit B · Memo {source['memo_date']} · "
+        f"Coverage {source['period_start']} to {source['period_end']}. "
+        "The project-data snapshot date is unconfirmed."
+    )
+    st.caption(
+        f"Showing {len(ranking.rows)} largest of {ranking.matching_count} matching source records "
+        f"in {ranking.snapshot_count} indexed rows in this report; "
+        f"{ranking.missing_count} matching records have unknown estimates and are excluded from ranking. "
+        "This is a partial report population, not all airport projects."
+    )
+    if not ranking.rows:
+        st.info("No known cost estimates match these chart filters. Try a different airport or keyword.")
+        return
+    # A filter-specific chart key prevents a previous chart's event selecting a new population.
+    token = sha256(repr((matter, airport, keyword, limit)).encode()).hexdigest()[:16]
+    event = st.plotly_chart(
+        estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
+        on_select="rerun", selection_mode="points", config={"displayModeBar": False, "scrollZoom": False},
+    )
+    st.caption("Select a bar to open its source record, or use the accessible record selector below.")
+    selected = selected_source_ref(event, ranking)
+    detail_key, event_key = f"chart-detail-{token}", f"chart-event-{token}"
+    if selected and st.session_state.get(event_key) != selected:
+        st.session_state[detail_key] = selected
+    st.session_state[event_key] = selected
+    by_ref = {row["source_ref"]: row for row in ranking.rows}
+    reference = st.selectbox(
+        "Explore a chart record", list(by_ref), key=detail_key,
+        format_func=lambda ref: f"{by_ref[ref]['project_id']} · {by_ref[ref]['project_name']}",
+    )
+    with st.expander("Chart values and source pages"):
+        st.dataframe(pd.DataFrame([
+            {"Project ID": row["project_id"], "Description": row["project_name"],
+             "Estimated cost (USD)": format_usd(row["estimate_usd"]),
+             "Official evidence": f"{source['url']}#page={row['pdf_page']}"}
+            for row in ranking.rows
+        ]), hide_index=True, width="stretch",
+            column_config={"Official evidence": st.column_config.LinkColumn("Official evidence")})
+    render_detail(registry, reference)
 
 
 def render_directory(registry: PublicRegistry) -> None:
@@ -160,6 +233,7 @@ def render_directory(registry: PublicRegistry) -> None:
 
 def render_coverage(registry: PublicRegistry) -> None:
     st.subheader("Sources & data coverage")
+    st.caption("An independent data project. Underlying records are published by Miami-Dade County.")
     st.write(
         "Three official documents are cataloged. The directory indexes only Exhibit B in two infrastructure reports. "
         "This subset does not establish full airport project or capital-budget coverage."
@@ -202,9 +276,10 @@ def render_coverage(registry: PublicRegistry) -> None:
 
 
 st.title("MIA Capital Intelligence")
-st.markdown("### Public airport infrastructure & capital projects")
-st.write("Discover publicly reported projects, understand the source context and verify the original evidence.")
-st.caption("Independent portfolio project · No affiliation with MDAD or HNTB.")
+st.markdown("### Airport Infrastructure & Capital Projects Explorer")
+st.write("Explore airport improvements, project investments, construction progress, and publicly reported financial information—all in one place.")
+st.caption("Discover projects. Understand investments. Follow progress.")
+st.caption("Available now: project records and reported cost estimates. Spending history and documented progress are under source evaluation.")
 try:
     registry = published_registry()
 except (ValueError, OSError, KeyError) as error:
@@ -219,9 +294,11 @@ st.caption(
     f"{len(registry.catalog)} cataloged documents · "
     "Source-reported estimates in USD"
 )
-directory_tab, coverage_tab = st.tabs(["Project directory", "Sources & coverage"])
+directory_tab, insights_tab, coverage_tab = st.tabs(["Project directory", "Visual insights", "Sources & methodology"])
 with directory_tab:
     render_directory(registry)
+with insights_tab:
+    render_insights(registry)
 with coverage_tab:
     render_coverage(registry)
 st.divider()

@@ -1,7 +1,7 @@
 [project]
 name = "mia-capital-intelligence"
 version = "0.1.0"
-description = "Independent public airport infrastructure and capital projects transparency explorer"
+description = "Airport infrastructure and capital projects explorer"
 requires-python = ">=3.13"
 dependencies = [
     "duckdb==1.4.3",
@@ -10,6 +10,7 @@ dependencies = [
     "pypdfium2==5.14.0",
     "streamlit==1.51.0",
     "pandas==2.3.3",
+    "plotly==6.3.1",
 ]
 
 [tool.pytest.ini_options]
