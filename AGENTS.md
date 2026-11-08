@@ -1,5 +1,9 @@
 # MIA Capital Intelligence
 
+- The approved primary product is a Public Airport Infrastructure & Capital Projects Transparency Explorer. See docs/PRODUCT_VISION.md. Stage 1 is the public directory vertical slice. Stop for independent review before Stage 2.
+- Individually validated source observations may be displayed publicly without cross-report comparison approval. Keep source records, candidate associations and verified project identities distinct. Counts must state their grain and reporting coverage.
+- Preserve the comparison contract for analytical claims. Shared IDs alone establish candidate associations only. Public presentation must retain source evidence and meaningful unknown states.
+
 - Work within this repository. Preserve user files and Git history. Keep unrelated repositories and global configuration outside the project.
 - This independent portfolio project uses public records. Identify the source coverage and disclose that the project is independent of MDAD and HNTB.
 - Write code, tests, comments, and repository documentation in English. Explain each meaningful milestone to the owner in Chinese.

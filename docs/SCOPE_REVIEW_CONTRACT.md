@@ -24,3 +24,7 @@ The numerical differences in the historical Stage 0 audit are arithmetic illustr
 ## Stage 1A acceptance and remaining human work
 
 The implemented tests require absent approval, wrong-version evidence, equal amounts and incomplete basis confirmation to yield zero approved comparison rows. The real gate demonstrates held CA176A and T180B, later-only CA176B and earlier-only T180D, all 107 held dispositions and the 8 one-sided records. Synthetic tests exercise explicit metric approval. Human row confirmation and substantive approval remain pending. Stage 1B must separately review any derived change output and its publication rules.
+
+## Public-directory pivot
+
+The owner has approved a public transparency product and Stage 1 directory. This contract remains mandatory for analytical comparisons. Individually validated source observations can be searched, displayed and cited without cross-report comparison approval. A same-ID association remains a candidate identity link, with the two original records inspectable separately. It supplies no verified project entity, cost history or lifecycle inference. The public registry and interface preserve this distinction.

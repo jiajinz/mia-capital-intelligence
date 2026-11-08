@@ -1,13 +1,12 @@
 # Project state
 
-## Stage 1A — Comparability gate ready for independent review
+## Public transparency Stage 1 — Registry unit validated, interface in progress
 
-- Owner authorization covers Stage 1A only, an auditable project-comparability gate. Stage 1B scope review and authorization remain pending.
-- Branch `main`. The preceding corrected baseline is `5da1fa1c07b2df95b7de7513d4e9f223a86c025f`. The Stage 1A unit is the commit titled `feat(review): enforce auditable metric comparability gate`. Resolve it with `git log -1 --format='%H %s' -- src/mia_capital_intelligence/comparability.py`.
-- Sources remain the same three official PDFs in the inventory. The gate loads only the four controlled Exhibit B pages from 260526 and 261402. All 222 source rows pass the independent row controls and retain version, page, ordinal, cell text, measure and memo-period lineage. Project data freeze dates remain unknown.
-- Actual dispositions are 107 default-held pairs, 0 approved pairs, 0 excluded pairs, 0 approved metric comparisons. No reviewer identity, decision timestamp or substantive sign-off has been supplied. Three earlier-only and five later-only rows remain visible as presence observations.
-- Implemented typed source/amount contracts, stable version-specific pair IDs, strict review JSON schema, evidence/reference validation, and a DuckDB eligibility query. One metric's approval supplies no approval for another metric or project. Any technical error empties the submitted bundle's eligibility relation.
-- The read-only CLI produces deterministic source, candidate, disposition, blocked and approved views through one gate. Stage 1A emits eligible source values and approval provenance. Change calculation belongs to a separately reviewed Stage 1B scope.
-- Python 3.13.1, DuckDB 1.4.3 and jsonschema 4.25.1 work locally. The full suite has 73 passing tests. See STAGE_1A_AUDIT.md for reconciliation, leakage inspection and reproduction commands.
-- A pre-existing README edit remains unchanged and excluded from this milestone. Its SHA-256 remains `dd3de625834f0d17e7602a685bffe679cf2343abef1253c6418019a2d9616c8b`. Public affiliation wording remains an owner review item. This project is independent of MDAD and HNTB.
-- Next steps are external review of the gate, human consideration of HUMAN_REVIEW_PACKET.md and explicit agreement on Stage 1B scope. Human row-by-row sign-off, estimate-basis confirmation and project scope approval remain open. Positive approval examples are synthetic tests only.
+- The owner approved a product pivot and the Stage 1 public-directory vertical slice. PRODUCT_VISION.md defines the current mission and roadmap. The former Stage 1A approval gate remains reusable integrity infrastructure for analytical comparisons.
+- Branch `main`. Previous baseline `1b36c5c30330f03591526a541ad770aa329bce6f`. The registry unit is the commit titled `feat(data): publish controlled public source registry`. Resolve it with `git log -1 --format='%H %s' -- src/mia_capital_intelligence/public_registry.py`.
+- The registry contains 222 source records from two partially indexed reports, three cataloged official documents, 107 unverified candidate links and zero verified cross-document project entities. Public observation display is independent of comparison approval.
+- All four Exhibit B page controls and the source row references are preserved. The September report is cataloged with zero indexed records. Airport mapping yields MIA 187, OPF 12, TMB 6, X51 2 and unknown 15 source records, based only on explicit description tokens.
+- The existing 73-test baseline passed. The registry unit adds 31 passing tests for integrity, search, airport ambiguity, source mappings, candidate identity separation, reproducible rebuilds and failure preservation. Streamlit UI acceptance is the remaining Stage 1 work.
+- The runtime can read the prebuilt artifact without raw PDFs or review-disposition files and performs no persistent writes. Building the artifact still requires verified local originals.
+- The existing README edit remains untouched and excluded. Its SHA-256 remains `dd3de625834f0d17e7602a685bffe679cf2343abef1253c6418019a2d9616c8b`.
+- Next work in this authorized milestone is the directory/detail/coverage Streamlit interface, end-to-end user-flow checks and the final independent review packet. Stage 2 is pending independent review and further owner authorization.

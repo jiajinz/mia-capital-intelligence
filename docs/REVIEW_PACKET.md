@@ -1,4 +1,18 @@
-# Independent review packet — Stage 1A
+# Independent review packet — Public transparency Stage 1
+
+## Current registry unit
+
+The owner approved a product pivot to the Public Airport Infrastructure & Capital Projects Transparency Explorer and a Stage 1 public-directory vertical slice. PRODUCT_VISION.md defines the public audience, accessibility problem, roadmap and disposition of the former internal-controls features. The historical Stage 1A packet below describes retained comparison infrastructure.
+
+The registry unit preserves 222 controlled document-scoped source records, 107 unverified same-ID candidate associations and eight one-sided records. The separate verified-project and membership relations are empty. Three official documents are cataloged, with 110, 112 and zero indexed records. Individual observation display requires no comparability approval.
+
+`public_registry.py` builds a deterministic, validated JSON artifact from the pinned originals and atomically replaces it after successful checks. It verifies source inventory/version identities, every ordered ID/amount association, unique source keys and candidate links. `directory_queries.py` provides literal parameterized SQL search, source/airport filters, stable sorting and individual source evidence. The public runtime needs no raw PDFs or review records. Airport codes are mapped only from unambiguous explicit tokens, leaving 15 observations unknown.
+
+The 73-test prior baseline passed. The new registry unit has 31 passing tests covering registry corruption, source provenance, same-total swaps, source/page URLs, missing and ambiguous airports, identity separation, search/filter/sort behavior, exact amounts, raw-PDF-free operation, deterministic rebuilds and failed-build preservation. All 222 rows remain searchable. The Streamlit interface and browser acceptance are the next authorized unit, so Stage 1 is still in progress.
+
+Registry unit subject `feat(data): publish controlled public source registry`, branch `main`. The preceding baseline is `1b36c5c30330f03591526a541ad770aa329bce6f`. The existing README edit is preserved and excluded. Review the model grains, unknown-airport policy and candidate/verified distinction before assessing the public interface. Historical comparison contracts retain their analytical scope.
+
+## Historical Stage 1A packet
 
 This independent public-records portfolio project has no affiliation with MDAD or HNTB. The owner authorized Stage 1A only. The preceding corrected baseline is `5da1fa1c07b2df95b7de7513d4e9f223a86c025f`.
 
