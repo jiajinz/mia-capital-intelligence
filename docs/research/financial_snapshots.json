@@ -1,0 +1,370 @@
+{
+  "purpose": "Research evidence only; not a public runtime input or production ingestion contract",
+  "verification": "Agent visual transcription of all three financial pages, cross-checked with Summary of Changes; independent human sign-off pending",
+  "date_checked": "2026-11-08",
+  "sources": [
+    {
+      "matter_id": "261147",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261147.pdf",
+      "sha256": "355c1d4d130e9b8a0eeed6f160131fd6bc8db4b10ba5e75818a60a849bc02a62",
+      "size_bytes": 7334076,
+      "page_count": 43,
+      "report_month_label": "2026-07",
+      "memo_date": "2026-09-01",
+      "financial_pdf_page": 28,
+      "printed_page": "MDC028",
+      "exhibit": "B",
+      "summary_pdf_pages": [
+        19,
+        20
+      ],
+      "ledger_cutoff": null,
+      "columns": {
+        "adopted_budget_usd": "FY 2025-2026 Adopted Budget Amount",
+        "approved_budget_usd": "Current Approved Budget Amount",
+        "prior_expenditures_usd": "Prior Expenditures",
+        "monthly_expenditures_usd": "Current Month Expenditures",
+        "cumulative_expenditures_usd": "Cumulative Expenditures to Date"
+      },
+      "records": [
+        {
+          "row_ordinal": 1,
+          "contract_raw_visual": "A19-MDAD-02",
+          "contract_id": "A19-MDAD-02",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Notice to Professional Consultants Facility Design and Construction Inspection Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "22,055,000.00",
+            "approved_budget_usd": "22,055,000.00",
+            "prior_expenditures_usd": "13,389,184.36",
+            "monthly_expenditures_usd": "80,212.05",
+            "cumulative_expenditures_usd": "13,469,396.41"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "13,389,184.36",
+            "monthly_expenditures_usd": "80,212.05",
+            "cumulative_expenditures_usd": "13,469,396.41"
+          },
+          "summary_pdf_page": 19,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 2,
+          "contract_raw_visual": "A19-MDAD-01",
+          "contract_id": "A19-MDAD-01",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "MIA Terminal Wide Re-roofing and Lightning System Upgrades",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "14,232,603.00",
+            "approved_budget_usd": "14,232,603.00",
+            "prior_expenditures_usd": "10,856,691.90",
+            "monthly_expenditures_usd": "138,453.39",
+            "cumulative_expenditures_usd": "10,995,145.29"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "10,856,691.90",
+            "monthly_expenditures_usd": "138,453.39",
+            "cumulative_expenditures_usd": "10,995,145.29"
+          },
+          "summary_pdf_page": 19,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 3,
+          "contract_raw_visual": "E20-MDAD--03",
+          "contract_id": "E20-MDAD-03",
+          "identity_evidence": "Double hyphen in financial exhibit; single hyphen in Summary of Changes in each issue. Explicit study-only alias, not general punctuation stripping.",
+          "description_raw_visual": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDAR) Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "8,298,193.75",
+            "approved_budget_usd": "8,298,193.75",
+            "prior_expenditures_usd": "5,123,737.43",
+            "monthly_expenditures_usd": "319,007.65",
+            "cumulative_expenditures_usd": "5,442,745.08"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "5,123,737.43",
+            "monthly_expenditures_usd": "319,007.65",
+            "cumulative_expenditures_usd": "5,442,745.08"
+          },
+          "summary_pdf_page": 20,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 4,
+          "contract_raw_visual": "MDAD-CIP-V009A",
+          "contract_id": "MDAD-CIP-V009A",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "15,856,216.00",
+            "approved_budget_usd": "13,301,531.00",
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "-",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "0.00",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_pdf_page": 19,
+          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 19 explicitly reports $0.00.",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        }
+      ],
+      "printed_totals": {
+        "adopted_budget_usd": "60,442,012.75",
+        "approved_budget_usd": "57,887,327.75",
+        "prior_expenditures_usd": "40,982,760.80",
+        "monthly_expenditures_usd": "537,673.09",
+        "cumulative_expenditures_usd": "41,520,433.89"
+      }
+    },
+    {
+      "matter_id": "261399",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261399.pdf",
+      "sha256": "c62074ae4fdccda48bc716a399d585d8246e8d36a929633ef3afefe6c5505bbe",
+      "size_bytes": 6084317,
+      "page_count": 49,
+      "report_month_label": "2026-08",
+      "memo_date": "2026-10-06",
+      "financial_pdf_page": 29,
+      "printed_page": "MDC029",
+      "exhibit": "B",
+      "summary_pdf_pages": [
+        20,
+        21
+      ],
+      "ledger_cutoff": null,
+      "columns": {
+        "adopted_budget_usd": "FY 2025-2026 Adopted Budget Amount",
+        "approved_budget_usd": "Current Approved Budget Amount",
+        "prior_expenditures_usd": "Prior Expenditures",
+        "monthly_expenditures_usd": "Current Month Expenditures",
+        "cumulative_expenditures_usd": "Current Cumulative Expenditures to Date"
+      },
+      "records": [
+        {
+          "row_ordinal": 1,
+          "contract_raw_visual": "A19-MDAD-02",
+          "contract_id": "A19-MDAD-02",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Notice to Professional Consultants Facility Design and Construction Inspection Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "22,055,000.00",
+            "approved_budget_usd": "22,055,000.00",
+            "prior_expenditures_usd": "13,469,396.41",
+            "monthly_expenditures_usd": "103,511.27",
+            "cumulative_expenditures_usd": "13,572,907.68"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "13,469,396.41",
+            "monthly_expenditures_usd": "103,511.27",
+            "cumulative_expenditures_usd": "13,572,907.68"
+          },
+          "summary_pdf_page": 20,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 2,
+          "contract_raw_visual": "A19-MDAD-01",
+          "contract_id": "A19-MDAD-01",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "MIA Terminal Wide Re-roofing and Lightning System Upgrades",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "14,232,603.00",
+            "approved_budget_usd": "14,232,603.00",
+            "prior_expenditures_usd": "10,995,145.29",
+            "monthly_expenditures_usd": "1,566.00",
+            "cumulative_expenditures_usd": "10,996,711.29"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "10,995,145.29",
+            "monthly_expenditures_usd": "1,566.00",
+            "cumulative_expenditures_usd": "10,996,711.29"
+          },
+          "summary_pdf_page": 20,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 3,
+          "contract_raw_visual": "E20-MDAD--03",
+          "contract_id": "E20-MDAD-03",
+          "identity_evidence": "Double hyphen in financial exhibit; single hyphen in Summary of Changes in each issue. Explicit study-only alias, not general punctuation stripping.",
+          "description_raw_visual": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDAR) Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "8,298,193.75",
+            "approved_budget_usd": "8,298,193.75",
+            "prior_expenditures_usd": "5,442,745.08",
+            "monthly_expenditures_usd": "100,983.80",
+            "cumulative_expenditures_usd": "5,543,728.88"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "5,442,745.08",
+            "monthly_expenditures_usd": "100,983.80",
+            "cumulative_expenditures_usd": "5,543,728.88"
+          },
+          "summary_pdf_page": 21,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 4,
+          "contract_raw_visual": "MDAD-CIP-V009A",
+          "contract_id": "MDAD-CIP-V009A",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "15,856,216.00",
+            "approved_budget_usd": "13,301,531.00",
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "-",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "0.00",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_pdf_page": 20,
+          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 20 explicitly reports $0.00.",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        }
+      ],
+      "printed_totals": {
+        "adopted_budget_usd": "60,442,012.75",
+        "approved_budget_usd": "57,887,327.75",
+        "prior_expenditures_usd": "41,520,433.89",
+        "monthly_expenditures_usd": "206,061.07",
+        "cumulative_expenditures_usd": "41,726,494.96"
+      }
+    },
+    {
+      "matter_id": "261400",
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+      "sha256": "ae45ec3eeaf1f54df04ad2255ed9ec3c0f3f647d3b2570b39272ff75efe9f9ae",
+      "size_bytes": 3916380,
+      "page_count": 40,
+      "report_month_label": "2026-09",
+      "memo_date": "2026-10-06",
+      "financial_pdf_page": 30,
+      "printed_page": "MDC030",
+      "exhibit": "B",
+      "summary_pdf_pages": [
+        21,
+        22
+      ],
+      "ledger_cutoff": null,
+      "columns": {
+        "adopted_budget_usd": "FY 2025-2026 Adopted Budget Amount",
+        "approved_budget_usd": "Current Approved Budget Amount",
+        "prior_expenditures_usd": "Prior Expenditures",
+        "monthly_expenditures_usd": "Current Month Expenditures",
+        "cumulative_expenditures_usd": "Cumulative Expenditures to Date"
+      },
+      "records": [
+        {
+          "row_ordinal": 1,
+          "contract_raw_visual": "A19-MDAD-02",
+          "contract_id": "A19-MDAD-02",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Notice to Professional Consultants Facility Design and Construction Inspection Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "22,055,000.00",
+            "approved_budget_usd": "22,055,000.00",
+            "prior_expenditures_usd": "13,572,907.68",
+            "monthly_expenditures_usd": "98,135.01",
+            "cumulative_expenditures_usd": "13,671,042.69"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "13,572,907.68",
+            "monthly_expenditures_usd": "98,135.01",
+            "cumulative_expenditures_usd": "13,671,042.69"
+          },
+          "summary_pdf_page": 21,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 2,
+          "contract_raw_visual": "A19-MDAD-01",
+          "contract_id": "A19-MDAD-01",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "MIA Terminal Wide Re-roofing and Lightning System Upgrades",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "14,232,603.00",
+            "approved_budget_usd": "14,232,603.00",
+            "prior_expenditures_usd": "10,996,711.29",
+            "monthly_expenditures_usd": "96,545.62",
+            "cumulative_expenditures_usd": "11,093,256.91"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "10,996,711.29",
+            "monthly_expenditures_usd": "96,545.62",
+            "cumulative_expenditures_usd": "11,093,256.91"
+          },
+          "summary_pdf_page": 21,
+          "dash_resolution": null,
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 3,
+          "contract_raw_visual": "E20-MDAD--03",
+          "contract_id": "E20-MDAD-03",
+          "identity_evidence": "Double hyphen in financial exhibit; single hyphen in Summary of Changes in each issue. Explicit study-only alias, not general punctuation stripping.",
+          "description_raw_visual": "Photogrammetric Mapping, Topographic, Planimetric and Light Detection and Ranging (LiDAR) Services",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "8,298,193.75",
+            "approved_budget_usd": "8,298,193.75",
+            "prior_expenditures_usd": "5,543,728.88",
+            "monthly_expenditures_usd": "-",
+            "cumulative_expenditures_usd": "5,543,728.88"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "5,543,728.88",
+            "monthly_expenditures_usd": "0.00",
+            "cumulative_expenditures_usd": "5,543,728.88"
+          },
+          "summary_pdf_page": 22,
+          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 22 explicitly reports $0.00.",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        },
+        {
+          "row_ordinal": 4,
+          "contract_raw_visual": "MDAD-CIP-V009A",
+          "contract_id": "MDAD-CIP-V009A",
+          "identity_evidence": "Exact printed contract ID across financial and summary exhibits",
+          "description_raw_visual": "Miami Executive Airport (TMB) Runway Incursion Mitigation (RIM)",
+          "raw_cells_visual": {
+            "adopted_budget_usd": "15,856,216.00",
+            "approved_budget_usd": "13,301,531.00",
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "-",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_expenditures": {
+            "prior_expenditures_usd": "11,613,147.11",
+            "monthly_expenditures_usd": "0.00",
+            "cumulative_expenditures_usd": "11,613,147.11"
+          },
+          "summary_pdf_page": 21,
+          "dash_resolution": "Financial monthly cell is a dash; Summary of Changes PDF p. 21 explicitly reports $0.00.",
+          "verification_status": "agent_visual_and_summary_cross_check; independent_human_review_pending"
+        }
+      ],
+      "printed_totals": {
+        "adopted_budget_usd": "60,442,012.75",
+        "approved_budget_usd": "57,887,327.75",
+        "prior_expenditures_usd": "41,726,494.96",
+        "monthly_expenditures_usd": "194,680.63",
+        "cumulative_expenditures_usd": "41,921,175.59"
+      }
+    }
+  ]
+}
