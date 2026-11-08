@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stage 1A comparability review bundle",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/decision"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence",
+    "decisions"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "nonBlank": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metric": {
+      "enum": [
+        "total_estimated_cost_usd",
+        "current_approved_budget_usd"
+      ]
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "candidate_id": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "category": {
+          "enum": [
+            "original_records",
+            "project_identity",
+            "scope",
+            "financial_metric",
+            "estimate_basis",
+            "reporting_period"
+          ]
+        },
+        "metric": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/metric"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonBlank"
+          },
+          "uniqueItems": true,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "verification_status": {
+          "enum": [
+            "unverified",
+            "verified"
+          ]
+        },
+        "verified_by": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonBlank"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verified_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "statement": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "citation": {
+          "$ref": "#/$defs/nonBlank"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "candidate_id",
+        "category",
+        "metric",
+        "source_refs",
+        "verification_status",
+        "verified_by",
+        "verified_at",
+        "statement",
+        "citation"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verification_status": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "verified_by": {
+                "$ref": "#/$defs/nonBlank"
+              },
+              "verified_at": {
+                "$ref": "#/$defs/timestamp"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "verified_by": {
+                "type": "null"
+              },
+              "verified_at": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "const": "1.0"
+        },
+        "decision_id": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "candidate_id": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "earlier_source_ref": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "later_source_ref": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "outcome": {
+          "enum": [
+            "held",
+            "comparable",
+            "excluded"
+          ]
+        },
+        "rationale": {
+          "$ref": "#/$defs/nonBlank"
+        },
+        "approved_metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          },
+          "uniqueItems": true,
+          "minItems": 0
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonBlank"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decided_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonBlank"
+          },
+          "uniqueItems": true,
+          "minItems": 0
+        },
+        "follow_up_question": {
+          "$ref": "#/$defs/nonBlank"
+        }
+      },
+      "required": [
+        "contract_version",
+        "decision_id",
+        "candidate_id",
+        "earlier_source_ref",
+        "later_source_ref",
+        "outcome",
+        "rationale",
+        "approved_metrics",
+        "reviewer",
+        "decided_at",
+        "evidence_ids",
+        "follow_up_question"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "comparable"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "approved_metrics": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/metric"
+                },
+                "uniqueItems": true,
+                "minItems": 1
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/nonBlank"
+                },
+                "uniqueItems": true,
+                "minItems": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "approved_metrics": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "comparable",
+                  "excluded"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reviewer": {
+                "$ref": "#/$defs/nonBlank"
+              },
+              "decided_at": {
+                "$ref": "#/$defs/timestamp"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reviewer": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "decided_at": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "decided_at": {
+                "$ref": "#/$defs/timestamp"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

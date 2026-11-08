@@ -31,3 +31,16 @@
 ## Numeric and missing-value rules
 
 Use Python `Decimal` for financial calculations with cents or use exact integers for the whole-dollar audit profile. The proposed SQL representation is `DECIMAL(18,2)` for amounts. Store currency and precision. Parse blanks, dashes, TBD, and labels as distinct raw states with explicit reasons. A reported zero stays a numeric zero. Preserve display precision and divide by a strictly positive earlier amount for a relative change. If the denominator is missing or zero, return no percentage. Use signed later minus earlier for dollars and elapsed calendar days between like milestones.
+
+## Stage 1A implemented entities
+
+- **SourceDocument** identifies one pinned source version, official URL/title, memo coverage period, memo date, printed FY caption and allowed Exhibit B pages. Report period and project data freeze date retain separate meanings.
+- **SourceRecord** identifies one physical row by matter ID, full PDF SHA-256, exhibit, page and one-based data-row ordinal. It preserves project token, original description, row bounding box and typed metric cells. Its `source_ref` encodes those versioned coordinates. The output also records the zero-based PDF index and printed MDC label.
+- **AmountObservation** preserves the exact raw amount and source header, parsed Decimal, unit and machine/visual verification status. The gate's real input contains `total_estimated_cost_usd`. An extraction check supplies no project-scope approval.
+- **Candidate** is a same-exhibit exact-token pair with ordered source references and their memo periods. `candidate_id` hashes the ordered references. `matching_method` documents identity matching and `default_review_status` is held. Candidate identity matching, reviewed project identity, scope, financial measure, estimate basis and period approval remain distinct checks.
+- **Evidence record** is a version-controlled assertion attached to one pair and both immutable source rows. It records evidence category, metric applicability, statement, citation, verification status and attributed verification details. The six required categories are specified in REVIEW_DISPOSITIONS.md.
+- **Review disposition** is one active held/comparable/excluded decision per pair, with contract version, decision ID, rationale, metric list, reviewer or explicit unassigned state, timestamp for an attributed decision, evidence links and follow-up question. Comparable authorizes only its listed metrics. Revisions are preserved in Git.
+- **Approved comparison** has grain `(candidate_id, metric)` and contains two original amounts, source references, unit, decision ID and reviewer. SQL obtains this relation only from validated metric grants. Stage 1A has no derived change metric. A held or excluded pair has zero approved comparison rows.
+- **Presence observation** contains one source reference, exact project token, earlier-only/later-only status and an explicit reporting-boundary reason. It supports no inferred project termination or lifecycle status.
+
+See schemas/review_dispositions.schema.json for the executable review shape and docs/REVIEW_DISPOSITIONS.md for the validation and review procedure.

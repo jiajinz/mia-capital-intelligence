@@ -1,6 +1,6 @@
 # Scope review contract for the proposed Exhibit B pilot
 
-This is the Stage 0 design response to P1-02. Stage 1 authorization is pending. The future implementation must apply this contract before emitting a comparison delta.
+This originated as the Stage 0 design response to P1-02. The owner has authorized Stage 1A, which implements this comparability contract through a metric-specific execution gate. Stage 1B scope review and authorization remain pending. Stage 1A returns eligible source values and provenance. The delta requirements below apply to future change outputs. See REVIEW_DISPOSITIONS.md for the schema and executable review procedure.
 
 ## Candidate and disposition
 
@@ -21,6 +21,6 @@ The 3 earlier-only and 5 later-only rows receive a presence disposition, their o
 
 The numerical differences in the historical Stage 0 audit are arithmetic illustrations before scope approval. They do not grant any comparable disposition.
 
-## Stage 1 acceptance still required
+## Stage 1A acceptance and remaining human work
 
-Test that missing approval, wrong-version evidence, equal amounts with changed scope, and incomplete basis confirmation leave deltas null. Demonstrate held CA176A and T180B, later-only CA176B and earlier-only T180D. Exercise an approved change with credible evidence or a clearly labeled synthetic unit fixture when real scope approval is unavailable. Count and explain all 107 paired dispositions and the 8 one-sided candidates. Independently inspect the query result and its evidence drill-down before publishing pilot findings.
+The implemented tests require absent approval, wrong-version evidence, equal amounts and incomplete basis confirmation to yield zero approved comparison rows. The real gate demonstrates held CA176A and T180B, later-only CA176B and earlier-only T180D, all 107 held dispositions and the 8 one-sided records. Synthetic tests exercise explicit metric approval. Human row confirmation and substantive approval remain pending. Stage 1B must separately review any derived change output and its publication rules.
