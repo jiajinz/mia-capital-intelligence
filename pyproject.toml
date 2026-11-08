@@ -9,3 +9,4 @@ dependencies = []
 minversion = "8.3"
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = ["integration: requires optional audit dependencies and local pinned PDFs"]

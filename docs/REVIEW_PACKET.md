@@ -1,5 +1,35 @@
 # Independent review packet — Stage 0
 
+## Corrective handoff — November 8, 2026
+
+The owner provided a CONDITIONAL PASS review of `55f6e39e630c18dc5e61672965dfef4bf7b72e3c`. The material findings were checked against the actual repository. Stage 1 authorization is still pending. This project is independent of MDAD and HNTB.
+
+- **P1-01 accepted, audit correction implemented.** The original shared regex omitted T180B from both paths and returned 65 rows / 2,041,032,261 USD on early B p. 11 without raising. The profiler now checks every non-heading grid ID independently of the anchor regex and matches all ordered B ID/amount pairs to a frozen control. A newly implemented PDFium check reproduces all 222 row controls. Three real-PDF corruption regressions reject the reviewer's regex omission, omission from both extraction paths, and T180B/T180D amount swaps with an unchanged subtotal. Independent human row confirmation remains a publication prerequisite.
+- **P1-02 accepted, design contract recorded, executable enforcement pending Stage 1.** All 107 pairs, including equal amounts, require a disposition. Missing scope, measure or estimate-basis approval means held with null comparison deltas. CA176A/B, T180B/T180D and BA133A are specified examples. Reviewer identity, reason and both immutable source references are required. See `docs/SCOPE_REVIEW_CONTRACT.md` for the full contract and future acceptance tests. This correction supplies no approved real comparison or pilot query.
+- **P2-01 accepted in part for immediate correction.** The sequential acquisition example now verifies the temporary PDF's signature, size and SHA-256 before replacement. Source freeze dates remain unknown, including the documented AA005A date discrepancy. The owner's existing README edit is preserved and excluded from this commit. Owner confirmation of its shorter affiliation disclosure remains open.
+
+### Changed files and key entry points
+
+- `data/audit/exhibit_b_row_controls.csv` stores the 222 pinned source-row controls. `docs/AUDIT_CONTROLS.md` records their method, status and replay instructions. Raw PDFs remain ignored.
+- `src/mia_capital_intelligence/row_controls.py:16` loads versioned page controls. `validate_page_rows` at line 38 rejects count, ordered-ID or amount differences.
+- `scripts/profile_infrastructure.py:26` validates each B page against the control before a source success summary. `scripts/check_exhibit_b_controls.py` rechecks the frozen file using a second PDF engine and ID discovery method. It does not regenerate the control automatically.
+- `tests/test_row_controls.py`, `tests/test_pdf_audit.py`, `pyproject.toml`, and `requirements-audit.txt` add unit and real-input regressions and document optional dependencies.
+- `docs/PROJECT_STATE.md`, `docs/DECISIONS.md`, `docs/SOURCE_AUDIT.md` and this packet record the review decisions, remaining limits and corrected acquisition procedure.
+
+### Actual validation and review evidence
+
+Python 3.13.1 ran **25 passing tests**, including four real-input integration tests. `PYTHONPATH=src .venv/bin/python scripts/check_exhibit_b_controls.py` matched 66, 44, 68 and 44 row controls on the four pinned B pages. `PYTHONPATH=src .venv/bin/python scripts/profile_infrastructure.py` reproduced the ten page controls and the 107 paired / 3 earlier-only / 5 later-only B counts. The independent control covers each `(source checksum, exhibit, page, ordinal, project ID, amount)` association. Exhibit A's amount controls remain exploratory.
+
+For review without a checkout, inspect these selected fixed CSV records against the official PDFs below. `T180B` is early B p. 11 row 63 at 914,627,764 USD and later B p. 12 at 1,066,231,593 USD. `T180D` immediately follows the early T180B row at 163,567,943 USD. In the swap regression those amounts exchange IDs, retaining the subtotal. `validate_page_rows` fails on the first differing association. The full 222-record CSV is small enough to share with this packet and the corrective diff.
+
+The control is machine cross-checked against the existing local source bytes. It has no per-row human signature or scope approval. The owner's review reports another independent 222-row PDFium match and selected visual checks, with no fresh-download byte comparison. This corrective session reused the pinned originals and leaves full human confirmation pending.
+
+### Commit and remaining review
+
+Branch `main`. Corrective subject `fix(audit): reject omitted and misbound Exhibit B rows`. Resolve the exact hash with `git log -1 --format='%H %s' -- scripts/profile_infrastructure.py`; inspect with `git show <resolved-hash>`. The reviewed original baseline remains `55f6e39e630c18dc5e61672965dfef4bf7b72e3c`. Share the corrective diff, this packet and `data/audit/exhibit_b_row_controls.csv` for external review.
+
+Review whether the independently captured row controls and omission/swap tests adequately close the reported extraction failure. Confirm the scope-review contract before owner authorization of Stage 1. P1-02 implementation, all 107 pair dispositions, human evidence confirmation and future output publication/rollback validation remain open.
+
 ## Objective and acceptance
 
 Establish whether the three specified county records can support evidence-based project follow-up, with traceable source versions, real table checks, documented limits, a runnable Python baseline and a small next-stage design. This packet is intended for a reviewer with access to public PDFs and the text provided by the owner.
@@ -9,7 +39,7 @@ Establish whether the three specified county records can support evidence-based 
 - `AGENTS.md` records engineering, data and review constraints. `README.md` gives Python and PyCharm setup.
 - `data/source_inventory.json` pins three source versions, reporting bases and date roles, plus evidence page ranges and printed labels.
 - `docs/SOURCE_AUDIT.md` gives page checks, financial reconciliation, examples, coverage and commands. `docs/DATA_DICTIONARY.md` specifies grain, field meanings and null policy. `docs/DECISIONS.md` records the DuckDB decision and Stage 1 acceptance.
-- `src/mia_capital_intelligence/source_identity.py:8`, `verify_pdf`, checks the PDF signature, byte count and SHA-256. `scripts/profile_infrastructure.py:21`, `profile`, anchors the estimate to an ID's position, checks the grid token counts and fails on unexpected amounts or duplicate exhibit keys. It emits audit controls only. `tests/test_source_identity.py` exercises manifest consistency and byte verification with synthetic inputs.
+- `src/mia_capital_intelligence/source_identity.py:8`, `verify_pdf`, checks the PDF signature, byte count and SHA-256. The baseline `profile` function anchored the estimate to an ID's position and checked grid token counts. The correction above adds an independent row-control gate. `tests/test_source_identity.py` exercises manifest consistency and byte verification with synthetic inputs.
 
 ## Review without a local checkout
 
@@ -51,6 +81,6 @@ Representative evidence (selected cells transcribed from rendered originals):
 
 ## Git and handoff
 
-Branch `main`. Stage 0 commit subject `feat(stage-0): establish source audit and engineering baseline`. Find the hash and full diff with `git log -1 --format='%H %s' -- docs/REVIEW_PACKET.md` and `git show --stat HEAD` at this baseline. For external review, share this packet, the source audit and the Stage 0 diff (`git show HEAD` at the baseline). Raw source PDFs and the virtual environment are local ignored files.
+The original reviewed Stage 0 commit is `55f6e39e630c18dc5e61672965dfef4bf7b72e3c`, `feat(stage-0): establish source audit and engineering baseline`. Inspect it with `git show 55f6e39`. The corrective handoff above records the subsequent audit changes. Raw source PDFs and the virtual environment are local ignored files.
 
 **Conditional go.** External review and owner clearance are required before Stage 1. Restrict the first implementation to the approved Exhibit B evidence and estimate-review slice.

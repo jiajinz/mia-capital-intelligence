@@ -8,6 +8,11 @@ from typing import Any
 
 import pdfplumber
 
+from mia_capital_intelligence.row_controls import (
+    ProfileRow,
+    load_page_controls,
+    validate_page_rows,
+)
 from mia_capital_intelligence.source_identity import verify_pdf
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,10 +29,13 @@ def profile(source: dict[str, Any], raw: Path) -> list[set[str]]:
     path = raw / f"{matter}.pdf"
     verify_pdf(path, expected_size=source["size_bytes"], expected_sha256=source["sha256"])
     exhibit_ids = []
+    messages = []
     with pdfplumber.open(path) as pdf:
         if len(pdf.pages) != source["page_count"]:
             raise ValueError(f"{matter}: unexpected PDF page count")
-        for exhibit, (id_left, id_right) in zip(source["tables"], ID_BANDS[matter], strict=True):
+        for exhibit_index, (exhibit, (id_left, id_right)) in enumerate(
+            zip(source["tables"], ID_BANDS[matter], strict=True)
+        ):
             tokens = Counter()
             for number in exhibit["pdf_pages"]:
                 page = pdf.pages[number - 1]
@@ -36,7 +44,9 @@ def profile(source: dict[str, Any], raw: Path) -> list[set[str]]:
                     raise ValueError(f"{matter} p.{number}: table grid missing")
                 grid_tokens = Counter(
                     row[0].split()[0] for row in table.extract()
-                    if row[0] and PROJECT_TOKEN.fullmatch(row[0].split()[0])
+                    if row[0] and row[0] not in {
+                        "Project", "UNFUNDED PROJECTS", "PROJECTS IN THE PIPELINE"
+                    }
                 )
                 anchors = [
                     word for word in page.extract_words()
@@ -51,20 +61,33 @@ def profile(source: dict[str, Any], raw: Path) -> list[set[str]]:
                 left, _, right, _ = table.columns[estimate_column].bbox
                 subtotal = 0  # Exact integers for the reported whole-dollar cells.
                 missing = 0
+                page_rows = []
                 for word in anchors:
                     band = page.crop((left, word["top"] - 1, right, word["bottom"] + 1))
                     raw_amount = re.sub(r"\s+", "", band.extract_text() or "")
                     if raw_amount == "-":
                         missing += 1
+                        amount = None
                     elif USD_WHOLE.fullmatch(raw_amount):
-                        subtotal += int(raw_amount.replace(",", "").lstrip("$"))
+                        amount = int(raw_amount.replace(",", "").lstrip("$"))
+                        subtotal += amount
                     else:
                         raise ValueError(f"{matter} p.{number} {word['text']}: {raw_amount!r}")
-                print(f"{matter} p.{number}: {len(anchors)} rows, ${subtotal:,}, {missing} dash(es)")
+                    page_rows.append(ProfileRow(word["text"], amount))
+                if exhibit_index == 1:
+                    expected = load_page_controls(
+                        ROOT / "data/audit/exhibit_b_row_controls.csv",
+                        matter_id=matter, source_sha256=source["sha256"], pdf_page=number,
+                    )
+                    validate_page_rows(page_rows, expected, context=f"{matter} B p.{number}")
+                messages.append(
+                    f"{matter} p.{number}: {len(anchors)} rows, ${subtotal:,}, {missing} dash(es)"
+                )
             duplicates = sorted(key for key, count in tokens.items() if count > 1)
             if duplicates:
                 raise ValueError(f"{matter} {exhibit['label']}: duplicate ID tokens {duplicates}")
             exhibit_ids.append(set(tokens))
+    print("\n".join(messages))
     return exhibit_ids
 
 

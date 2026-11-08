@@ -65,20 +65,42 @@ Both zero September values are printed as dashes in Exhibit B and confirmed as z
 
 ## Reproduce the audit
 
-Download into a fresh ignored `data/raw` directory or first compare any existing local originals to the catalog. A changed digest means review the new version before replacing the manifest. These commands acquire the three approved sources on a fresh checkout.
+Download into an ignored `data/raw` directory. Verify the temporary download against the pinned catalog before replacing a local original. A changed digest requires source-version review. The sequential example below preserves an existing original if acquisition or validation fails.
 
 ```sh
+set -e
 mkdir -p data/raw
 for id in 260526 261402 261400; do
   curl -fLsS --max-time 60 -o "data/raw/$id.pdf.part" \
-    "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/$id.pdf" &&
-    mv "data/raw/$id.pdf.part" "data/raw/$id.pdf" || break
+    "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/$id.pdf"
+  PYTHONPATH=src .venv/bin/python - "$id" <<'PY'
+import json
+import sys
+from pathlib import Path
+from mia_capital_intelligence.source_identity import verify_pdf
+
+source = next(row for row in json.loads(
+    Path("data/source_inventory.json").read_text()
+)["sources"] if row["matter_id"] == sys.argv[1])
+temporary = Path("data/raw") / f"{source['matter_id']}.pdf.part"
+verify_pdf(temporary, expected_size=source["size_bytes"], expected_sha256=source["sha256"])
+temporary.replace(temporary.with_suffix(""))
+PY
 done
 shasum -a 256 data/raw/*.pdf
-.venv/bin/python -m pip install 'pdfplumber==0.11.9'
+.venv/bin/python -m pip install -r requirements-audit.txt
+PYTHONPATH=src .venv/bin/python scripts/check_exhibit_b_controls.py
 PYTHONPATH=src .venv/bin/python scripts/profile_infrastructure.py
 ```
 
 For an independent visual pass, open the pinned PDFs or render specific pages with Poppler, for example `pdftoppm -r 145 -png -f 11 -l 11 data/raw/260526.pdf tmp/pdfs/260526` after creating `tmp/pdfs`. Recount project rows, independently transcribe or double-key the amount column by row, and compare page sums and null counts above. Recheck the ranking by sorting absolute differences only after a same-exhibit, exact-token join and retain the signed differences. Verify the selected rows in both rendered pages. For the monthly reconciliation, transcribe the five financial columns on p. 30 and the three expenditure values on pp. 21–22, then sum using decimals.
 
 If access fails, retry the listed PDF from the official legislative record in a browser and place the verified file in `data/raw`. Ask the owner to supply the official file if direct access stays blocked. Keep any unresolved source or table out of the comparison and record the failure and last verified checksum.
+
+## Independent review response — November 8, 2026
+
+The owner supplied a CONDITIONAL PASS review of baseline `55f6e39`. The shared project-ID regex in the original two extraction paths could hide the same omitted row. That failure was reproduced locally by excluding T180B, yielding 65 rows and $2,041,032,261 on early B p. 11 with a successful return. The corrected profiler checks unfiltered non-heading grid IDs and compares every ordered Exhibit B ID/amount pair against a pinned, separately extracted control. See [row controls and regression evidence](AUDIT_CONTROLS.md).
+
+The reviewer's PDFium pass independently agreed on all 222 B records. A fresh, separately implemented PDFium pass now reproduces a checked-in row control file for all four B pages. This advances machine reconciliation. Human row-by-row sign-off remains pending. Exhibit A's amount controls retain exploratory status.
+
+All paired candidates default to held in the proposed pilot until scope, measure and estimate basis are explicitly confirmed, including unchanged amounts. CA176A/B, T180B/T180D and BA133A require specific follow-up. The [scope review contract](SCOPE_REVIEW_CONTRACT.md) records required dispositions and evidence. Historical arithmetic examples above remain pre-approval calculations. Stage 1 query enforcement and approval records await authorization.
