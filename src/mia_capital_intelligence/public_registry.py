@@ -5,7 +5,7 @@ import json
 import os
 import tempfile
 from dataclasses import asdict, dataclass
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -67,8 +67,15 @@ def _record_from_json(raw: dict[str, Any]) -> SourceRecord:
     } or set(raw["metrics"]) != {METRIC}:
         raise ValueError("Unexpected public source-record schema")
     cell = raw["metrics"][METRIC]
-    value = Decimal(cell["value"])
-    parsed_raw = Decimal(int("".join(cell["raw_value"].split()).removeprefix("$").replace(",", "")))
+    if set(cell) != {
+        "value", "raw_value", "original_header", "unit", "verification_status"
+    } or any(not isinstance(value, str) for value in cell.values()):
+        raise ValueError(f"{raw['source_ref']}: invalid public metric schema")
+    try:
+        value = Decimal(cell["value"])
+        parsed_raw = Decimal(int("".join(cell["raw_value"].split()).removeprefix("$").replace(",", "")))
+    except (InvalidOperation, ValueError) as error:
+        raise ValueError(f"{raw['source_ref']}: invalid original estimate cell") from error
     if not value.is_finite() or value != parsed_raw or cell["unit"] != "USD":
         raise ValueError(f"{raw['source_ref']}: estimate differs from original cell")
     record = SourceRecord(

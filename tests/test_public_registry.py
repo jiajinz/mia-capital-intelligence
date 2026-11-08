@@ -42,6 +42,7 @@ def test_public_coverage_counts_reconcile_without_project_deduplication(registry
 @pytest.mark.parametrize("mutation", [
     "duplicate", "missing", "amount_swap", "wrong_checksum", "wrong_page",
     "invented_identity", "wrong_link", "empty_description", "wrong_inventory",
+    "missing_estimate", "invalid_estimate",
 ])
 def test_corrupt_registry_is_rejected(payload, mutation):
     records = payload["records"]
@@ -64,6 +65,10 @@ def test_corrupt_registry_is_rejected(payload, mutation):
         records[0]["description_raw"] = ""
     elif mutation == "wrong_inventory":
         payload["source_inventory_sha256"] = "0" * 64
+    elif mutation == "missing_estimate":
+        records[0]["metrics"]["total_estimated_cost_usd"]["value"] = None
+    elif mutation == "invalid_estimate":
+        records[0]["metrics"]["total_estimated_cost_usd"]["value"] = "unparseable"
     with pytest.raises(ValueError):
         validate_registry(payload)
 

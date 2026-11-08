@@ -44,3 +44,11 @@ Use Python `Decimal` for financial calculations with cents or use exact integers
 - **Presence observation** contains one source reference, exact project token, earlier-only/later-only status and an explicit reporting-boundary reason. It supports no inferred project termination or lifecycle status.
 
 See schemas/review_dispositions.schema.json for the executable review shape and docs/REVIEW_DISPOSITIONS.md for the validation and review procedure.
+
+## Public transparency Stage 1
+
+Public records retain source-document/version/page/row grain. The 222 indexed observations are distinct from a unique project population. Verified project identities and memberships are explicit empty relations in the current artifact, while 107 exact-ID candidate links remain unverified. Eight records without a counterpart remain searchable.
+
+The public financial field is the individual report's Total Estimated Cost, rendered with its USD label. Airport facets require explicit unambiguous source-description codes; absent or conflicting codes yield unknown. Program classification is the indexed source section Capital Improvement Program. Detailed type, standalone facility, construction status and milestone fields remain unindexed. Source catalogs carry actual indexed record/page counts and gaps, including zero indexed records for the catalog-only September report.
+
+PUBLIC_REGISTRY_MODEL.md defines these relations and the artifact's validation contract. Individually validated observation display is independent of the retained analytical comparison approval gate.

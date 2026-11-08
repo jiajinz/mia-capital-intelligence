@@ -1,85 +1,80 @@
 # Independent review packet — Public transparency Stage 1
 
-## Current registry unit
+## Product definition and authorized boundary
 
-The owner approved a product pivot to the Public Airport Infrastructure & Capital Projects Transparency Explorer and a Stage 1 public-directory vertical slice. PRODUCT_VISION.md defines the public audience, accessibility problem, roadmap and disposition of the former internal-controls features. The historical Stage 1A packet below describes retained comparison infrastructure.
+MIA Capital Intelligence is an independent Public Airport Infrastructure & Capital Projects Transparency Explorer, with no affiliation with MDAD or HNTB. It helps residents, researchers, journalists, contractors and other users find and understand information dispersed across public records. The owner approved this pivot in the existing repository. The product makes no claim about MDAD's internal systems.
 
-The registry unit preserves 222 controlled document-scoped source records, 107 unverified same-ID candidate associations and eight one-sided records. The separate verified-project and membership relations are empty. Three official documents are cataloged, with 110, 112 and zero indexed records. Individual observation display requires no comparability approval.
+Stage 1 delivers a working local Streamlit Project Directory, a source-record detail and an honest source catalog. Individual validated source observations are publishable without cross-report comparison approval. Verified project identities and analytical comparisons retain separate evidence requirements. PRODUCT_VISION.md records the retained integrity infrastructure, deferred optional comparisons and removal of internal management workflows from the current product scope. Historical decisions D001–D006 and the comparison contract remain available.
 
-`public_registry.py` builds a deterministic, validated JSON artifact from the pinned originals and atomically replaces it after successful checks. It verifies source inventory/version identities, every ordered ID/amount association, unique source keys and candidate links. `directory_queries.py` provides literal parameterized SQL search, source/airport filters, stable sorting and individual source evidence. The public runtime needs no raw PDFs or review records. Airport codes are mapped only from unambiguous explicit tokens, leaving 15 observations unknown.
+## Acceptance criteria and result
 
-The 73-test prior baseline passed. The new registry unit has 31 passing tests covering registry corruption, source provenance, same-total swaps, source/page URLs, missing and ambiguous airports, identity separation, search/filter/sort behavior, exact amounts, raw-PDF-free operation, deterministic rebuilds and failed-build preservation. All 222 rows remain searchable. The Streamlit interface and browser acceptance are the next authorized unit, so Stage 1 is still in progress.
+- A current product vision and roadmap exist, and persistent project guidance reflects the approved pivot.
+- The existing 73 Stage 0/1A tests remain valid. All 222 controlled Exhibit B ID/amount associations and page controls remain intact.
+- A registry separates source documents, document-scoped observations, empty verified-project/membership relations, candidate identity links and source evidence. No candidate becomes a verified entity automatically.
+- A functioning Streamlit app supports literal keyword/ID search, airport/source filters, stable sorting, unknown and empty/error states, source-specific details and official PDF pages.
+- The source catalog shows 110, 112 and zero indexed records, publication/acceptance date roles, original URLs, source versions, validation scope and gaps.
+- A real CA176A record was traced end-to-end through the local interface to the official PDF page in a browser. Rebuild, test, screenshot and manual acceptance evidence are provided.
+- Local commits preserve the unrelated README edit. Stage 1 stops here for independent product and technical review.
 
-Registry unit subject `feat(data): publish controlled public source registry`, branch `main`. The preceding baseline is `1b36c5c30330f03591526a541ad770aa329bce6f`. The existing README edit is preserved and excluded. Review the model grains, unknown-airport policy and candidate/verified distinction before assessing the public interface. Historical comparison contracts retain their analytical scope.
+## Actual coverage and model
 
-## Historical Stage 1A packet
+The existing inventory catalogs [260526](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf), [261402](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf) and [261400](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf). The directory indexes only Exhibit B from the first two, preserving 110 and 112 rows. Their memo periods are October–December 2025 and January–March 2026. The September capital report is cataloged only, with zero indexed project rows. The first public posting dates and project-data freeze dates remain unconfirmed.
 
-This independent public-records portfolio project has no affiliation with MDAD or HNTB. The owner authorized Stage 1A only. The preceding corrected baseline is `5da1fa1c07b2df95b7de7513d4e9f223a86c025f`.
+There are 222 source observations, 107 unverified same-ID candidate links and zero verified cross-document project identities. The 3 earlier-only and 5 later-only rows remain searchable. Counts describe source records, not a unique airport-project or complete capital-program population. The airport facets contain MIA 187, OPF 12, TMB 6, X51 2 and unknown 15 observations, based only on explicit unambiguous source-description tokens.
 
-## Objective and acceptance
+The source record key includes matter ID, full document SHA-256, exhibit, PDF position and physical row ordinal. The artifact preserves original descriptions, raw estimate/header, exact parsed Decimal and row bounding boxes. Separate verified_projects and project_memberships arrays remain empty. Candidate links reuse the exact-ID SQL matcher and retain candidate_unverified status. PUBLIC_REGISTRY_MODEL.md documents grains, uniqueness, financial meaning and validation boundaries.
 
-Implement an auditable, fail-closed decision about whether a candidate's specific metric may enter an approved cross-report comparison. Preserve all Stage 0 controls. Require explicit human assertions for project identity, scope, financial metric, estimate basis, reporting period and original rows. Identity or amount matching supplies no approval. Retain held, excluded, unmatched, raw evidence and technical-error outputs. Provide a human review packet, meaningful regressions and a read-only local query boundary.
+## Implementation and important files
 
-Stage 1A outputs eligible original values and provenance. Derived changes belong to the separately reviewed Stage 1B scope. The prior scope contract's null-delta requirement remains applicable to future change outputs. The implemented contract uses held/comparable/excluded and versioned metric-specific approval. All 107 real candidates explicitly default to held.
+- `src/mia_capital_intelligence/public_registry.py:161` provides build_registry, with validate_registry at line 96 and load_registry at line 196. It reuses the existing pinned PDF loader and row controls, validates inventory/version identities and all ordered ID/amount associations, and atomically replaces one complete JSON artifact after successful validation. Failed extraction preserves the previous file.
+- `data/public/registry.json` is the reproducible source-derived input. It has no synthetic production rows. Runtime validation uses only this file, the inventory and row controls; original PDFs and review-disposition files are unnecessary for public operation.
+- `src/mia_capital_intelligence/directory_queries.py:59` provides parameterized search, with source_detail at line 104, explicit airport classification and exact currency formatting. `sql/directory.sql` returns one observation per source_ref with a fixed sort whitelist. It creates no historical change metric. DuckDB connections are ephemeral and per query.
+- `streamlit_app.py:94` renders Project directory, with render_detail at line 30 and source coverage at line 161. It presents a selectable source-record detail, raw evidence/verification notes and an explicitly unresolved candidate association. Pandas formats result tables, with financial values already rendered as exact currency strings. `.streamlit/config.toml` supplies a restrained local theme.
+- `tests/test_public_registry.py` covers public integrity and queries. `tests/test_streamlit_directory.py` exercises public UI paths through Streamlit AppTest. The pre-existing extraction and approval tests are preserved.
+- `docs/RUN_PUBLIC_DIRECTORY.md`, `docs/PUBLIC_STAGE_1_AUDIT.md` and `docs/PRODUCT_VISION.md` give operation, audit evidence and current product scope. PROJECT_STATE.md, DECISIONS.md, the dictionary and source/approval contracts retain relevant lineage and boundaries.
 
-## Implemented files and flow
+## End-to-end example
 
-1. `source_records.load_exhibit_b` in `src/mia_capital_intelligence/source_records.py:19` verifies the pinned PDF bytes, page boundaries and every ordered ID/amount control. It returns 222 typed observations with original descriptions, headers, raw amounts, exact Decimal values, row locators and document context. `comparability_model.py` defines source documents, source records and amount observations. Physical source references include the full PDF checksum; pair IDs hash the ordered earlier/later references.
-2. `sql/candidates.sql` performs a parameterized same-exhibit full outer exact-ID join. Before SQL, `comparability._source_errors` rejects invalid source versions, duplicate source or project keys, invalid financial values and overlapping/reversed memo periods. The join yields 107 candidates and 8 one-sided records.
-3. `schemas/review_dispositions.schema.json` defines version 1.0. `data/review_dispositions.json` contains empty evidence/decision arrays, which explicitly invokes the default-held rule. `comparability._schema_errors` validates structure and timestamps, and `_review_errors` checks references, uniqueness and six evidence dimensions per approved metric. Human assertions remain attributed input claims.
-4. `comparability.evaluate_gate` at `src/mia_capital_intelligence/comparability.py:179` inserts metric-specific grants into an initially empty `eligible_metrics` relation only after ALL technical validations pass. `sql/approved_metrics.sql` joins those grants to usable exact-decimal observations for the same metric and unit. Any technical failure invalidates the whole bundle for the run, leaves source evidence available, and returns zero approved metric rows.
-5. `review_gate.main` at `src/mia_capital_intelligence/review_gate.py:70` is the shared read-only entry point. Section and project filters operate after gate evaluation. Every run returns contract/schema/review provenance and technical status. Held projects are inspectable as two individual observations. The connection is in memory and closes after evaluation.
-6. `docs/REVIEW_DISPOSITIONS.md` gives schema, decision entry and PyCharm instructions. `docs/HUMAN_REVIEW_PACKET.md` presents seven real examples. `docs/STAGE_1A_AUDIT.md` records the reconciliation, test counts and deterministic-output digest. `docs/DECISIONS.md`, `docs/PROJECT_STATE.md`, `docs/DATA_DICTIONARY.md`, `docs/SCOPE_REVIEW_CONTRACT.md` and `docs/SOURCE_AUDIT.md` reflect the authorized boundary.
+Use the later CA176A observation from matter 261402, Exhibit B, PDF p. 12, printed MDC012, data row 41. The original description is MIA E Satellite Terminal Seating Ph2 and Total Estimated Cost is 3,191,832 USD. The source reference is 261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:41.
 
-## Actual result
+The source loader verifies the PDF bytes and reads this cell. The frozen independent control confirms its ID/amount pair. The public builder stores the original row with its versioned reference. Searching CA176A in Streamlit returns two separately labeled report observations. Selecting the 261402 record shows its estimate, coverage and original page link. That link was clicked in the actual browser and opened the county report at page 12 of 13. The earlier CA176A record remains a candidate association, with no confirmed project history or cost-growth claim.
 
-- Source rows 222. Candidate pairs 107. Held 107, approved pairs 0, excluded pairs 0, approved metrics 0. No actual reviewer or decision timestamp was supplied. Missing substantive review evidence explains all default holds.
-- Earlier-only 3, AC053A, BA026A and T180D. Later-only 5, CA096A, CA176B, DA142A, GA025A and W057A. These are reporting-presence observations.
-- All four Exhibit B page controls and all 222 ordered source-ID/amount associations remain unchanged. Earlier controls are 66 / 2,955,660,025 USD and 44 / 3,446,491,140 USD. Later controls are 68 / 3,356,850,420 USD and 44 / 3,406,481,145 USD. There are zero missing estimates in this controlled slice.
-- The real bundle has zero technical validation errors. All 107 cost-comparison slots are blocked. Empty evidence/decision input is a valid held result, without fabricated sign-off.
+## Reconciliation and tests
 
-## Evidence for external review
+The full suite passed **115 tests** on Python 3.13.1. It preserves the 73-test baseline and adds 33 registry/query cases plus 9 Streamlit AppTest cases. New regressions cover duplicated/missing rows, amount swaps with unchanged sums, wrong source versions/pages, invented verified identities, missing/invalid estimates, ambiguous airports, original PDF URLs, literal keyword filtering, deterministic sorting/rebuilds, raw-PDF-free runtime and failed-build preservation. UI tests cover real search/detail, filters, unknowns, empty results, catalog-only reports, versioned deep links, stale links and a safe corrupt-input error state.
 
-The three official PDF versions and their SHA-256 digests remain pinned in `data/source_inventory.json`. The gate uses only [260526 Exhibit B pp. 11–12](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf#page=11) and [261402 Exhibit B pp. 12–13](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf#page=12). Memo coverage periods remain October–December 2025 and January–March 2026. The project data freeze dates remain unknown. All frozen row controls are shareable in `data/audit/exhibit_b_row_controls.csv`.
+All four source page controls remain 66 / 2,955,660,025 USD, 44 / 3,446,491,140 USD, 68 / 3,356,850,420 USD and 44 / 3,406,481,145 USD, with zero missing estimates. These are extraction controls, with no aggregate public-budget inference. Two rebuilds reproduce the committed registry bytes, SHA-256 56882b86f80101623eca8f33bf0cd8918c67cde588a3f55487d9f0cf7a72c5ab. Dependency consistency, compilation and whitespace checks also passed. All source byte identities remain pinned and raw PDFs remain untracked.
 
-- **CA176A**, earlier B p. 11 row 42 and later B p. 12 row 41. Both original estimates are 3,191,832 USD. The later description adds Ph2, with later-only CA176B on p. 12 row 42 at 2,229,920 USD. CA176A remains held despite equal values. Ask which seating scope belongs to each identifier.
-- **T180B**, earlier B p. 11 row 63 at 914,627,764 USD and later B p. 12 row 65 at 1,066,231,593 USD. Earlier-only T180D is p. 11 row 64 at 163,567,943 USD with a D60 apron/utilities description. Preserve the two T180B observations and ask whether the same scope and estimate basis apply. The gate emits zero approved T180B comparisons.
-- **BA133A**, earlier B p. 11 row 36 and later B p. 12 row 34. The description changes from perimeter protection to phase 2 security cameras. It remains held pending scope/basis evidence.
-- **AA005A / AA022A** have matching identifiers, descriptions and amounts in these rows. Both remain held because successful matching does not supply substantive project and estimate-basis review. See the human packet for precise source references and follow-up questions.
-
-## Tests and independent result inspection
-
-The full suite passes 73 tests under Python 3.13.1, with DuckDB 1.4.3 and jsonschema 4.25.1. The 25 Stage 0 tests are preserved. New tests exercise all six evidence dimensions, default held behavior, explicit synthetic approvals and exclusions, metric-specific permission, stale checksums and references, schema/status errors, duplicate/conflicting reviews, timezones, source cardinality, unusable amounts, period ordering, one-sided records and deterministic results. Real-input integration verifies counts, CA176A/T180B holds, CA176B/T180D presence, no approval leakage and a nonzero CLI exit for malformed decisions.
-
-Synthetic tests prove an approved cost metric can return exact cents while a budget metric stays blocked. A separate case approves one pair while a second remains held. A later invalid metric also blocks an earlier otherwise valid grant. No real positive approval is claimed.
-
-Two full real CLI executions produced byte-identical JSON. Independent parsing checked the empty approved relation, every held pair's empty metric list and null reviewer/timestamp, unique source references and presence semantics. The exact output digest and schema/input identities are in STAGE_1A_AUDIT.md. The separate PDFium checker matched all 222 controls and the original profiler reproduced its ten page controls. Dependency consistency, Python compilation, JSON Schema validity and staged whitespace checks were also performed.
-
-## Reproduce and inspect
+## Run, preview and browser evidence
 
 ```sh
 .venv/bin/python -m pip install -r requirements.txt -r requirements-dev.txt
 .venv/bin/python -m pytest -q
-PYTHONPATH=src .venv/bin/python scripts/check_exhibit_b_controls.py
-PYTHONPATH=src .venv/bin/python scripts/profile_infrastructure.py
-PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.review_gate --section approved_comparisons
-PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.review_gate --project CA176A
-PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.review_gate --section unmatched_records
+PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.public_registry check
+.venv/bin/python -m streamlit run streamlit_app.py
 ```
 
-For a reviewer without a checkout, share this packet, STAGE_1A_AUDIT.md, HUMAN_REVIEW_PACKET.md, the review schema, disposition instructions, row controls and the Stage 1A Git diff. The public PDF links above allow direct source inspection. SOURCE_AUDIT.md describes acquisition and checksum verification. In PyCharm debug `evaluate_gate` before eligible-metric insertion, then inspect the empty real grants and the approved SQL result. The synthetic metric-isolation test demonstrates the positive path.
+The local Streamlit health endpoint returned ok and the app returned HTTP 200. Actual browser inspection verified CA176A search/detail, candidate labeling, the official page opening, source coverage, empty results and the Unknown airport filter. AppTest is simulated-runtime verification and supplements those actual browser actions. The normal in-app browser viewport was narrow; the result table supports horizontal scrolling. Other devices/browsers and Community Cloud remain unverified.
 
-## Known limits and review questions
+- [Search results and detail entry](screenshots/directory.jpg)
+- [Selected source evidence and page link](screenshots/project-detail.jpg)
+- [Official report opening at PDF page 12](screenshots/official-source-page.jpg)
+- [Source catalog with 110 / 112 / 0 indexed records](screenshots/source-coverage.jpg)
 
-1. Does every supported query view preserve the distinction between raw source observations, submitted human claims, technical validation and actual eligibility? Can an unapproved pair or metric enter the approved SQL relation through any normal entry point?
-2. Are the six evidence dimensions, source references, date rules and one-active-decision policy sufficient for this local pilot? The software checks supplied assertions and attribution fields. Humans remain responsible for the truth and adequacy of scope/basis evidence.
-3. Is the conservative whole-bundle invalidation policy appropriate? One malformed or incomplete approval currently blocks all grants for that execution. Valid source inputs and candidate coverage remain inspectable.
-4. Is the proposed Stage 1B scope ready for owner review? All real candidates still lack substantive approval, human row-by-row confirmation remains pending, and source freeze dates remain unknown. Approved change outputs would remain empty with this bundle.
+RUN_PUBLIC_DIRECTORY.md gives exact manual acceptance and PyCharm run/debug steps. For a fresh rebuild, use the verified-before-replacement acquisition procedure in SOURCE_AUDIT.md, then run the public_registry build command. The read-only app serves the checked-in artifact and relies on no persistent runtime data writes.
 
-Ranked next improvements are external gate review, evidence-based consideration of the real human packet, then agreement on a tightly scoped Stage 1B change-output contract. Human review and sign-off are required before publishing substantive comparisons.
+## Self-review, limitations and ranked improvements
 
-## Commit and handoff
+1. **Public user.** The search-to-original-document flow is demonstrable. Narrow screens require horizontal scrolling, and only source program classification is indexed. Prioritize short usability observations, then evidence-backed facility and category enrichment.
+2. **Data engineer.** Every displayed estimate and ID is tied to a controlled source row and source version. Description wording is extracted and retained; independent controls cover ID/amount associations. Candidate identity remains unresolved. New fields and reports require deliberate extraction controls and source review. Regenerate the trusted artifact with the builder and review it in Git.
+3. **Hiring manager.** The slice integrates real public PDF evidence, Python validation, exact financial handling, SQL search, reproducible input builds and a public Streamlit workflow. The corpus remains small and manually selected. A scoped discovery/acquisition workflow would provide the next integration demonstration after product review.
 
-Branch `main`. Stage 1A subject `feat(review): enforce auditable metric comparability gate`. Resolve the exact hash with `git log -1 --format='%H %s' -- src/mia_capital_intelligence/comparability.py` and inspect `git show <resolved-hash>`. The original Stage 0 baseline is `55f6e39e630c18dc5e61672965dfef4bf7b72e3c`; its corrective commit is `5da1fa1c07b2df95b7de7513d4e9f223a86c025f`.
+Detailed work categories, standalone facility classifications, construction status and milestones remain unindexed, with explicit UI wording. No financial change, engineering-risk rating, project delay, cancellation inference or incompatible aggregate is published. Human verification of cross-document identity and substantive comparison basis remains a separate later capability.
 
-The pre-existing README modification is unchanged and excluded. Its preserved byte digest is recorded in STAGE_1A_AUDIT.md. Stage 1B remains subject to external acceptance of this gate, scope review and explicit owner authorization.
+The pre-existing README edit remains byte-for-byte unchanged and excluded, with SHA-256 dd3de625834f0d17e7602a685bffe679cf2343abef1253c6418019a2d9616c8b. README retains historical product wording while PRODUCT_VISION.md provides the authoritative approved direction.
+
+## Git and Stage 2 handoff
+
+Branch main. Data/registry unit c47a793, feat(data): publish controlled public source registry. Resolve its full hash with git log -1 --format='%H %s' -- data/public/registry.json. The UI unit uses subject feat(app): add public project directory and source profiles, resolved with git log -1 --format='%H %s' -- streamlit_app.py. The preceding baseline is 1b36c5c30330f03591526a541ad770aa329bce6f. Review the two local commits and this packet; no hosting action is part of this milestone.
+
+Recommend a conditional go for Stage 2 scope review after independent product and technical acceptance. The highest-value next work is targeted usability and source-backed classification enrichment, followed by a small evaluated source-discovery expansion. Keep public observations accessible while retaining the identity and comparison evidence boundaries. Stop after this Stage 1 handoff.
