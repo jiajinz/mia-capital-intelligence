@@ -15,7 +15,7 @@
 
 ## Portfolio explorer follow-up
 
-- The local release candidate opens on Visual insights, with a compact source panel beside the ranking. Its estimate distribution counts indexed records within one report and opens a directory scoped to the chosen estimate range. The directory offers side-by-side source observations when one report is selected.
+- The local release candidate opens with the estimate distribution for one report. Each bar opens the corresponding directory range. The expandable ranking keeps a source panel beside the chart. The directory puts the selected record above the optional results table and offers side-by-side observations within a selected report.
 - The gated financial view explains the reported opening amount, July through September expenditures and September cumulative amount for each contract. The explanation uses the existing reviewed rows and links to the official financial pages.
 - The T180B case uses the exact two source records and the earlier T180D record to explain the unresolved D60 scope. The comparison remains held pending equivalent scope and estimate-basis evidence.
 - The full local suite passed 166 tests with the pinned PDFs. Browser checks covered the report-scoped directory, comparison links, financial explanation and 390 CSS pixel layout.

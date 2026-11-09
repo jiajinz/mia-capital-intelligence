@@ -1,6 +1,8 @@
 """Streamlit's simulated runtime checks the directory-to-evidence user flow."""
 
+from html import unescape
 from pathlib import Path
+import re
 from urllib.parse import parse_qs, urlsplit
 
 from streamlit.testing.v1 import AppTest
@@ -31,7 +33,7 @@ def test_directory_renders_controlled_records_and_public_context():
     assert "Airport Infrastructure & Capital Projects Explorer" in copy
     assert "No affiliation with MDAD or HNTB" not in copy
     assert "Project directory" in copy
-    assert "cross-report identities remain unresolved" in copy
+    assert "cross-report identities remain unresolved" in copy.lower()
 
 
 def test_real_search_to_detail_preserves_estimate_and_official_page():
@@ -199,9 +201,10 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
 
 def test_estimate_distribution_opens_same_report_directory_and_pair():
     result = app()
-    links = result.tabs[1].get("link_button")
-    range_link = next(row for row in links if row.proto.label == "$100M or more · 16 records")
-    params = parse_qs(urlsplit(range_link.proto.url).query)
+    chart = result.tabs[1].get("html")[0].proto.body
+    range_link = re.search(r'href="([^"]+)"[^>]+aria-label="\$100M or more · 16 records"', chart)
+    assert range_link
+    params = parse_qs(urlsplit(unescape(range_link.group(1))).query)
     assert params == {"report": ["261402"], "range": ["$100M or more"]}
 
     linked = AppTest.from_file(APP, default_timeout=15)

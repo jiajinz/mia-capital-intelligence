@@ -26,7 +26,7 @@ The builder validates all three cataloged source versions, loads only the two ap
 
 ## Public acceptance walkthrough
 
-For a short portfolio walkthrough, start in Visual insights, select Concourse F modernization, and open its official PDF. Expand **See estimates across this report**, open **$100M or more** for the January through March 2026 report, and compare V008B with T180B in the directory. In Contract spending history, open **How the cumulative amount adds up** for A19-MDAD-02. The Concourse D case in Sources & methodology links to both original reports and explains the outstanding scope question.
+For a short portfolio walkthrough, start in Visual insights and open **$100M or more** for the January through March 2026 report. Compare V008B with T180B in the directory and open each official PDF. **See the largest estimates** opens the ranking and the chart record selector. In Contract spending history, open **How the cumulative amount adds up** for A19-MDAD-02. The Concourse D case in Sources & methodology links to both original reports and explains the outstanding scope question.
 
 1. In Project directory, search CA176A. Expect two source records, one for each reporting period. Select the later 261402 record. Its original description is MIA E Satellite Terminal Seating Ph2 and its reported total estimated cost is 3,191,832 USD.
 2. Check the record's source coverage period, PDF p. 12, printed MDC012 and data row 41. Open Original wording and evidence to inspect the raw header, raw amount, description and checksum.

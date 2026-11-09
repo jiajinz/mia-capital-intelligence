@@ -22,6 +22,8 @@ After provisioning, browser checks confirmed the chart and three monthly rows fo
 
 ## Portfolio explorer verification
 
+In the 618 CSS pixel browser, the first screen displays the four estimate ranges and their counts. The ranking and its filters sit one level deeper. The directory places the selected estimate and official PDF link ahead of the results table. The spending chart labels its three amounts directly.
+
 The local browser opened the $100M or more estimate range for matter 261402 and displayed 16 matching records out of 112 indexed rows. Selecting V008B and T180B displayed their exact reported estimates with PDF pages 13 and 12 respectively. The gated A19-MDAD-02 view displayed $13,389,184.36 reported before July, $281,858.33 reported in July through September and $13,671,042.69 reported through September.
 
 Rechecked the pinned 260526 and 261402 PDFs against the ordered Exhibit B controls. T180B appears on PDF p. 11, row 63, and PDF p. 12, row 65. The earlier page also lists T180D on row 64. The approved registry establishes the individual observations. Scope allocation and estimate-basis continuity remain open, so the case displays the source records without a derived cross-report difference.

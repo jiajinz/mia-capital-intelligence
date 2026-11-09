@@ -114,6 +114,6 @@ The owner approved public hosting. The deployment uses Python 3.13 and exposes t
 
 ## D015 — Portfolio walkthrough and evidence
 
-Open the explorer on the estimate ranking. Keep the full-report estimate distribution in an expandable section and let a selected range open the directory with the same report and range. Show two source records side by side within one report, with their own amounts, descriptions and source pages.
+Open the explorer on the selected report's estimate distribution. Put the ranking and its filters in an expandable section. Let a selected range open the directory with the same report and range. Show two source records side by side within one report, with their own amounts, descriptions and source pages.
 
 Explain cumulative spending using the prior expenditures reported in July, the sum of the three reviewed monthly amounts and the reported September cumulative amount. Keep the explanation inside the existing financial display gate. Present T180B as a held evidence case. The original pages establish the reported observations and the presence of T180D in the earlier indexed exhibit. Comparable D60 scope and estimate basis remain unresolved.
