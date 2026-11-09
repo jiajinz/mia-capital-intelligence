@@ -118,7 +118,7 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
     from mia_capital_intelligence import public_registry
 
     def failed_input(root):
-        raise ValueError("Synthetic corrupt public input")
+        raise OSError("Could not read /private/synthetic-operator/registry.json")
 
     st.cache_resource.clear()
     monkeypatch.setattr(public_registry, "load_registry", failed_input)
@@ -127,6 +127,7 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
         assert not result.exception
         assert len(result.error) == 1
         assert "could not be validated" in result.error[0].value
+        assert not result.text
         assert len(result.metric) == 0 and len(result.dataframe) == 0
     finally:
         st.cache_resource.clear()
@@ -134,7 +135,7 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
 
 def test_chart_filters_and_accessible_selection_open_original_record():
     result = app()
-    assert len(result.get("plotly_chart")) == 1
+    assert len(result.tabs[1].get("plotly_chart")) == 1
     assert "10 largest of 112 matching" in visible_copy(result)
     result.selectbox(key="chart_airport").set_value("TMB").run()
     assert not result.exception
@@ -150,7 +151,7 @@ def test_chart_filters_and_accessible_selection_open_original_record():
     assert "110 indexed rows" in visible_copy(result)
     result.text_input(key="chart_search").input("not-a-real-project").run()
     assert not result.exception
-    assert len(result.get("plotly_chart")) == 0
+    assert not result.tabs[1].get("plotly_chart")
     assert "No known cost estimates" in visible_copy(result)
 
 

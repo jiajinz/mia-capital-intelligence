@@ -10,7 +10,7 @@ The product brings dispersed published records into one approachable information
 
 ## Authorized Stage 2 and current availability
 
-The owner authorized Stage 2A profiles and a Plotly discovery chart, Stage 2B financial feasibility, and Stage 2C contract spending history for three approved financial slices. Stage 2C is ready for local review. Ordinary spending display requires a named independent human attestation.
+The owner authorized Stage 2A profiles and a Plotly discovery chart, Stage 2B financial feasibility, and Stage 2C contract spending history for three approved financial slices. Stage 2C has passed ordinary-mode verification in the reviewed local installation. Each installation uses an attestation bound to its financial input.
 
 Available now: search, airport/report filters, source-specific profiles, related observations, official evidence and Largest Reported Project Cost Estimates. The chart uses one selected Exhibit B report only, with 110 or 112 indexed rows before filters. It labels estimated cost in USD, not spending. Record population, excluded unknown estimates, coverage period and memo date remain visible. The actual project-data freeze date is unconfirmed.
 
@@ -26,7 +26,7 @@ The quarterly infrastructure index and monthly contract financial study have dif
 
 1. **Stage 2A delivered:** integrated source profiles and a single-report estimate ranking with chart-to-profile navigation, accessible record selection and exact-value table.
 2. **Stage 2B delivered:** three-month, four-contract feasibility evidence and reconciliation. See FINANCIAL_FEASIBILITY.md.
-3. **Stage 2C implemented for local review:** a chart of reported monthly expenditures and an exact-value table including cumulative expenditures, for four contracts across July–September 2026. Ordinary display is pending independent sign-off on the exact inputs and definitions.
+3. **Stage 2C verified locally:** a chart of reported monthly expenditures and an exact-value table including cumulative expenditures, for four contracts across July–September 2026. Ordinary display uses independent sign-off on the exact inputs and definitions.
 4. **Later:** expand official source integration and verified contract/project membership; extract reliable facility/category fields. Evaluate milestone observations with forecast/actual distinctions before any timeline. Broader scope and new production sources require owner review.
 
-Internal escalation queues, engineering-risk ratings and operational project management remain outside the product mission. Historical decisions and comparison contracts remain available for lineage. The pending owner README edit is preserved; this document is the authoritative current positioning.
+Internal escalation queues, engineering-risk ratings and operational project management remain outside the product mission. Historical decisions and comparison contracts remain available for lineage.

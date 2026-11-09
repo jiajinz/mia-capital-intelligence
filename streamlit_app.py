@@ -343,10 +343,8 @@ st.write("Explore airport improvements, project investments, construction progre
 st.caption("Discover projects. Understand investments. Follow progress.")
 try:
     registry = published_registry()
-except (ValueError, OSError, KeyError) as error:
+except (ValueError, OSError, KeyError):
     st.error("The published data could not be validated. Project records are unavailable until the data is repaired.")
-    with st.expander("Data validation details"):
-        st.text(str(error))
     st.stop()
 
 if "record" in st.query_params:

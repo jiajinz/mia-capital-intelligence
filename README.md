@@ -1,20 +1,28 @@
 # MIA Capital Intelligence
 
-MIA Capital Intelligence is an independent portfolio project. It has no affiliation with MDAD or HNTB and provides no official project status or engineering risk ratings.
+MIA Capital Intelligence is an independent portfolio project.
+The Airport Infrastructure & Capital Projects Explorer helps readers find Miami-Dade County airport project records, compare reported estimates within one report, and trace figures to their source pages. The directory covers 222 source observations across two quarterly reports. The contract spending view covers four contracts across July–September 2026 when the reviewed financial record is provisioned.
 
-The product asks which publicly reported airport projects merit a management follow-up, what changed between reports, and which source rows support that follow-up. Stage 0 is the source audit and engineering baseline. Start with the [independent review packet](docs/REVIEW_PACKET.md).
-
-## Run Stage 0 locally
+## Run the explorer locally
 
 From the repository root on macOS or Linux:
 
 ```sh
 python3.13 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run streamlit_app.py --server.address 127.0.0.1
+```
+
+Open the local URL printed by Streamlit. See the [operating guide](docs/RUN_PUBLIC_DIRECTORY.md) for financial review and release checks.
+
+## Run the tests
+
+```sh
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python -m pytest -q
 ```
 
-The metadata tests run offline. The optional PDF audit requires the public source files and pdfplumber. See the [source audit](docs/SOURCE_AUDIT.md#reproduce-the-audit) for exact acquisition and reproduction commands.
+See the [source audit](docs/SOURCE_AUDIT.md#reproduce-the-audit) for the optional PDF checks.
 
 ## PyCharm
 

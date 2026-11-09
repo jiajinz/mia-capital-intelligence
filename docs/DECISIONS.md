@@ -36,7 +36,7 @@ This yields one defensible analyst workflow. A scoped overview counts verified B
 
 **Accepted corrective decision, November 8, 2026.** Reproduce the shared-filter omission and establish a frozen, independent row control for the four Exhibit B pages. Compare ordered ID/amount associations before emitting a source's success summaries. Preserve the raw grid's non-heading tokens independently of the anchor regex. The control uses PDFium, a separate PDF engine and ID discovery method from the profiler. Record its provenance and remaining human verification requirements in [AUDIT_CONTROLS.md](AUDIT_CONTROLS.md). This is an audit correction, with no analytical snapshot publication.
 
-Accept P1-02 as a business-definition defect. Establish the explicit disposition and approval contract now. Its executable query gate, complete candidate review records and acceptance tests belong to Stage 1 after owner authorization. Accept P2-01's acquisition concern and validate the downloaded temporary file before replacement in the documented sequential workflow. Retain the owner's uncommitted README edit and record its affiliation-disclosure question for owner consideration.
+Accept P1-02 as a business-definition defect. Establish the explicit disposition and approval contract now. Its executable query gate, complete candidate review records and acceptance tests belong to Stage 1 after owner authorization. Accept P2-01's acquisition concern and validate the downloaded temporary file before replacement in the documented sequential workflow.
 
 ## D006 — Implement Stage 1A as a versioned, metric-specific gate
 
@@ -48,7 +48,7 @@ Keep one active review per pair in a version-controlled JSON bundle with JSON Sc
 
 Use typed source observations loaded from the pinned PDF rows, with every ordered ID/amount pair reconciled to the existing CSV controls. The second PDFium checker remains independently runnable. Keep the existing source rows as rebuildable inputs and use an in-memory DuckDB connection with parameterized full outer joins and a checked-in metric-eligibility query. This stage needs no persistent database or Parquet publication. DECIMAL(18,2) and Python Decimal preserve financial precision. Eligibility rows are inserted only after complete validation, and the connection is closed after each evaluated report.
 
-Pin DuckDB 1.4.3 and jsonschema 4.25.1 after confirming local Python 3.13 compatibility. Preserve the existing PDF audit pins. The real gate reads only total estimated cost. The dictionary's current approved budget metric is included in the schema and synthetic tests solely to verify field-specific isolation. The September financial report remains outside the gate's data scope. Maintain the pre-existing README edit independently.
+Pin DuckDB 1.4.3 and jsonschema 4.25.1 after confirming local Python 3.13 compatibility. Preserve the existing PDF audit pins. The real gate reads only total estimated cost. The dictionary's current approved budget metric is included in the schema and synthetic tests solely to verify field-specific isolation. The September financial report remains outside the gate's data scope.
 
 ## D007 — Approved pivot to a public transparency directory
 
@@ -66,11 +66,11 @@ Reuse the existing exact-ID SQL for candidate links without invoking comparison 
 
 Index only the fields that pass the current controls. Show project IDs, source descriptions and total estimated cost with report/page provenance. Use source program classification and documented airport tokens. Detailed type, status, standalone facilities and milestone fields remain unindexed. The interface provides unknown, empty-result and failed-validation states, and the catalog exposes both partial indexing and catalog-only reports.
 
-Streamlit 1.51.0 and Pandas 2.3.3 were installed in the repository-local environment and tested under Python 3.13.1. The app reads the checked-in artifact and performs no persistent runtime data writes. Local browser QA and simulated AppTest cover the vertical slice. Hosting remains a separate explicitly approved action. Preserve the pending README edit and publish operation instructions in RUN_PUBLIC_DIRECTORY.md.
+Streamlit 1.51.0 and Pandas 2.3.3 were installed in the repository-local environment and tested under Python 3.13.1. The app reads the checked-in artifact and performs no persistent runtime data writes. Local browser QA and simulated AppTest cover the vertical slice. Hosting remains a separate explicitly approved action. Record operating instructions in RUN_PUBLIC_DIRECTORY.md.
 
 ## D009 — Integrated explorer and a single-document estimate insight
 
-**Owner-authorized Stage 2A/2B, November 8, 2026.** Adopt Airport Infrastructure & Capital Projects Explorer, the owner's primary description and supporting tagline. Replace repetitive institutional disclaimers in active product copy with source attribution and an independent-data-project note in Methodology. D007's earlier transparency positioning is historical. Preserve the pending README bytes.
+**Owner-authorized Stage 2A/2B, November 8, 2026.** Adopt the Airport Infrastructure & Capital Projects Explorer positioning. Replace repetitive institutional disclaimers in active product copy with source attribution and an independent-data-project note in Methodology. D007's earlier transparency positioning is historical.
 
 Reuse the immutable public registry, existing source profiles, parameterized DuckDB search and all comparison controls. Add one Plotly discovery adapter, pinned at 6.3.1, rather than a new service or database. Rank one explicitly selected indexed Exhibit B report. Filter before ranking; retain report, filtered and missing-value denominators. Source periods are memorandum coverage, not known data-freeze dates. Estimates are neither spending nor approved budgets. Keep Decimal ordering and exact hover/table values; convert only graphical coordinates to float. Chart events must resolve a versioned reference within the active ranking. Provide a keyboard-accessible selector and exact-value evidence table.
 
@@ -94,10 +94,14 @@ The Stage 2C approval package in FINANCIAL_FEASIBILITY.md specifies three pinned
 
 ## D012 — Owner-authorized Stage 2C and financial display gate
 
-On November 8, 2026, the owner stated “批准 Stage 2C 及上述三个生产来源切片” in the Reviewer chat. The three slices are July matter 261147 Exhibit B p. 28 and summary pp. 19–20, August matter 261399 Exhibit B p. 29 and summary pp. 20–21, and September matter 261400 Exhibit B p. 30 and summary pp. 21–22. Scope is four contracts, one monthly USD bar chart and an exact monthly/cumulative table with original links.
+Stage 2C and the three production source slices received approval on November 8, 2026. The three slices are July matter 261147 Exhibit B p. 28 and summary pp. 19–20, August matter 261399 Exhibit B p. 29 and summary pp. 20–21, and September matter 261400 Exhibit B p. 30 and summary pp. 21–22. Scope is four contracts, one monthly USD bar chart and an exact monthly/cumulative table with original links.
 
 Move the single evidence artifact to data/financial/snapshots.v1.json and add the versioned financial definitions. Reuse the Package A pinned PDF controls for canonical, atomic build verification. The runtime checks the pinned artifact digest and reconciled Decimal amounts. The source-row identity and contract key remain separate. This sample preserves the explicit E20 alias, the four corroborated summary zeros and unknown accounting cutoff and basis.
 
 Independent human review is a separate ordinary-display gate. A locally provisioned named attestation must bind the exact artifact digest, definition version and all twelve versioned source rows. Its completion timestamp must be timezone-aware and elapsed. A server flag and explicit loopback address permit deliberate local review with a pending banner. The ordinary view hides financial values when the gate fails. No client parameter can affect that decision.
 
 The named confirmation was recorded in the local attestation. The ordinary view was verified with the preview flag unset. Keep the review record in local operator state and provision it separately for each installation.
+
+## D013 — Source-only release preparation
+
+Use a committed source export for release verification. Keep project explanations focused on product behavior, public sources and reproducible steps. Browser error messages provide an availability notice and leave detailed diagnostics to operator tools. Provision the financial attestation separately from the source export so the named review stays in private operator configuration.

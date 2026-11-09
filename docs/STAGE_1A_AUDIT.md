@@ -25,7 +25,7 @@ Two fresh complete CLI executions produced byte-identical JSON with SHA-256 `b11
 
 The schema-byte SHA-256 is `cc7837dbf2abaa0fb5062d61295316b98333ee9e137ef662869a807d05c43c6b`. The canonical parsed review-bundle SHA-256 is `af2839852eec58361777ab25f7c697b3539d3f23a35cd73e293443fcbfc1aae5`. The report includes these identities and the original PDF checksums. Equivalent input bytes and the same implementation reproduce the output, with no runtime timestamp added to decisions.
 
-The separate PDFium command matched all 222 frozen controls. The original profiler retained all ten quarterly page controls and the established candidate/presence counts. All three local PDF byte identities still match the inventory. The pre-existing README edit has unchanged SHA-256 `dd3de625834f0d17e7602a685bffe679cf2343abef1253c6418019a2d9616c8b` and is excluded from the Stage 1A commit.
+The separate PDFium command matched all 222 frozen controls. The original profiler retained all ten quarterly page controls and the established candidate/presence counts. All three local PDF byte identities still match the inventory.
 
 ## Reproduction
 

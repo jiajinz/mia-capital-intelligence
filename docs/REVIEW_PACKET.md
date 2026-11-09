@@ -4,13 +4,19 @@
 
 The owner authorized an integrated Airport Infrastructure & Capital Projects Explorer: improved source-specific profiles, one Largest Reported Project Cost Estimates Plotly chart, and a bounded feasibility study of consecutive official monthly financial reports. These are delivered locally. The project is independent and attributes underlying information to Miami-Dade County. No official branding is used.
 
-The current experience includes discovery, source dates, financial meaning, direct evidence and clear unavailable progress fields. It retains 222 source observations and 107 unresolved candidate links. The project profiles preserve report-level evidence and unresolved identity. The gated contract chart has its own record grain. The primary marketing description is accompanied by a current-availability line. PRODUCT_VISION.md is authoritative; the owner's pending README edit remains untouched.
+The current experience includes discovery, source dates, financial meaning, direct evidence and clear unavailable progress fields. It retains 222 source observations and 107 unresolved candidate links. The project profiles preserve report-level evidence and unresolved identity. The gated contract chart has its own record grain. The primary marketing description is accompanied by a current-availability line. PRODUCT_VISION.md defines the product positioning.
 
 Stage 2A and 2B conclusions and Package A closeout evidence are recorded below. The owner subsequently authorized the Stage 2C slice, which passed named review and ordinary-mode browser verification in the local installation.
 
+## Release readiness verification
+
+The release candidate started from a source-only export in a fresh Python 3.13 environment. The browser showed 222 project source records and the expected pending financial review notice in the unprovisioned export. Dependency checks passed. The clean suite passed 143 tests with 17 PDF integration skips. The suite with pinned originals and the local attestation passed all 160 tests. The published registry failure test verifies that a filesystem error produces only the availability notice.
+
+The release review scanned the 17 project Markdown files, tracked source and configuration, and the visible text and metadata of ten documentation screenshots for local identity references. The export uses the committed tree. Host provisioning and ordinary-mode verification with the attestation are the next release steps. Follow the [source-only verification procedure](RUN_PUBLIC_DIRECTORY.md#verify-a-source-only-release-candidate).
+
 ## Stage 2C implementation and independent handoff
 
-The owner stated “批准 Stage 2C 及上述三个生产来源切片” on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.
+Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.
 
 The twelve Package A source rows were carried into `data/financial/snapshots.v1.json` with versioned definitions. Its SHA-256 is `3c90df7ea841061823781be3aa6a388f18c82d51fcf317c3d7f7b261a11622be`. The build reuses PDFium page, ordered cell, summary and version checks, then compares and writes canonical bytes atomically. A test swaps both A19 contracts' financial and summary values across all issues and verifies that the rejected rebuild preserves the previous artifact. Exact Decimal normalization occurs before chart geometry is converted to float. Versioned source row keys remain distinct from the four contract identifiers.
 
@@ -109,8 +115,8 @@ Dependency consistency, Python compilation, registry check, source byte identity
 2. **Data correctness:** Verify the snapshot population and source-row grain, Decimal ranking, chart event identity and unchanged registry. Independently transcribe the 12 financial rows and review the explicit alias/zero evidence before any public financial ingestion. Do not confuse broad OMB descriptions with specific contract or quarterly project membership.
 3. **Engineering:** Reproduce all checks with the local environment. The small adapter reuses the existing query boundary. Financial study inputs and validation are deliberately isolated; they are not yet a strict production schema. Additional months, restatements or mixed accounting definitions need their own controls.
 
-Outstanding: independent human financial review; unknown ledger/project freeze dates; unresolved cross-report identity; unindexed physical progress and detailed classification; legacy README wording; device/hosting QA. The owner README SHA-256 remains `dd3de625834f0d17e7602a685bffe679cf2343abef1253c6418019a2d9616c8b`, excluded from commits.
+The Stage 2 handoff recorded unknown ledger and project freeze dates, unresolved cross-report identity, unindexed physical progress and detailed classification, and pending hosting verification.
 
 ## Git handoff
 
-Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. Stage 2 uses local Conventional Commits with subjects `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Resolve the Stage 2 milestones with `git log -4 --format='%H %s'`; this avoids embedding a commit's own hash in its contents. Inspect each commit and the preserved README working-tree change separately. No push, deployment, tag, merge or history rewrite was performed.
+Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. The Stage 2 history begins with `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Use the local commits after the baseline to trace the implementation.

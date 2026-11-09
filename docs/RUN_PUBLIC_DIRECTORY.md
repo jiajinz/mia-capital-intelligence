@@ -119,3 +119,21 @@ The immutable artifact includes the original financial and summary descriptions,
 4. Run the module with `check`. Confirm it prints `"review_status": "approved"`, then start the ordinary read-only app with the local review flag unset. The gate validates a trusted operator's recorded attestation. The process does not authenticate a human's identity or create the record.
 
 The production source approval authorizes the slice. Independent sign-off authorizes ordinary display. A different input version requires a new review. Hosting remains a separate owner decision.
+
+## Verify a source-only release candidate
+
+Export the committed project files into a temporary directory. The archive contains the current source tree and excludes repository history, local review records, raw downloads, and development environments.
+
+```sh
+release_dir="$(mktemp -d)"
+git archive HEAD | tar -x -C "$release_dir"
+cd "$release_dir"
+python3.13 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt -r requirements-dev.txt
+.venv/bin/python -m pip check
+.venv/bin/python -m pytest -q
+PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.public_registry check
+PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.contract_spending check
+```
+
+Expect 222 project source records and a financial status of `pending_review` on the exported tree. The PDF integration tests require the pinned originals. Start the ordinary explorer and check the directory, estimate chart and pending financial message. For a hosted installation, provision the completed attestation separately through the host's private configuration and verify ordinary financial display before publication.
