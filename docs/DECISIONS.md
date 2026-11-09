@@ -109,3 +109,5 @@ Use a committed source export for release verification. Keep project explanation
 ## D014 — Configure financial review on Streamlit Community Cloud
 
 Use the existing public GitHub repository as the deployment source. Store the financial attestation in the nested `financial_review.attestation_json` setting in Streamlit Secrets. The same validator checks the local file and the configured secret. When the review setting is absent, use the local file. When the configured review is invalid or stale, keep ordinary financial display closed. Keep the attestation, local Secrets file and hosted Secrets value outside Git. Add the app URL after hosted verification.
+
+The owner approved public hosting. The deployment uses Python 3.13 and exposes the explorer at `mia-capital-intelligence.streamlit.app`. The README links to that verified endpoint. Contract spending display remains subject to the same review requirement as local installations.

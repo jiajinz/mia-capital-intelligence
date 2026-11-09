@@ -3,6 +3,8 @@
 MIA Capital Intelligence is an independent portfolio project.
 The Airport Infrastructure & Capital Projects Explorer helps readers find Miami-Dade County airport project records, compare reported estimates within one report, and trace figures to their source pages. The directory covers 222 source observations across two quarterly reports. The contract spending view covers four contracts across July–September 2026 when the reviewed financial record is provisioned.
 
+[Open live app](https://mia-capital-intelligence.streamlit.app/)
+
 ## Run the explorer locally
 
 From the repository root on macOS or Linux:

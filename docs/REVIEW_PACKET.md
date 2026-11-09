@@ -14,7 +14,9 @@ The release candidate started from a source-only export in a fresh Python 3.13 e
 
 The release review scanned the 17 project Markdown files, tracked source and configuration, and the visible text and metadata of ten documentation screenshots for local identity references. The export uses the committed tree. Host provisioning and ordinary-mode verification with the attestation are the next release steps. Follow the [source-only verification procedure](RUN_PUBLIC_DIRECTORY.md#verify-a-source-only-release-candidate).
 
-Community Cloud preparation adds a server-side review setting. All 164 local tests passed with the pinned PDFs. App tests cover a valid secret with no local attestation and invalid or stale secrets with an otherwise valid local record. The ordinary view retains its existing gate and never displays the attestation. Hosted startup, sharing settings, and ordinary financial display still require browser verification.
+Community Cloud preparation adds a server-side review setting. All 164 local tests passed with the pinned PDFs. App tests cover a valid secret with no local attestation and invalid or stale secrets with an otherwise valid local record. The ordinary view retains its existing gate and never displays the attestation.
+
+The public deployment started under Python 3.13. An unauthenticated request reached the app with HTTP 200, and the sharing dialog confirmed public visibility. Browser checks verified 222 source records, two results for CA176A, the page 12 official PDF link for matter 261402, and the single-report estimate chart. Contract spending showed the expected pending-review message. Hosted verification of financial values follows Secrets provisioning.
 
 ## Stage 2C implementation and independent handoff
 
