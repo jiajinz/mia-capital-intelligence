@@ -16,7 +16,9 @@ The release review scanned the 17 project Markdown files, tracked source and con
 
 Community Cloud preparation adds a server-side review setting. All 164 local tests passed with the pinned PDFs. App tests cover a valid secret with no local attestation and invalid or stale secrets with an otherwise valid local record. The ordinary view retains its existing gate and never displays the attestation.
 
-The public deployment started under Python 3.13. An unauthenticated request reached the app with HTTP 200, and the sharing dialog confirmed public visibility. Browser checks verified 222 source records, two results for CA176A, the page 12 official PDF link for matter 261402, and the single-report estimate chart. Contract spending showed the expected pending-review message. Hosted verification of financial values follows Secrets provisioning.
+The public deployment started under Python 3.13. An unauthenticated request reached the app with HTTP 200, and the sharing dialog confirmed public visibility. Browser checks verified 222 source records, two results for CA176A, the page 12 official PDF link for matter 261402, and the single-report estimate chart. Contract spending showed the expected pending-review message before Secrets provisioning.
+
+After provisioning, browser checks confirmed the chart and three monthly rows for each of the four contracts. For September 2026, A19-MDAD-02 displayed $98,135.01 monthly and $13,671,042.69 cumulative, linked to matter 261400, financial p. 30 and summary p. 21. E20-MDAD-03 displayed $0.00 monthly with the corroborating summary link to p. 22, row 1. The attestation is stored in Streamlit Secrets.
 
 ## Stage 2C implementation and independent handoff
 

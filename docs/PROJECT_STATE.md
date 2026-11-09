@@ -1,6 +1,6 @@
 # Project state
 
-## Stage 2C — Ordinary local display verified
+## Stage 2C — Public deployment verified
 
 - Product: MIA Capital Intelligence, the Airport Infrastructure & Capital Projects Explorer. Sources & methodology attributes the published project records to Miami-Dade County. The explorer is an independent data project.
 - Branch main. Stage 2C starts at Package A closeout `0d3e0dc91f6bed925a24516a1c3636a753d40699`. The Stage 2C commit uses the subject `feat(finance): add gated contract spending history`.
@@ -11,4 +11,4 @@
 - Python 3.13.1 full regression passed 160 tests with pinned study PDFs. Financial and quarterly rebuilds matched tracked bytes. PDF bindings, 12 row equations, 15 column totals, eight roll-forwards and four explicit zeros reconciled. Dependency and compilation checks passed.
 - Browser QA covered the default gate with a preview-like query parameter, local pending-review banner, four choices, the A19-MDAD-02 September $98,135.01 monthly and $13,671,042.69 cumulative values, and the E20 September summary evidence. The approved-path app test uses a synthetic attestation in a temporary directory.
 - The original release candidate passed a clean source-only startup and browser check in a fresh Python 3.13 environment. The clean suite passed 143 tests and skipped 17 PDF integration tests. All 160 tests passed with the pinned originals.
-- The [public Streamlit deployment](https://mia-capital-intelligence.streamlit.app/) uses `main` and Python 3.13. The hosted directory, source link and estimate chart passed browser checks. The hosted financial view shows its pending-review state until the existing attestation is provisioned in Streamlit Secrets. The full local suite passed 164 tests with pinned PDFs.
+- The [public Streamlit deployment](https://mia-capital-intelligence.streamlit.app/) uses `main` and Python 3.13. The hosted directory, source link and estimate chart passed browser checks. After provisioning the existing attestation through Streamlit Secrets, the hosted financial view displayed all four contracts for July through September 2026 with monthly and cumulative values and official source links. The full local suite passed 164 tests with pinned PDFs.
