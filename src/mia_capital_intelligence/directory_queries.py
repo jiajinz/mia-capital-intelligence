@@ -10,6 +10,7 @@ from typing import Any
 
 import duckdb
 
+from mia_capital_intelligence.project_delivery import DELIVERY_BY_SOURCE_REF
 from mia_capital_intelligence.public_registry import AIRPORTS, METRIC, PublicRegistry
 
 UNKNOWN = "Not reported in the indexed fields"
@@ -135,7 +136,7 @@ def source_detail(registry: PublicRegistry, source_ref: str) -> dict[str, Any]:
         "project_name": name, "description_raw": record.description_raw,
         "project_brief": PROJECT_BRIEFS.get((record.project_id, name), name),
         "reporting_agency": source["publishing_organization"],
-        "project_lead": None, "awarded_contractor": None,
+        "delivery": DELIVERY_BY_SOURCE_REF.get(source_ref),
         "airport_code": airport, "airport_name": AIRPORTS.get(airport, "Unknown airport"),
         "airport_evidence": reason, "category": "Capital Improvement Program",
         "facility": None, "reported_status": None, "milestone": None,

@@ -48,13 +48,25 @@ def profile_permalink(source_ref: str) -> str:
 
 
 def render_project_brief(detail: dict, *, expanded: bool) -> None:
-    with st.expander("Project brief and delivery team", expanded=expanded):
+    delivery = detail["delivery"]
+    title = "Project brief and delivery team" if delivery and (delivery.lead or delivery.award) else "Project brief"
+    with st.expander(title, expanded=expanded):
         st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
         st.markdown(f"**Reporting agency** · {detail['reporting_agency']}")
-        lead = detail["project_lead"] or "Not listed in the indexed record"
-        contractor = detail["awarded_contractor"] or "Unverified in the indexed sources"
-        st.markdown(f"**Project lead** · {lead}")
-        st.markdown(f"**Awarded contractor** · {contractor}")
+        if delivery is None:
+            return
+        if lead := delivery.lead:
+            st.markdown(f"**Project lead** · {lead.name}")
+            st.caption(
+                f"MDAD project manager named in the {delivery.adopted_on:%B %Y} "
+                f"[award memo]({delivery.packet_url}#page={lead.memo_page})."
+            )
+        if award := delivery.award:
+            st.markdown(f"**Awarded contractor** · {award.company}")
+            st.caption(
+                f"{award.scope} · {award.contract_id} · "
+                f"[Board award]({delivery.board_url}) · {delivery.adopted_on:%B %d, %Y}"
+            )
 
 
 def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:

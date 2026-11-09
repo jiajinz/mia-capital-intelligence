@@ -120,4 +120,6 @@ Explain cumulative spending using the prior expenditures reported in July, the s
 
 ## D016 — Project brief and delivery roles
 
-Use the selected quarterly source row for the project brief. Apply plain-language copy only when both the project token and the indexed description match. Use the normalized original description for other rows. Show the agency that published the report separately from the project lead and awarded contractor. Preserve both project-level fields as unknown until evidence supports the stated role. An award records an action for a specific contract and date. Current construction responsibility requires current evidence.
+Use the selected quarterly source row for the project brief. Apply plain-language copy only when both the project token and the indexed description match. Use the normalized original description for other rows. Show the publishing agency separately. Omit each delivery role from the profile when that role is unknown. For a documented role, show the evidence and date. A manager named in an award memo represents the assignment documented at that time. An adopted award applies to a specific contract and scope.
+
+Bind award evidence to the exact quarterly document version and row after checking the contract's project identifier and scope. Treat the binding as evidence for that record only. The local preview uses Board matters 252233 and 250831. Review the added procurement sources before public rollout; they do not expand the quarterly registry or financial slice.

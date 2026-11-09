@@ -51,17 +51,31 @@ def test_real_search_to_detail_preserves_estimate_and_official_page():
     assert "cost_growth" not in copy and "cost overrun" not in copy
 
 
-def test_project_brief_keeps_agency_separate_from_unverified_delivery_roles():
+def test_project_brief_shows_sourced_roles_and_hides_missing_roles_on_selection():
     result = app()
+    for project, name, company, contract_id, matter_id in (
+        ("U010D-I", "Ricardo Lopez", "Magnum Construction Management, LLC", "U010D-1", "252233"),
+        ("X078A", "Joachim Perez", "Lemartec-NV2A JV, LLC", "DB23AV01", "250831"),
+    ):
+        result.text_input(key="search").input(project).run()
+        assert not result.exception
+        brief = next(item for item in result.tabs[0].expander if item.label == "Project brief and delivery team")
+        copy = visible_copy(brief)
+        assert f"Project lead** · {name}" in copy
+        assert f"Awarded contractor** · {company}" in copy
+        assert contract_id in copy
+        assert f"/Y2025/{matter_id}.pdf#page=5" in copy
+        assert f"matter={matter_id}&yearFolder=Y2025" in copy
+
     result.text_input(key="search").input("V008B").run()
     assert not result.exception
     directory = result.tabs[0]
-    brief = next(item for item in directory.expander if item.label == "Project brief and delivery team")
+    brief = next(item for item in directory.expander if item.label == "Project brief")
     assert "gates F4, F6 and F8" in brief.get("html")[0].proto.body
     copy = visible_copy(brief)
     assert "Reporting agency** · Miami-Dade Aviation Department" in copy
-    assert "Project lead** · Not listed in the indexed record" in copy
-    assert "Awarded contractor** · Unverified in the indexed sources" in copy
+    assert "Project lead" not in copy
+    assert "Awarded contractor" not in copy
 
 
 def test_airport_and_source_filters_work():
