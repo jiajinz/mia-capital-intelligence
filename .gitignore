@@ -9,3 +9,4 @@ __pycache__/
 /tmp/
 
 /data/financial/review.json
+/.streamlit/secrets.toml

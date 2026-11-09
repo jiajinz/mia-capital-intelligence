@@ -105,3 +105,7 @@ The named confirmation was recorded in the local attestation. The ordinary view 
 ## D013 — Source-only release preparation
 
 Use a committed source export for release verification. Keep project explanations focused on product behavior, public sources and reproducible steps. Browser error messages provide an availability notice and leave detailed diagnostics to operator tools. Provision the financial attestation separately from the source export so the named review stays in private operator configuration.
+
+## D014 — Configure financial review on Streamlit Community Cloud
+
+Use the existing public GitHub repository as the deployment source. Store the financial attestation in the nested `financial_review.attestation_json` setting in Streamlit Secrets. The same validator checks the local file and the configured secret. When the review setting is absent, use the local file. When the configured review is invalid or stale, keep ordinary financial display closed. Keep the attestation, local Secrets file and hosted Secrets value outside Git. Add the app URL after hosted verification.

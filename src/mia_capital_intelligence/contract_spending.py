@@ -85,7 +85,7 @@ def _unique_fields(pairs: list[tuple]) -> dict:
     return fields
 
 
-def _read_json(contents: bytes) -> dict:
+def _read_json(contents: bytes | str) -> dict:
     result = json.loads(contents, object_pairs_hook=_unique_fields)
     if not isinstance(result, dict):
         raise ValueError("Expected a JSON object")
@@ -151,10 +151,10 @@ def build_financial_input(candidate: Path, pdf_dir: Path, output: Path) -> Finan
     return FinancialInput(digest, rows)
 
 
-def review_status(financial: FinancialInput, path: Path) -> str:
-    """Validate a locally provisioned human attestation for these exact input bytes."""
+def review_status(financial: FinancialInput, path: Path, *, review_json: str | None = None) -> str:
+    """Validate a privately provisioned human attestation for these exact input bytes."""
     try:
-        review = _read_json(path.read_bytes())
+        review = _read_json(path.read_bytes() if review_json is None else review_json)
         if set(review) != REVIEW_FIELDS:
             return "invalid_review"
         if review["schema_version"] != SCHEMA_VERSION or review["decision"] != "approved":
@@ -179,13 +179,15 @@ def review_status(financial: FinancialInput, path: Path) -> str:
         return "invalid_review"
 
 
-def financial_view(root: Path, *, review_flag: str | None, server_address: str | None) -> FinancialView:
+def financial_view(
+    root: Path, *, review_flag: str | None, server_address: str | None, review_json: str | None = None,
+) -> FinancialView:
     """Only the process environment and an explicit loopback bind can enable local review."""
     try:
         financial = read_financial_input(root / INPUT_PATH)
     except (OSError, ValueError, TypeError, KeyError):
         return FinancialView("invalid_input")
-    status = review_status(financial, root / REVIEW_PATH)
+    status = review_status(financial, root / REVIEW_PATH, review_json=review_json)
     local_review = review_flag == "1" and server_address in {"127.0.0.1", "::1"}
     visible = status == "approved" or local_review
     return FinancialView(status, financial.rows if visible else (), local_review)

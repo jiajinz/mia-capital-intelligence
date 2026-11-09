@@ -14,6 +14,8 @@ The release candidate started from a source-only export in a fresh Python 3.13 e
 
 The release review scanned the 17 project Markdown files, tracked source and configuration, and the visible text and metadata of ten documentation screenshots for local identity references. The export uses the committed tree. Host provisioning and ordinary-mode verification with the attestation are the next release steps. Follow the [source-only verification procedure](RUN_PUBLIC_DIRECTORY.md#verify-a-source-only-release-candidate).
 
+Community Cloud preparation adds a server-side review setting. All 164 local tests passed with the pinned PDFs. App tests cover a valid secret with no local attestation and invalid or stale secrets with an otherwise valid local record. The ordinary view retains its existing gate and never displays the attestation. Hosted startup, sharing settings, and ordinary financial display still require browser verification.
+
 ## Stage 2C implementation and independent handoff
 
 Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.

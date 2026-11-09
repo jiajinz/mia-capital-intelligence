@@ -164,3 +164,32 @@ def test_ordinary_reviewed_app_shows_chart_without_preview_banner(monkeypatch, l
     tab = app.tabs[3]
     assert len(tab.get("plotly_chart")) == 1 and not tab.warning
     assert tab.dataframe[0].value.iloc[-1]["Cumulative expenditures"] == "$13,671,042.69"
+
+
+def test_streamlit_secret_approves_without_local_review_record(monkeypatch, local_root, synthetic_review):
+    monkeypatch.delenv("MIA_FINANCIAL_LOCAL_REVIEW", raising=False)
+    app = app_for(monkeypatch, local_root)
+    app.secrets["financial_review"] = {"attestation_json": json.dumps(synthetic_review)}
+    app.run()
+    assert not app.exception
+    tab = app.tabs[3]
+    assert len(tab.get("plotly_chart")) == 1 and not tab.warning
+    assert tab.dataframe[0].value.iloc[-1]["Cumulative expenditures"] == "$13,671,042.69"
+    assert not any("Synthetic Test Reviewer" in element.value for element in tab.markdown)
+
+
+@pytest.mark.parametrize("review_document", ["invalid JSON", 42, "stale"])
+def test_invalid_streamlit_secret_does_not_fall_back_to_local_record(
+    monkeypatch, local_root, synthetic_review, review_document,
+):
+    monkeypatch.delenv("MIA_FINANCIAL_LOCAL_REVIEW", raising=False)
+    write_review(local_root, synthetic_review)
+    if review_document == "stale":
+        review_document = json.dumps({**synthetic_review, "input_sha256": "0" * 64})
+    app = app_for(monkeypatch, local_root)
+    app.secrets["financial_review"] = {"attestation_json": review_document}
+    app.run()
+    assert not app.exception
+    tab = app.tabs[3]
+    assert "until a valid review" in tab.warning[0].value
+    assert not tab.get("plotly_chart") and not tab.dataframe

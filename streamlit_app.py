@@ -9,6 +9,7 @@ from urllib.parse import urlencode
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+from streamlit.errors import StreamlitSecretNotFoundError
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
@@ -279,6 +280,23 @@ def render_coverage(registry: PublicRegistry) -> None:
             st.write(f"SHA-256 · {source['size_bytes']:,} source bytes · matter {matter}")
 
 
+def configured_financial_review() -> str | None:
+    """Use the local record only when no Streamlit review is configured."""
+    try:
+        review = st.secrets.get("financial_review")
+    except StreamlitSecretNotFoundError as error:
+        return None if error.__cause__ is None else ""
+    except OSError:
+        return ""
+    if review is None:
+        return None
+    try:
+        document = review["attestation_json"]
+    except (KeyError, TypeError):
+        return ""
+    return document if isinstance(document, str) else ""
+
+
 def render_contract_spending(view: FinancialView) -> None:
     st.subheader("Contract spending history")
     if not view.rows:
@@ -376,6 +394,7 @@ with spending_tab:
     render_contract_spending(financial_view(
         ROOT, review_flag=os.environ.get("MIA_FINANCIAL_LOCAL_REVIEW"),
         server_address=st.get_option("server.address"),
+        review_json=configured_financial_review(),
     ))
 st.divider()
 st.caption(

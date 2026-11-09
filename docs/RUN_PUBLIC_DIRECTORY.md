@@ -137,3 +137,19 @@ PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.contract_spending ch
 ```
 
 Expect 222 project source records and a financial status of `pending_review` on the exported tree. The PDF integration tests require the pinned originals. Start the ordinary explorer and check the directory, estimate chart and pending financial message. For a hosted installation, provision the completed attestation separately through the host's private configuration and verify ordinary financial display before publication.
+
+## Deploy to Streamlit Community Cloud
+
+1. In [Streamlit Community Cloud](https://share.streamlit.io/), create an app from the existing GitHub repository. Select branch `main`, entry point `streamlit_app.py`, and Python 3.13 in Advanced settings. Confirm the intended sharing setting before deploying from a public repository, which defaults to public access.
+2. In Advanced settings or the deployed app's Secrets settings, set `financial_review.attestation_json` to the complete JSON text from the approved local record. Use a TOML string. The example shows the setting shape with an empty value.
+
+   ```toml
+   [financial_review]
+   attestation_json = ""
+   ```
+
+   Keep the real value in Streamlit Secrets and leave the local review flag unset. An empty, malformed or stale review setting keeps ordinary financial display closed. Without a Streamlit review setting, a local installation can still use `data/financial/review.json`.
+
+3. Verify the app sharing setting in a signed-out browser session. In an authorized session, check a directory search, a versioned profile with its official PDF link, the single-report estimate chart and the ordinary financial view. Confirm four contract choices, the exact monthly and cumulative table, and evidence links. Add the verified app URL to the repository after these checks.
+
+See the Streamlit documentation for [deployment](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy), [Secrets](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management), and [sharing settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app#make-your-app-public-or-private).
