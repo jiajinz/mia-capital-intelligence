@@ -2,6 +2,7 @@
 
 import html
 import re
+from bisect import bisect_right
 from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path
@@ -12,6 +13,8 @@ import duckdb
 from mia_capital_intelligence.public_registry import AIRPORTS, METRIC, PublicRegistry
 
 UNKNOWN = "Not reported in the indexed fields"
+ESTIMATE_BANDS = ("Under $10M", "$10M to under $50M", "$50M to under $100M", "$100M or more")
+ESTIMATE_THRESHOLDS = (10_000_000, 50_000_000, 100_000_000)
 SORTS = {
     "Project ID": "project_id ASC, period_start DESC, source_ref ASC",
     "Project name": "project_name ASC, period_start DESC, source_ref ASC",
@@ -54,6 +57,11 @@ def format_usd(value: Decimal | None) -> str:
     if value == value.to_integral_value():
         return f"$ {value:,.0f}"
     return f"$ {value:,.2f}"
+
+
+def estimate_band(value: Decimal | None) -> str | None:
+    """Group a known estimate using inclusive lower bounds."""
+    return None if value is None else ESTIMATE_BANDS[bisect_right(ESTIMATE_THRESHOLDS, value)]
 
 
 def search_records(registry: PublicRegistry, filters: DirectoryFilters = DirectoryFilters()) -> list[dict[str, Any]]:

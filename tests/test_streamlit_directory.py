@@ -195,3 +195,40 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     assert not linked.exception and not linked.tabs
     assert linked.metric[0].value == "$ 896,021,864"
     assert any(row.proto.url.endswith("/261402.pdf#page=13") for row in linked.get("link_button"))
+
+
+def test_estimate_distribution_opens_same_report_directory_and_pair():
+    result = app()
+    links = result.tabs[1].get("link_button")
+    range_link = next(row for row in links if row.proto.label == "$100M or more · 16 records")
+    params = parse_qs(urlsplit(range_link.proto.url).query)
+    assert params == {"report": ["261402"], "range": ["$100M or more"]}
+
+    linked = AppTest.from_file(APP, default_timeout=15)
+    for name, values in params.items():
+        linked.query_params[name] = values[0]
+    linked.run()
+    assert not linked.exception
+    directory = linked.tabs[0]
+    assert directory.dataframe[0].value.shape[0] == 16
+    selection = directory.multiselect[0]
+    rows = load_registry().records
+    pair = [row.source_ref for row in rows if row.matter_id == "261402" and row.project_id in {"T180B", "V008B"}]
+    selection.set_value(pair).run()
+    assert not linked.exception
+    directory = linked.tabs[0]
+    assert {"$ 1,066,231,593", "$ 896,021,864"} <= {metric.value for metric in directory.metric}
+    assert all(ref.startswith("261402:") for ref in directory.multiselect[0].value)
+
+    linked.selectbox(key="source_report").set_value(None).run()
+    assert not linked.exception and not linked.tabs[0].multiselect
+
+
+def test_t180b_case_surfaces_two_source_rows_and_unresolved_scope():
+    coverage = app().tabs[2]
+    assert "Scope comparability is awaiting verification." in visible_copy(coverage)
+    assert {"$ 914,627,764", "$ 1,066,231,593"} <= {metric.value for metric in coverage.metric}
+    links = {row.proto.url for row in coverage.get("link_button")}
+    assert any(link.endswith("/260526.pdf#page=11") for link in links)
+    assert any(link.endswith("/261402.pdf#page=12") for link in links)
+    assert "$ 151,603,829" not in visible_copy(coverage)

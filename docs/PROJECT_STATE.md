@@ -12,3 +12,10 @@
 - Browser QA covered the default gate with a preview-like query parameter, local pending-review banner, four choices, the A19-MDAD-02 September $98,135.01 monthly and $13,671,042.69 cumulative values, and the E20 September summary evidence. The approved-path app test uses a synthetic attestation in a temporary directory.
 - The original release candidate passed a clean source-only startup and browser check in a fresh Python 3.13 environment. The clean suite passed 143 tests and skipped 17 PDF integration tests. All 160 tests passed with the pinned originals.
 - The [public Streamlit deployment](https://mia-capital-intelligence.streamlit.app/) uses `main` and Python 3.13. The hosted directory, source link and estimate chart passed browser checks. After provisioning the existing attestation through Streamlit Secrets, the hosted financial view displayed all four contracts for July through September 2026 with monthly and cumulative values and official source links. The full local suite passed 164 tests with pinned PDFs.
+
+## Portfolio explorer follow-up
+
+- The local release candidate opens on Visual insights, with a compact source panel beside the ranking. Its estimate distribution counts indexed records within one report and opens a directory scoped to the chosen estimate range. The directory offers side-by-side source observations when one report is selected.
+- The gated financial view explains the reported opening amount, July through September expenditures and September cumulative amount for each contract. The explanation uses the existing reviewed rows and links to the official financial pages.
+- The T180B case uses the exact two source records and the earlier T180D record to explain the unresolved D60 scope. The comparison remains held pending equivalent scope and estimate-basis evidence.
+- The full local suite passed 166 tests with the pinned PDFs. Browser checks covered the report-scoped directory, comparison links, financial explanation and 390 CSS pixel layout.

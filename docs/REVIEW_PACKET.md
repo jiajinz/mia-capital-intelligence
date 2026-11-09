@@ -20,6 +20,12 @@ The public deployment started under Python 3.13. An unauthenticated request reac
 
 After provisioning, browser checks confirmed the chart and three monthly rows for each of the four contracts. For September 2026, A19-MDAD-02 displayed $98,135.01 monthly and $13,671,042.69 cumulative, linked to matter 261400, financial p. 30 and summary p. 21. E20-MDAD-03 displayed $0.00 monthly with the corroborating summary link to p. 22, row 1. The attestation is stored in Streamlit Secrets.
 
+## Portfolio explorer verification
+
+The local browser opened the $100M or more estimate range for matter 261402 and displayed 16 matching records out of 112 indexed rows. Selecting V008B and T180B displayed their exact reported estimates with PDF pages 13 and 12 respectively. The gated A19-MDAD-02 view displayed $13,389,184.36 reported before July, $281,858.33 reported in July through September and $13,671,042.69 reported through September.
+
+Rechecked the pinned 260526 and 261402 PDFs against the ordered Exhibit B controls. T180B appears on PDF p. 11, row 63, and PDF p. 12, row 65. The earlier page also lists T180D on row 64. The approved registry establishes the individual observations. Scope allocation and estimate-basis continuity remain open, so the case displays the source records without a derived cross-report difference.
+
 ## Stage 2C implementation and independent handoff
 
 Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.

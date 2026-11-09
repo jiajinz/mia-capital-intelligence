@@ -111,3 +111,9 @@ Use a committed source export for release verification. Keep project explanation
 Use the existing public GitHub repository as the deployment source. Store the financial attestation in the nested `financial_review.attestation_json` setting in Streamlit Secrets. The same validator checks the local file and the configured secret. When the review setting is absent, use the local file. When the configured review is invalid or stale, keep ordinary financial display closed. Keep the attestation, local Secrets file and hosted Secrets value outside Git. Add the app URL after hosted verification.
 
 The owner approved public hosting. The deployment uses Python 3.13 and exposes the explorer at `mia-capital-intelligence.streamlit.app`. The README links to that verified endpoint. Hosted contract spending was verified with the existing attestation provisioned in Streamlit Secrets. Future financial input versions still require review before ordinary display.
+
+## D015 — Portfolio walkthrough and evidence
+
+Open the explorer on the estimate ranking. Keep the full-report estimate distribution in an expandable section and let a selected range open the directory with the same report and range. Show two source records side by side within one report, with their own amounts, descriptions and source pages.
+
+Explain cumulative spending using the prior expenditures reported in July, the sum of the three reviewed monthly amounts and the reported September cumulative amount. Keep the explanation inside the existing financial display gate. Present T180B as a held evidence case. The original pages establish the reported observations and the presence of T180D in the earlier indexed exhibit. Comparable D60 scope and estimate basis remain unresolved.

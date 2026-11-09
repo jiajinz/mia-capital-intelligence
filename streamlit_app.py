@@ -15,13 +15,19 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from mia_capital_intelligence.directory_queries import (  # noqa: E402
-    DirectoryFilters, SORTS, format_usd, search_records, source_detail,
+    ESTIMATE_BANDS, DirectoryFilters, SORTS, estimate_band, format_usd, search_records, source_detail,
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
-    estimate_figure, largest_estimates, selected_source_ref,
+    EstimateRanking, estimate_figure, largest_estimates, selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
+
+CASE_REFS = (
+    "260526:eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878:B:11:63",
+    "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:65",
+    "260526:eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878:B:11:64",
+)
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
 
@@ -38,6 +44,39 @@ def report_label(source: dict) -> str:
 
 def profile_permalink(source_ref: str) -> str:
     return "?" + urlencode({"record": source_ref})
+
+
+def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:
+    detail = source_detail(registry, reference)
+    with st.container(border=True):
+        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(detail['source'])}")
+        st.subheader(detail["project_name"])
+        st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+        if show_scope:
+            st.write("**Scope as described in the report**")
+            st.text(detail["description_raw"])
+        st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
+        st.link_button("Open profile permalink", profile_permalink(reference))
+
+
+def render_estimate_distribution(
+    registry: PublicRegistry, ranking: EstimateRanking, source: dict, *, filtered: bool,
+) -> None:
+    if filtered:
+        ranking = largest_estimates(registry, ranking.matter_id, limit=1)
+    with st.expander("See estimates across this report"):
+        st.markdown("#### Source records by reported estimate range")
+        st.caption(
+            f"{report_label(source)} · {ranking.snapshot_count} indexed source records · "
+            f"{ranking.missing_count} without a reported estimate. Select a range to browse its source records."
+        )
+        known_count = ranking.snapshot_count - ranking.missing_count
+        for band, count in zip(ESTIMATE_BANDS, ranking.band_counts, strict=True):
+            route = "?" + urlencode({"report": ranking.matter_id, "range": band})
+            label, bar = st.columns([2, 3], vertical_alignment="center")
+            label.link_button(f"{band} · {count} records", route, disabled=count == 0)
+            if known_count:
+                bar.progress(count / known_count)
 
 
 def render_detail(registry: PublicRegistry, source_ref: str) -> None:
@@ -145,25 +184,29 @@ def render_insights(registry: PublicRegistry) -> None:
     )
     if not ranking.rows:
         st.info("No known cost estimates match these chart filters. Try a different airport or keyword.")
+        render_estimate_distribution(registry, ranking, source, filtered=True)
         return
     # A filter-specific chart key prevents a previous chart's event selecting a new population.
     token = sha256(repr((matter, airport, keyword, limit)).encode()).hexdigest()[:16]
-    event = st.plotly_chart(
-        estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
-        on_select="rerun", selection_mode="points", config={"displayModeBar": False, "scrollZoom": False},
-    )
-    st.caption("Select a bar or use the selector to open the profile and evidence links below.")
-    selected = selected_source_ref(event, ranking)
-    detail_key, event_key = f"chart-detail-{token}", f"chart-event-{token}"
-    if selected and st.session_state.get(event_key) != selected:
-        st.session_state[detail_key] = selected
-    st.session_state[event_key] = selected
-    by_ref = {row["source_ref"]: row for row in ranking.rows}
-    reference = st.selectbox(
-        "Explore a chart record", list(by_ref), key=detail_key,
-        format_func=lambda ref: f"{by_ref[ref]['project_id']} · {by_ref[ref]['project_name']}",
-    )
-    render_detail(registry, reference)
+    chart, evidence = st.columns([2, 1], gap="medium")
+    with chart:
+        event = st.plotly_chart(
+            estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
+            on_select="rerun", selection_mode="points", config={"displayModeBar": False, "scrollZoom": False},
+        )
+        selected = selected_source_ref(event, ranking)
+        detail_key, event_key = f"chart-detail-{token}", f"chart-event-{token}"
+        if selected and st.session_state.get(event_key) != selected:
+            st.session_state[detail_key] = selected
+        st.session_state[event_key] = selected
+        by_ref = {row["source_ref"]: row for row in ranking.rows}
+        reference = st.selectbox(
+            "Explore a chart record", list(by_ref), key=detail_key,
+            format_func=lambda ref: f"{by_ref[ref]['project_id']} · {by_ref[ref]['project_name']}",
+        )
+    with evidence:
+        render_record_summary(registry, reference)
+    render_estimate_distribution(registry, ranking, source, filtered=bool(airport or keyword))
     with st.expander("Chart values and source pages"):
         st.dataframe(pd.DataFrame([
             {"Project ID": row["project_id"], "Description": row["project_name"],
@@ -201,8 +244,16 @@ def render_directory(registry: PublicRegistry) -> None:
     with sort_column:
         sort = st.selectbox("Sort records", list(SORTS), key="sort")
     results = search_records(registry, DirectoryFilters(query, airport, matter, sort))
+    if matter is not None:
+        band = st.selectbox(
+            "Reported estimate range", [None, *ESTIMATE_BANDS], key="estimate_range",
+            format_func=lambda value: value or "All estimates",
+        )
+        if band is not None:
+            results = [row for row in results if estimate_band(row["estimate_usd"]) == band]
+    indexed_count = sources[matter]["indexed_record_count"] if matter else len(registry.records)
     st.caption(
-        f"{len(results)} matching source records of {len(registry.records)} indexed records · "
+        f"{len(results)} matching source records of {indexed_count} indexed records · "
         "Source program: Capital Improvement Program. Counts refer to report rows; cross-report identities remain unresolved."
     )
     if not results:
@@ -225,6 +276,20 @@ def render_directory(registry: PublicRegistry) -> None:
     )
     refs = [row["source_ref"] for row in results]
     by_ref = {row["source_ref"]: row for row in results}
+    with st.expander("Compare two records from one report"):
+        if matter is None or len(refs) < 2:
+            st.caption("Select one source report and use filters that leave at least two records.")
+        else:
+            key = sha256(repr(refs).encode()).hexdigest()[:16]
+            pair = st.multiselect(
+                "Choose two source records", refs, max_selections=2, key=f"same-report-pair-{key}",
+                format_func=lambda ref: f"{by_ref[ref]['project_id']} · {by_ref[ref]['project_name']}",
+            )
+            if len(pair) == 2:
+                st.caption("Each estimate describes the scope printed for that record in the same report.")
+                for column, reference in zip(st.columns(2), pair, strict=True):
+                    with column:
+                        render_record_summary(registry, reference, show_scope=True)
     selected = st.selectbox(
         "Open a source record", refs,
         format_func=lambda ref: (
@@ -239,6 +304,21 @@ def render_directory(registry: PublicRegistry) -> None:
 def render_coverage(registry: PublicRegistry) -> None:
     st.subheader("Sources & data coverage")
     st.caption("An independent data project. Underlying records are published by Miami-Dade County.")
+    if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
+        with st.expander("Case study · Concourse D west extension"):
+            st.markdown("#### What do the two reports establish?")
+            st.write(
+                "Both reports list T180B with the same building expansion and apron description. "
+                "The earlier report separately lists T180D for D60 apron and utilities. "
+                "How that scope was allocated, and whether the two T180B estimates use the same basis, "
+                "remain open questions."
+            )
+            st.caption("The two estimates are shown as source observations. Scope comparability is awaiting verification.")
+            for column, reference in zip(st.columns(2), CASE_REFS[:2], strict=True):
+                with column:
+                    render_record_summary(registry, reference, show_scope=True)
+            earlier_apron = source_detail(registry, CASE_REFS[2])
+            st.link_button("Open the earlier T180D source record", profile_permalink(earlier_apron["source_ref"]))
     st.write(
         "Three official documents are cataloged. The directory indexes only Exhibit B in two infrastructure reports. "
         "This subset does not establish full airport project or capital-budget coverage."
@@ -327,6 +407,17 @@ def render_contract_spending(view: FinancialView) -> None:
         yaxis_tickprefix="$", yaxis_rangemode="tozero", showlegend=False,
     )
     st.plotly_chart(figure, width="stretch", config={"displayModeBar": False, "scrollZoom": False})
+    with st.expander("How the cumulative amount adds up"):
+        first, last = rows[0], rows[-1]
+        months = sum(row.monthly_usd for row in rows)
+        st.markdown(
+            rf"**\${first.prior_usd:,.2f}** reported before July + **\${months:,.2f}** reported in July–September "
+            rf"= **\${last.cumulative_usd:,.2f}** reported through September."
+        )
+        st.caption("USD · These amounts follow the reporting months. The accounting cutoff is unknown.")
+        st.link_button(f"Opening amount · July financial table, p. {first.financial_page}", first.financial_url)
+        for row in rows:
+            st.link_button(f"{row.month_label} · financial table, p. {row.financial_page}", row.financial_url)
     st.dataframe(pd.DataFrame([
         {"Reported month": row.month_label, "Monthly expenditures": f"${row.monthly_usd:,.2f}",
          "Cumulative expenditures": f"${row.cumulative_usd:,.2f}",
@@ -356,9 +447,7 @@ def render_contract_spending(view: FinancialView) -> None:
 
 st.title("MIA Capital Intelligence")
 st.markdown("### Airport Infrastructure & Capital Projects Explorer")
-st.caption("Explore project records and reported cost estimates. Spending history availability depends on financial review.")
-st.write("Explore airport improvements, project investments, construction progress, and publicly reported financial information—all in one place.")
-st.caption("Discover projects. Understand investments. Follow progress.")
+st.write("Find an airport project, read its reported cost estimate and open the original county report.")
 try:
     registry = published_registry()
 except (ValueError, OSError, KeyError):
@@ -374,7 +463,15 @@ if "record" in st.query_params:
         st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
     st.stop()
 
-st.caption("Use Open profile permalink on a source record to share its exact report version.")
+reports = {source["matter_id"] for source in registry.catalog if source["indexed_record_count"]}
+report_route = st.query_params.get_all("report")
+range_route = st.query_params.get_all("range")
+browse_range = (len(report_route) == len(range_route) == 1
+                and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS)
+if browse_range:
+    st.session_state.setdefault("source_report", report_route[0])
+    st.session_state.setdefault("estimate_range", range_route[0])
+
 st.caption(
     f"{len(registry.records)} source records · "
     f"{sum(row['indexed_record_count'] > 0 for row in registry.catalog)} partially indexed reports · "
@@ -383,7 +480,7 @@ st.caption(
 )
 directory_tab, insights_tab, coverage_tab, spending_tab = st.tabs([
     "Project directory", "Visual insights", "Sources & methodology", "Contract spending history",
-])
+], default="Project directory" if browse_range else "Visual insights")
 with directory_tab:
     render_directory(registry)
 with insights_tab:
