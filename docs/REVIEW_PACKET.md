@@ -6,7 +6,7 @@ The owner authorized an integrated Airport Infrastructure & Capital Projects Exp
 
 The current experience includes discovery, source dates, financial meaning, direct evidence and clear unavailable progress fields. It retains 222 source observations and 107 unresolved candidate links. The project profiles preserve report-level evidence and unresolved identity. The gated contract chart has its own record grain. The primary marketing description is accompanied by a current-availability line. PRODUCT_VISION.md is authoritative; the owner's pending README edit remains untouched.
 
-Stage 2A and 2B conclusions and Package A closeout evidence are recorded below. The owner subsequently authorized the Stage 2C slice, which is complete for independent local review.
+Stage 2A and 2B conclusions and Package A closeout evidence are recorded below. The owner subsequently authorized the Stage 2C slice, which passed named review and ordinary-mode browser verification in the local installation.
 
 ## Stage 2C implementation and independent handoff
 
@@ -18,7 +18,9 @@ The runtime checks the artifact digest and arithmetic. The trusted local operato
 
 In actual browser QA at 1280 × 720, both local servers returned HTTP 200 and a healthy response. The ordinary app showed a pending review notice and no financial selector or chart despite `?local_review=1`. Local review showed the four choices and exact A19-MDAD-02 September values of $98,135.01 monthly and $13,671,042.69 cumulative. Selecting E20 showed $0.00 monthly and $5,543,728.88 cumulative for September, with corroborated-zero text. The evidence link opened the county summary at PDF p. 22, row 1. See [the local preview screenshot](screenshots/stage2c-local-review.jpg).
 
-Observed **160 tests passed** with the three pinned study PDFs on Python 3.13.1. The financial and quarterly artifacts rebuilt byte-for-byte, and dependency consistency and compilation passed. The source checks reconciled 12 rows, 15 totals, eight roll-forwards and four corroborated zeros. AppTest covers ordinary approved rendering with a temporary synthetic attestation, as well as the pending gate and loopback review. The real release attestation is pending.
+Observed **160 tests passed** with the three pinned study PDFs on Python 3.13.1. The financial and quarterly artifacts rebuilt byte-for-byte, and dependency consistency and compilation passed. The source checks reconciled 12 rows, 15 totals, eight roll-forwards and four corroborated zeros. AppTest covers ordinary approved rendering with a temporary synthetic attestation, as well as the pending gate and loopback review.
+
+After the named human confirmation, the operator provisioned the ignored local attestation. The check command returned `approved` for the pinned input, definition version and all 12 rows. With the local review flag unset, the ordinary browser displayed the four-contract scope and the September A19-MDAD-02 row with $98,135.01 monthly and $13,671,042.69 cumulative, linked to the official financial page and summary.
 
 ```sh
 MIA_STUDY_PDF_DIR=/tmp/mia-financial-study .venv/bin/python -m pytest -q
