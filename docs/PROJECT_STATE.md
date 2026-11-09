@@ -19,3 +19,4 @@
 - The gated financial view explains the reported opening amount, July through September expenditures and September cumulative amount for each contract. The explanation uses the existing reviewed rows and links to the official financial pages.
 - The T180B case uses the exact two source records and the earlier T180D record to explain the unresolved D60 scope. The comparison remains held pending equivalent scope and estimate-basis evidence.
 - The full local suite passed 166 tests with the pinned PDFs. Browser checks covered the report-scoped directory, comparison links, financial explanation and 390 CSS pixel layout.
+- The local project view includes a short brief and delivery information. Briefs follow the selected source row. The reporting agency is shown separately from project lead and awarded contractor, which remain unresolved in the indexed records. Browser verification and all 167 tests passed.

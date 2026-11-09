@@ -47,6 +47,16 @@ def profile_permalink(source_ref: str) -> str:
     return "?" + urlencode({"record": source_ref})
 
 
+def render_project_brief(detail: dict, *, expanded: bool) -> None:
+    with st.expander("Project brief and delivery team", expanded=expanded):
+        st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
+        st.markdown(f"**Reporting agency** · {detail['reporting_agency']}")
+        lead = detail["project_lead"] or "Not listed in the indexed record"
+        contractor = detail["awarded_contractor"] or "Unverified in the indexed sources"
+        st.markdown(f"**Project lead** · {lead}")
+        st.markdown(f"**Awarded contractor** · {contractor}")
+
+
 def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:
     detail = source_detail(registry, reference)
     with st.container(border=True):
@@ -58,6 +68,8 @@ def render_record_summary(registry: PublicRegistry, reference: str, *, show_scop
             st.text(detail["description_raw"])
         st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
         st.link_button("Open profile permalink", profile_permalink(reference))
+        if not show_scope:
+            render_project_brief(detail, expanded=False)
 
 
 def render_estimate_distribution(
@@ -111,6 +123,7 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
             detail["source_page_url"], type="primary",
         )
         st.link_button("Open profile permalink", profile_permalink(detail["source_ref"]))
+        render_project_brief(detail, expanded=True)
         with st.expander("Original wording and evidence"):
             st.write(source["title"])
             st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")

@@ -51,6 +51,19 @@ def test_real_search_to_detail_preserves_estimate_and_official_page():
     assert "cost_growth" not in copy and "cost overrun" not in copy
 
 
+def test_project_brief_keeps_agency_separate_from_unverified_delivery_roles():
+    result = app()
+    result.text_input(key="search").input("V008B").run()
+    assert not result.exception
+    directory = result.tabs[0]
+    brief = next(item for item in directory.expander if item.label == "Project brief and delivery team")
+    assert "gates F4, F6 and F8" in brief.get("html")[0].proto.body
+    copy = visible_copy(brief)
+    assert "Reporting agency** · Miami-Dade Aviation Department" in copy
+    assert "Project lead** · Not listed in the indexed record" in copy
+    assert "Awarded contractor** · Unverified in the indexed sources" in copy
+
+
 def test_airport_and_source_filters_work():
     result = app()
     result.selectbox(key="airport").set_value("TMB").run()

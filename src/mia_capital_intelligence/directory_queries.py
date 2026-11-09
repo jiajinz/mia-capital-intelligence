@@ -15,6 +15,14 @@ from mia_capital_intelligence.public_registry import AIRPORTS, METRIC, PublicReg
 UNKNOWN = "Not reported in the indexed fields"
 ESTIMATE_BANDS = ("Under $10M", "$10M to under $50M", "$50M to under $100M", "$100M or more")
 ESTIMATE_THRESHOLDS = (10_000_000, 50_000_000, 100_000_000)
+PROJECT_BRIEFS = {
+    ("V008B", "MIA New Concourse F MIA Concourse F Modernization (Gates F4,F6, F8 Gates Building Expansion)"):
+        "Modernize Concourse F at Miami International Airport and expand building space at gates F4, F6 and F8.",
+    ("T180B", "MIA Cc D - West Extension D60 Ph 2 (Bldg. Expansion & Apron)"):
+        "Extend Concourse D west at Gate D60. Phase 2 covers building expansion and the apron area.",
+    ("U010D-I", "MIA Satellite E New Chiller Plant"):
+        "Build a new cooling plant for Satellite E at Miami International Airport.",
+}
 SORTS = {
     "Project ID": "project_id ASC, period_start DESC, source_ref ASC",
     "Project name": "project_name ASC, period_start DESC, source_ref ASC",
@@ -116,6 +124,7 @@ def source_detail(registry: PublicRegistry, source_ref: str) -> dict[str, Any]:
         raise ValueError("The selected source record is not in this published registry")
     source = next(row for row in registry.catalog if row["matter_id"] == record.matter_id)
     airport, reason = airport_classification(record.description_raw)
+    name = readable_name(record.description_raw)
     related = [
         link["later_ref"] if link["earlier_ref"] == source_ref else link["earlier_ref"]
         for link in registry.candidate_links
@@ -123,7 +132,10 @@ def source_detail(registry: PublicRegistry, source_ref: str) -> dict[str, Any]:
     ]
     return {
         "source_ref": source_ref, "project_id": record.project_id,
-        "project_name": readable_name(record.description_raw), "description_raw": record.description_raw,
+        "project_name": name, "description_raw": record.description_raw,
+        "project_brief": PROJECT_BRIEFS.get((record.project_id, name), name),
+        "reporting_agency": source["publishing_organization"],
+        "project_lead": None, "awarded_contractor": None,
         "airport_code": airport, "airport_name": AIRPORTS.get(airport, "Unknown airport"),
         "airport_evidence": reason, "category": "Capital Improvement Program",
         "facility": None, "reported_status": None, "milestone": None,

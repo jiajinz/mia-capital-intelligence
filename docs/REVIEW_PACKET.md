@@ -28,6 +28,10 @@ The local browser opened the $100M or more estimate range for matter 261402 and 
 
 Rechecked the pinned 260526 and 261402 PDFs against the ordered Exhibit B controls. T180B appears on PDF p. 11, row 63, and PDF p. 12, row 65. The earlier page also lists T180D on row 64. The approved registry establishes the individual observations. Scope allocation and estimate-basis continuity remain open, so the case displays the source records without a derived cross-report difference.
 
+The project brief uses the selected quarterly row and its publishing organization. The V008B profile shows the gate F4, F6 and F8 expansion and keeps the official page 13 link. Project lead and awarded contractor use explicit unknown states. The brief is also available from a chart selection.
+
+For a possible procurement pilot, the Board's adopted matter 252233 records the Satellite E New Chiller Plant award to Magnum Construction Management, LLC, under contract U010D-1 on November 18, 2025. PDF p. 1 identifies the proposed award and contract. The independent estimate attached to the same packet identifies MDAD project U010D-I and the same plant on PDF p. 94, printed MDC094. The indexed quarterly record uses U010D-I. Preserve both identifiers and the award date in any proposed linkage. The reviewed PDF has 159 pages, 12,709,321 bytes and SHA-256 `c1f2a6d5c3ceeeaba6edbe14870535ef7ea5fef92d4556b045db563c994d6fd2`. The award document remains a research candidate pending source approval and validation. [Adopted matter](https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=252233&yearFolder=Y2025) · [Award packet](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2025/252233.pdf)
+
 ## Stage 2C implementation and independent handoff
 
 Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.

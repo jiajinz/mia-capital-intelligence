@@ -117,3 +117,7 @@ The owner approved public hosting. The deployment uses Python 3.13 and exposes t
 Open the explorer on the selected report's estimate distribution. Put the ranking and its filters in an expandable section. Let a selected range open the directory with the same report and range. Show two source records side by side within one report, with their own amounts, descriptions and source pages.
 
 Explain cumulative spending using the prior expenditures reported in July, the sum of the three reviewed monthly amounts and the reported September cumulative amount. Keep the explanation inside the existing financial display gate. Present T180B as a held evidence case. The original pages establish the reported observations and the presence of T180D in the earlier indexed exhibit. Comparable D60 scope and estimate basis remain unresolved.
+
+## D016 — Project brief and delivery roles
+
+Use the selected quarterly source row for the project brief. Apply plain-language copy only when both the project token and the indexed description match. Use the normalized original description for other rows. Show the agency that published the report separately from the project lead and awarded contractor. Preserve both project-level fields as unknown until evidence supports the stated role. An award records an action for a specific contract and date. Current construction responsibility requires current evidence.
