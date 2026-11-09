@@ -58,7 +58,7 @@ The app was also run on localhost, returned HTTP 200 and a healthy Streamlit res
 
 In PyCharm, keep the same repository-local interpreter and Streamlit module configuration. Break at estimate_insights.largest_estimates: inspect matter_id and DirectoryFilters before SQL executes. Step into directory_queries.search_records and examine DECIMAL(18,2), the bound report parameter, exact Decimal results and stable ordering. Back in largest_estimates, inspect snapshot_count, matching_count, missing_count and the limited rows. Break at estimate_figure to inspect exact customdata versus float bar coordinates. Break at selected_source_ref after clicking a bar, then render_detail to trace the same immutable key to the source page. AppTest exercises the event adapter using a simulated return value; actual chart clicks require a browser.
 
-For debugging outside Streamlit, configure pytest for tests/test_estimate_insights.py. Synthetic missing-value cases are tests only; never alter production registry values to debug a chart. The financial study checker is a separate script run configuration, scripts/check_financial_feasibility.py. Its inputs are docs/research/financial_snapshots.json, not public runtime data. FINANCIAL_FEASIBILITY.md explains the source and date limitations.
+For debugging outside Streamlit, configure pytest for tests/test_estimate_insights.py. Synthetic missing-value cases are tests only; never alter production registry values to debug a chart. The financial study checker is a separate script run configuration, scripts/check_financial_feasibility.py. It uses the same versioned financial input as the gated Stage 2C view, data/financial/snapshots.v1.json. FINANCIAL_FEASIBILITY.md explains the source and date limitations.
 
 API references: [Streamlit 1.51 chart selection contract](https://docs.streamlit.io/1.51.0/develop/api-reference/charts/st.plotly_chart) and [Plotly horizontal bar charts](https://plotly.com/python/horizontal-bar-charts/). Plotly renders the validated query result; it does not query or validate the PDFs itself.
 
@@ -73,3 +73,49 @@ http://127.0.0.1:8501/?record=261402%3A84751b451da8b7d5e06cad6b1c24c870e563de566
 ```
 
 Search CA176A in the directory, then open Visual insights and click the V008B bar. Verify that the chart profile and its permalink agree on 261402, PDF p. 13, data row 6 and $896,021,864. The axis is USD millions. Exact dollar amounts are available in hover, the profile and the chart value table. The selector supports keyboard navigation. For a short viewport, the profile and its two links are directly below the chart selector. TMB has three matches in each report, with the separate 110 and 112 row denominators.
+
+## Stage 2C contract spending history
+
+Start the ordinary explorer with the command above. **Contract spending history** displays a pending message until the named review record validates. Missing, malformed, stale or incomplete review records keep all financial values out of the view. An invalid financial artifact also closes the local preview.
+
+For deliberate review on this computer, launch the server with an explicit loopback address and the process flag:
+
+```sh
+MIA_FINANCIAL_LOCAL_REVIEW=1 .venv/bin/python -m streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8502
+```
+
+Open http://127.0.0.1:8502 and choose **Contract spending history**. The preview shows the pending-review banner, one contract selector, a monthly expenditure chart, and the exact monthly/cumulative table. Select E20-MDAD-03 and expand **Original evidence and coverage** to open the September summary on PDF p. 22, row 1. It corroborates the $0.00 monthly value. Query parameters have no role in enabling review mode.
+
+### Verify and reproduce the input
+
+Use the three pinned files named `261147.pdf`, `261399.pdf` and `261400.pdf` in a local directory. Source URLs, page ranges and full hashes appear in FINANCIAL_FEASIBILITY.md. The command checks the transcription against PDFium readings of the approved source pages and writes canonical JSON only after all controls pass.
+
+```sh
+financial_build_dir="$(mktemp -d)"
+PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.contract_spending build \
+  --pdf-dir /tmp/mia-financial-study --output "$financial_build_dir/snapshots.v1.json"
+cmp data/financial/snapshots.v1.json "$financial_build_dir/snapshots.v1.json"
+MIA_STUDY_PDF_DIR=/tmp/mia-financial-study .venv/bin/python -m pytest -q
+.venv/bin/python -m pip check
+```
+
+The immutable artifact includes the original financial and summary descriptions, raw values, headings, pages and row locators. Its digest is pinned in the runtime. Amounts are normalized with Decimal, with four explicit summary zeros. Runtime uses the checked-in artifact and does not need PDF files.
+
+### Record completed human review
+
+1. An independent human reviews the 12 rows against the pinned originals and accepts the definitions in `data/financial/snapshots.v1.json`. Review each alias and corroborated zero and preserve the unresolved accounting cutoff, accounting basis and A19-MDAD-01 airport attribution. Record the reviewer's name, completion time with UTC offset and a stable reference to the completed review evidence.
+2. Run the following command to list the exact input digest, definition version and 12 versioned row references for that review.
+
+   ```sh
+   PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.contract_spending review-fields
+   ```
+
+3. A trusted local operator creates `data/financial/review.json` after receiving that completed review. This ignored file is the operator-provisioned attestation. Supply exactly these JSON fields:
+   - `schema_version` as the string `"1.0"` and `decision` as `"approved"`.
+   - `reviewer_name` and `evidence_reference` as the real reviewer's name and completed review reference.
+   - `reviewed_at` as the actual completed, nonfuture ISO 8601 timestamp with offset.
+   - `definitions_accepted` as the JSON boolean `true`.
+   - `input_sha256`, `definition_version` and `reviewed_source_refs` from the command output for the reviewed artifact. The references must cover all 12 rows exactly once.
+4. Run the module with `check`. Confirm it prints `"review_status": "approved"`, then start the ordinary read-only app with the local review flag unset. The gate validates a trusted operator's recorded attestation. The process does not authenticate a human's identity or create the record.
+
+The production source approval authorizes the slice. Independent sign-off authorizes ordinary display. A different input version requires a new review. Hosting remains a separate owner decision.

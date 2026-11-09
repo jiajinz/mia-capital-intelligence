@@ -1,11 +1,13 @@
 """Read-only public directory for controlled MDAD source observations."""
 
+import os
 import sys
 from hashlib import sha256
 from pathlib import Path
 from urllib.parse import urlencode
 
 import pandas as pd
+import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
@@ -18,6 +20,7 @@ from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, l
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
     estimate_figure, largest_estimates, selected_source_ref,
 )
+from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
 
@@ -276,9 +279,66 @@ def render_coverage(registry: PublicRegistry) -> None:
             st.write(f"SHA-256 · {source['size_bytes']:,} source bytes · matter {matter}")
 
 
+def render_contract_spending(view: FinancialView) -> None:
+    st.subheader("Contract spending history")
+    if not view.rows:
+        if view.status == "invalid_input":
+            st.warning("Contract spending is unavailable because the financial input could not be validated.")
+        elif view.status == "pending_review":
+            st.info("Contract spending is pending named independent review.")
+        else:
+            st.warning("Contract spending is unavailable until a valid review for this financial input is recorded.")
+        return
+    if view.local_review and view.status != "approved":
+        st.warning("Local review preview · Named independent review pending. Financial values are awaiting sign-off.")
+    st.caption("July–September 2026 · Four contracts · Three monthly Aviation Capital Program reports")
+    st.write("Explore reported expenditures for one contract in the sampled financial exhibits.")
+    contracts = sorted({row.contract_id for row in view.rows})
+    contract = st.selectbox("Contract", contracts, index=contracts.index("A19-MDAD-02"), key="spending_contract")
+    rows = [row for row in view.rows if row.contract_id == contract]
+    figure = go.Figure(go.Bar(
+        x=[row.month_label for row in rows], y=[float(row.monthly_usd) for row in rows],
+        customdata=[[f"${row.monthly_usd:,.2f}", "Summary confirms zero" if row.monthly_dash_corroborated
+                     else "Financial table amount"] for row in rows],
+        hovertemplate="%{x}<br>%{customdata[0]}<br>%{customdata[1]}<extra></extra>",
+        marker_color="#1E6358",
+    ))
+    figure.update_layout(
+        title="Reported monthly expenditures", height=320, margin=dict(l=12, r=18, t=55, b=32),
+        xaxis_title="Reported month", yaxis_title="Expenditures (USD)",
+        yaxis_tickprefix="$", yaxis_rangemode="tozero", showlegend=False,
+    )
+    st.plotly_chart(figure, width="stretch", config={"displayModeBar": False, "scrollZoom": False})
+    st.dataframe(pd.DataFrame([
+        {"Reported month": row.month_label, "Monthly expenditures": f"${row.monthly_usd:,.2f}",
+         "Cumulative expenditures": f"${row.cumulative_usd:,.2f}",
+         "Financial PDF": row.financial_url, "Summary PDF": row.summary_url,
+         "Monthly cell evidence": "Dash corroborated by summary zero" if row.monthly_dash_corroborated
+         else "Numeric amount in financial table"}
+        for row in rows
+    ]), hide_index=True, width="stretch", column_config={
+        "Financial PDF": st.column_config.LinkColumn(display_text="Open financial page"),
+        "Summary PDF": st.column_config.LinkColumn(display_text="Open summary page"),
+    })
+    with st.expander("Original evidence and coverage"):
+        st.write("Publisher: Miami-Dade County. The sample contains four contract rows per reported month.")
+        st.write("Contracts in this slice: " + ", ".join(contracts))
+        st.caption("The accounting cutoff and cash or accrual basis are unknown. Contract-to-project links are unverified.")
+        for row in rows:
+            st.write(f"**{row.month_label}** · {row.raw_contract} · {row.printed_page} row {row.row_ordinal}")
+            st.link_button(f"Open {row.month_label} financial PDF · page {row.financial_page}", row.financial_url)
+            st.link_button(f"Open {row.month_label} summary · page {row.summary_page} row {row.summary_row_ordinal}", row.summary_url)
+            if row.monthly_dash_corroborated:
+                st.caption("The summary explicitly reports $0.00 for the financial table's monthly dash.")
+        if contract == "E20-MDAD-03":
+            st.caption("The same-issue summaries use E20-MDAD-03. The financial tables print E20-MDAD--03.")
+        if contract == "A19-MDAD-01":
+            st.caption("Airport attribution is unresolved because the financial and summary descriptions differ.")
+
+
 st.title("MIA Capital Intelligence")
 st.markdown("### Airport Infrastructure & Capital Projects Explorer")
-st.caption("Available now: project records and reported cost estimates. Spending history and documented progress are under source evaluation.")
+st.caption("Explore project records and reported cost estimates. Spending history availability depends on financial review.")
 st.write("Explore airport improvements, project investments, construction progress, and publicly reported financial information—all in one place.")
 st.caption("Discover projects. Understand investments. Follow progress.")
 try:
@@ -305,13 +365,20 @@ st.caption(
     f"{len(registry.catalog)} cataloged documents · "
     "Source-reported estimates in USD"
 )
-directory_tab, insights_tab, coverage_tab = st.tabs(["Project directory", "Visual insights", "Sources & methodology"])
+directory_tab, insights_tab, coverage_tab, spending_tab = st.tabs([
+    "Project directory", "Visual insights", "Sources & methodology", "Contract spending history",
+])
 with directory_tab:
     render_directory(registry)
 with insights_tab:
     render_insights(registry)
 with coverage_tab:
     render_coverage(registry)
+with spending_tab:
+    render_contract_spending(financial_view(
+        ROOT, review_flag=os.environ.get("MIA_FINANCIAL_LOCAL_REVIEW"),
+        server_address=st.get_option("server.address"),
+    ))
 st.divider()
 st.caption(
     "Source observations retain their reporting context. Detailed status and milestone fields are not indexed in this slice. "

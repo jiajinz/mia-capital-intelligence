@@ -1,12 +1,34 @@
-# Independent review packet — Stage 2A/2B
+# Independent review packet — Stage 2
 
 ## Result and authorized scope
 
 The owner authorized an integrated Airport Infrastructure & Capital Projects Explorer: improved source-specific profiles, one Largest Reported Project Cost Estimates Plotly chart, and a bounded feasibility study of consecutive official monthly financial reports. These are delivered locally. The project is independent and attributes underlying information to Miami-Dade County. No official branding is used.
 
-The current experience includes discovery, source dates, financial meaning, direct evidence and clear unavailable progress fields. It retains 222 source observations and 107 unresolved candidate links. It publishes no verified cross-report entity, historical estimate difference, financial chart, cost overrun, delay or physical-progress conclusion. The primary marketing description is accompanied by a current-availability line. PRODUCT_VISION.md is authoritative; the owner's pending README edit remains untouched.
+The current experience includes discovery, source dates, financial meaning, direct evidence and clear unavailable progress fields. It retains 222 source observations and 107 unresolved candidate links. The project profiles preserve report-level evidence and unresolved identity. The gated contract chart has its own record grain. The primary marketing description is accompanied by a current-availability line. PRODUCT_VISION.md is authoritative; the owner's pending README edit remains untouched.
 
-Stage 2 stops for independent review. Proposed Stage 2C is a small contract spending-history section, subject to source approval and reviewed financial controls. No standalone Financial Explorer, hosting or production ingestion expansion has been performed.
+Stage 2A and 2B conclusions and Package A closeout evidence are recorded below. The owner subsequently authorized the Stage 2C slice, which is complete for independent local review.
+
+## Stage 2C implementation and independent handoff
+
+The owner stated “批准 Stage 2C 及上述三个生产来源切片” on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.
+
+The twelve Package A source rows were carried into `data/financial/snapshots.v1.json` with versioned definitions. Its SHA-256 is `3c90df7ea841061823781be3aa6a388f18c82d51fcf317c3d7f7b261a11622be`. The build reuses PDFium page, ordered cell, summary and version checks, then compares and writes canonical bytes atomically. A test swaps both A19 contracts' financial and summary values across all issues and verifies that the rejected rebuild preserves the previous artifact. Exact Decimal normalization occurs before chart geometry is converted to float. Versioned source row keys remain distinct from the four contract identifiers.
+
+The runtime checks the artifact digest and arithmetic. The trusted local operator provisions `data/financial/review.json` only after a named independent human completes the review. The gate checks decision, definition version, exact digest, all twelve source keys, evidence reference and an elapsed, offset-aware completion time. It validates the attestation supplied by the operator. Human identity is established through the independent review process. A missing, invalid, stale or incomplete attestation blocks ordinary display. Synthetic attestations live only in test temporary directories. Local review is enabled by a process flag plus an explicit loopback bind, with a visible pending banner. Request parameters cannot enable it.
+
+In actual browser QA at 1280 × 720, both local servers returned HTTP 200 and a healthy response. The ordinary app showed a pending review notice and no financial selector or chart despite `?local_review=1`. Local review showed the four choices and exact A19-MDAD-02 September values of $98,135.01 monthly and $13,671,042.69 cumulative. Selecting E20 showed $0.00 monthly and $5,543,728.88 cumulative for September, with corroborated-zero text. The evidence link opened the county summary at PDF p. 22, row 1. See [the local preview screenshot](screenshots/stage2c-local-review.jpg).
+
+Observed **160 tests passed** with the three pinned study PDFs on Python 3.13.1. The financial and quarterly artifacts rebuilt byte-for-byte, and dependency consistency and compilation passed. The source checks reconciled 12 rows, 15 totals, eight roll-forwards and four corroborated zeros. AppTest covers ordinary approved rendering with a temporary synthetic attestation, as well as the pending gate and loopback review. The real release attestation is pending.
+
+```sh
+MIA_STUDY_PDF_DIR=/tmp/mia-financial-study .venv/bin/python -m pytest -q
+.venv/bin/python -m pip check
+.venv/bin/python scripts/check_financial_feasibility.py --pdf-dir /tmp/mia-financial-study
+PYTHONPATH=src .venv/bin/python -m mia_capital_intelligence.contract_spending check
+MIA_FINANCIAL_LOCAL_REVIEW=1 .venv/bin/python -m streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8502
+```
+
+The build/cmp commands and exact reviewer-record fields are in [the operating guide](RUN_PUBLIC_DIRECTORY.md#stage-2c-contract-spending-history). Review all five definitions, the twelve financial and summary records, the three E20 aliases and the four explicit zeros. A19-MDAD-01 airport attribution, accounting basis and cutoff remain unknown. The source approval covers only the three pinned financial slices. Hosting remains a separate decision.
 
 ## Package A closeout against d6d4f1e
 
@@ -36,7 +58,7 @@ PYCODE
 
 Observed 145 passing tests, no broken requirements, three successfully bound and reconciled study issues, and a byte-identical registry rebuild. Browser health returned `ok` and the app returned HTTP 200. The study PDF directory can be replaced with any local directory containing the three pinned matter-ID files. Without the environment variable, pytest skips the eight real-PDF study tests.
 
-The proposed Stage 2C approval covers only the three pinned financial pages and their supporting summary pages, four contract selections, one monthly expenditure bar chart and an exact monthly/cumulative table. The source approval, financial definitions and named review are separate decisions. See [the exact approval package](FINANCIAL_FEASIBILITY.md#stage-2c-approval-package).
+The subsequent owner approval covers the three pinned financial pages and their supporting summary pages, four contract selections, one monthly expenditure bar chart and an exact monthly/cumulative table. Named review and acceptance of definitions remain display gates. See [the exact approval scope](FINANCIAL_FEASIBILITY.md#stage-2c-approval-and-release-gate).
 
 ## Acceptance and implementation
 
@@ -44,7 +66,7 @@ The proposed Stage 2C approval covers only the three pinned financial pages and 
 - **Single-report chart:** estimate_insights.largest_estimates requires an indexed matter and ranks existing parameterized DuckDB search results using exact Decimal amounts. Airport/keyword filters apply before the top-N limit. Snapshot, filtered and missing-value denominators are explicit. The default report is 261402 (112 indexed rows); 260526 is selectable (110). No combined population or sum is created.
 - **Plotly adapter:** estimate_figure converts only graphical coordinates to float. Exact currency strings, descriptions, immutable references and PDF pages remain in customdata. Bars open the same evidence profile; a keyboard-accessible selector and exact-value source-link table provide alternatives. Chart keys depend on filters, and selected_source_ref accepts only a single reference inside the active ranking. A retained event cannot override a subsequent manual selector choice.
 - **Read-only architecture:** existing registry validation, all ordered page controls, candidate SQL and the comparison gate are unchanged. The app still uses tracked validated inputs, ephemeral SQL and no raw PDFs or persistent database writes. Plotly 6.3.1 is pinned in requirements.txt and pyproject.toml. No architecture service or financial definition is replaced.
-- **Research:** FINANCIAL_FEASIBILITY.md evaluates the requested five chart types and eight financial questions. docs/research/financial_snapshots.json is explicitly study evidence, not a public dataset. scripts/check_financial_feasibility.py uses Decimal for row arithmetic, all five column totals, summary agreement and contract roll-forwards. Additional source PDFs remain outside commits and outside the production catalog.
+- **Research:** FINANCIAL_FEASIBILITY.md evaluates the requested five chart types and eight financial questions. The source records were transferred to data/financial/snapshots.v1.json for the gated Stage 2C view. scripts/check_financial_feasibility.py uses Decimal for row arithmetic, all five column totals, summary agreement and contract roll-forwards. Additional source PDFs remain outside commits and outside the production catalog.
 
 ## Production source coverage and integrity
 
@@ -89,4 +111,4 @@ Outstanding: independent human financial review; unknown ledger/project freeze d
 
 ## Git handoff
 
-Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. Stage 2 uses local Conventional Commits with subjects `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Resolve the initial Stage 2 and Package A hashes with `git log -3 --format='%H %s'`; this avoids embedding a commit's own hash in its contents. Inspect each commit and the preserved README working-tree change separately. No push, deployment, tag, merge or history rewrite was performed.
+Branch main, Stage 1 baseline `57e12f8ec78f5d725ed1c670d6eac4f5f88ff520`. Stage 2 uses local Conventional Commits with subjects `feat(explorer): integrate source profiles and estimate discovery` and `feat(research): reconcile monthly financial feasibility and review handoff`. Resolve the Stage 2 milestones with `git log -4 --format='%H %s'`; this avoids embedding a commit's own hash in its contents. Inspect each commit and the preserved README working-tree change separately. No push, deployment, tag, merge or history rewrite was performed.

@@ -12,7 +12,7 @@ check_study = runpy.run_path(str(ROOT / 'scripts/check_financial_feasibility.py'
 
 @pytest.fixture
 def study():
-    return json.loads((ROOT / 'docs/research/financial_snapshots.json').read_text())
+    return json.loads((ROOT / 'data/financial/snapshots.v1.json').read_text())
 
 
 def test_three_months_and_all_five_columns_reconcile(study):

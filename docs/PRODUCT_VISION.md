@@ -10,7 +10,7 @@ The product brings dispersed published records into one approachable information
 
 ## Authorized Stage 2 and current availability
 
-The owner authorized Stage 2A's stronger source-record profile and one Plotly discovery chart, plus Stage 2B's bounded financial feasibility study. The earlier Stage 1 directory and all integrity controls remain. Stage 2 stops for independent review. A complete financial dashboard, public ingestion of study-only sources, hosting and progress analytics are outside this authorization.
+The owner authorized Stage 2A profiles and a Plotly discovery chart, Stage 2B financial feasibility, and Stage 2C contract spending history for three approved financial slices. Stage 2C is ready for local review. Ordinary spending display requires a named independent human attestation.
 
 Available now: search, airport/report filters, source-specific profiles, related observations, official evidence and Largest Reported Project Cost Estimates. The chart uses one selected Exhibit B report only, with 110 or 112 indexed rows before filters. It labels estimated cost in USD, not spending. Record population, excluded unknown estimates, coverage period and memo date remain visible. The actual project-data freeze date is unconfirmed.
 
@@ -20,13 +20,13 @@ The directory preserves 222 document-scoped observations, 107 unverified candida
 
 Retain versioned sources, raw fields, row locators, independent ID/amount controls, exact financial arithmetic, reproducible inputs and the separate comparison gate. Individual source observations need no comparison approval to be displayed. Cross-report identity, cost growth, overrun, delay and construction-progress conclusions need additional substantive evidence. Keep estimates, adopted/approved contract budgets, monthly expenditures, cumulative expenditures and physical progress distinct.
 
-The quarterly infrastructure index and monthly contract financial study have different grains and coverage. No description-only cross-series joins are allowed. The study inputs live under docs/research and do not enter the public registry or app.
+The quarterly infrastructure index and monthly contract financial study have different grains and coverage. No description-only cross-series joins are allowed. The versioned financial input under data/financial remains separate from the quarterly registry. The explorer applies a dedicated financial display gate.
 
 ## Recommended roadmap
 
 1. **Stage 2A delivered:** integrated source profiles and a single-report estimate ranking with chart-to-profile navigation, accessible record selection and exact-value table.
-2. **Stage 2B delivered:** three-month, four-contract feasibility evidence and reconciliation. See FINANCIAL_FEASIBILITY.md. No financial chart is implemented.
-3. **Stage 2C proposed, owner approval after review:** a small contract spending-history slice inside the same explorer, with a chart of reported monthly expenditures and an exact-value table that also includes cumulative expenditures. Require independent source transcription review, a controlled financial schema, explicit contract aliases and month-label/cutoff semantics before publishing. Four contracts justify a focused section, not a standalone Financial Explorer.
+2. **Stage 2B delivered:** three-month, four-contract feasibility evidence and reconciliation. See FINANCIAL_FEASIBILITY.md.
+3. **Stage 2C implemented for local review:** a chart of reported monthly expenditures and an exact-value table including cumulative expenditures, for four contracts across July–September 2026. Ordinary display is pending independent sign-off on the exact inputs and definitions.
 4. **Later:** expand official source integration and verified contract/project membership; extract reliable facility/category fields. Evaluate milestone observations with forecast/actual distinctions before any timeline. Broader scope and new production sources require owner review.
 
 Internal escalation queues, engineering-risk ratings and operational project management remain outside the product mission. Historical decisions and comparison contracts remain available for lineage. The pending owner README edit is preserved; this document is the authoritative current positioning.

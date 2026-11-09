@@ -7,3 +7,5 @@ __pycache__/
 /data/raw/
 /data/derived/
 /tmp/
+
+/data/financial/review.json
