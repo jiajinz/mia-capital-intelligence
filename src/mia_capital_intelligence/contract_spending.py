@@ -52,6 +52,7 @@ class ContractMonth:
     summary_page: int
     summary_row_ordinal: int
     raw_contract: str
+    prior_usd: Decimal
     monthly_usd: Decimal
     cumulative_usd: Decimal
     monthly_dash_corroborated: bool
@@ -113,6 +114,7 @@ def _validate_input(payload: dict, pdf_dir: Path | None = None) -> tuple[Contrac
                 printed_page=source["printed_page"], row_ordinal=row["row_ordinal"],
                 summary_page=row["summary_pdf_page"], summary_row_ordinal=row["summary_row_ordinal"],
                 raw_contract=row["contract_raw_visual"],
+                prior_usd=amounts["prior_expenditures_usd"],
                 monthly_usd=amounts["monthly_expenditures_usd"],
                 cumulative_usd=amounts["cumulative_expenditures_usd"],
                 monthly_dash_corroborated=row["dash_resolution"] == "summary_explicit_zero",

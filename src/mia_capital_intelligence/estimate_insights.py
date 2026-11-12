@@ -1,13 +1,25 @@
 """Single-document discovery queries and a presentation-only Plotly adapter."""
 
+from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
+from textwrap import shorten
 from typing import Any, Mapping
 
 import plotly.graph_objects as go
 
-from mia_capital_intelligence.directory_queries import DirectoryFilters, format_usd, search_records
+from mia_capital_intelligence.directory_queries import (
+    ESTIMATE_BANDS, DirectoryFilters, estimate_band, format_usd, search_records,
+)
 from mia_capital_intelligence.public_registry import PublicRegistry
+
+CHART_NAMES = {
+    "T180B": "Concourse D west extension",
+    "V008B": "Concourse F modernization",
+    "X078A": "South Terminal east expansion",
+    "BA061A": "Central Terminal redevelopment · Phase 1",
+    "V008C": "Central Terminal redevelopment · Phase 2",
+}
 
 
 @dataclass(frozen=True)
@@ -19,6 +31,7 @@ class EstimateRanking:
     matching_count: int
     missing_count: int
     rows: tuple[dict[str, Any], ...]
+    band_counts: tuple[int, ...]
 
 
 def largest_estimates(
@@ -35,9 +48,10 @@ def largest_estimates(
         search, airport, matter_id, "Reported estimate, highest first",
     ))
     known = [row for row in results if row["estimate_usd"] is not None]
+    counts = Counter(estimate_band(row["estimate_usd"]) for row in known)
     return EstimateRanking(
         matter_id, source["indexed_record_count"], len(results), len(results) - len(known),
-        tuple(known[:limit]),
+        tuple(known[:limit]), tuple(counts[band] for band in ESTIMATE_BANDS),
     )
 
 
@@ -59,7 +73,14 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
         height=max(300, 38 * len(rows) + 90),
         margin=dict(l=15, r=25, t=15, b=45),
         xaxis=dict(title="Estimated cost (USD millions)", tickformat=",~f", rangemode="tozero"),
-        yaxis=dict(title=None, autorange="reversed", type="category"),
+        yaxis=dict(
+            title=None, autorange="reversed", type="category", automargin=True,
+            tickvals=[row["project_id"] for row in rows],
+            ticktext=[
+                shorten(CHART_NAMES.get(row["project_id"], row["project_name"]), width=32, placeholder="…")
+                for row in rows
+            ],
+        ),
         clickmode="event+select", dragmode=False,
         font=dict(size=14, color="#152D36"), showlegend=False,
     )
