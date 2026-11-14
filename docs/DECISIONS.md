@@ -111,3 +111,15 @@ Use a committed source export for release verification. Keep project explanation
 Use the existing public GitHub repository as the deployment source. Store the financial attestation in the nested `financial_review.attestation_json` setting in Streamlit Secrets. The same validator checks the local file and the configured secret. When the review setting is absent, use the local file. When the configured review is invalid or stale, keep ordinary financial display closed. Keep the attestation, local Secrets file and hosted Secrets value outside Git. Add the app URL after hosted verification.
 
 The owner approved public hosting. The deployment uses Python 3.13 and exposes the explorer at `mia-capital-intelligence.streamlit.app`. The README links to that verified endpoint. Hosted contract spending was verified with the existing attestation provisioned in Streamlit Secrets. Future financial input versions still require review before ordinary display.
+
+## D015 — Portfolio walkthrough and evidence
+
+Open the explorer on the selected report's estimate distribution. Put the ranking and its filters in an expandable section. Let a selected range open the directory with the same report and range. Show two source records side by side within one report, with their own amounts, descriptions and source pages.
+
+Explain cumulative spending using the prior expenditures reported in July, the sum of the three reviewed monthly amounts and the reported September cumulative amount. Keep the explanation inside the existing financial display gate. Present T180B as a held evidence case. The original pages establish the reported observations and the presence of T180D in the earlier indexed exhibit. Comparable D60 scope and estimate basis remain unresolved.
+
+## D016 — Project brief and delivery roles
+
+Use the selected quarterly source row for the project brief. Apply plain-language copy only when both the project token and the indexed description match. Use the normalized original description for other rows. Show the publishing agency separately. Omit each delivery role from the profile when that role is unknown. For a documented role, show the evidence and date. A manager named in an award memo represents the assignment documented at that time. An adopted award applies to a specific contract and scope.
+
+Bind award evidence to the exact quarterly document version and row after checking the contract's project identifier and scope. Treat the binding as evidence for that record only. The local preview uses Board matters 252233 and 250831. Review the added procurement sources before public rollout; they do not expand the quarterly registry or financial slice.

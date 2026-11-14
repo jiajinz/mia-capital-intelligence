@@ -164,6 +164,9 @@ def test_ordinary_reviewed_app_shows_chart_without_preview_banner(monkeypatch, l
     tab = app.tabs[3]
     assert len(tab.get("plotly_chart")) == 1 and not tab.warning
     assert tab.dataframe[0].value.iloc[-1]["Cumulative expenditures"] == "$13,671,042.69"
+    bridge = next(item for item in tab.expander if item.label == "How the cumulative amount adds up")
+    explanation = bridge.markdown[0].value
+    assert "$13,389,184.36" in explanation and "$281,858.33" in explanation and "$13,671,042.69" in explanation
 
 
 def test_streamlit_secret_approves_without_local_review_record(monkeypatch, local_root, synthetic_review):

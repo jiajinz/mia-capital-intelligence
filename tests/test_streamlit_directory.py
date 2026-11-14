@@ -1,6 +1,8 @@
 """Streamlit's simulated runtime checks the directory-to-evidence user flow."""
 
+from html import unescape
 from pathlib import Path
+import re
 from urllib.parse import parse_qs, urlsplit
 
 from streamlit.testing.v1 import AppTest
@@ -31,7 +33,7 @@ def test_directory_renders_controlled_records_and_public_context():
     assert "Airport Infrastructure & Capital Projects Explorer" in copy
     assert "No affiliation with MDAD or HNTB" not in copy
     assert "Project directory" in copy
-    assert "cross-report identities remain unresolved" in copy
+    assert "cross-report identities remain unresolved" in copy.lower()
 
 
 def test_real_search_to_detail_preserves_estimate_and_official_page():
@@ -47,6 +49,33 @@ def test_real_search_to_detail_preserves_estimate_and_official_page():
     assert "Same ID in another report" in "\n".join(row.label for row in result.expander)
     assert "original source-row text" in copy.lower() or "original source-row" in copy.lower() or "original project description" in copy.lower()
     assert "cost_growth" not in copy and "cost overrun" not in copy
+
+
+def test_project_brief_shows_sourced_roles_and_hides_missing_roles_on_selection():
+    result = app()
+    for project, name, company, contract_id, matter_id in (
+        ("U010D-I", "Ricardo Lopez", "Magnum Construction Management, LLC", "U010D-1", "252233"),
+        ("X078A", "Joachim Perez", "Lemartec-NV2A JV, LLC", "DB23AV01", "250831"),
+    ):
+        result.text_input(key="search").input(project).run()
+        assert not result.exception
+        brief = next(item for item in result.tabs[0].expander if item.label == "Project brief and delivery team")
+        copy = visible_copy(brief)
+        assert f"Project lead** · {name}" in copy
+        assert f"Awarded contractor** · {company}" in copy
+        assert contract_id in copy
+        assert f"/Y2025/{matter_id}.pdf#page=5" in copy
+        assert f"matter={matter_id}&yearFolder=Y2025" in copy
+
+    result.text_input(key="search").input("V008B").run()
+    assert not result.exception
+    directory = result.tabs[0]
+    brief = next(item for item in directory.expander if item.label == "Project brief")
+    assert "gates F4, F6 and F8" in brief.get("html")[0].proto.body
+    copy = visible_copy(brief)
+    assert "Reporting agency** · Miami-Dade Aviation Department" in copy
+    assert "Project lead" not in copy
+    assert "Awarded contractor" not in copy
 
 
 def test_airport_and_source_filters_work():
@@ -195,3 +224,41 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     assert not linked.exception and not linked.tabs
     assert linked.metric[0].value == "$ 896,021,864"
     assert any(row.proto.url.endswith("/261402.pdf#page=13") for row in linked.get("link_button"))
+
+
+def test_estimate_distribution_opens_same_report_directory_and_pair():
+    result = app()
+    chart = result.tabs[1].get("html")[0].proto.body
+    range_link = re.search(r'href="([^"]+)"[^>]+aria-label="\$100M or more · 16 records"', chart)
+    assert range_link
+    params = parse_qs(urlsplit(unescape(range_link.group(1))).query)
+    assert params == {"report": ["261402"], "range": ["$100M or more"]}
+
+    linked = AppTest.from_file(APP, default_timeout=15)
+    for name, values in params.items():
+        linked.query_params[name] = values[0]
+    linked.run()
+    assert not linked.exception
+    directory = linked.tabs[0]
+    assert directory.dataframe[0].value.shape[0] == 16
+    selection = directory.multiselect[0]
+    rows = load_registry().records
+    pair = [row.source_ref for row in rows if row.matter_id == "261402" and row.project_id in {"T180B", "V008B"}]
+    selection.set_value(pair).run()
+    assert not linked.exception
+    directory = linked.tabs[0]
+    assert {"$ 1,066,231,593", "$ 896,021,864"} <= {metric.value for metric in directory.metric}
+    assert all(ref.startswith("261402:") for ref in directory.multiselect[0].value)
+
+    linked.selectbox(key="source_report").set_value(None).run()
+    assert not linked.exception and not linked.tabs[0].multiselect
+
+
+def test_t180b_case_surfaces_two_source_rows_and_unresolved_scope():
+    coverage = app().tabs[2]
+    assert "Scope comparability is awaiting verification." in visible_copy(coverage)
+    assert {"$ 914,627,764", "$ 1,066,231,593"} <= {metric.value for metric in coverage.metric}
+    links = {row.proto.url for row in coverage.get("link_button")}
+    assert any(link.endswith("/260526.pdf#page=11") for link in links)
+    assert any(link.endswith("/261402.pdf#page=12") for link in links)
+    assert "$ 151,603,829" not in visible_copy(coverage)
