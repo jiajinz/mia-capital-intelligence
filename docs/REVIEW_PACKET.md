@@ -45,6 +45,8 @@ Browser verification covered X078A across both reports, with separate links to m
 
 All 168 tests passed with the pinned study PDFs. The registry check reported 222 observations across two indexed reports and 107 unverified candidate links. The financial input and quarterly registry match their deployed versions.
 
+The ranking follow-up verified airport selection and display at 1150, 390 and 320 CSS pixels. The full T180B estimate fit on one line at all three widths, with the brief below it and two compact blue links. Switching to TMB refreshed the ranking and ranges. The TMB $50M to under $100M link opened the one matching record, AA022A, for matter 261402.
+
 ## Stage 2C implementation and independent handoff
 
 Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.

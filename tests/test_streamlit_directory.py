@@ -105,6 +105,12 @@ def test_airport_and_source_filters_work():
     result.button(key="browse-airport-TMB").click().run()
     assert not result.exception
     assert result.selectbox(key="airport").value == "TMB"
+    assert result.selectbox(key="chart_airport").value == "TMB"
+    explore = result.tabs[0]
+    assert any(heading.value == "Estimate ranges and interactive ranking" for heading in explore.subheader)
+    assert all(item.label != "See the largest estimates" for item in explore.expander)
+    assert "3 largest of 3 matching source records" in visible_copy(explore)
+    assert any("range=%2450M+to+under+%24100M&amp;airport=TMB" in item.proto.body for item in explore.get("html"))
     assert result.button(key="browse-records").label == "Browse 3 source records"
     result.button(key="browse-records").click().run()
     assert not result.exception

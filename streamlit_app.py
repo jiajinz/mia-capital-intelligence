@@ -60,12 +60,14 @@ def profile_permalink(source_ref: str) -> str:
     return "?" + urlencode({"record": source_ref})
 
 
-def render_project_brief(detail: dict, *, expanded: bool) -> None:
+def render_project_brief(detail: dict, *, expanded: bool, include_brief: bool = True) -> None:
     delivery = detail["delivery"]
-    has_brief = detail["project_brief"] != detail["project_name"]
+    has_brief = include_brief and detail["project_brief"] != detail["project_name"]
     if not has_brief and not delivery:
         return
     title = "Project brief and delivery team" if delivery and (delivery.lead or delivery.award) else "Project brief"
+    if not include_brief:
+        title = "Delivery team"
     with st.expander(title, expanded=expanded):
         if has_brief:
             st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
@@ -88,36 +90,52 @@ def render_project_brief(detail: dict, *, expanded: bool) -> None:
 
 def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:
     detail = source_detail(registry, reference)
+    source = detail["source"]
+    if not show_scope:
+        with st.container(border=True, key="ranked-record"):
+            st.subheader(detail["project_name"])
+            period = report_period(source["period_start"], source["period_end"])
+            st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
+            st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+            if detail["project_brief"] != detail["project_name"]:
+                st.markdown("**Project brief**")
+                st.html(f'<p class="mia-ranked-brief">{escape(detail["project_brief"])}</p>')
+            with st.container(horizontal=True, gap=None, key="ranked-evidence-links"):
+                st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="tertiary")
+                st.link_button("Open profile permalink", profile_permalink(reference), type="tertiary")
+            render_project_brief(detail, expanded=False, include_brief=False)
+        return
     with st.container(border=True):
-        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(detail['source'])}")
+        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(source)}")
         st.subheader(detail["project_name"])
         st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
-        if show_scope:
-            st.write("**Scope as described in the report**")
-            st.text(detail["description_raw"])
+        st.write("**Scope as described in the report**")
+        st.text(detail["description_raw"])
         st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
         st.link_button("Open profile permalink", profile_permalink(reference))
-        if not show_scope:
-            render_project_brief(detail, expanded=False)
 
 
 def render_estimate_distribution(
-    ranking: EstimateRanking, source: dict,
+    ranking: EstimateRanking, source: dict, airport: str | None,
 ) -> None:
-    known_count = ranking.snapshot_count - ranking.missing_count
+    known_count = ranking.matching_count - ranking.missing_count
     if not known_count:
-        st.info("This report has no indexed records with a known estimate.")
+        st.info("No indexed records with a known estimate match the selected report and airport.")
         return
-    st.markdown(f"**{ranking.band_counts[0]} of {ranking.snapshot_count} indexed records** show estimates under $10 million.")
+    st.markdown(f"**{ranking.band_counts[0]} of {ranking.matching_count} matching records** show estimates under $10 million.")
     bars = []
     for band, count in zip(ESTIMATE_BANDS, ranking.band_counts, strict=True):
-        route = "?" + urlencode({"report": ranking.matter_id, "range": band})
+        filters = {"report": ranking.matter_id, "range": band}
+        if airport is not None:
+            filters["airport"] = airport
+        route = "?" + urlencode(filters)
         label = f"{escape(band)} <strong>{count}</strong>"
         track = f'<span class="mia-band-track" aria-hidden="true"><i style="width:{count / known_count:.2%}"></i></span>'
         content = f'<span class="mia-band-label">{label}</span>{track}'
         if count:
+            noun = "record" if count == 1 else "records"
             bars.append(f'<a href="{escape(route)}" target="_blank" rel="noopener" '
-                        f'aria-label="{escape(band)} · {count} records">{content}</a>')
+                        f'aria-label="{escape(band)} · {count} {noun}">{content}</a>')
         else:
             bars.append(f'<div class="mia-band-zero">{content}</div>')
     st.html('''
@@ -206,21 +224,27 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
                     )
 
 
-def render_insights(registry: PublicRegistry) -> None:
+def render_insights(registry: PublicRegistry, *, show_ranking: bool = False) -> None:
     sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
     matter = st.selectbox("Chart report period", list(reversed(sources)),
                           format_func=lambda key: report_label(sources[key]), key="chart_report")
     source = sources[matter]
-    render_estimate_distribution(largest_estimates(registry, matter), source)
-    with st.expander("See the largest estimates"):
+    airport_filter = st.session_state.get("chart_airport", ALL)
+    airport = None if airport_filter == ALL else airport_filter
+    render_estimate_distribution(largest_estimates(registry, matter, airport), source, airport)
+    if show_ranking:
         render_estimate_ranking(registry, matter, source)
+    else:
+        with st.expander("See the largest estimates"):
+            render_estimate_ranking(registry, matter, source)
 
 
 def render_estimate_ranking(registry: PublicRegistry, matter: str, source: dict) -> None:
     airport_col, size_col = st.columns([2, 1])
     with airport_col:
-        airport = st.selectbox("Chart airport", [None, *AIRPORTS, "Unknown"], key="chart_airport",
-                               format_func=lambda code: "All airports" if code is None else code)
+        airport_filter = st.selectbox("Chart airport", [ALL, *AIRPORTS, "Unknown"], key="chart_airport",
+                                      format_func=lambda code: "All airports" if code == ALL else code)
+    airport = None if airport_filter == ALL else airport_filter
     with size_col:
         limit = st.selectbox("Show largest", [5, 10, 20], index=1, key="chart_limit")
     keyword = st.text_input("Find within this chart", key="chart_search", placeholder="Project ID or keyword")
@@ -234,7 +258,8 @@ def render_estimate_ranking(registry: PublicRegistry, matter: str, source: dict)
         return
     # A filter-specific chart key prevents a previous chart's event selecting a new population.
     token = sha256(repr((matter, airport, keyword, limit)).encode()).hexdigest()[:16]
-    chart, evidence = st.columns([2, 1], gap="medium")
+    with st.container(key="estimate-ranking-layout"):
+        chart, evidence = st.columns([3, 2], gap="medium")
     with chart:
         event = st.plotly_chart(
             estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
@@ -268,6 +293,14 @@ def reset_explore_selection() -> None:
     st.session_state["explore_limit"] = EXPLORE_PAGE_SIZE
 
 
+def sync_explore_estimates() -> None:
+    reset_explore_selection()
+    st.session_state["chart_airport"] = st.session_state["airport"]
+    report = st.session_state["source_report"]
+    if report != ALL:
+        st.session_state["chart_report"] = report
+
+
 def reset_explore_filters(latest_report: str, *, overview: bool) -> None:
     st.session_state["search"] = ""
     if overview:
@@ -280,7 +313,7 @@ def reset_explore_filters(latest_report: str, *, overview: bool) -> None:
 
 def select_explore_airport(code: str) -> None:
     st.session_state["airport"] = ALL if st.session_state["airport"] == code else code
-    reset_explore_selection()
+    sync_explore_estimates()
 
 
 def select_explore_record(reference: str | None) -> None:
@@ -423,7 +456,7 @@ def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
     reports = sorted(sources, key=lambda matter: sources[matter]["period_end"], reverse=True)
     with report_column:
         report_option = st.selectbox(
-            "Report period", [*reports, ALL], key="source_report", on_change=reset_explore_selection,
+            "Report period", [*reports, ALL], key="source_report", on_change=sync_explore_estimates,
             format_func=lambda key: (
                 "All indexed reports" if key == ALL
                 else report_period(sources[key]["period_start"], sources[key]["period_end"])
@@ -431,7 +464,7 @@ def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
         )
     with airport_column:
         airport_option = st.selectbox(
-            "Airport", [ALL, *AIRPORTS, "Unknown"], key="airport", on_change=reset_explore_selection,
+            "Airport", [ALL, *AIRPORTS, "Unknown"], key="airport", on_change=sync_explore_estimates,
             format_func=lambda code: "All airports" if code == ALL else AIRPORTS.get(code, "Unknown airport"),
         )
     matter = None if report_option == ALL else report_option
@@ -645,10 +678,14 @@ reports = {source["matter_id"]: source for source in registry.catalog if source[
 latest_report = max(reports, key=lambda matter: reports[matter]["period_end"])
 report_route = st.query_params.get_all("report")
 range_route = st.query_params.get_all("range")
+airport_route = st.query_params.get_all("airport")
 if not st.session_state.get("explore_initialized"):
     if (len(report_route) == len(range_route) == 1
             and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS):
-        st.session_state.update(source_report=report_route[0], estimate_range=range_route[0], explore_browse=True)
+        st.session_state.update(source_report=report_route[0], chart_report=report_route[0],
+                                estimate_range=range_route[0], explore_browse=True)
+        if len(airport_route) == 1 and airport_route[0] in (*AIRPORTS, "Unknown"):
+            st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])
     st.session_state["explore_initialized"] = True
 
 explore_tab, _, coverage_tab, spending_tab = st.tabs([
@@ -662,11 +699,30 @@ with explore_tab:
         .st-key-explore-record-list button[data-testid^="stBaseButton"] { padding:.65rem .85rem; }
         :is(.st-key-explore-airports, .st-key-explore-estimates, .st-key-explore-record-list)
           button[data-testid^="stBaseButton"] p { overflow-wrap:anywhere; }
+        .st-key-estimate-ranking-layout { container: estimate-ranking / inline-size; }
+        @container estimate-ranking (max-width: 50rem) {
+          [data-testid="stHorizontalBlock"]:has(.st-key-ranked-record) { flex-direction:column; }
+          [data-testid="stHorizontalBlock"]:has(.st-key-ranked-record) > [data-testid="stColumn"] {
+            flex:none; width:100%; min-width:0;
+          }
+        }
+        .st-key-ranked-record :is([data-testid="stMetricLabel"], [data-testid="stMetricValue"],
+          [data-testid="stMetricLabel"] p, [data-testid="stMetricValue"] > div) {
+          white-space:normal; overflow:visible; overflow-wrap:anywhere; text-overflow:clip;
+        }
+        .st-key-ranked-record .mia-ranked-brief { margin:0; overflow-wrap:anywhere; }
+        .st-key-ranked-evidence-links a { color:#245587; padding:.25rem .5rem; min-height:2.75rem; }
+        .st-key-ranked-evidence-links a p { color:inherit; font-size:.875rem; text-decoration:underline; }
+        .st-key-ranked-evidence-links a:is(:hover,:focus-visible) { color:#183e67; }
         </style>
     """)
     render_directory(registry, latest_report=latest_report)
-    with st.expander("Estimate ranges and interactive ranking"):
-        render_insights(registry)
+    if st.session_state.get("airport", ALL) != ALL:
+        st.subheader("Estimate ranges and interactive ranking")
+        render_insights(registry, show_ranking=True)
+    else:
+        with st.expander("Estimate ranges and interactive ranking"):
+            render_insights(registry)
 with coverage_tab:
     render_coverage(registry)
 with spending_tab:
