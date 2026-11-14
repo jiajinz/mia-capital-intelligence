@@ -2,6 +2,9 @@
 
 import os
 import sys
+from collections import Counter
+from datetime import date
+from decimal import Decimal
 from hashlib import sha256
 from html import escape
 from pathlib import Path
@@ -20,7 +23,7 @@ from mia_capital_intelligence.directory_queries import (  # noqa: E402
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
-    EstimateRanking, estimate_figure, largest_estimates, selected_source_ref,
+    CHART_NAMES, EstimateRanking, estimate_figure, largest_estimates, selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
 
@@ -29,6 +32,9 @@ CASE_REFS = (
     "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:65",
     "260526:eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878:B:11:64",
 )
+EXPLORE_PAGE_SIZE = 5
+ESTIMATE_SORT = "Reported estimate, highest first"
+ALL = "all"
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
 
@@ -43,15 +49,26 @@ def report_label(source: dict) -> str:
     return f"{source['period_start']} to {source['period_end']} · {source['matter_id']}"
 
 
+def report_period(start: str, end: str) -> str:
+    first, last = date.fromisoformat(start), date.fromisoformat(end)
+    if first.year == last.year:
+        return f"{first:%b}–{last:%b %Y}"
+    return f"{first:%b %Y}–{last:%b %Y}"
+
+
 def profile_permalink(source_ref: str) -> str:
     return "?" + urlencode({"record": source_ref})
 
 
 def render_project_brief(detail: dict, *, expanded: bool) -> None:
     delivery = detail["delivery"]
+    has_brief = detail["project_brief"] != detail["project_name"]
+    if not has_brief and not delivery:
+        return
     title = "Project brief and delivery team" if delivery and (delivery.lead or delivery.award) else "Project brief"
     with st.expander(title, expanded=expanded):
-        st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
+        if has_brief:
+            st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
         st.markdown(f"**Reporting agency** · {detail['reporting_agency']}")
         if delivery is None:
             return
@@ -127,8 +144,9 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
     detail = source_detail(registry, source_ref)
     source = detail["source"]
     with st.container(border=True):
-        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(source)}")
         st.subheader(detail["project_name"])
+        period = report_period(source["period_start"], source["period_end"])
+        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
         st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
         st.link_button(
             f"Open official PDF · page {detail['pdf_page']}",
@@ -136,8 +154,10 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
         )
         st.link_button("Open profile permalink", profile_permalink(detail["source_ref"]))
         render_project_brief(detail, expanded=True)
-        with st.expander("Original wording and evidence"):
+        with st.expander("Report and source details"):
             st.write(source["title"])
+            st.caption(f"{detail['reporting_agency']} · Matter {source['matter_id']} · Exhibit B")
+            st.caption(f"Report coverage · {source['period_start']} to {source['period_end']}")
             st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
             st.caption("Coverage follows the memorandum. The project-data snapshot date is unconfirmed.")
             st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
@@ -187,9 +207,8 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
 
 
 def render_insights(registry: PublicRegistry) -> None:
-    st.subheader("How large are the reported estimates?")
     sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
-    matter = st.selectbox("Report period", list(reversed(sources)),
+    matter = st.selectbox("Chart report period", list(reversed(sources)),
                           format_func=lambda key: report_label(sources[key]), key="chart_report")
     source = sources[matter]
     render_estimate_distribution(largest_estimates(registry, matter), source)
@@ -243,77 +262,139 @@ def render_estimate_ranking(registry: PublicRegistry, matter: str, source: dict)
             column_config={"Official evidence": st.column_config.LinkColumn("Official evidence")})
 
 
-def render_directory(registry: PublicRegistry) -> None:
-    sources = {row["matter_id"]: row for row in registry.catalog}
-    st.subheader("Project directory")
-    query = st.text_input(
-        "Search project ID, name or facility",
-        placeholder="Try CA176A, chiller, boarding bridges or TMB",
-        key="search",
-    )
-    airport_column, report_column, sort_column = st.columns([1, 2, 2])
-    with airport_column:
-        airport = st.selectbox(
-            "Airport", [None, *AIRPORTS, "Unknown"], key="airport",
-            format_func=lambda code: (
-                "All airports" if code is None else
-                "Unknown airport" if code == "Unknown" else f"{code} · {AIRPORTS[code]}"
-            ),
+def reset_explore_selection() -> None:
+    st.session_state.pop("explore_record", None)
+    st.session_state.pop("selected_record", None)
+    st.session_state["explore_limit"] = EXPLORE_PAGE_SIZE
+
+
+def reset_explore_filters(latest_report: str, *, overview: bool) -> None:
+    st.session_state["search"] = ""
+    if overview:
+        st.session_state["estimate_range"] = None
+        st.session_state["explore_browse"] = False
+        if st.session_state["source_report"] == ALL:
+            st.session_state["source_report"] = latest_report
+    reset_explore_selection()
+
+
+def select_explore_airport(code: str) -> None:
+    st.session_state["airport"] = ALL if st.session_state["airport"] == code else code
+    reset_explore_selection()
+
+
+def select_explore_record(reference: str | None) -> None:
+    st.session_state["explore_record"] = reference
+
+
+def browse_explore_records() -> None:
+    st.session_state["explore_browse"] = True
+    reset_explore_selection()
+
+
+def show_more_records() -> None:
+    st.session_state["explore_limit"] = st.session_state.get("explore_limit", EXPLORE_PAGE_SIZE) + EXPLORE_PAGE_SIZE
+
+
+def render_airport_overview(registry: PublicRegistry, matter: str, airport: str | None, coverage: str) -> None:
+    population = search_records(registry, DirectoryFilters(matter_id=matter, sort=ESTIMATE_SORT))
+    scoped = [row for row in population if airport is None or (row["airport_code"] or "Unknown") == airport]
+    st.subheader("Airport overview")
+    st.caption(f"{len(scoped)} of {len(population)} indexed source records · {coverage}")
+    counts = Counter(row["airport_code"] or "Unknown" for row in population)
+    top_estimates = [row for row in scoped if row["estimate_usd"] is not None][:3]
+    geography, estimates = st.columns([1, 1.3], gap="medium")
+    with geography, st.container(border=True, key="explore-airports"):
+        st.markdown("**Indexed records by airport**")
+        for code, name in (*AIRPORTS.items(), ("Unknown", "Unknown airport")):
+            st.button(
+                f"{name} · {counts[code]}", key=f"browse-airport-{code}", width="stretch",
+                type="primary" if airport == code else "secondary", disabled=not counts[code],
+                on_click=select_explore_airport, args=(code,),
+            )
+        noun = "source record" if len(scoped) == 1 else "source records"
+        st.button(
+            f"Browse {len(scoped)} {noun}", key="browse-records", on_click=browse_explore_records,
         )
-    with report_column:
-        matter = st.selectbox(
-            "Source report", [None, *[key for key, row in sources.items() if row["indexed_record_count"]]],
-            format_func=lambda key: "All indexed reports" if key is None else report_label(sources[key]),
-            key="source_report",
-        )
-    with sort_column:
-        sort = st.selectbox("Sort records", list(SORTS), key="sort")
-    results = search_records(registry, DirectoryFilters(query, airport, matter, sort))
-    if matter is not None:
-        band = st.selectbox(
-            "Reported estimate range", [None, *ESTIMATE_BANDS], key="estimate_range",
-            format_func=lambda value: value or "All estimates",
-        )
-        if band is not None:
-            results = [row for row in results if estimate_band(row["estimate_usd"]) == band]
-    indexed_count = sources[matter]["indexed_record_count"] if matter else len(registry.records)
-    st.caption(
-        f"{len(results)} matching source records of {indexed_count} indexed records."
-    )
-    if not results:
-        st.info("No source records match these filters. Try a shorter keyword or select all airports and reports.")
-        return
+    selected = st.session_state.get("explore_record")
+    with estimates, st.container(border=True, key="explore-estimates"):
+        st.markdown("**Largest reported estimates**")
+        if not top_estimates:
+            st.caption("No reported estimates for the selected airport.")
+        for row in top_estimates:
+            reference = row["source_ref"]
+            label = CHART_NAMES.get(row["project_id"], row["project_name"])
+            st.button(
+                f"{escape(label)} · {usd_button_label(row['estimate_usd'])}", key=f"ranked-{reference}",
+                width="stretch", type="primary" if selected == reference else "secondary",
+                on_click=select_explore_record, args=(reference,),
+            )
+    if selected in {row["source_ref"] for row in top_estimates}:
+        render_detail(registry, selected)
+
+
+def usd_button_label(value: Decimal | None) -> str:
+    # Escape the dollar sign for Streamlit's Markdown widget labels.
+    return format_usd(value).replace("$", r"\$")
+
+
+def render_result_table(records: list[dict], selected: str | None) -> str | None:
     frame = pd.DataFrame([
         {"Project ID": row["project_id"], "Reported project description": row["project_name"],
          "Airport": row["airport_code"] or "Unknown",
          "Reporting period": f"{row['period_start']} to {row['period_end']}",
          "Reported estimate (USD)": format_usd(row["estimate_usd"]),
          "Source": row["matter_id"], "PDF page": row["pdf_page"]}
-        for row in results
+        for row in records
     ])
-    refs = [row["source_ref"] for row in results]
-    by_ref = {row["source_ref"]: row for row in results}
-    selected = st.selectbox(
-        "Open a source record", refs,
+    st.dataframe(
+        frame, hide_index=True, height=min(330, 40 + 35 * len(records)), width="stretch",
+        column_config={
+            "Reported project description": st.column_config.TextColumn(width="large"),
+            "Reporting period": st.column_config.TextColumn(width="medium"),
+        },
+    )
+    by_ref = {row["source_ref"]: row for row in records}
+    refs = list(by_ref)
+    return st.selectbox(
+        "Open a source record", refs, index=refs.index(selected) if selected in by_ref else None,
         format_func=lambda ref: (
             f"{by_ref[ref]['project_id']} · {by_ref[ref]['matter_id']} · "
-            f"{by_ref[ref]['project_name'][:110]}"
+            f"{by_ref[ref]['project_name']}"
         ),
         key="selected_record",
     )
-    render_detail(registry, selected)
-    with st.expander("View matching records"):
-        st.dataframe(
-            frame, hide_index=True, height=min(330, 40 + 35 * len(results)), width="stretch",
-            column_config={
-                "Reported project description": st.column_config.TextColumn(width="large"),
-                "Reporting period": st.column_config.TextColumn(width="medium"),
-            },
-        )
-    with st.expander("Compare two records from one report"):
-        if matter is None or len(refs) < 2:
-            st.caption("Select one source report and use filters that leave at least two records.")
-        else:
+
+
+def render_explore_results(registry: PublicRegistry, records: list[dict], matter: str | None) -> None:
+    by_ref = {row["source_ref"]: row for row in records}
+    refs = list(by_ref)
+    selected = st.session_state.get("explore_record")
+    if st.toggle("View as table", key="explore_table"):
+        selected = render_result_table(records, selected)
+        select_explore_record(selected)
+    else:
+        limit = st.session_state.get("explore_limit", EXPLORE_PAGE_SIZE)
+        with st.container(key="explore-record-list"):
+            for row in records[:limit]:
+                reference = row["source_ref"]
+                period = report_period(row["period_start"], row["period_end"])
+                label = (
+                    f"**{escape(row['project_name'])}**  \n"
+                    f"{row['project_id']} · {row['airport_name']} · {period} · "
+                    f"**{usd_button_label(row['estimate_usd'])}**"
+                )
+                st.button(
+                    label, key=f"record-{reference}", width="stretch",
+                    type="primary" if selected == reference else "secondary",
+                    on_click=select_explore_record, args=(reference,),
+                )
+        if len(records) > limit:
+            st.button("Show more results", key="explore-more", on_click=show_more_records)
+    if selected in by_ref:
+        render_detail(registry, selected)
+    if matter is not None and len(refs) >= 2:
+        with st.expander("Compare two records from one report"):
             key = sha256(repr(refs).encode()).hexdigest()[:16]
             pair = st.multiselect(
                 "Choose two source records", refs, max_selections=2, key=f"same-report-pair-{key}",
@@ -324,6 +405,79 @@ def render_directory(registry: PublicRegistry) -> None:
                 for column, reference in zip(st.columns(2), pair, strict=True):
                     with column:
                         render_record_summary(registry, reference, show_scope=True)
+
+
+def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
+    sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
+    st.title("MIA Capital Intelligence")
+    st.caption("Explore airport improvements and reported project costs.")
+    with st.form("explore-search", border=False):
+        search_column, search_button = st.columns([5, 1], vertical_alignment="bottom")
+        with search_column:
+            query = st.text_input(
+                "Search projects", placeholder="Concourse D, chiller, or X078A", key="search",
+            ).strip()
+        with search_button:
+            st.form_submit_button("Search", type="primary", on_click=reset_explore_selection, width="stretch")
+    report_column, airport_column = st.columns([1, 1])
+    reports = sorted(sources, key=lambda matter: sources[matter]["period_end"], reverse=True)
+    with report_column:
+        report_option = st.selectbox(
+            "Report period", [*reports, ALL], key="source_report", on_change=reset_explore_selection,
+            format_func=lambda key: (
+                "All indexed reports" if key == ALL
+                else report_period(sources[key]["period_start"], sources[key]["period_end"])
+            ),
+        )
+    with airport_column:
+        airport_option = st.selectbox(
+            "Airport", [ALL, *AIRPORTS, "Unknown"], key="airport", on_change=reset_explore_selection,
+            format_func=lambda code: "All airports" if code == ALL else AIRPORTS.get(code, "Unknown airport"),
+        )
+    matter = None if report_option == ALL else report_option
+    airport = None if airport_option == ALL else airport_option
+    band = st.session_state.get("estimate_range") if matter is not None else None
+    source = sources.get(matter)
+    coverage = report_period(source["period_start"], source["period_end"]) if source else f"{len(sources)} indexed reports"
+    if query or st.session_state.get("explore_browse") or matter is None or band:
+        render_directory_matches(registry, query, airport, matter, coverage, latest_report)
+    else:
+        render_airport_overview(registry, matter, airport, coverage)
+    matters = f"Matter {matter}" if matter else "Matters " + ", ".join(reports)
+    st.caption(f"Miami-Dade Aviation Department · Exhibit B · {matters}")
+
+
+def render_directory_matches(
+    registry: PublicRegistry, query: str, airport: str | None, matter: str | None,
+    coverage: str, latest_report: str,
+) -> None:
+    sort_column, range_column = st.columns(2)
+    with sort_column:
+        sort = st.selectbox(
+            "Sort records", list(SORTS), index=list(SORTS).index(ESTIMATE_SORT), key="sort",
+            on_change=reset_explore_selection,
+        )
+    band = None
+    if matter is not None:
+        with range_column:
+            band = st.selectbox(
+                "Reported estimate range", [None, *ESTIMATE_BANDS], key="estimate_range",
+                format_func=lambda value: value or "All estimates", on_change=reset_explore_selection,
+            )
+    records = search_records(registry, DirectoryFilters(query, airport, matter, sort))
+    if band is not None:
+        records = [row for row in records if estimate_band(row["estimate_usd"]) == band]
+    st.subheader("Search results" if query else "Project records")
+    noun = "source record" if len(records) == 1 else "source records"
+    st.caption(f"{len(records)} matching {noun} · {coverage}")
+    st.button(
+        "Clear search" if query else "Back to overview", key="explore-back",
+        on_click=reset_explore_filters, args=(latest_report,), kwargs={"overview": not query},
+    )
+    if records:
+        render_explore_results(registry, records, matter)
+    else:
+        st.info("No source records match these filters. Try a shorter keyword or select all airports and reports.")
 
 
 def render_coverage(registry: PublicRegistry) -> None:
@@ -470,15 +624,15 @@ def render_contract_spending(view: FinancialView) -> None:
             st.caption("Airport attribution is unresolved because the financial and summary descriptions differ.")
 
 
-st.title("MIA Capital Intelligence")
-st.caption("Airport Infrastructure & Capital Projects Explorer")
 try:
     registry = published_registry()
 except (ValueError, OSError, KeyError):
+    st.title("MIA Capital Intelligence")
     st.error("The published data could not be validated. Project records are unavailable until the data is repaired.")
     st.stop()
 
 if "record" in st.query_params:
+    st.title("MIA Capital Intelligence")
     requested = st.query_params.get_all("record")
     st.link_button("Browse project records", "?")
     if len(requested) == 1 and any(row.source_ref == requested[0] for row in registry.records):
@@ -487,22 +641,32 @@ if "record" in st.query_params:
         st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
     st.stop()
 
-reports = {source["matter_id"] for source in registry.catalog if source["indexed_record_count"]}
+reports = {source["matter_id"]: source for source in registry.catalog if source["indexed_record_count"]}
+latest_report = max(reports, key=lambda matter: reports[matter]["period_end"])
 report_route = st.query_params.get_all("report")
 range_route = st.query_params.get_all("range")
-browse_range = (len(report_route) == len(range_route) == 1
-                and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS)
-if browse_range:
-    st.session_state.setdefault("source_report", report_route[0])
-    st.session_state.setdefault("estimate_range", range_route[0])
+if not st.session_state.get("explore_initialized"):
+    if (len(report_route) == len(range_route) == 1
+            and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS):
+        st.session_state.update(source_report=report_route[0], estimate_range=range_route[0], explore_browse=True)
+    st.session_state["explore_initialized"] = True
 
-directory_tab, insights_tab, coverage_tab, spending_tab = st.tabs([
-    "Project directory", "Visual insights", "Sources & methodology", "Contract spending history",
-], default="Project directory" if browse_range else "Visual insights")
-with directory_tab:
-    render_directory(registry)
-with insights_tab:
-    render_insights(registry)
+explore_tab, _, coverage_tab, spending_tab = st.tabs([
+    "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+], default="Explore")
+with explore_tab:
+    st.html("""
+        <style>
+        :is(.st-key-explore-airports, .st-key-explore-estimates, .st-key-explore-record-list)
+          button[data-testid^="stBaseButton"] { justify-content:flex-start; text-align:left; }
+        .st-key-explore-record-list button[data-testid^="stBaseButton"] { padding:.65rem .85rem; }
+        :is(.st-key-explore-airports, .st-key-explore-estimates, .st-key-explore-record-list)
+          button[data-testid^="stBaseButton"] p { overflow-wrap:anywhere; }
+        </style>
+    """)
+    render_directory(registry, latest_report=latest_report)
+    with st.expander("Estimate ranges and interactive ranking"):
+        render_insights(registry)
 with coverage_tab:
     render_coverage(registry)
 with spending_tab:

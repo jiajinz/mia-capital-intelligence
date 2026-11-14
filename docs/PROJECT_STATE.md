@@ -21,3 +21,9 @@
 - The full local suite passed 166 tests with the pinned PDFs. Browser checks covered the report-scoped directory, comparison links, financial explanation and 390 CSS pixel layout.
 - The local project view shows the selected record's brief and reporting agency. Unverified delivery roles are omitted. Four exact source rows across the two quarterly reports link to two dated Board awards: Satellite E New Chiller Plant and South Terminal Expansion East Phase 1 (Concourse K). Each profile cites the award memo for the named manager and the adopted resolution for the contractor. The procurement enrichment is ready for source review before public rollout. The quarterly registry and financial slice are unchanged.
 - All 167 tests passed with the pinned study PDFs. Browser checks verified both dated awards and the omission of undocumented roles after selecting V008B.
+
+## Issue #3 — Explore readability and search
+
+- The `codex/issue-3-readability-search` branch starts at the merged portfolio explorer, `5f39ab2`. Explore opens with search and defaults to the most recent indexed quarterly report. The all-reports filter exposes separate observations from each report. Users can browse the records in an airport, choose a record in the list or table, and open its profile permalink or official PDF page.
+- The Dashboard tab is reserved for Issue #4. The existing estimate tools are expandable in Explore. The source coverage and contract spending tabs retain their respective source and review requirements.
+- All 168 tests passed with the pinned study PDFs. Desktop and 390 CSS pixel browser checks covered search, filtering, result selection, evidence links and the empty Dashboard.

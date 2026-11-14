@@ -37,6 +37,14 @@ The local preview includes two procurement records for source review before publ
 
 Each dated observation is bound to an exact quarterly source reference. These bindings leave cross-report identities and financial comparisons unchanged. The profile omits contact details. The V008B and T180B searches did not produce equivalent evidence for either role.
 
+## Issue #3 review
+
+Explore prioritizes search and the selected report's airport overview. Search results and airport browsing use the same published source records as the optional exact-values table. The profile permalink identifies the full document version and row, and the official PDF link identifies the corresponding page.
+
+Browser verification covered X078A across both reports, with separate links to matter 261402 p. 13 and matter 260526 p. 12. At 390 CSS pixels, the latest-report TMB filter produced AA022A, BA001A and W125A with no page-wide overflow. Selecting AA022A and switching between list and table kept the same profile permalink, which opened the exact observation in a fresh route. The existing $100M range link opened 16 matching records for matter 261402. Dashboard displayed an empty panel, and the source and gated spending views opened from the tab bar.
+
+All 168 tests passed with the pinned study PDFs. The registry check reported 222 observations across two indexed reports and 107 unverified candidate links. The financial input and quarterly registry match their deployed versions.
+
 ## Stage 2C implementation and independent handoff
 
 Stage 2C and its three production slices received approval on November 8, 2026. The authorized inputs are July 261147 p. 28 and summaries pp. 19–20, August 261399 p. 29 and summaries pp. 20–21, and September 261400 p. 30 and summaries pp. 21–22. FINANCIAL_FEASIBILITY.md records the source versions, full hashes and reported-month meaning.

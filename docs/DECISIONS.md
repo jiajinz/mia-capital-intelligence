@@ -123,3 +123,9 @@ Explain cumulative spending using the prior expenditures reported in July, the s
 Use the selected quarterly source row for the project brief. Apply plain-language copy only when both the project token and the indexed description match. Use the normalized original description for other rows. Show the publishing agency separately. Omit each delivery role from the profile when that role is unknown. For a documented role, show the evidence and date. A manager named in an award memo represents the assignment documented at that time. An adopted award applies to a specific contract and scope.
 
 Bind award evidence to the exact quarterly document version and row after checking the contract's project identifier and scope. Treat the binding as evidence for that record only. The local preview uses Board matters 252233 and 250831. Review the added procurement sources before public rollout; they do not expand the quarterly registry or financial slice.
+
+## D017 — Search first in Explore
+
+The owner approved the Explore mockup for Issue #3. Open on Explore and place the project search above the airport overview. Default to the latest indexed report. Offer an explicit all-reports selection for finding source records across both periods, and identify each result by its exact versioned reference. The airport overview uses one report and opens a list scoped to the selected report and airport. Results show the full project name, reported estimate, airport, project ID and reporting period. Keep the exact-values table as an optional view. Lead the record card with the estimate and official source links, with report metadata and raw evidence available on demand.
+
+Keep the Dashboard tab empty while its analytics are being designed for Issue #4. Keep the existing estimate ranking in an expandable Explore section. Retain the Sources & methodology and Contract spending history views. Ordinary financial display requires the independent attestation.
