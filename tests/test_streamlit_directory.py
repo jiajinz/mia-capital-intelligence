@@ -25,29 +25,49 @@ def visible_copy(result):
     )
 
 
+def search(result, term):
+    result.text_input(key="search").input(term)
+    return result.button(key="FormSubmitter:explore-search-Search").click().run()
+
+
+def record_buttons(result):
+    return [button for button in result.tabs[0].button if (button.key or "").startswith("record-")]
+
+
+def advanced_estimates(result):
+    return next(item for item in result.tabs[0].expander if item.label == "Estimate ranges and interactive ranking")
+
+
 def test_directory_renders_controlled_records_and_public_context():
     result = app()
-    assert result.dataframe[0].value.shape[0] == 222
+    assert [tab.label for tab in result.tabs] == [
+        "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+    ]
+    assert not result.tabs[1].children
+    assert result.selectbox(key="source_report").value == "261402"
+    assert result.button(key="browse-records").label == "Browse 112 source records"
     copy = visible_copy(result)
     assert "222 source records" in copy
-    assert "Airport Infrastructure & Capital Projects Explorer" in copy
+    assert "Explore airport improvements and reported project costs." in copy
     assert "No affiliation with MDAD or HNTB" not in copy
-    assert "Project directory" in copy
+    assert "Airport overview" in copy
     assert "cross-report identities remain unresolved" in copy.lower()
 
 
 def test_real_search_to_detail_preserves_estimate_and_official_page():
-    result = app()
-    result.text_input(key="search").input("CA176A").run()
+    result = search(app(), "CA176A")
     assert not result.exception
-    assert result.dataframe[0].value.shape[0] == 2
+    assert len(record_buttons(result)) == 1
+    record_buttons(result)[0].click().run()
+    assert not result.exception
     assert result.metric[0].value == "$ 3,191,832"
     assert any("MIA E Satellite Terminal Seating Ph2" == row.value for row in result.subheader)
     links = result.get("link_button")
     assert any(row.proto.url.endswith("/261402.pdf#page=12") for row in links)
     copy = visible_copy(result)
     assert "Same ID in another report" in "\n".join(row.label for row in result.expander)
-    assert "original source-row text" in copy.lower() or "original source-row" in copy.lower() or "original project description" in copy.lower()
+    evidence = next(item for item in result.tabs[0].expander if item.label == "Report and source details")
+    assert "Original project description" in visible_copy(evidence)
     assert "cost_growth" not in copy and "cost overrun" not in copy
 
 
@@ -57,7 +77,8 @@ def test_project_brief_shows_sourced_roles_and_hides_missing_roles_on_selection(
         ("U010D-I", "Ricardo Lopez", "Magnum Construction Management, LLC", "U010D-1", "252233"),
         ("X078A", "Joachim Perez", "Lemartec-NV2A JV, LLC", "DB23AV01", "250831"),
     ):
-        result.text_input(key="search").input(project).run()
+        search(result, project)
+        record_buttons(result)[0].click().run()
         assert not result.exception
         brief = next(item for item in result.tabs[0].expander if item.label == "Project brief and delivery team")
         copy = visible_copy(brief)
@@ -67,7 +88,8 @@ def test_project_brief_shows_sourced_roles_and_hides_missing_roles_on_selection(
         assert f"/Y2025/{matter_id}.pdf#page=5" in copy
         assert f"matter={matter_id}&yearFolder=Y2025" in copy
 
-    result.text_input(key="search").input("V008B").run()
+    search(result, "V008B")
+    record_buttons(result)[0].click().run()
     assert not result.exception
     directory = result.tabs[0]
     brief = next(item for item in directory.expander if item.label == "Project brief")
@@ -80,19 +102,60 @@ def test_project_brief_shows_sourced_roles_and_hides_missing_roles_on_selection(
 
 def test_airport_and_source_filters_work():
     result = app()
-    result.selectbox(key="airport").set_value("TMB").run()
+    result.button(key="browse-airport-TMB").click().run()
     assert not result.exception
-    assert result.dataframe[0].value.shape[0] == 6
-    assert set(result.dataframe[0].value["Airport"]) == {"TMB"}
-    result.selectbox(key="source_report").set_value("261402").run()
+    assert result.selectbox(key="airport").value == "TMB"
+    assert result.selectbox(key="chart_airport").value == "TMB"
+    explore = result.tabs[0]
+    assert any(heading.value == "Estimate ranges and interactive ranking" for heading in explore.subheader)
+    assert all(item.label != "See the largest estimates" for item in explore.expander)
+    assert "3 largest of 3 matching source records" in visible_copy(explore)
+    assert any("range=%2450M+to+under+%24100M&amp;airport=TMB" in item.proto.body for item in explore.get("html"))
+    assert result.button(key="browse-records").label == "Browse 3 source records"
+    result.button(key="browse-records").click().run()
+    assert not result.exception
+    assert len(record_buttons(result)) == 3
+    assert all("Miami Executive Airport · Jan–Mar 2026" in row.label for row in record_buttons(result))
+    result.toggle(key="explore_table").set_value(True).run()
     assert not result.exception
     assert result.tabs[0].dataframe[0].value.shape[0] == 3
-    assert result.selectbox(key="selected_record").value.startswith("261402:")
+    assert set(result.tabs[0].dataframe[0].value["Airport"]) == {"TMB"}
+    result.selectbox(key="source_report").set_value("all").run()
+    assert result.tabs[0].dataframe[0].value.shape[0] == 6
+
+
+def test_all_reports_preserves_distinct_source_links_across_result_views():
+    result = search(app(), "X078A")
+    assert len(record_buttons(result)) == 1
+    result.selectbox(key="source_report").set_value("all").run()
+    buttons = record_buttons(result)
+    assert len(buttons) == 2
+    for button, matter, page, display_period in zip(buttons, ("261402", "260526"), (13, 12),
+                                                  ("Jan–Mar 2026", "Oct–Dec 2025"), strict=True):
+        assert display_period in button.label
+        result.button(key=button.key).click().run()
+        assert not result.exception
+        links = result.tabs[0].get("link_button")
+        official = next(row.proto.url for row in links if row.proto.label.startswith("Open official PDF"))
+        assert official.endswith(f"/{matter}.pdf#page={page}")
+        expected = button.key.removeprefix("record-")
+        profile = next(row.proto.url for row in links if row.proto.label == "Open profile permalink")
+        assert parse_qs(urlsplit(profile).query)["record"] == [expected]
+    result.toggle(key="explore_table").set_value(True).run()
+    assert not result.exception
+    assert result.selectbox(key="selected_record").value == buttons[-1].key.removeprefix("record-")
+    assert result.tabs[0].dataframe[0].value["Source"].tolist() == ["261402", "260526"]
+    result.selectbox(key="source_report").set_value("261402").run()
+    assert not result.exception
+    assert result.selectbox(key="selected_record").value is None
 
 
 def test_unknown_airport_records_and_missing_fields_remain_visible():
     result = app()
+    result.selectbox(key="source_report").set_value("all").run()
     result.selectbox(key="airport").set_value("Unknown").run()
+    record_buttons(result)[0].click().run()
+    result.toggle(key="explore_table").set_value(True).run()
     assert not result.exception
     assert result.dataframe[0].value.shape[0] == 15
     assert set(result.dataframe[0].value["Airport"]) == {"Unknown"}
@@ -100,10 +163,10 @@ def test_unknown_airport_records_and_missing_fields_remain_visible():
 
 
 def test_empty_search_has_meaningful_message_and_keeps_source_catalog():
-    result = app()
-    result.text_input(key="search").input("not-a-real-project-xyz").run()
+    result = search(app(), "not-a-real-project-xyz")
     assert not result.exception
-    assert len(result.tabs[0].metric) == 0
+    assert not record_buttons(result)
+    assert all(item.label != "Report and source details" for item in result.tabs[0].expander)
     assert "No source records match these filters" in visible_copy(result)
     assert result.tabs[2].dataframe[0].value.shape[0] == 3
 
@@ -164,7 +227,7 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
 
 def test_chart_filters_and_accessible_selection_open_original_record():
     result = app()
-    assert len(result.tabs[1].get("plotly_chart")) == 1
+    assert len(advanced_estimates(result).get("plotly_chart")) == 1
     assert "10 largest of 112 matching" in visible_copy(result)
     result.selectbox(key="chart_airport").set_value("TMB").run()
     assert not result.exception
@@ -175,12 +238,12 @@ def test_chart_filters_and_accessible_selection_open_original_record():
     selector.set_value(reference).run()
     assert next(row for row in result.selectbox if row.label == "Explore a chart record").value == reference
     assert not result.exception
-    assert result.tabs[1].metric[0].value
+    assert advanced_estimates(result).metric[0].value
     result.selectbox(key="chart_report").set_value("260526").run()
     assert "110 indexed rows" in visible_copy(result)
     result.text_input(key="chart_search").input("not-a-real-project").run()
     assert not result.exception
-    assert not result.tabs[1].get("plotly_chart")
+    assert not advanced_estimates(result).get("plotly_chart")
     assert "No known cost estimates" in visible_copy(result)
 
 
@@ -206,17 +269,17 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     registry = load_registry()
     reference = next(row.source_ref for row in registry.records
                      if row.matter_id == "261402" and row.project_id == "V008B")
-    result = app()
-    result.text_input(key="search").input("CA176A").run()
-    directory_ref = result.selectbox(key="selected_record").value
+    result = search(app(), "CA176A")
+    button = record_buttons(result)[0]
+    directory_ref = button.key.removeprefix("record-")
+    button.click().run()
     monkeypatch.setattr(st, "plotly_chart", lambda *args, **kwargs: {
         "selection": {"points": [{"customdata": [reference]}]},
     })
     result.run()
     assert not result.exception and not result.query_params.get("record")
-    for tab, expected in zip(result.tabs[:2], (directory_ref, reference), strict=True):
-        link = next(row for row in tab.get("link_button") if row.proto.label == "Open profile permalink")
-        assert parse_qs(urlsplit(link.proto.url).query) == {"record": [expected]}
+    explore_links = [row for row in result.tabs[0].get("link_button") if row.proto.label == "Open profile permalink"]
+    assert [parse_qs(urlsplit(link.proto.url).query)["record"][0] for link in explore_links] == [directory_ref, reference]
 
     linked = AppTest.from_file(APP, default_timeout=15)
     linked.query_params["record"] = reference
@@ -228,7 +291,7 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
 
 def test_estimate_distribution_opens_same_report_directory_and_pair():
     result = app()
-    chart = result.tabs[1].get("html")[0].proto.body
+    chart = advanced_estimates(result).get("html")[0].proto.body
     range_link = re.search(r'href="([^"]+)"[^>]+aria-label="\$100M or more · 16 records"', chart)
     assert range_link
     params = parse_qs(urlsplit(unescape(range_link.group(1))).query)
@@ -239,6 +302,7 @@ def test_estimate_distribution_opens_same_report_directory_and_pair():
         linked.query_params[name] = values[0]
     linked.run()
     assert not linked.exception
+    linked.toggle(key="explore_table").set_value(True).run()
     directory = linked.tabs[0]
     assert directory.dataframe[0].value.shape[0] == 16
     selection = directory.multiselect[0]
@@ -250,7 +314,7 @@ def test_estimate_distribution_opens_same_report_directory_and_pair():
     assert {"$ 1,066,231,593", "$ 896,021,864"} <= {metric.value for metric in directory.metric}
     assert all(ref.startswith("261402:") for ref in directory.multiselect[0].value)
 
-    linked.selectbox(key="source_report").set_value(None).run()
+    linked.selectbox(key="source_report").set_value("all").run()
     assert not linked.exception and not linked.tabs[0].multiselect
 
 

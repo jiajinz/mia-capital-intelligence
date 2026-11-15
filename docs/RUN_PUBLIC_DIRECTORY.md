@@ -26,16 +26,12 @@ The builder validates all three cataloged source versions, loads only the two ap
 
 ## Public acceptance walkthrough
 
-For a short portfolio walkthrough, start in Visual insights and open **$100M or more** for the January through March 2026 report. Compare V008B with T180B in the directory and open each official PDF. **See the largest estimates** opens the ranking and the chart record selector. In Contract spending history, open **How the cumulative amount adds up** for A19-MDAD-02. The Concourse D case in Sources & methodology links to both original reports and explains the outstanding scope question.
+1. Open the app in a fresh session. Explore starts on the January through March 2026 report (matter 261402), with 112 indexed source records. Search X078A. The default report has one match. Choose **All indexed reports** and confirm there are two matching source records.
+2. Open each X078A result. The newer observation links to matter 261402, PDF p. 13. The earlier observation links to matter 260526, PDF p. 12. Their profile permalinks carry different versioned references. **Report and source details** preserves the raw field and amount, printed page and data row.
+3. Return to the overview with the latest report selected. Choose Miami Executive (TMB) and browse the three matching records. Confirm the list and table show AA022A, BA001A and W125A. An unmatched search explains how to change the filters.
+4. Select Dashboard. The tab is empty. Sources & methodology displays 110, 112 and 0 indexed records for matters 260526, 261402 and 261400. Contract spending history uses the existing financial display gate.
 
-1. In Project directory, search CA176A. Expect two source records, one for each reporting period. Select the later 261402 record. Its original description is MIA E Satellite Terminal Seating Ph2 and its reported total estimated cost is 3,191,832 USD.
-2. Check the record's source coverage period, PDF p. 12, printed MDC012 and data row 41. Open Original wording and evidence to inspect the raw header, raw amount, description and checksum.
-3. Open the official PDF link. Its URL ends in /261402.pdf#page=12. Confirm that the county report opens at page 12 of 13. Expand the same-ID section to see the earlier record as an unverified candidate association. It supplies no financial change or confirmed project history.
-4. Clear the search and choose Unknown airport. Expect 15 source records. Choose TMB to see 6 records and filter to 261402 to see 3. Filtering changes the selectable record set as well as the table.
-5. Enter an unmatched search term. Expect an explanatory empty-result message and continued access to the Sources & methodology tab.
-6. In Sources & methodology, confirm 110, 112 and 0 indexed records for matters 260526, 261402 and 261400. Inspect the September report and its Cataloged only label. Review memo/acceptance dates, source URLs, indexed pages, checksum and limitations.
-
-The results table supports horizontal scrolling on narrow viewports. The source selector and individual detail provide the full name and evidence even when table columns are outside the viewport. Detailed work categories, construction status, standalone facility classifications and milestone values remain unindexed and are labeled accordingly.
+The list provides full names and direct record selection on small screens. The optional exact-values table supports horizontal scrolling. Topics such as construction status and milestone dates remain documented in the record's coverage and methodology.
 
 ## PyCharm debugging
 
@@ -45,18 +41,18 @@ For the data path, create a module configuration for mia_capital_intelligence.pu
 
 ## Validation evidence
 
-The Stage 1 baseline has 115 passing tests. Stage 2 adds analytical, financial-research and chart-interaction regression cases; see REVIEW_PACKET.md for the current full-suite result. Streamlit AppTest covers the original nine UI scenarios, covering default rendering, real search/detail, filters, unknown airport, empty results, catalog-only coverage, versioned record links, stale links and corrupt-input error handling. Those tests supplement browser checks.
+Run `.venv/bin/python -m pytest -q` for the regression suite. Streamlit AppTest covers default rendering, search and record selection, filters, unknown airports, empty results, catalog-only coverage, versioned record links, stale links and corrupt-input error handling. Those tests supplement browser checks.
 
 The app was also run on localhost, returned HTTP 200 and a healthy Streamlit response, and was inspected in the actual in-app browser. Browser actions verified CA176A search and source details, candidate wording, a direct official PDF opening at page 12, source coverage, an empty search and unknown-airport filtering. Screenshots are in docs/screenshots. They reflect the normal narrow in-app preview, with scrollable content. Other browsers, devices and Streamlit Community Cloud remain outside this verification pass.
 
 
 ## Stage 2 chart acceptance and debugging
 
-1. Open Visual insights. Confirm one selected report (default 261402), memo August 6, 2026, coverage January–March 2026 and unknown project-data freeze date. The default chart shows 10 of 112 matching report rows, with zero unknown estimates.
+1. Open the estimate charts in Explore. Confirm one selected report (default 261402), coverage January–March 2026 and a population of 112 matching report rows with zero unknown estimates.
 2. Confirm T180B leads at $1,066,231,593. Click the V008B bar and confirm the source profile changes to its $896,021,864 estimate, matter 261402, PDF p. 13, printed MDC013, data row 6. Open its official page link.
 3. Choose TMB. The matching population becomes three records in the same 112-row report. Choose report 260526 and confirm the denominator changes to 110. The chart never combines both reports. A filter-specific chart key prevents an old selection from carrying into a different population.
-4. Use Explore a chart record by keyboard as an alternative to clicking bars. Expand Chart values and source pages for full descriptions, exact amounts and official evidence links. Empty chart search has an explicit state; unknown airport records remain available.
-5. Confirm both directory and chart profiles show source dates, missing status/milestones, raw evidence and unresolved same-ID associations. The owner primary description is accompanied by a current-availability line so the roadmap is not mistaken for implemented progress/spending features.
+4. Use **Explore a chart record** by keyboard as an alternative to clicking bars. Open the exact-values view for full descriptions, exact amounts and official evidence links. An unmatched chart search has an explicit empty state.
+5. Open a source profile to verify the report dates, raw evidence, and unresolved same-ID associations. Estimate range links open the matching report and range in Explore.
 
 In PyCharm, keep the same repository-local interpreter and Streamlit module configuration. Break at estimate_insights.largest_estimates: inspect matter_id and DirectoryFilters before SQL executes. Step into directory_queries.search_records and examine DECIMAL(18,2), the bound report parameter, exact Decimal results and stable ordering. Back in largest_estimates, inspect snapshot_count, matching_count, missing_count and the limited rows. Break at estimate_figure to inspect exact customdata versus float bar coordinates. Break at selected_source_ref after clicking a bar, then render_detail to trace the same immutable key to the source page. AppTest exercises the event adapter using a simulated return value; actual chart clicks require a browser.
 
@@ -74,7 +70,7 @@ With the app running on the default loopback port, the V008B acceptance URL is:
 http://127.0.0.1:8501/?record=261402%3A84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a%3AB%3A13%3A6
 ```
 
-Search CA176A in the directory, then open Visual insights and click the V008B bar. Verify that the chart profile and its permalink agree on 261402, PDF p. 13, data row 6 and $896,021,864. The axis is USD millions. Exact dollar amounts are available in hover, the profile and the chart value table. The selector supports keyboard navigation. For a short viewport, the profile and its two links are directly below the chart selector. TMB has three matches in each report, with the separate 110 and 112 row denominators.
+Search CA176A in Explore, then open the estimate ranking and click the V008B bar. Verify that the chart profile and its permalink agree on 261402, PDF p. 13, data row 6 and $896,021,864. The axis is USD millions. Exact dollar amounts are available in hover, the profile and the chart value table. The selector supports keyboard navigation. TMB has three matches in each report, with the separate 110 and 112 row denominators.
 
 ## Stage 2C contract spending history
 

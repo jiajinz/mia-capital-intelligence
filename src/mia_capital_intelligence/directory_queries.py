@@ -27,7 +27,7 @@ PROJECT_BRIEFS = {
 SORTS = {
     "Project ID": "project_id ASC, period_start DESC, source_ref ASC",
     "Project name": "project_name ASC, period_start DESC, source_ref ASC",
-    "Reported estimate, highest first": "estimate_usd DESC NULLS LAST, project_id ASC, source_ref ASC",
+    "Reported estimate, highest first": "estimate_usd DESC NULLS LAST, project_id ASC, period_start DESC, source_ref ASC",
     "Report period, newest first": "period_start DESC, project_id ASC, source_ref ASC",
 }
 
