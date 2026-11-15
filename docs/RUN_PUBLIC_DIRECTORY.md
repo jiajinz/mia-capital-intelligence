@@ -41,7 +41,7 @@ For the data path, create a module configuration for mia_capital_intelligence.pu
 
 ## Validation evidence
 
-The Stage 1 baseline has 115 passing tests. Stage 2 adds analytical, financial-research and chart-interaction regression cases; see REVIEW_PACKET.md for the current full-suite result. Streamlit AppTest covers the original nine UI scenarios, covering default rendering, real search/detail, filters, unknown airport, empty results, catalog-only coverage, versioned record links, stale links and corrupt-input error handling. Those tests supplement browser checks.
+Run `.venv/bin/python -m pytest -q` for the regression suite. Streamlit AppTest covers default rendering, search and record selection, filters, unknown airports, empty results, catalog-only coverage, versioned record links, stale links and corrupt-input error handling. Those tests supplement browser checks.
 
 The app was also run on localhost, returned HTTP 200 and a healthy Streamlit response, and was inspected in the actual in-app browser. Browser actions verified CA176A search and source details, candidate wording, a direct official PDF opening at page 12, source coverage, an empty search and unknown-airport filtering. Screenshots are in docs/screenshots. They reflect the normal narrow in-app preview, with scrollable content. Other browsers, devices and Streamlit Community Cloud remain outside this verification pass.
 
