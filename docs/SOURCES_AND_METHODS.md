@@ -10,6 +10,8 @@ If the keyword search fails, the monitor also checks up to three recently posted
 
 The [data update log](DATA_UPDATES.md) lists current sources and subsequent discovery events. **Discovered** identifies a candidate file; its project and financial records enter the application only through a separate dataset update. Reporting periods come from the PDF's explicit report label or date range. Unknown periods remain unknown. Checks with no file changes leave the log unchanged.
 
+The source monitor downloads PDFs into temporary working storage. Newly discovered or revised file bytes are saved in the Actions artifact named `official-report-pdfs`, with a 30-day retention period. Repeat checks of unchanged known PDF addresses do not save another copy. The repository stores source links, hashes, metadata and accepted extracted records; raw PDFs are excluded from Git. Official PDF links remain available in the log and project profiles. Artifact storage is temporary; a permanent cloud archive is not configured.
+
 ## Availability
 
 A scheduled browser check visits the public app every six hours and verifies that project records load. Streamlit Community Cloud puts apps to sleep after 12 hours without traffic, and a sleeping app shows a wake-up button. Automated visits are a best-effort measure, and scheduled checks can be delayed or disabled after a public repository is inactive for 60 days. [Streamlit hosting](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app#app-hibernation) · [Scheduled checks](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)

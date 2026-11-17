@@ -20,6 +20,11 @@ on:
       - "data/discovery/**"
       - "docs/DATA_UPDATES.md"
       - "requirements-discovery.txt"
+      - "requirements-dev.txt"
+      - "pyproject.toml"
+      - "scripts/report_test_coverage.py"
+      - "tests/test_test_coverage.py"
+      - "tests/conftest.py"
 
 permissions:
   contents: read
@@ -41,7 +46,29 @@ jobs:
           python-version: "3.13"
       - run: python -m pip install -r requirements-discovery.txt -r requirements-dev.txt
       - name: Verify discovery, version history and publication controls
-        run: python -m pytest tests/test_discovery_sources.py tests/test_discovery_scan.py tests/test_discovery_publication.py
+        run: python -m coverage run -m pytest tests/test_discovery_sources.py tests/test_discovery_scan.py tests/test_discovery_publication.py tests/test_test_coverage.py
+      - name: Report discovery line and branch coverage
+        if: always()
+        env:
+          COVERAGE_INCLUDE: src/mia_capital_intelligence/discovery_*.py,scripts/discover_official_reports.py,scripts/publish_report_discovery.py
+        run: |
+          python -m coverage combine
+          python -m coverage json --include="$COVERAGE_INCLUDE" -o tmp/coverage/discovery.json
+          python -m coverage html --include="$COVERAGE_INCLUDE" --directory=tmp/coverage/discovery-html
+          python -m coverage xml --include="$COVERAGE_INCLUDE" -o tmp/coverage/discovery.xml
+          python scripts/report_test_coverage.py --input tmp/coverage/discovery.json --label "Issue 5 discovery code" --output tmp/coverage/discovery-summary.md
+      - name: Preserve coverage reports
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: discovery-test-coverage
+          path: |
+            tmp/coverage/discovery.json
+            tmp/coverage/discovery.xml
+            tmp/coverage/discovery-summary.md
+            tmp/coverage/discovery-html/
+          retention-days: 30
+          if-no-files-found: ignore
 
   scan:
     if: github.event_name != 'pull_request'
