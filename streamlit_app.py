@@ -551,6 +551,7 @@ def render_directory_matches(
 def render_coverage(registry: PublicRegistry) -> None:
     st.subheader("Sources & data coverage")
     st.caption("An independent data project. Underlying records are published by Miami-Dade County.")
+    st.markdown("[Data update history](https://github.com/jiajinz/mia-capital-intelligence/blob/main/docs/DATA_UPDATES.md)")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
         with st.expander("Case study · Concourse D west extension"):
             st.write(

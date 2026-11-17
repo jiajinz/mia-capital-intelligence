@@ -17,6 +17,8 @@ Explore airport improvements, reported project costs, and contract spending from
 
 [Sources & methodology](docs/SOURCES_AND_METHODS.md) explains what the reports cover, what each amount means, and how monthly and cumulative spending relate.
 
+[Data updates](docs/DATA_UPDATES.md) lists included PDFs and records newly discovered or revised official files, with reporting periods and source links.
+
 ## Run locally
 
 ```bash
