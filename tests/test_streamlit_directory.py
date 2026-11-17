@@ -43,7 +43,7 @@ def test_directory_renders_controlled_records_and_public_context():
     assert [tab.label for tab in result.tabs] == [
         "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
     ]
-    assert not result.tabs[1].children
+    assert result.tabs[1].header[0].value == "Airport Operations"
     assert result.selectbox(key="source_report").value == "261402"
     assert result.button(key="browse-records").label == "Browse 112 source records"
     copy = visible_copy(result)
@@ -51,7 +51,34 @@ def test_directory_renders_controlled_records_and_public_context():
     assert "Explore airport improvements and reported project costs." in copy
     assert "No affiliation with MDAD or HNTB" not in copy
     assert "Airport overview" in copy
-    assert "cross-report identities remain unresolved" in copy.lower()
+    assert "Each record represents one entry in one report." in copy
+
+
+def test_dashboard_filter_preserves_versioned_project_and_memo_links():
+    result = app()
+    dashboard = result.tabs[1]
+    assert sum(item.value.startswith("### ") for item in dashboard.markdown) == 5
+    dashboard.radio(key="dashboard_area").set_value("Security screening").run()
+    assert not result.exception
+    dashboard = result.tabs[1]
+    assert [item.value for item in dashboard.markdown if item.value.startswith("### ")] == [
+        "### Security checkpoint equipment replacement",
+    ]
+    assert "upgrade one checkpoint at a time" in visible_copy(dashboard)
+    actions = next(item.value for item in dashboard.markdown if item.value.startswith("[View project]"))
+    profile, memo = re.findall(r"\]\(([^)]+)\)", actions)
+    expected = next(row.source_ref for row in load_registry().records
+                    if row.matter_id == "261402" and row.project_id == "BA013A")
+    assert parse_qs(urlsplit(profile).query)["record"] == [expected]
+    assert memo.endswith("/261402.pdf#page=6")
+
+    dashboard.selectbox(key="dashboard_estimate_report").set_value("260526").run()
+    dashboard = result.tabs[1]
+    assert "Jan–Mar 2026 report" in visible_copy(dashboard)
+    assert "Oct–Dec 2025 · All airports · 110 report entries" in visible_copy(dashboard)
+    html = dashboard.get("html")[0].proto.body
+    assert "report=260526&amp;range=%24100M+or+more" in html
+    assert "$100M or more <strong>16</strong>" in html
 
 
 def test_real_search_to_detail_preserves_estimate_and_official_page():
@@ -159,7 +186,7 @@ def test_unknown_airport_records_and_missing_fields_remain_visible():
     assert not result.exception
     assert result.dataframe[0].value.shape[0] == 15
     assert set(result.dataframe[0].value["Airport"]) == {"Unknown"}
-    assert "status and milestones are not indexed" in visible_copy(result)
+    assert "The description does not identify a single airport." in visible_copy(result)
 
 
 def test_empty_search_has_meaningful_message_and_keeps_source_catalog():
@@ -176,10 +203,8 @@ def test_cataloged_only_report_does_not_claim_full_indexing():
     result.selectbox(key="coverage_source").set_value("261400").run()
     assert not result.exception
     copy = visible_copy(result)
-    assert "Cataloged only" in copy
-    assert "No project records from this report are indexed" in copy
-    assert "first public posting date" in copy
-    assert result.tabs[2].dataframe[0].value["Indexed records"].tolist() == [110, 112, 0]
+    assert "Contract spending**  Exhibit B, PDF page 30" in copy
+    assert result.tabs[2].dataframe[0].value["Project records"].tolist() == [110, 112, 0]
 
 
 def test_versioned_record_deep_link_opens_individual_observation():
@@ -191,8 +216,10 @@ def test_versioned_record_deep_link_opens_individual_observation():
     linked.run()
     assert not linked.exception
     assert not linked.text_input and not linked.tabs
-    assert any(row.value == source_ref for row in linked.code)
-    assert any(row.proto.url.endswith("/260526.pdf#page=11") for row in linked.get("link_button"))
+    links = linked.get("link_button")
+    permalink = next(row.proto.url for row in links if row.proto.label == "Open profile permalink")
+    assert parse_qs(urlsplit(permalink).query)["record"] == [source_ref]
+    assert any(row.proto.url.endswith("/260526.pdf#page=11") for row in links)
 
 
 def test_invalid_record_link_has_an_explicit_version_warning():
@@ -318,9 +345,9 @@ def test_estimate_distribution_opens_same_report_directory_and_pair():
     assert not linked.exception and not linked.tabs[0].multiselect
 
 
-def test_t180b_case_surfaces_two_source_rows_and_unresolved_scope():
+def test_t180b_case_surfaces_published_amounts_and_sources():
     coverage = app().tabs[2]
-    assert "Scope comparability is awaiting verification." in visible_copy(coverage)
+    assert "earlier report separately lists T180D" in visible_copy(coverage)
     assert {"$ 914,627,764", "$ 1,066,231,593"} <= {metric.value for metric in coverage.metric}
     links = {row.proto.url for row in coverage.get("link_button")}
     assert any(link.endswith("/260526.pdf#page=11") for link in links)
