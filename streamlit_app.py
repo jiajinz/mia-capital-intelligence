@@ -228,33 +228,17 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
             st.caption(f"{detail['reporting_agency']} · Matter {source['matter_id']} · Exhibit B")
             st.caption(f"Report coverage · {source['period_start']} to {source['period_end']}")
             st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
-            st.caption("Coverage follows the memorandum. The project-data snapshot date is unconfirmed.")
             st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
-            st.caption(detail["validation_status"] + ".")
-            st.caption("The reported amount is a planning estimate. Detailed project type, status and milestones are not indexed.")
+            st.caption("The reported amount is a planning estimate.")
             st.write("**Original project description**")
             st.text(detail["description_raw"])
+            if detail["airport_code"] is None:
+                st.caption("Airport: unknown. The description does not identify a single airport.")
             st.write("**Original estimate header and cell**")
             st.text(detail["estimate_header"] + "\n" + detail["estimate_raw"])
-            st.caption(detail["description_status"] + ".")
-            st.caption(detail["airport_evidence"] + ".")
-            st.write(f"Printed fiscal-year caption · {source['matter_id']}")
-            caption = (
-                "FY 2024- 2025; for Period October 2025 - December 2025"
-                if source["matter_id"] == "260526" else "FY 2025- 2026"
-            )
-            st.text(caption)
-            st.write("**Document SHA-256**")
-            st.code(source["sha256"], language=None)
-            st.write("**Versioned source-row reference**")
-            st.code(detail["source_ref"], language=None)
-            st.caption("The project identity across documents is unresolved. This profile represents one source record.")
         if detail["candidate_source_refs"]:
-            with st.expander("Same ID in another report · identity unresolved"):
-                st.write(
-                    "The shared ID is a candidate association. These records remain separate observations. "
-                    "Their engineering scope and estimate basis require additional evidence before comparison."
-                )
+            with st.expander("Same ID in another report"):
+                st.caption("Whether these entries describe the same project scope is unknown.")
                 for related_ref in detail["candidate_source_refs"]:
                     related = source_detail(registry, related_ref)
                     st.write(
@@ -569,26 +553,22 @@ def render_coverage(registry: PublicRegistry) -> None:
     st.caption("An independent data project. Underlying records are published by Miami-Dade County.")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
         with st.expander("Case study · Concourse D west extension"):
-            st.markdown("#### What do the two reports establish?")
             st.write(
                 "Both reports list T180B with the same building expansion and apron description. "
-                "The earlier report separately lists T180D for D60 apron and utilities. "
-                "How that scope was allocated, and whether the two T180B estimates use the same basis, "
-                "remain open questions."
+                "The earlier report separately lists T180D for D60 apron and utilities."
             )
-            st.caption("The two estimates are shown as source observations. Scope comparability is awaiting verification.")
             for column, reference in zip(st.columns(2), CASE_REFS[:2], strict=True):
                 with column:
                     render_record_summary(registry, reference, show_scope=True)
             earlier_apron = source_detail(registry, CASE_REFS[2])
             st.link_button("Open the earlier T180D source record", profile_permalink(earlier_apron["source_ref"]))
     st.write(
-        f"The directory contains {len(registry.records)} source records from the indexed portions of two reports. "
-        "Cross-report identities remain unresolved."
+        f"The directory contains {len(registry.records)} source records from Exhibit B of two quarterly reports. "
+        "Each record represents one entry in one report."
     )
     st.dataframe(pd.DataFrame([
         {"Matter": row["matter_id"], "Report coverage": f"{row['period_start']} to {row['period_end']}",
-         "Indexed records": row["indexed_record_count"], "Indexing coverage": row["indexing_status"]}
+         "Project records": row["indexed_record_count"]}
         for row in registry.catalog
     ]), hide_index=True, width="stretch")
     sources = {row["matter_id"]: row for row in registry.catalog}
@@ -601,26 +581,17 @@ def render_coverage(registry: PublicRegistry) -> None:
     with st.container(border=True):
         st.subheader(source["title"])
         st.caption(source["publishing_organization"])
-        st.write(f"**Indexed records**  {source['indexed_record_count']} · {source['indexing_status']}")
-        st.write(source["coverage_limit"])
-        st.write(f"**Validation coverage**  {source['validation_status']}")
-        if source["indexed_record_count"]:
-            st.caption(
-                "Original file identity was verified at registry build. Descriptions retain extracted source wording. "
-                "Independent controls cover project IDs and estimates; scope and cross-report identity remain under review."
-            )
-        else:
-            st.caption("Original file identity was verified at registry build. Its project rows are outside this public index.")
         st.write(f"**Reporting period**  {source['period_start']} to {source['period_end']}")
         st.write(f"**Memo date**  {source['memo_date']} · **Board acceptance**  {source['accepted_date']}")
-        st.caption("The first public posting date and project-data freeze dates are unconfirmed.")
-        pages = ", ".join(map(str, source["indexed_pdf_pages"])) or "None"
-        st.write(f"**Indexed PDF pages**  {pages} · **Document pages**  {source['page_count']}")
+        if source["indexed_pdf_pages"]:
+            pages = ", ".join(map(str, source["indexed_pdf_pages"]))
+            st.write(f"**Project records**  {source['indexed_record_count']} entries from Exhibit B, PDF pages {pages}.")
+        if matter == OPERATIONS_MATTER and (updates := operations_updates(registry)):
+            st.write(f"**Dashboard**  {len(updates)} project updates from the report narrative, PDF pages 5–7.")
+        if matter == "261400":
+            st.write("**Contract spending**  Exhibit B, PDF page 30, and the Summary of Changes, pages 21–22.")
         st.link_button("Open official source document", source["url"], type="primary")
         st.link_button("Open county legislative record", source["matter_url"])
-        with st.expander("Document version and verification"):
-            st.code(source["sha256"], language=None)
-            st.write(f"SHA-256 · {source['size_bytes']:,} source bytes · matter {matter}")
 
 
 def configured_financial_review() -> str | None:
@@ -643,15 +614,10 @@ def configured_financial_review() -> str | None:
 def render_contract_spending(view: FinancialView) -> None:
     st.subheader("Contract spending history")
     if not view.rows:
-        if view.status == "invalid_input":
-            st.warning("Contract spending is unavailable because the financial input could not be validated.")
-        elif view.status == "pending_review":
-            st.info("Contract spending is pending named independent review.")
-        else:
-            st.warning("Contract spending is unavailable until a valid review for this financial input is recorded.")
+        st.info("Contract spending data is currently unavailable.")
         return
     if view.local_review and view.status != "approved":
-        st.warning("Local review preview · Named independent review pending. Financial values are awaiting sign-off.")
+        st.warning("Local review preview.")
     st.caption("July–September 2026 · Four contracts · Three monthly Aviation Capital Program reports")
     contracts = sorted({row.contract_id for row in view.rows})
     contract = st.selectbox("Contract", contracts, index=contracts.index("A19-MDAD-02"), key="spending_contract")
@@ -695,7 +661,7 @@ def render_contract_spending(view: FinancialView) -> None:
     with st.expander("Original evidence and coverage"):
         st.write("Publisher: Miami-Dade County. The sample contains four contract rows per reported month.")
         st.write("Contracts in this slice: " + ", ".join(contracts))
-        st.caption("The accounting cutoff and cash or accrual basis are unknown. Contract-to-project links are unverified.")
+        st.caption("Spending is reported per contract. The accounting cutoff and accounting basis are unknown.")
         for row in rows:
             st.write(f"**{row.month_label}** · {row.raw_contract} · {row.printed_page} row {row.row_ordinal}")
             st.link_button(f"Open {row.month_label} financial PDF · page {row.financial_page}", row.financial_url)
@@ -705,7 +671,7 @@ def render_contract_spending(view: FinancialView) -> None:
         if contract == "E20-MDAD-03":
             st.caption("The same-issue summaries use E20-MDAD-03. The financial tables print E20-MDAD--03.")
         if contract == "A19-MDAD-01":
-            st.caption("Airport attribution is unresolved because the financial and summary descriptions differ.")
+            st.caption("Airport: unknown. The financial table and monthly summary give different locations.")
 
 
 try:

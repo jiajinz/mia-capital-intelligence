@@ -135,7 +135,7 @@ def test_browser_request_parameter_cannot_unlock_pending_data(monkeypatch, local
     app.run()
     assert not app.exception
     tab = app.tabs[3]
-    assert "pending named independent review" in tab.info[0].value
+    assert tab.info[0].value == "Contract spending data is currently unavailable."
     assert not tab.get("plotly_chart") and not tab.selectbox and not tab.dataframe and not tab.get("link_button")
 
 
@@ -144,7 +144,7 @@ def test_local_preview_displays_banner_and_explicit_summary_zero(monkeypatch, lo
     app = app_for(monkeypatch, local_root, loopback=True).run()
     assert not app.exception
     tab = app.tabs[3]
-    assert "Named independent review pending" in tab.warning[0].value
+    assert tab.warning[0].value == "Local review preview."
     assert tab.dataframe[0].value["Monthly expenditures"].tolist() == ["$80,212.05", "$103,511.27", "$98,135.01"]
     app.selectbox(key="spending_contract").set_value("E20-MDAD-03").run()
     assert not app.exception
@@ -194,5 +194,5 @@ def test_invalid_streamlit_secret_does_not_fall_back_to_local_record(
     app.run()
     assert not app.exception
     tab = app.tabs[3]
-    assert "until a valid review" in tab.warning[0].value
+    assert tab.info[0].value == "Contract spending data is currently unavailable."
     assert not tab.get("plotly_chart") and not tab.dataframe

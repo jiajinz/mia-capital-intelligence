@@ -16,7 +16,7 @@ pytestmark = pytest.mark.integration
 def profiler():
     pytest.importorskip("pdfplumber")
     if not (ROOT / "data/raw/260526.pdf").is_file():
-        pytest.skip("Pinned local PDF required. See docs/SOURCE_AUDIT.md.")
+        pytest.skip("Pinned local PDF required for the source audit")
     spec = importlib.util.spec_from_file_location(
         "profiler_under_test", ROOT / "scripts/profile_infrastructure.py"
     )
