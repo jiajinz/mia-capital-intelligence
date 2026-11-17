@@ -26,6 +26,9 @@ from mia_capital_intelligence.estimate_insights import (  # noqa: E402
     CHART_NAMES, EstimateRanking, estimate_figure, largest_estimates, selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
+from mia_capital_intelligence.operations_updates import (  # noqa: E402
+    OPERATING_AREAS, OPERATIONS_MATTER, operations_updates,
+)
 
 CASE_REFS = (
     "260526:eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878:B:11:63",
@@ -116,13 +119,14 @@ def render_record_summary(registry: PublicRegistry, reference: str, *, show_scop
 
 
 def render_estimate_distribution(
-    ranking: EstimateRanking, source: dict, airport: str | None,
+    ranking: EstimateRanking, source: dict, airport: str | None, *, show_context: bool = True,
 ) -> None:
     known_count = ranking.matching_count - ranking.missing_count
     if not known_count:
         st.info("No indexed records with a known estimate match the selected report and airport.")
         return
-    st.markdown(f"**{ranking.band_counts[0]} of {ranking.matching_count} matching records** show estimates under $10 million.")
+    if show_context:
+        st.markdown(f"**{ranking.band_counts[0]} of {ranking.matching_count} matching records** show estimates under $10 million.")
     bars = []
     for band, count in zip(ESTIMATE_BANDS, ranking.band_counts, strict=True):
         filters = {"report": ranking.matter_id, "range": band}
@@ -152,10 +156,57 @@ def render_estimate_distribution(
         </style>
         <div class="mia-estimate-bands" role="group" aria-label="Source record counts by estimate range in USD">'''
         + "".join(bars) + "</div>")
-    st.caption(
-        f"Miami-Dade County · Matter {source['matter_id']} · {known_count} records with estimates · "
-        f"{ranking.missing_count} without. Select a range to see the records behind it."
-    )
+    if show_context:
+        st.caption(
+            f"Miami-Dade County · Matter {source['matter_id']} · {known_count} records with estimates · "
+            f"{ranking.missing_count} without. Select a range to see the records behind it."
+        )
+
+
+def render_dashboard(registry: PublicRegistry, reports: dict, latest_report: str) -> None:
+    st.header("Airport Operations")
+    st.write("See how MIA is upgrading the services passengers and aircraft rely on.")
+    source = reports.get(OPERATIONS_MATTER)
+    if source:
+        period = report_period(source["period_start"], source["period_end"])
+        memo_date = date.fromisoformat(source["memo_date"])
+        st.caption(f"Miami International Airport · {period} report · Memo dated {memo_date:%b %d, %Y} · "
+                   f"[Official report]({source['url']})")
+        area = st.radio("Choose an area", ("All areas", *OPERATING_AREAS),
+                        horizontal=True, key="dashboard_area")
+        st.subheader("Operations updates")
+        matches = [update for update in operations_updates(registry)
+                   if area == "All areas" or update.area == area]
+        if not matches:
+            st.info("No operations updates in this view.")
+            st.link_button("Explore project records", "?", type="tertiary")
+        for update in matches:
+            with st.container(border=True):
+                st.caption(f"{update.area} · {update.project_id}")
+                st.markdown(f"### {update.title}")
+                st.write(update.description)
+                st.markdown(
+                    f"[View project]({profile_permalink(update.source_ref)}) · "
+                    f"[Read report update]({source['url']}#page={update.memo_page})"
+                )
+    else:
+        st.info("No operations updates in this view.")
+        st.link_button("Explore project records", "?", type="tertiary")
+
+    with st.expander("Reported Estimates by Size"):
+        choices = sorted(reports, key=lambda matter: reports[matter]["period_end"], reverse=True)
+        matter = st.selectbox("Estimate report period", choices, index=choices.index(latest_report),
+                              format_func=lambda key: report_period(reports[key]["period_start"],
+                                                                  reports[key]["period_end"]),
+                              key="dashboard_estimate_report")
+        estimate_source = reports[matter]
+        ranking = largest_estimates(registry, matter, limit=1)
+        estimate_period = report_period(estimate_source["period_start"], estimate_source["period_end"])
+        st.caption(f"{estimate_period} · All airports · {ranking.snapshot_count} report entries · "
+                   f"[Official report]({estimate_source['url']})")
+        if ranking.missing_count:
+            st.caption(f"{ranking.missing_count} without a reported estimate")
+        render_estimate_distribution(ranking, estimate_source, None, show_context=False)
 
 
 def render_detail(registry: PublicRegistry, source_ref: str) -> None:
@@ -688,7 +739,7 @@ if not st.session_state.get("explore_initialized"):
             st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])
     st.session_state["explore_initialized"] = True
 
-explore_tab, _, coverage_tab, spending_tab = st.tabs([
+explore_tab, dashboard_tab, coverage_tab, spending_tab = st.tabs([
     "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
 ], default="Explore")
 with explore_tab:
@@ -723,6 +774,8 @@ with explore_tab:
     else:
         with st.expander("Estimate ranges and interactive ranking"):
             render_insights(registry)
+with dashboard_tab:
+    render_dashboard(registry, reports, latest_report)
 with coverage_tab:
     render_coverage(registry)
 with spending_tab:

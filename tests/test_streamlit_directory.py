@@ -43,7 +43,7 @@ def test_directory_renders_controlled_records_and_public_context():
     assert [tab.label for tab in result.tabs] == [
         "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
     ]
-    assert not result.tabs[1].children
+    assert result.tabs[1].header[0].value == "Airport Operations"
     assert result.selectbox(key="source_report").value == "261402"
     assert result.button(key="browse-records").label == "Browse 112 source records"
     copy = visible_copy(result)
@@ -52,6 +52,33 @@ def test_directory_renders_controlled_records_and_public_context():
     assert "No affiliation with MDAD or HNTB" not in copy
     assert "Airport overview" in copy
     assert "cross-report identities remain unresolved" in copy.lower()
+
+
+def test_dashboard_filter_preserves_versioned_project_and_memo_links():
+    result = app()
+    dashboard = result.tabs[1]
+    assert sum(item.value.startswith("### ") for item in dashboard.markdown) == 5
+    dashboard.radio(key="dashboard_area").set_value("Security screening").run()
+    assert not result.exception
+    dashboard = result.tabs[1]
+    assert [item.value for item in dashboard.markdown if item.value.startswith("### ")] == [
+        "### Security checkpoint equipment replacement",
+    ]
+    assert "upgrade one checkpoint at a time" in visible_copy(dashboard)
+    actions = next(item.value for item in dashboard.markdown if item.value.startswith("[View project]"))
+    profile, memo = re.findall(r"\]\(([^)]+)\)", actions)
+    expected = next(row.source_ref for row in load_registry().records
+                    if row.matter_id == "261402" and row.project_id == "BA013A")
+    assert parse_qs(urlsplit(profile).query)["record"] == [expected]
+    assert memo.endswith("/261402.pdf#page=6")
+
+    dashboard.selectbox(key="dashboard_estimate_report").set_value("260526").run()
+    dashboard = result.tabs[1]
+    assert "Jan–Mar 2026 report" in visible_copy(dashboard)
+    assert "Oct–Dec 2025 · All airports · 110 report entries" in visible_copy(dashboard)
+    html = dashboard.get("html")[0].proto.body
+    assert "report=260526&amp;range=%24100M+or+more" in html
+    assert "$100M or more <strong>16</strong>" in html
 
 
 def test_real_search_to_detail_preserves_estimate_and_official_page():
