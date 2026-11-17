@@ -2,6 +2,10 @@
 
 MIA Capital Intelligence brings Miami-Dade County airport reports into a searchable explorer. Project profiles link to the original pages so readers can check descriptions, estimates, and updates in context.
 
+## Availability
+
+A scheduled browser check visits the public app every six hours and verifies that project records load. Streamlit Community Cloud puts apps to sleep after 12 hours without traffic, and a sleeping app shows a wake-up button. Automated visits are a best-effort measure, and scheduled checks can be delayed or disabled after a public repository is inactive for 60 days. [Streamlit hosting](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app#app-hibernation) · [Scheduled checks](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
+
 ## Projects and estimates
 
 The directory shows **222 report entries** from the Capital Improvement Program tables in two quarterly infrastructure reports. Each entry is one row in one report. An ID can appear in both reports, so the entry count does not represent a count of unique projects.
