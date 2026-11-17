@@ -17,6 +17,8 @@ Explore airport improvements, reported project costs, and contract spending from
 
 [Sources & methodology](docs/SOURCES_AND_METHODS.md) explains what the reports cover, what each amount means, and how monthly and cumulative spending relate.
 
+[Data updates](docs/DATA_UPDATES.md) lists included PDFs and records newly discovered or revised official files, with reporting periods and source links.
+
 ## Run locally
 
 ```bash
@@ -26,3 +28,19 @@ python3.13 -m venv .venv
 ```
 
 Open the local URL printed by Streamlit.
+
+## Test coverage
+
+```bash
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python -m coverage erase
+.venv/bin/python -m coverage run -m pytest
+.venv/bin/python -m coverage combine
+.venv/bin/python -m coverage json
+.venv/bin/python -m coverage html
+.venv/bin/python scripts/report_test_coverage.py
+```
+
+The summary reports line and branch coverage separately. Measurement includes application, package and runtime script code, including unexecuted files. Tests, temporary files and the coverage reporting helper are excluded. Reports remain under the ignored `tmp/coverage/` directory. Integration tests use pinned local PDFs in `data/raw/` and `MIA_STUDY_PDF_DIR`; tests requiring unavailable originals are skipped.
+
+The discovery workflow reports coverage for its three discovery modules and two entry scripts in the Actions summary. Its `discovery-test-coverage` artifact contains JSON, XML and HTML reports and is retained for 30 days.

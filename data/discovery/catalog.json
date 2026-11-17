@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "documents": [
+    {
+      "sha256": "355c1d4d130e9b8a0eeed6f160131fd6bc8db4b10ba5e75818a60a849bc02a62",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report \u2014 2026-07",
+      "matter_id": "261147",
+      "size_bytes": 7334076,
+      "page_count": 43,
+      "period_start": "2026-07-01",
+      "period_end": "2026-07-31",
+      "period_evidence": "Existing published source metadata",
+      "period_pdf_page": null,
+      "processing_status": "included",
+      "dataset_status": "included",
+      "first_seen_at": null,
+      "sources": [
+        {
+          "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261147.pdf",
+          "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261147.pdf",
+          "link_text": "Aviation Capital Program Report \u2014 2026-07"
+        }
+      ]
+    },
+    {
+      "sha256": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a",
+      "series": "infrastructure_241354",
+      "title": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "matter_id": "261402",
+      "size_bytes": 1303763,
+      "page_count": 13,
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "period_evidence": "Existing published source metadata",
+      "period_pdf_page": null,
+      "processing_status": "included",
+      "dataset_status": "included",
+      "first_seen_at": null,
+      "sources": [
+        {
+          "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf",
+          "source_page": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=261402&yearFolder=Y2026",
+          "link_text": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354"
+        }
+      ]
+    },
+    {
+      "sha256": "ae45ec3eeaf1f54df04ad2255ed9ec3c0f3f647d3b2570b39272ff75efe9f9ae",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report \u2014 2026-09",
+      "matter_id": "261400",
+      "size_bytes": 3916380,
+      "page_count": 40,
+      "period_start": "2026-09-01",
+      "period_end": "2026-09-30",
+      "period_evidence": "Existing published source metadata",
+      "period_pdf_page": null,
+      "processing_status": "included",
+      "dataset_status": "included",
+      "first_seen_at": null,
+      "sources": [
+        {
+          "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+          "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+          "link_text": "Aviation Capital Program Report \u2014 2026-09"
+        }
+      ]
+    },
+    {
+      "sha256": "c62074ae4fdccda48bc716a399d585d8246e8d36a929633ef3afefe6c5505bbe",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report \u2014 2026-08",
+      "matter_id": "261399",
+      "size_bytes": 6084317,
+      "page_count": 49,
+      "period_start": "2026-08-01",
+      "period_end": "2026-08-31",
+      "period_evidence": "Existing published source metadata",
+      "period_pdf_page": null,
+      "processing_status": "included",
+      "dataset_status": "included",
+      "first_seen_at": null,
+      "sources": [
+        {
+          "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261399.pdf",
+          "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261399.pdf",
+          "link_text": "Aviation Capital Program Report \u2014 2026-08"
+        }
+      ]
+    },
+    {
+      "sha256": "eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878",
+      "series": "infrastructure_241354",
+      "title": "Third Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "matter_id": "260526",
+      "size_bytes": 963360,
+      "page_count": 12,
+      "period_start": "2025-10-01",
+      "period_end": "2025-12-31",
+      "period_evidence": "Existing published source metadata",
+      "period_pdf_page": null,
+      "processing_status": "included",
+      "dataset_status": "included",
+      "first_seen_at": null,
+      "sources": [
+        {
+          "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf",
+          "source_page": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=260526&yearFolder=Y2026",
+          "link_text": "Third Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf",
+      "source_page": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=260526&yearFolder=Y2026",
+      "link_text": "Third Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "sha256": "eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261147.pdf",
+      "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261147.pdf",
+      "link_text": "Aviation Capital Program Report \u2014 2026-07",
+      "sha256": "355c1d4d130e9b8a0eeed6f160131fd6bc8db4b10ba5e75818a60a849bc02a62",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261399.pdf",
+      "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261399.pdf",
+      "link_text": "Aviation Capital Program Report \u2014 2026-08",
+      "sha256": "c62074ae4fdccda48bc716a399d585d8246e8d36a929633ef3afefe6c5505bbe",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+      "source_page": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261400.pdf",
+      "link_text": "Aviation Capital Program Report \u2014 2026-09",
+      "sha256": "ae45ec3eeaf1f54df04ad2255ed9ec3c0f3f647d3b2570b39272ff75efe9f9ae",
+      "etag": null,
+      "last_modified": null
+    },
+    {
+      "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf",
+      "source_page": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=261402&yearFolder=Y2026",
+      "link_text": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
+      "sha256": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a",
+      "etag": null,
+      "last_modified": null
+    }
+  ],
+  "events": []
+}
