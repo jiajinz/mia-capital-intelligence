@@ -19,6 +19,12 @@ publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
 
 
+@pytest.fixture(autouse=True)
+def synthetic_github_revision(monkeypatch):
+    """Match the fake repository instead of inheriting the runner's real commit."""
+    monkeypatch.setenv("GITHUB_SHA", "main-sha")
+
+
 @pytest.fixture
 def bundle(tmp_path, synthetic_pdf, monkeypatch):
     (tmp_path / "data/discovery").mkdir(parents=True)
