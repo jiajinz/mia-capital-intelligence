@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Official report discovery catalog",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "series": {
+            "enum": [
+              "infrastructure_241354",
+              "aviation_capital_monthly"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "matter_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9]{6,}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 52428800
+          },
+          "page_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "period_start": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "period_end": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "period_evidence": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "period_pdf_page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_status": {
+            "enum": [
+              "included",
+              "candidate",
+              "period_unknown",
+              "text_unreadable"
+            ]
+          },
+          "dataset_status": {
+            "enum": [
+              "included",
+              "not_included"
+            ]
+          },
+          "first_seen_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "pattern": "^https://",
+                  "maxLength": 3000
+                },
+                "source_page": {
+                  "type": "string",
+                  "pattern": "^https://",
+                  "maxLength": 3000
+                },
+                "link_text": {
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "resolved_url": {
+                  "type": "string",
+                  "pattern": "^https://",
+                  "maxLength": 3000
+                }
+              },
+              "required": [
+                "url",
+                "source_page",
+                "link_text"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "sha256",
+          "series",
+          "title",
+          "matter_id",
+          "size_bytes",
+          "page_count",
+          "period_start",
+          "period_end",
+          "period_evidence",
+          "period_pdf_page",
+          "processing_status",
+          "dataset_status",
+          "first_seen_at",
+          "sources"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "maxLength": 3000
+          },
+          "source_page": {
+            "type": "string",
+            "pattern": "^https://",
+            "maxLength": 3000
+          },
+          "link_text": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "resolved_url": {
+            "type": "string",
+            "pattern": "^https://",
+            "maxLength": 3000
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "etag": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "last_modified": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "url",
+          "source_page",
+          "link_text",
+          "sha256",
+          "etag",
+          "last_modified"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "kind": {
+            "enum": [
+              "discovered",
+              "revised",
+              "source_linked"
+            ]
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "previous_sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "maxLength": 3000
+          },
+          "pull_request_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^https://",
+                "maxLength": 3000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "occurred_at",
+          "sha256",
+          "previous_sha256",
+          "url",
+          "pull_request_url"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "documents",
+    "locations",
+    "events"
+  ],
+  "additionalProperties": false
+}

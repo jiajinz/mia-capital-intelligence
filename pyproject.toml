@@ -18,3 +18,31 @@ minversion = "8.3"
 testpaths = ["tests"]
 pythonpath = ["src"]
 markers = ["integration: requires optional audit dependencies and local pinned PDFs"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+patch = ["subprocess"]
+relative_files = true
+source = ["."]
+data_file = "tmp/coverage/.coverage"
+omit = [
+    ".venv/*",
+    "tests/*",
+    "tmp/*",
+    "scripts/report_test_coverage.py",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+include_namespace_packages = true
+
+[tool.coverage.json]
+output = "tmp/coverage/coverage.json"
+
+[tool.coverage.html]
+directory = "tmp/coverage/html"
+
+[tool.coverage.xml]
+output = "tmp/coverage/coverage.xml"
