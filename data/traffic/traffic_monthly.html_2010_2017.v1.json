@@ -1,0 +1,4945 @@
+{
+ "schema_version": "1.0",
+ "status": "admitted",
+ "admitted_by": "owner",
+ "admitted_at": "2026-11-22T03:42:02Z",
+ "dataset_version": "traffic-monthly-html-2010-2017-v1",
+ "scope": "82 months passing both internal checks (COMBINED TOTALS, PASSENGERS and TOTAL CARGO-TONS). Held: 2012-11, 2013-06, 2014-08, 2014-09. Gap: 2010-07. PDF months 2015-10, 2016-02, 2017-06 to 11 not included.",
+ "source_note": "Official monthly HTML pages. Hash is of the HTML page body. Not PDF; no page locator.",
+ "held_months": {
+  "2012-11": [
+   "passengers deplaned+enplaned != total"
+  ],
+  "2013-06": [
+   "CYTD step differs from total (this month or previous)"
+  ],
+  "2014-08": [
+   "CYTD step differs from total (this month or previous)"
+  ],
+  "2014-09": [
+   "CYTD step differs from total (this month or previous)"
+  ]
+ },
+ "rows": [
+  {
+   "period": "2010-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2010.asp",
+   "source_html_sha256": "ada6a9af50bc0dbea5dc1ee1727ca5e6be2af89d6883952ae14a25cdd96e92d8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3032886,
+   "printed": {
+    "deplaned": 1515447,
+    "enplaned": 1517439,
+    "total": 3032886,
+    "cytd": 3032886
+   }
+  },
+  {
+   "period": "2010-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2010.asp",
+   "source_html_sha256": "ada6a9af50bc0dbea5dc1ee1727ca5e6be2af89d6883952ae14a25cdd96e92d8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 149901,
+   "printed": {
+    "total": 149901,
+    "cytd": 149901
+   }
+  },
+  {
+   "period": "2010-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2010.asp",
+   "source_html_sha256": "1f6e2e8d8bee06dfd6f5ff9eb93e4d855e60562a0eae6f35d0953f1d440f8325",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2636270,
+   "printed": {
+    "deplaned": 1326288,
+    "enplaned": 1309982,
+    "total": 2636270,
+    "cytd": 5669156
+   }
+  },
+  {
+   "period": "2010-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2010.asp",
+   "source_html_sha256": "1f6e2e8d8bee06dfd6f5ff9eb93e4d855e60562a0eae6f35d0953f1d440f8325",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 149497,
+   "printed": {
+    "total": 149497,
+    "cytd": 299398
+   }
+  },
+  {
+   "period": "2010-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2010.asp",
+   "source_html_sha256": "684727b3942fb7b847678115805a9b5aa64409587714290226f2340505b3e067",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3111221,
+   "printed": {
+    "deplaned": 1578450,
+    "enplaned": 1532771,
+    "total": 3111221,
+    "cytd": 8780377
+   }
+  },
+  {
+   "period": "2010-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2010.asp",
+   "source_html_sha256": "684727b3942fb7b847678115805a9b5aa64409587714290226f2340505b3e067",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 191175,
+   "printed": {
+    "total": 191175,
+    "cytd": 490573
+   }
+  },
+  {
+   "period": "2010-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2010.asp",
+   "source_html_sha256": "ab2654bf1a9489a595fb8babb8d365a83521b51b80829f7ba954f410a15a348c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2949100,
+   "printed": {
+    "deplaned": 1467919,
+    "enplaned": 1481181,
+    "total": 2949100,
+    "cytd": 11729477
+   }
+  },
+  {
+   "period": "2010-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2010.asp",
+   "source_html_sha256": "ab2654bf1a9489a595fb8babb8d365a83521b51b80829f7ba954f410a15a348c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 192506,
+   "printed": {
+    "total": 192506,
+    "cytd": 683078
+   }
+  },
+  {
+   "period": "2010-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2010.asp",
+   "source_html_sha256": "25b292d0b7122cd4ab3c081282988ecc405a680a4429305516e281955273307a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2957415,
+   "printed": {
+    "deplaned": 1476598,
+    "enplaned": 1480817,
+    "total": 2957415,
+    "cytd": 14686892
+   }
+  },
+  {
+   "period": "2010-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2010.asp",
+   "source_html_sha256": "25b292d0b7122cd4ab3c081282988ecc405a680a4429305516e281955273307a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 169987,
+   "printed": {
+    "total": 169987,
+    "cytd": 853066
+   }
+  },
+  {
+   "period": "2010-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2010.asp",
+   "source_html_sha256": "f23d4f4e165db14c244dba7a815a91130c55bc92bced7d68d31fc740254a16ca",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2980664,
+   "printed": {
+    "deplaned": 1476058,
+    "enplaned": 1504606,
+    "total": 2980664,
+    "cytd": 17667556
+   }
+  },
+  {
+   "period": "2010-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2010.asp",
+   "source_html_sha256": "f23d4f4e165db14c244dba7a815a91130c55bc92bced7d68d31fc740254a16ca",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 166981,
+   "printed": {
+    "total": 166981,
+    "cytd": 1020047
+   }
+  },
+  {
+   "period": "2010-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2010.asp",
+   "source_html_sha256": "53fc8791c6ceea98cec71fda4bef57d320785a9a1bb190f2d833c30d7ceb159c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3162233,
+   "printed": {
+    "deplaned": 1600978,
+    "enplaned": 1561255,
+    "total": 3162233,
+    "cytd": 24118848
+   }
+  },
+  {
+   "period": "2010-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2010.asp",
+   "source_html_sha256": "53fc8791c6ceea98cec71fda4bef57d320785a9a1bb190f2d833c30d7ceb159c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 157117,
+   "printed": {
+    "total": 157117,
+    "cytd": 1342098
+   }
+  },
+  {
+   "period": "2010-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2010.asp",
+   "source_html_sha256": "5706988c42f15a547c1d808649836c72b161fa290dfb1d27ffab4e4279fddfb7",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2542689,
+   "printed": {
+    "deplaned": 1265480,
+    "enplaned": 1277209,
+    "total": 2542689,
+    "cytd": 26661537
+   }
+  },
+  {
+   "period": "2010-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2010.asp",
+   "source_html_sha256": "5706988c42f15a547c1d808649836c72b161fa290dfb1d27ffab4e4279fddfb7",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 158712,
+   "printed": {
+    "total": 158712,
+    "cytd": 1500810
+   }
+  },
+  {
+   "period": "2010-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2010.asp",
+   "source_html_sha256": "3c62dda5997f8734189e7471acddfac5cc5a7a6ca691307afe7d23baceac3f52",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2851206,
+   "printed": {
+    "deplaned": 1445605,
+    "enplaned": 1405601,
+    "total": 2851206,
+    "cytd": 29512743
+   }
+  },
+  {
+   "period": "2010-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2010.asp",
+   "source_html_sha256": "3c62dda5997f8734189e7471acddfac5cc5a7a6ca691307afe7d23baceac3f52",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 163183,
+   "printed": {
+    "total": 163183,
+    "cytd": 1663993
+   }
+  },
+  {
+   "period": "2010-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2010.asp",
+   "source_html_sha256": "58a3895e7031c1481d485462cfaca03f5702145bb35b7323ee9ad621c9a39299",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2943681,
+   "printed": {
+    "deplaned": 1484964,
+    "enplaned": 1458717,
+    "total": 2943681,
+    "cytd": 32456424
+   }
+  },
+  {
+   "period": "2010-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2010.asp",
+   "source_html_sha256": "58a3895e7031c1481d485462cfaca03f5702145bb35b7323ee9ad621c9a39299",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 175836,
+   "printed": {
+    "total": 175836,
+    "cytd": 1839828
+   }
+  },
+  {
+   "period": "2010-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2010.asp",
+   "source_html_sha256": "28cf90fb840490d70c972a0671b572a00996e44a9acaf0af56833132792e2a13",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3241601,
+   "printed": {
+    "deplaned": 1668202,
+    "enplaned": 1573399,
+    "total": 3241601,
+    "cytd": 35698025
+   }
+  },
+  {
+   "period": "2010-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2010.asp",
+   "source_html_sha256": "28cf90fb840490d70c972a0671b572a00996e44a9acaf0af56833132792e2a13",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184203,
+   "printed": {
+    "total": 184203,
+    "cytd": 2024032
+   }
+  },
+  {
+   "period": "2011-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2011.asp",
+   "source_html_sha256": "ae97967aba7534494bba419cf66abb7ae8b8316115b41838ff05c025fdbbea6b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3214244,
+   "printed": {
+    "deplaned": 1586154,
+    "enplaned": 1628090,
+    "total": 3214244,
+    "cytd": 3214244
+   }
+  },
+  {
+   "period": "2011-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2011.asp",
+   "source_html_sha256": "ae97967aba7534494bba419cf66abb7ae8b8316115b41838ff05c025fdbbea6b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 159101,
+   "printed": {
+    "total": 159101,
+    "cytd": 159101
+   }
+  },
+  {
+   "period": "2011-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2011.asp",
+   "source_html_sha256": "269682551a4616965192c46d85e39b683e48d605a18bddf0977579a5ebe0531a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2836469,
+   "printed": {
+    "deplaned": 1430229,
+    "enplaned": 1406240,
+    "total": 2836469,
+    "cytd": 6050713
+   }
+  },
+  {
+   "period": "2011-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2011.asp",
+   "source_html_sha256": "269682551a4616965192c46d85e39b683e48d605a18bddf0977579a5ebe0531a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 153544,
+   "printed": {
+    "total": 153544,
+    "cytd": 312645
+   }
+  },
+  {
+   "period": "2011-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2011.asp",
+   "source_html_sha256": "8e0026f008d7cd978d11bd0604dabf49958d732155ebc4af0fa66129046a8e49",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3266783,
+   "printed": {
+    "deplaned": 1637852,
+    "enplaned": 1628931,
+    "total": 3266783,
+    "cytd": 9317496
+   }
+  },
+  {
+   "period": "2011-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2011.asp",
+   "source_html_sha256": "8e0026f008d7cd978d11bd0604dabf49958d732155ebc4af0fa66129046a8e49",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 178429,
+   "printed": {
+    "total": 178429,
+    "cytd": 491073
+   }
+  },
+  {
+   "period": "2011-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2011.asp",
+   "source_html_sha256": "3fec470d3984b7fdc7ade05dadf245d1c2a6ba83a6df2833d5bb7b374e22a482",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3166546,
+   "printed": {
+    "deplaned": 1594537,
+    "enplaned": 1572009,
+    "total": 3166546,
+    "cytd": 12484042
+   }
+  },
+  {
+   "period": "2011-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2011.asp",
+   "source_html_sha256": "3fec470d3984b7fdc7ade05dadf245d1c2a6ba83a6df2833d5bb7b374e22a482",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 182213,
+   "printed": {
+    "total": 182213,
+    "cytd": 673286
+   }
+  },
+  {
+   "period": "2011-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2011.asp",
+   "source_html_sha256": "fce0bf4e8a1a6311e69522f1c2e7a53ed490f937a37b5551df8349d36b73a5dc",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3178553,
+   "printed": {
+    "deplaned": 1573208,
+    "enplaned": 1605345,
+    "total": 3178553,
+    "cytd": 15662595
+   }
+  },
+  {
+   "period": "2011-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2011.asp",
+   "source_html_sha256": "fce0bf4e8a1a6311e69522f1c2e7a53ed490f937a37b5551df8349d36b73a5dc",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 169594,
+   "printed": {
+    "total": 169594,
+    "cytd": 842880
+   }
+  },
+  {
+   "period": "2011-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2011.asp",
+   "source_html_sha256": "f5dc333c775409bd65310bc377011e0592ff45750e80428fc9962fd7f778ce20",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3209234,
+   "printed": {
+    "deplaned": 1598273,
+    "enplaned": 1610961,
+    "total": 3209234,
+    "cytd": 18871829
+   }
+  },
+  {
+   "period": "2011-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2011.asp",
+   "source_html_sha256": "f5dc333c775409bd65310bc377011e0592ff45750e80428fc9962fd7f778ce20",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 157214,
+   "printed": {
+    "total": 157214,
+    "cytd": 1000094
+   }
+  },
+  {
+   "period": "2011-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2011.asp",
+   "source_html_sha256": "33af47c9680614dfe798d7181391ac2bdbc584d1a697503546439c33c0f02802",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3599481,
+   "printed": {
+    "deplaned": 1825536,
+    "enplaned": 1773945,
+    "total": 3599481,
+    "cytd": 22471310
+   }
+  },
+  {
+   "period": "2011-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2011.asp",
+   "source_html_sha256": "33af47c9680614dfe798d7181391ac2bdbc584d1a697503546439c33c0f02802",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 163057,
+   "printed": {
+    "total": 163057,
+    "cytd": 1163151
+   }
+  },
+  {
+   "period": "2011-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2011.asp",
+   "source_html_sha256": "94d3755d9a9be005eceae9d6ebf24466c45b8d290cb393a45d3569c6f28278fc",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3337719,
+   "printed": {
+    "deplaned": 1695176,
+    "enplaned": 1642543,
+    "total": 3337719,
+    "cytd": 25809029
+   }
+  },
+  {
+   "period": "2011-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2011.asp",
+   "source_html_sha256": "94d3755d9a9be005eceae9d6ebf24466c45b8d290cb393a45d3569c6f28278fc",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 159865,
+   "printed": {
+    "total": 159865,
+    "cytd": 1323017
+   }
+  },
+  {
+   "period": "2011-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2011.asp",
+   "source_html_sha256": "4c39fd82de1c47a94aecaba2755ae18bade294b0a493d0620678e05946f66151",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2787602,
+   "printed": {
+    "deplaned": 1392263,
+    "enplaned": 1395339,
+    "total": 2787602,
+    "cytd": 28596631
+   }
+  },
+  {
+   "period": "2011-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2011.asp",
+   "source_html_sha256": "4c39fd82de1c47a94aecaba2755ae18bade294b0a493d0620678e05946f66151",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 160484,
+   "printed": {
+    "total": 160484,
+    "cytd": 1483500
+   }
+  },
+  {
+   "period": "2011-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2011.asp",
+   "source_html_sha256": "f4778b956c7108c634d2e28ef984d6a6165162ec6db3706b94686a4434dfc02b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3045128,
+   "printed": {
+    "deplaned": 1538882,
+    "enplaned": 1506246,
+    "total": 3045128,
+    "cytd": 31641759
+   }
+  },
+  {
+   "period": "2011-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2011.asp",
+   "source_html_sha256": "f4778b956c7108c634d2e28ef984d6a6165162ec6db3706b94686a4434dfc02b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 178006,
+   "printed": {
+    "total": 178006,
+    "cytd": 1661507
+   }
+  },
+  {
+   "period": "2011-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2011.asp",
+   "source_html_sha256": "e514c1649b2b0cd1451df517510c1b71ec358ca3595e3189b9daa31caf5add81",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3180589,
+   "printed": {
+    "deplaned": 1597741,
+    "enplaned": 1582848,
+    "total": 3180589,
+    "cytd": 34822348
+   }
+  },
+  {
+   "period": "2011-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2011.asp",
+   "source_html_sha256": "e514c1649b2b0cd1451df517510c1b71ec358ca3595e3189b9daa31caf5add81",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 183050,
+   "printed": {
+    "total": 183050,
+    "cytd": 1844557
+   }
+  },
+  {
+   "period": "2011-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2011.asp",
+   "source_html_sha256": "4fe5bb94a2eba1b04bf9b92343df324595dbd1d6b23ccac9eb6acff71cd72e15",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3492041,
+   "printed": {
+    "deplaned": 1786912,
+    "enplaned": 1705129,
+    "total": 3492041,
+    "cytd": 38314389
+   }
+  },
+  {
+   "period": "2011-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2011.asp",
+   "source_html_sha256": "4fe5bb94a2eba1b04bf9b92343df324595dbd1d6b23ccac9eb6acff71cd72e15",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184366,
+   "printed": {
+    "total": 184366,
+    "cytd": 2030793
+   }
+  },
+  {
+   "period": "2012-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2012.asp",
+   "source_html_sha256": "fe365fdcf2a5a8bec46f11cb262be5c2d89d73d5281861aef68cf8ad696cd7fe",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3492365,
+   "printed": {
+    "deplaned": 1730122,
+    "enplaned": 1762243,
+    "total": 3492365,
+    "cytd": 3492365
+   }
+  },
+  {
+   "period": "2012-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2012.asp",
+   "source_html_sha256": "fe365fdcf2a5a8bec46f11cb262be5c2d89d73d5281861aef68cf8ad696cd7fe",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 162398,
+   "printed": {
+    "total": 162398,
+    "cytd": 162398
+   }
+  },
+  {
+   "period": "2012-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Feb_2012.asp",
+   "source_html_sha256": "28267e37d3d63fbcd44654638aebb06254c655fbd7a55085f46c109684ab83a8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3135651,
+   "printed": {
+    "deplaned": 1573258,
+    "enplaned": 1562393,
+    "total": 3135651,
+    "cytd": 6628016
+   }
+  },
+  {
+   "period": "2012-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Feb_2012.asp",
+   "source_html_sha256": "28267e37d3d63fbcd44654638aebb06254c655fbd7a55085f46c109684ab83a8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 162561,
+   "printed": {
+    "total": 162561,
+    "cytd": 324959
+   }
+  },
+  {
+   "period": "2012-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2012.asp",
+   "source_html_sha256": "aceb696092e32448e70087e95f669d7813364ebaea0f41111ecc9f4c2bc060db",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3575961,
+   "printed": {
+    "deplaned": 1824280,
+    "enplaned": 1751681,
+    "total": 3575961,
+    "cytd": 10203977
+   }
+  },
+  {
+   "period": "2012-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2012.asp",
+   "source_html_sha256": "aceb696092e32448e70087e95f669d7813364ebaea0f41111ecc9f4c2bc060db",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 193059,
+   "printed": {
+    "total": 193059,
+    "cytd": 518017
+   }
+  },
+  {
+   "period": "2012-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2012.asp",
+   "source_html_sha256": "717cff22a161599a32675a23202237e6a98418d5f894136c4c36fe8e1f475022",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3370268,
+   "printed": {
+    "deplaned": 1666764,
+    "enplaned": 1703504,
+    "total": 3370268,
+    "cytd": 13574245
+   }
+  },
+  {
+   "period": "2012-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2012.asp",
+   "source_html_sha256": "717cff22a161599a32675a23202237e6a98418d5f894136c4c36fe8e1f475022",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184840,
+   "printed": {
+    "total": 184840,
+    "cytd": 702857
+   }
+  },
+  {
+   "period": "2012-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2012.asp",
+   "source_html_sha256": "7d42e790b4e0006f51afc2fcdc5300f3e8140b984c025fe69b43beb5b37fb2a3",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3261291,
+   "printed": {
+    "deplaned": 1620805,
+    "enplaned": 1640486,
+    "total": 3261291,
+    "cytd": 16835536
+   }
+  },
+  {
+   "period": "2012-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2012.asp",
+   "source_html_sha256": "7d42e790b4e0006f51afc2fcdc5300f3e8140b984c025fe69b43beb5b37fb2a3",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 180856,
+   "printed": {
+    "total": 180856,
+    "cytd": 883713
+   }
+  },
+  {
+   "period": "2012-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Jun_2012.asp",
+   "source_html_sha256": "46da1a2d01ea33e6e6aa1967ed5d77217f57ebc1d99980c3e281e8ccc75dd910",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3320117,
+   "printed": {
+    "deplaned": 1651076,
+    "enplaned": 1669041,
+    "total": 3320117,
+    "cytd": 20155653
+   }
+  },
+  {
+   "period": "2012-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Jun_2012.asp",
+   "source_html_sha256": "46da1a2d01ea33e6e6aa1967ed5d77217f57ebc1d99980c3e281e8ccc75dd910",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 165840,
+   "printed": {
+    "total": 165840,
+    "cytd": 1049553
+   }
+  },
+  {
+   "period": "2012-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Jul_2012.asp",
+   "source_html_sha256": "55fe1085b055c8f7a358897a9191ac7700a0aa1d95a5bcc1e37d49bce6f73823",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3617616,
+   "printed": {
+    "deplaned": 1838190,
+    "enplaned": 1779426,
+    "total": 3617616,
+    "cytd": 23773269
+   }
+  },
+  {
+   "period": "2012-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Jul_2012.asp",
+   "source_html_sha256": "55fe1085b055c8f7a358897a9191ac7700a0aa1d95a5bcc1e37d49bce6f73823",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 164048,
+   "printed": {
+    "total": 164048,
+    "cytd": 1213601
+   }
+  },
+  {
+   "period": "2012-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2012.asp",
+   "source_html_sha256": "467bbbfface6f841e6a8e758f10b809214ba99e6254ac43cc039d2bd91817a36",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3329258,
+   "printed": {
+    "deplaned": 1685779,
+    "enplaned": 1643479,
+    "total": 3329258,
+    "cytd": 27102527
+   }
+  },
+  {
+   "period": "2012-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2012.asp",
+   "source_html_sha256": "467bbbfface6f841e6a8e758f10b809214ba99e6254ac43cc039d2bd91817a36",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 173439,
+   "printed": {
+    "total": 173439,
+    "cytd": 1387041
+   }
+  },
+  {
+   "period": "2012-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2012.asp",
+   "source_html_sha256": "49a40b54469003bb29f7e27ddbd24adf2edc0a61424827b54ffad974d2b21b2c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2744191,
+   "printed": {
+    "deplaned": 1366989,
+    "enplaned": 1377202,
+    "total": 2744191,
+    "cytd": 29846718
+   }
+  },
+  {
+   "period": "2012-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2012.asp",
+   "source_html_sha256": "49a40b54469003bb29f7e27ddbd24adf2edc0a61424827b54ffad974d2b21b2c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 167228,
+   "printed": {
+    "total": 167228,
+    "cytd": 1554269
+   }
+  },
+  {
+   "period": "2012-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2012.asp",
+   "source_html_sha256": "1de49b294678845767157dc9ff48b85f31a5bc190a0debe6ec87198395fd1c2a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2946316,
+   "printed": {
+    "deplaned": 1494463,
+    "enplaned": 1451853,
+    "total": 2946316,
+    "cytd": 32793034
+   }
+  },
+  {
+   "period": "2012-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2012.asp",
+   "source_html_sha256": "1de49b294678845767157dc9ff48b85f31a5bc190a0debe6ec87198395fd1c2a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184592,
+   "printed": {
+    "total": 184592,
+    "cytd": 1738861
+   }
+  },
+  {
+   "period": "2012-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2012.asp",
+   "source_html_sha256": "1cbcf073c68d3372139b1d2256a155449f0bc8f0d5dc69bdb8cb96baa8dd85d2",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3488647,
+   "printed": {
+    "deplaned": 1791663,
+    "enplaned": 1696984,
+    "total": 3488647,
+    "cytd": 39467444
+   }
+  },
+  {
+   "period": "2012-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2012.asp",
+   "source_html_sha256": "1cbcf073c68d3372139b1d2256a155449f0bc8f0d5dc69bdb8cb96baa8dd85d2",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194794,
+   "printed": {
+    "total": 194794,
+    "cytd": 2127772
+   }
+  },
+  {
+   "period": "2013-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2013.asp",
+   "source_html_sha256": "15d4310672db007777e665d241e7e1db80431bbf688e0258b664f52549a49f16",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3492321,
+   "printed": {
+    "deplaned": 1729824,
+    "enplaned": 1762497,
+    "total": 3492321,
+    "cytd": 3492321
+   }
+  },
+  {
+   "period": "2013-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2013.asp",
+   "source_html_sha256": "15d4310672db007777e665d241e7e1db80431bbf688e0258b664f52549a49f16",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 169914,
+   "printed": {
+    "total": 169914,
+    "cytd": 169914
+   }
+  },
+  {
+   "period": "2013-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2013.asp",
+   "source_html_sha256": "b81db50a2566e0def4bcf250d01497ee7b912477af9e024fd2c80bf3328f8d55",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3131120,
+   "printed": {
+    "deplaned": 1567672,
+    "enplaned": 1563448,
+    "total": 3131120,
+    "cytd": 6623441
+   }
+  },
+  {
+   "period": "2013-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2013.asp",
+   "source_html_sha256": "b81db50a2566e0def4bcf250d01497ee7b912477af9e024fd2c80bf3328f8d55",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 161571,
+   "printed": {
+    "total": 161571,
+    "cytd": 331484
+   }
+  },
+  {
+   "period": "2013-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2013.asp",
+   "source_html_sha256": "a81e7bde9502d6a13db70b0298c316c7b8af8aa8cc2ea20c96b2a20e1aa0145e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3722460,
+   "printed": {
+    "deplaned": 1922794,
+    "enplaned": 1799666,
+    "total": 3722460,
+    "cytd": 10345901
+   }
+  },
+  {
+   "period": "2013-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2013.asp",
+   "source_html_sha256": "a81e7bde9502d6a13db70b0298c316c7b8af8aa8cc2ea20c96b2a20e1aa0145e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 178901,
+   "printed": {
+    "total": 178901,
+    "cytd": 510385
+   }
+  },
+  {
+   "period": "2013-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2013.asp",
+   "source_html_sha256": "c9f8975ed87c24879a2825b9e2fb724d049b1fed6bf4a03db5adf68c9c84858a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3286390,
+   "printed": {
+    "deplaned": 1633321,
+    "enplaned": 1653069,
+    "total": 3286390,
+    "cytd": 13632291
+   }
+  },
+  {
+   "period": "2013-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2013.asp",
+   "source_html_sha256": "c9f8975ed87c24879a2825b9e2fb724d049b1fed6bf4a03db5adf68c9c84858a",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 204538,
+   "printed": {
+    "total": 204538,
+    "cytd": 714923
+   }
+  },
+  {
+   "period": "2013-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2013.asp",
+   "source_html_sha256": "b99c5afc89c4e3b545c21d7701f954a84eb4078f61f8bea3a6c23298e4983a0c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3347935,
+   "printed": {
+    "deplaned": 1676377,
+    "enplaned": 1671558,
+    "total": 3347935,
+    "cytd": 16980226
+   }
+  },
+  {
+   "period": "2013-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2013.asp",
+   "source_html_sha256": "b99c5afc89c4e3b545c21d7701f954a84eb4078f61f8bea3a6c23298e4983a0c",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 179425,
+   "printed": {
+    "total": 179425,
+    "cytd": 894348
+   }
+  },
+  {
+   "period": "2013-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2013.asp",
+   "source_html_sha256": "7a4bee4bd458a471a8ac0fa47006a589469aa31f5e79fa3db49908a4d7e9f080",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3698368,
+   "printed": {
+    "deplaned": 1883089,
+    "enplaned": 1815279,
+    "total": 3698368,
+    "cytd": 24089765
+   }
+  },
+  {
+   "period": "2013-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2013.asp",
+   "source_html_sha256": "7a4bee4bd458a471a8ac0fa47006a589469aa31f5e79fa3db49908a4d7e9f080",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 161459,
+   "printed": {
+    "total": 161459,
+    "cytd": 1223178
+   }
+  },
+  {
+   "period": "2013-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2013.asp",
+   "source_html_sha256": "75be00885ce461d81a1bc715125a58c3a2cc6bf0951d40fdb376e33db76d9025",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3548938,
+   "printed": {
+    "deplaned": 1805065,
+    "enplaned": 1743873,
+    "total": 3548938,
+    "cytd": 27638703
+   }
+  },
+  {
+   "period": "2013-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2013.asp",
+   "source_html_sha256": "75be00885ce461d81a1bc715125a58c3a2cc6bf0951d40fdb376e33db76d9025",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 168223,
+   "printed": {
+    "total": 168223,
+    "cytd": 1391401
+   }
+  },
+  {
+   "period": "2013-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2013.asp",
+   "source_html_sha256": "6dcd1e17e8d78a65422ffaddac6a3c507829f73f99b4b6a143d3dbf3f2278751",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2855876,
+   "printed": {
+    "deplaned": 1430420,
+    "enplaned": 1425456,
+    "total": 2855876,
+    "cytd": 30494579
+   }
+  },
+  {
+   "period": "2013-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2013.asp",
+   "source_html_sha256": "6dcd1e17e8d78a65422ffaddac6a3c507829f73f99b4b6a143d3dbf3f2278751",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 170039,
+   "printed": {
+    "total": 170039,
+    "cytd": 1561440
+   }
+  },
+  {
+   "period": "2013-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2013.asp",
+   "source_html_sha256": "5d6bb0bc8643fefd086c746f7c2baeba316eead5bb985cd6ed9779abfdb671ca",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3125648,
+   "printed": {
+    "deplaned": 1592012,
+    "enplaned": 1533636,
+    "total": 3125648,
+    "cytd": 33620227
+   }
+  },
+  {
+   "period": "2013-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2013.asp",
+   "source_html_sha256": "5d6bb0bc8643fefd086c746f7c2baeba316eead5bb985cd6ed9779abfdb671ca",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194141,
+   "printed": {
+    "total": 194141,
+    "cytd": 1755581
+   }
+  },
+  {
+   "period": "2013-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2013.asp",
+   "source_html_sha256": "a01f17a2b95038489f1e0e27eaba5024e9314d975307d7f5d30ddedcbf81f601",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3202180,
+   "printed": {
+    "deplaned": 1620387,
+    "enplaned": 1581793,
+    "total": 3202180,
+    "cytd": 36822407
+   }
+  },
+  {
+   "period": "2013-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2013.asp",
+   "source_html_sha256": "a01f17a2b95038489f1e0e27eaba5024e9314d975307d7f5d30ddedcbf81f601",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194419,
+   "printed": {
+    "total": 194419,
+    "cytd": 1950000
+   }
+  },
+  {
+   "period": "2013-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2013.asp",
+   "source_html_sha256": "52a9f5893aa9a880e526c2bb92d1eab29b222ace792249f0dcda942481d0e8df",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3740541,
+   "printed": {
+    "deplaned": 1915827,
+    "enplaned": 1824714,
+    "total": 3740541,
+    "cytd": 40562948
+   }
+  },
+  {
+   "period": "2013-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2013.asp",
+   "source_html_sha256": "52a9f5893aa9a880e526c2bb92d1eab29b222ace792249f0dcda942481d0e8df",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194445,
+   "printed": {
+    "total": 194445,
+    "cytd": 2144445
+   }
+  },
+  {
+   "period": "2014-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2014.asp",
+   "source_html_sha256": "4dc801bfe21bcae817f1b0e441337e0ce57e6c9762c729c76672ea8cb9d66e7e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3659583,
+   "printed": {
+    "deplaned": 1837695,
+    "enplaned": 1821888,
+    "total": 3659583,
+    "cytd": 3659583
+   }
+  },
+  {
+   "period": "2014-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2014.asp",
+   "source_html_sha256": "4dc801bfe21bcae817f1b0e441337e0ce57e6c9762c729c76672ea8cb9d66e7e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 173849,
+   "printed": {
+    "total": 173849,
+    "cytd": 173849
+   }
+  },
+  {
+   "period": "2014-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2014.asp",
+   "source_html_sha256": "dff8a97146a553a644fe489c11b861bd060501e9105a9edd4fb6785917940a36",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3192348,
+   "printed": {
+    "deplaned": 1601964,
+    "enplaned": 1590384,
+    "total": 3192348,
+    "cytd": 6851931
+   }
+  },
+  {
+   "period": "2014-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2014.asp",
+   "source_html_sha256": "dff8a97146a553a644fe489c11b861bd060501e9105a9edd4fb6785917940a36",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 165109,
+   "printed": {
+    "total": 165109,
+    "cytd": 338958
+   }
+  },
+  {
+   "period": "2014-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2014.asp",
+   "source_html_sha256": "e7a48c8fbec443d67f18d970287a3a2bfa19a32bc94ec1179f7f4bf4a8500268",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3641295,
+   "printed": {
+    "deplaned": 1826035,
+    "enplaned": 1815260,
+    "total": 3641295,
+    "cytd": 10493226
+   }
+  },
+  {
+   "period": "2014-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2014.asp",
+   "source_html_sha256": "e7a48c8fbec443d67f18d970287a3a2bfa19a32bc94ec1179f7f4bf4a8500268",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 180797,
+   "printed": {
+    "total": 180797,
+    "cytd": 519754
+   }
+  },
+  {
+   "period": "2014-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2014.asp",
+   "source_html_sha256": "6cbbe62f99e8eefbb560f488ee57dc8d377d5f040a57fdeb97efd40f13492b73",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3427752,
+   "printed": {
+    "deplaned": 1738606,
+    "enplaned": 1689146,
+    "total": 3427752,
+    "cytd": 13920978
+   }
+  },
+  {
+   "period": "2014-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2014.asp",
+   "source_html_sha256": "6cbbe62f99e8eefbb560f488ee57dc8d377d5f040a57fdeb97efd40f13492b73",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 193816,
+   "printed": {
+    "total": 193816,
+    "cytd": 713570
+   }
+  },
+  {
+   "period": "2014-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_May_2014.asp",
+   "source_html_sha256": "b957868fbb5d8488b9ba5dd723b6ad06175e2eb9f3d20f7846966d94d21c6f2e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3429494,
+   "printed": {
+    "deplaned": 1707332,
+    "enplaned": 1722162,
+    "total": 3429494,
+    "cytd": 17350472
+   }
+  },
+  {
+   "period": "2014-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_May_2014.asp",
+   "source_html_sha256": "b957868fbb5d8488b9ba5dd723b6ad06175e2eb9f3d20f7846966d94d21c6f2e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 190428,
+   "printed": {
+    "total": 190428,
+    "cytd": 903998
+   }
+  },
+  {
+   "period": "2014-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2014.asp",
+   "source_html_sha256": "1a7f8a625aa91afa253907ea4b4137abfd8eda883d10ff582ce52496566152c6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3395127,
+   "printed": {
+    "deplaned": 1696116,
+    "enplaned": 1699011,
+    "total": 3395127,
+    "cytd": 20745599
+   }
+  },
+  {
+   "period": "2014-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2014.asp",
+   "source_html_sha256": "1a7f8a625aa91afa253907ea4b4137abfd8eda883d10ff582ce52496566152c6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 168063,
+   "printed": {
+    "total": 168063,
+    "cytd": 1072061
+   }
+  },
+  {
+   "period": "2014-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2014.asp",
+   "source_html_sha256": "beaeb512fb8c8be2533a1a26125fd2eddef9a7cf80148db73122e911aa96e750",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3669020,
+   "printed": {
+    "deplaned": 1880950,
+    "enplaned": 1788070,
+    "total": 3669020,
+    "cytd": 24414619
+   }
+  },
+  {
+   "period": "2014-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2014.asp",
+   "source_html_sha256": "beaeb512fb8c8be2533a1a26125fd2eddef9a7cf80148db73122e911aa96e750",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 175776,
+   "printed": {
+    "total": 175776,
+    "cytd": 1247837
+   }
+  },
+  {
+   "period": "2014-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2014.asp",
+   "source_html_sha256": "d863af0d0d36b880c1cc9b8d173118be5913e9c34619b78bfb7cc9500f77e0e7",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3029869,
+   "printed": {
+    "deplaned": 1546935,
+    "enplaned": 1482934,
+    "total": 3029869,
+    "cytd": 33806464
+   }
+  },
+  {
+   "period": "2014-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2014.asp",
+   "source_html_sha256": "d863af0d0d36b880c1cc9b8d173118be5913e9c34619b78bfb7cc9500f77e0e7",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 195093,
+   "printed": {
+    "total": 195093,
+    "cytd": 1799561
+   }
+  },
+  {
+   "period": "2014-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2014.asp",
+   "source_html_sha256": "2fd6a6241cf6dc5ba3a029355f820b26f918888a9b07b13e163ba325a82bd5e6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3101601,
+   "printed": {
+    "deplaned": 1569107,
+    "enplaned": 1532494,
+    "total": 3101601,
+    "cytd": 36908065
+   }
+  },
+  {
+   "period": "2014-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2014.asp",
+   "source_html_sha256": "2fd6a6241cf6dc5ba3a029355f820b26f918888a9b07b13e163ba325a82bd5e6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 201062,
+   "printed": {
+    "total": 201062,
+    "cytd": 2000623
+   }
+  },
+  {
+   "period": "2014-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2014.asp",
+   "source_html_sha256": "27eeba019447f80773cf1086d29291380ab4fc0e04c87b4c86b1944f76b7eac6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4033814,
+   "printed": {
+    "deplaned": 2074021,
+    "enplaned": 1959793,
+    "total": 4033814,
+    "cytd": 40941879
+   }
+  },
+  {
+   "period": "2014-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Dec_2014.asp",
+   "source_html_sha256": "27eeba019447f80773cf1086d29291380ab4fc0e04c87b4c86b1944f76b7eac6",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 203103,
+   "printed": {
+    "total": 203103,
+    "cytd": 2203726
+   }
+  },
+  {
+   "period": "2015-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2015.asp",
+   "source_html_sha256": "dd32f1cb40d8bf63a8c0bd66264c6c2ae15e486c881ed554ed9bc636784a4e9f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3802696,
+   "printed": {
+    "deplaned": 1902294,
+    "enplaned": 1900402,
+    "total": 3802696,
+    "cytd": 3802696
+   }
+  },
+  {
+   "period": "2015-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2015.asp",
+   "source_html_sha256": "dd32f1cb40d8bf63a8c0bd66264c6c2ae15e486c881ed554ed9bc636784a4e9f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 177615,
+   "printed": {
+    "total": 177615,
+    "cytd": 177615
+   }
+  },
+  {
+   "period": "2015-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2015.asp",
+   "source_html_sha256": "713fe15baa7326179935c3f0d15d5b764852ce1dd1a81a29c65a68f2aac7e67d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3367446,
+   "printed": {
+    "deplaned": 1700021,
+    "enplaned": 1667425,
+    "total": 3367446,
+    "cytd": 7170142
+   }
+  },
+  {
+   "period": "2015-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2015.asp",
+   "source_html_sha256": "713fe15baa7326179935c3f0d15d5b764852ce1dd1a81a29c65a68f2aac7e67d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 175878,
+   "printed": {
+    "total": 175878,
+    "cytd": 353493
+   }
+  },
+  {
+   "period": "2015-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2015.asp",
+   "source_html_sha256": "8a4f41cee6e1fa8c3ccd6dfec32524b377956629668db48d057da0103f02173d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3808259,
+   "printed": {
+    "deplaned": 1943245,
+    "enplaned": 1865014,
+    "total": 3808259,
+    "cytd": 10978401
+   }
+  },
+  {
+   "period": "2015-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Mar_2015.asp",
+   "source_html_sha256": "8a4f41cee6e1fa8c3ccd6dfec32524b377956629668db48d057da0103f02173d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 179200,
+   "printed": {
+    "total": 179200,
+    "cytd": 532693
+   }
+  },
+  {
+   "period": "2015-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2015.asp",
+   "source_html_sha256": "b34370bde4780151303d600d92800ce200113df4ff17e5a5bf8bd39e4bf65a6f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3618134,
+   "printed": {
+    "deplaned": 1810608,
+    "enplaned": 1807526,
+    "total": 3618134,
+    "cytd": 14596535
+   }
+  },
+  {
+   "period": "2015-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2015.asp",
+   "source_html_sha256": "b34370bde4780151303d600d92800ce200113df4ff17e5a5bf8bd39e4bf65a6f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194607,
+   "printed": {
+    "total": 194607,
+    "cytd": 727299
+   }
+  },
+  {
+   "period": "2015-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2015.asp",
+   "source_html_sha256": "4d456f740b8144796a62760bcf7f616757fdf2d60ed110ab98cea4685d77a8a0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3677037,
+   "printed": {
+    "deplaned": 1854714,
+    "enplaned": 1822323,
+    "total": 3677037,
+    "cytd": 18273572
+   }
+  },
+  {
+   "period": "2015-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2015.asp",
+   "source_html_sha256": "4d456f740b8144796a62760bcf7f616757fdf2d60ed110ab98cea4685d77a8a0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 180085,
+   "printed": {
+    "total": 180085,
+    "cytd": 907384
+   }
+  },
+  {
+   "period": "2015-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2015.asp",
+   "source_html_sha256": "2e1e91bdaafd32ba06088db5bcb286376bb578249820f21bd927bd9496be71ad",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3673423,
+   "printed": {
+    "deplaned": 1840377,
+    "enplaned": 1833046,
+    "total": 3673423,
+    "cytd": 21946995
+   }
+  },
+  {
+   "period": "2015-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2015.asp",
+   "source_html_sha256": "2e1e91bdaafd32ba06088db5bcb286376bb578249820f21bd927bd9496be71ad",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 167274,
+   "printed": {
+    "total": 167274,
+    "cytd": 1074658
+   }
+  },
+  {
+   "period": "2015-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2015.asp",
+   "source_html_sha256": "de18ca612a33c7ea12939ade5e288b614e5af8ea81d56ae6d7928a36e1a10253",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4061577,
+   "printed": {
+    "deplaned": 2093822,
+    "enplaned": 1967755,
+    "total": 4061577,
+    "cytd": 26008572
+   }
+  },
+  {
+   "period": "2015-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2015.asp",
+   "source_html_sha256": "de18ca612a33c7ea12939ade5e288b614e5af8ea81d56ae6d7928a36e1a10253",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 172932,
+   "printed": {
+    "total": 172932,
+    "cytd": 1247590
+   }
+  },
+  {
+   "period": "2015-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2015.asp",
+   "source_html_sha256": "1bf20a4595a471403c5216a99bc376659f5476a4cce7d88cd15a359fa02c77c8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3907929,
+   "printed": {
+    "deplaned": 1989684,
+    "enplaned": 1918245,
+    "total": 3907929,
+    "cytd": 29916501
+   }
+  },
+  {
+   "period": "2015-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2015.asp",
+   "source_html_sha256": "1bf20a4595a471403c5216a99bc376659f5476a4cce7d88cd15a359fa02c77c8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 178721,
+   "printed": {
+    "total": 178721,
+    "cytd": 1426311
+   }
+  },
+  {
+   "period": "2015-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2015.asp",
+   "source_html_sha256": "828928b1ab73e1e25785d25c951049cfc0cdd6168938cd22a5cb49b22095a9ef",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3265344,
+   "printed": {
+    "deplaned": 1647206,
+    "enplaned": 1618138,
+    "total": 3265344,
+    "cytd": 33181845
+   }
+  },
+  {
+   "period": "2015-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2015.asp",
+   "source_html_sha256": "828928b1ab73e1e25785d25c951049cfc0cdd6168938cd22a5cb49b22095a9ef",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 180738,
+   "printed": {
+    "total": 180738,
+    "cytd": 1607049
+   }
+  },
+  {
+   "period": "2015-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2015.asp",
+   "source_html_sha256": "e287c81ba9aa0e82eb8a32025bf42abe910715960a10435f8407a318ea63247d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3575747,
+   "printed": {
+    "deplaned": 1821286,
+    "enplaned": 1754461,
+    "total": 3575747,
+    "cytd": 40302932
+   }
+  },
+  {
+   "period": "2015-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2015.asp",
+   "source_html_sha256": "e287c81ba9aa0e82eb8a32025bf42abe910715960a10435f8407a318ea63247d",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 203996,
+   "printed": {
+    "total": 203996,
+    "cytd": 2008322
+   }
+  },
+  {
+   "period": "2015-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_dec_2015.asp",
+   "source_html_sha256": "28f87a23129f0865b58eaf66e20e633db643285308356da060602d6247902cde",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4047315,
+   "printed": {
+    "deplaned": 2085070,
+    "enplaned": 1962245,
+    "total": 4047315,
+    "cytd": 44350247
+   }
+  },
+  {
+   "period": "2015-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_dec_2015.asp",
+   "source_html_sha256": "28f87a23129f0865b58eaf66e20e633db643285308356da060602d6247902cde",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 202454,
+   "printed": {
+    "total": 202454,
+    "cytd": 2210776
+   }
+  },
+  {
+   "period": "2016-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2016.asp",
+   "source_html_sha256": "0f388e23e3aa118494d44f5192137f58451b6249aceb5ab7ad5d3693ad9c2674",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3966784,
+   "printed": {
+    "deplaned": 1985539,
+    "enplaned": 1981245,
+    "total": 3966784,
+    "cytd": 3966784
+   }
+  },
+  {
+   "period": "2016-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2016.asp",
+   "source_html_sha256": "0f388e23e3aa118494d44f5192137f58451b6249aceb5ab7ad5d3693ad9c2674",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 186800,
+   "printed": {
+    "total": 186800,
+    "cytd": 186800
+   }
+  },
+  {
+   "period": "2016-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2016.asp",
+   "source_html_sha256": "5ad1d79f106d2080bd024e575c9044c01523253fec5b3079d08691752633d372",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4007903,
+   "printed": {
+    "deplaned": 2035840,
+    "enplaned": 1972063,
+    "total": 4007903,
+    "cytd": 11493485
+   }
+  },
+  {
+   "period": "2016-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2016.asp",
+   "source_html_sha256": "5ad1d79f106d2080bd024e575c9044c01523253fec5b3079d08691752633d372",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 177621,
+   "printed": {
+    "total": 177621,
+    "cytd": 536636
+   }
+  },
+  {
+   "period": "2016-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2016.asp",
+   "source_html_sha256": "047e47da6c856e2d656edc9125db9f3b6c8e48b832d503de3d6c6b8129b6d1ba",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3670090,
+   "printed": {
+    "deplaned": 1854623,
+    "enplaned": 1815467,
+    "total": 3670090,
+    "cytd": 15163575
+   }
+  },
+  {
+   "period": "2016-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_Apr_2016.asp",
+   "source_html_sha256": "047e47da6c856e2d656edc9125db9f3b6c8e48b832d503de3d6c6b8129b6d1ba",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 191267,
+   "printed": {
+    "total": 191267,
+    "cytd": 727903
+   }
+  },
+  {
+   "period": "2016-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_May_2016.asp",
+   "source_html_sha256": "b1a28c40e233c9d8dbb6b7f973ed4b1d25165a42aa2806a48d9757651805fb5e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3746216,
+   "printed": {
+    "deplaned": 1872787,
+    "enplaned": 1873429,
+    "total": 3746216,
+    "cytd": 18909791
+   }
+  },
+  {
+   "period": "2016-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_May_2016.asp",
+   "source_html_sha256": "b1a28c40e233c9d8dbb6b7f973ed4b1d25165a42aa2806a48d9757651805fb5e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 171751,
+   "printed": {
+    "total": 171751,
+    "cytd": 899655
+   }
+  },
+  {
+   "period": "2016-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2016.asp",
+   "source_html_sha256": "bdc0ede25c66c6f415f91ee22fb820ad9431e90467f5621685581024830786a8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3713892,
+   "printed": {
+    "deplaned": 1861969,
+    "enplaned": 1851923,
+    "total": 3713892,
+    "cytd": 22623683
+   }
+  },
+  {
+   "period": "2016-06",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jun_2016.asp",
+   "source_html_sha256": "bdc0ede25c66c6f415f91ee22fb820ad9431e90467f5621685581024830786a8",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 175221,
+   "printed": {
+    "total": 175221,
+    "cytd": 1074876
+   }
+  },
+  {
+   "period": "2016-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2016.asp",
+   "source_html_sha256": "9867870408be5cce107c46d8242910c695d98d1034711da1906dcd067af1208b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4098996,
+   "printed": {
+    "deplaned": 2103722,
+    "enplaned": 1995274,
+    "total": 4098996,
+    "cytd": 26722679
+   }
+  },
+  {
+   "period": "2016-07",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jul_2016.asp",
+   "source_html_sha256": "9867870408be5cce107c46d8242910c695d98d1034711da1906dcd067af1208b",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 174629,
+   "printed": {
+    "total": 174629,
+    "cytd": 1249504
+   }
+  },
+  {
+   "period": "2016-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2016.asp",
+   "source_html_sha256": "8faa316dc8cc5ee8a828e4cfa36346db3e4287df4e7152ba9643f1a2e4ffc5f3",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3843522,
+   "printed": {
+    "deplaned": 1958099,
+    "enplaned": 1885423,
+    "total": 3843522,
+    "cytd": 30566201
+   }
+  },
+  {
+   "period": "2016-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2016.asp",
+   "source_html_sha256": "8faa316dc8cc5ee8a828e4cfa36346db3e4287df4e7152ba9643f1a2e4ffc5f3",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 180586,
+   "printed": {
+    "total": 180586,
+    "cytd": 1430090
+   }
+  },
+  {
+   "period": "2016-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2016.asp",
+   "source_html_sha256": "930bf8ad646f0ab7a9e0b680964eeabfe6b494eee9b4b222a9a6e75130696bb9",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3167150,
+   "printed": {
+    "deplaned": 1589621,
+    "enplaned": 1577529,
+    "total": 3167150,
+    "cytd": 33733351
+   }
+  },
+  {
+   "period": "2016-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2016.asp",
+   "source_html_sha256": "930bf8ad646f0ab7a9e0b680964eeabfe6b494eee9b4b222a9a6e75130696bb9",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 185788,
+   "printed": {
+    "total": 185788,
+    "cytd": 1615878
+   }
+  },
+  {
+   "period": "2016-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2016.asp",
+   "source_html_sha256": "214712cea71c966dbafb9265dd7b2942ef5c61d95c26ebebfd200d0b692a76c4",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3302088,
+   "printed": {
+    "deplaned": 1682830,
+    "enplaned": 1619258,
+    "total": 3302088,
+    "cytd": 37035439
+   }
+  },
+  {
+   "period": "2016-10",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_oct_2016.asp",
+   "source_html_sha256": "214712cea71c966dbafb9265dd7b2942ef5c61d95c26ebebfd200d0b692a76c4",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194275,
+   "printed": {
+    "total": 194275,
+    "cytd": 1810153
+   }
+  },
+  {
+   "period": "2016-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2016.asp",
+   "source_html_sha256": "8179c68e0eaf12cdc36cb3d9141bf26a7355ad311e03e4a231fd64d72b00b93f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3519283,
+   "printed": {
+    "deplaned": 1777765,
+    "enplaned": 1741518,
+    "total": 3519283,
+    "cytd": 40554722
+   }
+  },
+  {
+   "period": "2016-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2016.asp",
+   "source_html_sha256": "8179c68e0eaf12cdc36cb3d9141bf26a7355ad311e03e4a231fd64d72b00b93f",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 205299,
+   "printed": {
+    "total": 205299,
+    "cytd": 2015452
+   }
+  },
+  {
+   "period": "2016-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_dec_2016.asp",
+   "source_html_sha256": "34d54f2cb2d1df9aef921725da4a2e03fe0d3a6fcf7f178605ffd0c48e8224f5",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4029881,
+   "printed": {
+    "deplaned": 2055008,
+    "enplaned": 1974873,
+    "total": 4029881,
+    "cytd": 44584603
+   }
+  },
+  {
+   "period": "2016-12",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_dec_2016.asp",
+   "source_html_sha256": "34d54f2cb2d1df9aef921725da4a2e03fe0d3a6fcf7f178605ffd0c48e8224f5",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 205281,
+   "printed": {
+    "total": 205281,
+    "cytd": 2220733
+   }
+  },
+  {
+   "period": "2017-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2017.asp",
+   "source_html_sha256": "f22c5a33c7d0b56d89a6fa68e2259df7b81f78995ac3347d675dd9aa85fd07b1",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3931000,
+   "printed": {
+    "deplaned": 1973629,
+    "enplaned": 1957371,
+    "total": 3931000,
+    "cytd": 3931000
+   }
+  },
+  {
+   "period": "2017-01",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_jan_2017.asp",
+   "source_html_sha256": "f22c5a33c7d0b56d89a6fa68e2259df7b81f78995ac3347d675dd9aa85fd07b1",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 193000,
+   "printed": {
+    "total": 193000,
+    "cytd": 193000
+   }
+  },
+  {
+   "period": "2017-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2017.asp",
+   "source_html_sha256": "184e42ebafab547f902ebbb4176ccfd9a6493222459dd8c2e54cb2e224c49470",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3325899,
+   "printed": {
+    "deplaned": 1675723,
+    "enplaned": 1650176,
+    "total": 3325899,
+    "cytd": 7256899
+   }
+  },
+  {
+   "period": "2017-02",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_feb_2017.asp",
+   "source_html_sha256": "184e42ebafab547f902ebbb4176ccfd9a6493222459dd8c2e54cb2e224c49470",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 185058,
+   "printed": {
+    "total": 185058,
+    "cytd": 378058
+   }
+  },
+  {
+   "period": "2017-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2017.asp",
+   "source_html_sha256": "b8fb30bbb30f3b81eb8c2fce0d964e4f7cb0709c7acf7bf80430da8f054c65b0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3876136,
+   "printed": {
+    "deplaned": 1953044,
+    "enplaned": 1923092,
+    "total": 3876136,
+    "cytd": 11133035
+   }
+  },
+  {
+   "period": "2017-03",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_mar_2017.asp",
+   "source_html_sha256": "b8fb30bbb30f3b81eb8c2fce0d964e4f7cb0709c7acf7bf80430da8f054c65b0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184922,
+   "printed": {
+    "total": 184922,
+    "cytd": 562980
+   }
+  },
+  {
+   "period": "2017-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2017.asp",
+   "source_html_sha256": "d1cc0703ac814d4b03b0ebcf4092edc64d23925600f8054eb30b95ae33bde712",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3818652,
+   "printed": {
+    "deplaned": 1922536,
+    "enplaned": 1896116,
+    "total": 3818652,
+    "cytd": 14951687
+   }
+  },
+  {
+   "period": "2017-04",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_apr_2017.asp",
+   "source_html_sha256": "d1cc0703ac814d4b03b0ebcf4092edc64d23925600f8054eb30b95ae33bde712",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 196393,
+   "printed": {
+    "total": 196393,
+    "cytd": 759374
+   }
+  },
+  {
+   "period": "2017-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2017.asp",
+   "source_html_sha256": "bbcd5ecd88e32a2c77904b720ad53405850724f3320e300b38b890156540202e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": true
+   },
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3737466,
+   "printed": {
+    "deplaned": 1857169,
+    "enplaned": 1880297,
+    "total": 3737466,
+    "cytd": 18689153
+   }
+  },
+  {
+   "period": "2017-05",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_may_2017.asp",
+   "source_html_sha256": "bbcd5ecd88e32a2c77904b720ad53405850724f3320e300b38b890156540202e",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "checks": {
+    "passengers_dep_plus_enp_equals_total": true,
+    "cytd_step_equals_total": null
+   },
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 191635,
+   "printed": {
+    "total": 191635,
+    "cytd": 951009
+   }
+  }
+ ]
+}
