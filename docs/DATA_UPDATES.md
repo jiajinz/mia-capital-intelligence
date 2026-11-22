@@ -41,6 +41,96 @@ The Dashboard implementation is documented in [PR #8](https://github.com/jiajinz
 
 These events track official files found by the source monitor. A discovered or revised file is not added to the application dataset by this log.
 
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report March 2025**
+
+- Reporting period: 2025-03-01 to 2025-03-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf>) · 33 PDF pages.
+- SHA-256: `6e24f37f806d115d5d08d8003d37b5d558c4b9043313dd5a912d998e7dd46206`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report April 2025**
+
+- Reporting period: 2025-04-01 to 2025-04-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf>) · 34 PDF pages.
+- SHA-256: `7f6a13200b6440f51f124cefa8dc6e33e4bfc8ba759d3e520193d4ca42c3e25d`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report June 2025**
+
+- Reporting period: 2025-06-01 to 2025-06-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf>) · 36 PDF pages.
+- SHA-256: `272998468d2749732d38d6d9596054d9d37fd192691a8eed170e044c4bea3882`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report October 2025**
+
+- Reporting period: 2025-10-01 to 2025-10-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf>) · 31 PDF pages.
+- SHA-256: `8c2653e7c73e31fc0fd2cfd09e5ab8c423788da5c96ce3bb45a50ec911947a4e`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report July 2025**
+
+- Reporting period: 2025-07-01 to 2025-07-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf>) · 31 PDF pages.
+- SHA-256: `31623e9a276f26fae54fd2a750ef4a88f6af8d468df2e0923baa9ed360c488d7`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report February 2025**
+
+- Reporting period: Unknown.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf>) · 32 PDF pages.
+- SHA-256: `d78ca250bc23def7fd6aa3c9d9851e412319046bebf379ee581594cc75bab86c`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report September 2025**
+
+- Reporting period: 2025-09-01 to 2025-09-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf>) · 33 PDF pages.
+- SHA-256: `05bd511e097c82a71319fad1b971cef44c52dafcf7d633af93f37ec62b40870e`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report January 2025**
+
+- Reporting period: Unknown.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf>) · 36 PDF pages.
+- SHA-256: `54af991da764a83ed3a1185730dbfd8a509dba67c4e5525a3bae9bb69819ed2f`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report August 2025**
+
+- Reporting period: 2025-08-01 to 2025-08-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf>) · 42 PDF pages.
+- SHA-256: `c5d25b15b9b06644529820cf244cc2ee694a4ba981445f9dd0e31a96376dc07b`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:05:50+00:00 — Discovered
+
+**Aviation Capital Program Report May 2025**
+
+- Reporting period: 2025-05-01 to 2025-05-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf>) · 36 PDF pages.
+- SHA-256: `624cbbce7edd2b64bb69dbd6cc0ab103ca6c98919a07fdbe91e8c6119d87a0a3`.
+- Dataset: not included. No project or financial records added by this event.
+
 ### 2026-11-22T01:57:34+00:00 — Discovered
 
 **Aviation Capital Program Report June 2026**

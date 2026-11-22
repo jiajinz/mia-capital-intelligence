@@ -25,6 +25,29 @@
       ]
     },
     {
+      "sha256": "05bd511e097c82a71319fad1b971cef44c52dafcf7d633af93f37ec62b40870e",
+      "size_bytes": 3088478,
+      "page_count": 33,
+      "period_start": "2025-09-01",
+      "period_end": "2025-09-30",
+      "period_evidence": "Aviation Capital Program Report \u2013 September 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report September 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report September 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "117d7cbf8f4fc9f714c750ae4013c003108f89f2a3e6c4e3f43a48725676fd6b",
       "size_bytes": 1626263,
       "page_count": 40,
@@ -94,6 +117,29 @@
       ]
     },
     {
+      "sha256": "272998468d2749732d38d6d9596054d9d37fd192691a8eed170e044c4bea3882",
+      "size_bytes": 3883093,
+      "page_count": 36,
+      "period_start": "2025-06-01",
+      "period_end": "2025-06-30",
+      "period_evidence": "Aviation Capital Program Report \u2013 June 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report June 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report June 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "28e8fb4f88c9e6e71ab77a74640a5905945c73c71c9b5b9f6a6ab3e6dfb50aba",
       "size_bytes": 1165268,
       "page_count": 13,
@@ -113,6 +159,29 @@
           "source_page": "https://www.miamidade.gov/govaction/matter.asp?matter=250801&file=true&fileAnalysis=false&yearFolder=Y2025",
           "link_text": "Printable PDF Format",
           "resolved_url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2025/250801.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "31623e9a276f26fae54fd2a750ef4a88f6af8d468df2e0923baa9ed360c488d7",
+      "size_bytes": 2658943,
+      "page_count": 31,
+      "period_start": "2025-07-01",
+      "period_end": "2025-07-31",
+      "period_evidence": "Aviation Capital Program Report \u2013 July 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report July 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report July 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf"
         }
       ]
     },
@@ -162,6 +231,29 @@
       ]
     },
     {
+      "sha256": "54af991da764a83ed3a1185730dbfd8a509dba67c4e5525a3bae9bb69819ed2f",
+      "size_bytes": 3019537,
+      "page_count": 36,
+      "period_start": null,
+      "period_end": null,
+      "period_evidence": null,
+      "period_pdf_page": null,
+      "processing_status": "text_unreadable",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report January 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report January 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "5aced677855357b0b4b53d49bb2e0c594e94a82345e67649910427c815ce0f08",
       "size_bytes": 1883475,
       "page_count": 49,
@@ -181,6 +273,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report August 2026",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2026/CIP%20Monthly%20Report%20-%20August%202026%20(signed).pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "624cbbce7edd2b64bb69dbd6cc0ab103ca6c98919a07fdbe91e8c6119d87a0a3",
+      "size_bytes": 3174760,
+      "page_count": 36,
+      "period_start": "2025-05-01",
+      "period_end": "2025-05-31",
+      "period_evidence": "Aviation Capital Program Report \u2013 May 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report May 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report May 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf"
         }
       ]
     },
@@ -208,6 +323,29 @@
       ]
     },
     {
+      "sha256": "6e24f37f806d115d5d08d8003d37b5d558c4b9043313dd5a912d998e7dd46206",
+      "size_bytes": 1805167,
+      "page_count": 33,
+      "period_start": "2025-03-01",
+      "period_end": "2025-03-31",
+      "period_evidence": "Aviation Capital Program Report \u2013 March 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report March 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report March 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "72d79e3e0670ba66ab68a4cadace857f75c3a3920c10610ec2b949f75adb9219",
       "size_bytes": 3571471,
       "page_count": 39,
@@ -231,6 +369,29 @@
       ]
     },
     {
+      "sha256": "7f6a13200b6440f51f124cefa8dc6e33e4bfc8ba759d3e520193d4ca42c3e25d",
+      "size_bytes": 1661999,
+      "page_count": 34,
+      "period_start": "2025-04-01",
+      "period_end": "2025-04-30",
+      "period_evidence": "Aviation Capital Program Report \u2013 April 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report April 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report April 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a",
       "series": "infrastructure_241354",
       "title": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354",
@@ -249,6 +410,29 @@
           "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf",
           "source_page": "https://www.miamidade.gov/govaction/matter.asp?file=true&fileAnalysis=false&matter=261402&yearFolder=Y2026",
           "link_text": "Fourth Quarterly Report: Investigations of Internal Infrastructure at Miami International Airport: Directive No. 241354"
+        }
+      ]
+    },
+    {
+      "sha256": "8c2653e7c73e31fc0fd2cfd09e5ab8c423788da5c96ce3bb45a50ec911947a4e",
+      "size_bytes": 6387519,
+      "page_count": 31,
+      "period_start": "2025-10-01",
+      "period_end": "2025-10-31",
+      "period_evidence": "Aviation Capital Program Report \u2013 October 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report October 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report October 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf"
         }
       ]
     },
@@ -344,6 +528,29 @@
       ]
     },
     {
+      "sha256": "c5d25b15b9b06644529820cf244cc2ee694a4ba981445f9dd0e31a96376dc07b",
+      "size_bytes": 3067300,
+      "page_count": 42,
+      "period_start": "2025-08-01",
+      "period_end": "2025-08-31",
+      "period_evidence": "Aviation Capital Program Report \u2013 August 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report August 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report August 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "c62074ae4fdccda48bc716a399d585d8246e8d36a929633ef3afefe6c5505bbe",
       "series": "aviation_capital_monthly",
       "title": "Aviation Capital Program Report \u2014 2026-08",
@@ -385,6 +592,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report July 2026",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2026/CIP%20Monthly%20Report%20-%20July%202026%20(signed).pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "d78ca250bc23def7fd6aa3c9d9851e412319046bebf379ee581594cc75bab86c",
+      "size_bytes": 1938185,
+      "page_count": 32,
+      "period_start": null,
+      "period_end": null,
+      "period_evidence": null,
+      "period_pdf_page": null,
+      "processing_status": "text_unreadable",
+      "series": "aviation_capital_monthly",
+      "title": "Aviation Capital Program Report February 2025",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:05:50+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/transparency_report.asp",
+          "link_text": "Aviation Capital Program Report February 2025",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf"
         }
       ]
     },
@@ -459,6 +689,24 @@
   ],
   "locations": [
     {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report April 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "sha256": "7f6a13200b6440f51f124cefa8dc6e33e4bfc8ba759d3e520193d4ca42c3e25d",
+      "etag": "\"8085a255e9d6db1:0\"",
+      "last_modified": "Fri, 06 Jun 2025 13:45:59 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report August 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf",
+      "sha256": "c5d25b15b9b06644529820cf244cc2ee694a4ba981445f9dd0e31a96376dc07b",
+      "etag": "\"0462535e91dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:29:48 GMT"
+    },
+    {
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Dec%202025/Aviation%20Capital%20Program%20Report%20-%20December%202025.pdf",
       "source_page": "https://www.miami-airport.com/transparency_report.asp",
       "link_text": "Aviation Capital Program Report December 2025",
@@ -468,6 +716,51 @@
       "last_modified": "Thu, 29 Jan 2026 20:46:12 GMT"
     },
     {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report February 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "sha256": "d78ca250bc23def7fd6aa3c9d9851e412319046bebf379ee581594cc75bab86c",
+      "etag": "\"80dd7a9a51d6db1:0\"",
+      "last_modified": "Thu, 05 Jun 2025 19:39:51 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report July 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf",
+      "sha256": "31623e9a276f26fae54fd2a750ef4a88f6af8d468df2e0923baa9ed360c488d7",
+      "etag": "\"049e205f91dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:37:46 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report June 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf",
+      "sha256": "272998468d2749732d38d6d9596054d9d37fd192691a8eed170e044c4bea3882",
+      "etag": "\"80dcbd35e91dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:29:49 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report March 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "sha256": "6e24f37f806d115d5d08d8003d37b5d558c4b9043313dd5a912d998e7dd46206",
+      "etag": "\"0cb131454d6db1:0\"",
+      "last_modified": "Thu, 05 Jun 2025 19:57:34 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report May 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf",
+      "sha256": "624cbbce7edd2b64bb69dbd6cc0ab103ca6c98919a07fdbe91e8c6119d87a0a3",
+      "etag": "\"80dcbd35e91dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:29:49 GMT"
+    },
+    {
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Nov%202025/Aviation%20Capital%20Program%20Report%20-%20November%202025.pdf",
       "source_page": "https://www.miami-airport.com/transparency_report.asp",
       "link_text": "Aviation Capital Program Report November 2025",
@@ -475,6 +768,24 @@
       "sha256": "72d79e3e0670ba66ab68a4cadace857f75c3a3920c10610ec2b949f75adb9219",
       "etag": "\"8085714f6091dc1:0\"",
       "last_modified": "Thu, 29 Jan 2026 20:46:15 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report October 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf",
+      "sha256": "8c2653e7c73e31fc0fd2cfd09e5ab8c423788da5c96ce3bb45a50ec911947a4e",
+      "etag": "\"8085714f6091dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:46:15 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report September 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf",
+      "sha256": "05bd511e097c82a71319fad1b971cef44c52dafcf7d633af93f37ec62b40870e",
+      "etag": "\"8058404e6091dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 20:46:13 GMT"
     },
     {
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2026/CIP%20Monthly%20Report%20-%20April%202026.pdf",
@@ -565,6 +876,15 @@
       "sha256": "117d7cbf8f4fc9f714c750ae4013c003108f89f2a3e6c4e3f43a48725676fd6b",
       "etag": "\"058a2bca85cdd1:0\"",
       "last_modified": "Thu, 15 Oct 2026 13:26:08 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf",
+      "source_page": "https://www.miami-airport.com/transparency_report.asp",
+      "link_text": "Aviation Capital Program Report January 2025",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf",
+      "sha256": "54af991da764a83ed3a1185730dbfd8a509dba67c4e5525a3bae9bb69819ed2f",
+      "etag": "\"80aafee221a8dc1:0\"",
+      "last_modified": "Fri, 27 Feb 2026 19:47:21 GMT"
     },
     {
       "url": "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2025/250801.pdf",
@@ -768,6 +1088,96 @@
       "sha256": "72d79e3e0670ba66ab68a4cadace857f75c3a3920c10610ec2b949f75adb9219",
       "previous_sha256": null,
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Nov%202025/Aviation%20Capital%20Program%20Report%20-%20November%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "6ac43176a60a8ac71b55dbefc2b674361aea20b50b9a21e56454ad566afddf72",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "8c2653e7c73e31fc0fd2cfd09e5ab8c423788da5c96ce3bb45a50ec911947a4e",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "2c38871a5f7ebfe40ab8bf269b7353ebaba4610ea09e5e4dd8df34919bc230f4",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "05bd511e097c82a71319fad1b971cef44c52dafcf7d633af93f37ec62b40870e",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Sept%202025/Aviation%20Capital%20Program%20Report%20-%20September%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "0c68566ff5dec7f1624d1cc7e08ae05e16a257c17086f0cacbd6c7e80b748c74",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "c5d25b15b9b06644529820cf244cc2ee694a4ba981445f9dd0e31a96376dc07b",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/August/Aviation%20Capital%20Program%20Report%20-%20August%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "56dcc1ddaec3deedb588df15b772d09caadcb2319c98a6cfba669b8beb75275c",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "31623e9a276f26fae54fd2a750ef4a88f6af8d468df2e0923baa9ed360c488d7",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/July/Aviation%20Capital%20Program%20Report%20-%20July%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "7f9a4ba3037b756fe170aac1d6c1f3d87d86d7af2c6cb4de374a8b0a75268c79",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "272998468d2749732d38d6d9596054d9d37fd192691a8eed170e044c4bea3882",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "0149507b058a8847105b3469a6b87675d5954cfa844c08ab59b24f11979682d8",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "624cbbce7edd2b64bb69dbd6cc0ab103ca6c98919a07fdbe91e8c6119d87a0a3",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/May%202025/Aviation%20Capital%20Program%20Report%20-%20May%202025.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "830a93e76fe6c1ece8ad93c4113c7b6f1af5617f3608877124a258d3f5c43fbc",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "7f6a13200b6440f51f124cefa8dc6e33e4bfc8ba759d3e520193d4ca42c3e25d",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "fc3363085297d5ae2ad5223ef7b9775fc5b2887c92392292c3525ae5329bbac1",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "6e24f37f806d115d5d08d8003d37b5d558c4b9043313dd5a912d998e7dd46206",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Mar%202025/March%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "2ddc980972d88f6f0c0440ef9a6e60b3d40b0459b9e135423f1716ae7a760ffc",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "d78ca250bc23def7fd6aa3c9d9851e412319046bebf379ee581594cc75bab86c",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "108e4ea82203d6e3047534b5893d61ff75cf4b43a730e3c6c34fc6f147060344",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:05:50+00:00",
+      "sha256": "54af991da764a83ed3a1185730dbfd8a509dba67c4e5525a3bae9bb69819ed2f",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf",
       "pull_request_url": null
     }
   ]
