@@ -182,7 +182,7 @@ def render_dashboard(registry: PublicRegistry, reports: dict, latest_report: str
     if source:
         period = report_period(source["period_start"], source["period_end"])
         memo_date = date.fromisoformat(source["memo_date"])
-        st.caption(f"Miami International Airport · {period} report · Memo dated {memo_date:%b %d, %Y} · "
+        st.caption(f"Miami-Dade County · {period} report · Memo dated {memo_date:%b %d, %Y} · "
                    f"[Official report]({source['url']})")
         area = st.radio("Choose an area", ("All areas", *OPERATING_AREAS),
                         horizontal=True, key="dashboard_area")
