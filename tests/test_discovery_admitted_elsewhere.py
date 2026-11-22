@@ -61,3 +61,10 @@ def test_new_candidate_with_admitted_bytes_is_recorded_as_admitted_elsewhere():
     observe(plain, link, identity, {}, when)
     assert plain["documents"][0]["dataset_status"] == "not_included"
     assert "admitted_series" not in plain["documents"][0]
+
+
+def test_index_builds_from_real_traffic_files_without_series_id_on_every_file():
+    from mia_capital_intelligence.discovery_catalog import admitted_elsewhere_index
+    index = admitted_elsewhere_index(ROOT)
+    assert index, "expected admitted traffic hashes"
+    assert set(index.values()) == {"traffic_monthly"}
