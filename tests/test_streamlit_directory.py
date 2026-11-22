@@ -25,6 +25,16 @@ def visible_copy(result):
     )
 
 
+INDEPENDENT_NOTICE = (
+    "An independent data project. Not affiliated with or endorsed by Miami International Airport "
+    "or Miami-Dade County. Records are attributed to their publishing organizations."
+)
+
+
+def states_notice(result):
+    return any(INDEPENDENT_NOTICE in str(element.value) for element in result.caption)
+
+
 def search(result, term):
     result.text_input(key="search").input(term)
     return result.button(key="FormSubmitter:explore-search-Search").click().run()
@@ -353,3 +363,57 @@ def test_t180b_case_surfaces_published_amounts_and_sources():
     assert any(link.endswith("/260526.pdf#page=11") for link in links)
     assert any(link.endswith("/261402.pdf#page=12") for link in links)
     assert "$ 151,603,829" not in visible_copy(coverage)
+
+
+def test_default_explore_and_tab_routes_state_independent_notice():
+    result = app()
+    assert [tab.label for tab in result.tabs] == [
+        "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+    ]
+    # The page-level notice sits outside the tabs, so it applies to Dashboard, Sources and Contract spending.
+    assert states_notice(result)
+
+
+def test_empty_search_state_states_independent_notice():
+    result = search(app(), "not-a-real-project-xyz")
+    assert not result.exception
+    assert "No source records match these filters" in visible_copy(result)
+    assert states_notice(result)
+
+
+def test_valid_record_permalink_states_independent_notice():
+    source_ref = next(row.source_ref for row in load_registry().records
+                      if row.project_id == "CA176A" and row.matter_id == "260526")
+    linked = AppTest.from_file(APP, default_timeout=15)
+    linked.query_params["record"] = source_ref
+    linked.run()
+    assert not linked.exception
+    assert any(row.proto.label == "Open profile permalink" for row in linked.get("link_button"))
+    assert states_notice(linked)
+
+
+def test_invalid_record_link_states_independent_notice():
+    result = AppTest.from_file(APP, default_timeout=15)
+    result.query_params["record"] = "stale-source-version"
+    result.run()
+    assert not result.exception
+    assert "outside the current registry version" in visible_copy(result)
+    assert states_notice(result)
+
+
+def test_registry_error_state_states_independent_notice(monkeypatch):
+    import streamlit as st
+    from mia_capital_intelligence import public_registry
+
+    def failed_input(root):
+        raise OSError("Could not read /private/synthetic-operator/registry.json")
+
+    st.cache_resource.clear()
+    monkeypatch.setattr(public_registry, "load_registry", failed_input)
+    try:
+        result = AppTest.from_file(APP, default_timeout=15).run()
+        assert not result.exception
+        assert "could not be validated" in result.error[0].value
+        assert states_notice(result)
+    finally:
+        st.cache_resource.clear()
