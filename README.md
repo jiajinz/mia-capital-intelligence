@@ -2,7 +2,7 @@
 
 **Airport Infrastructure & Capital Projects Explorer**
 
-Explore airport improvements, reported project costs, and contract spending from Miami-Dade County. This independent data project makes public reports easier to browse by linking each figure and project update to its original page.
+Explore airport improvements, reported project costs, and contract spending from Miami-Dade County. This independent data project makes public reports easier to browse by linking each figure and project update to its original page. It is not affiliated with or endorsed by Miami International Airport or Miami-Dade County. Its colors and typefaces follow the public website of Miami International Airport for familiarity only.
 
 **[🚀 Open live app](https://mia-capital-intelligence.streamlit.app/)**
 

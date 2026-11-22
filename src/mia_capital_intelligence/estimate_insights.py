@@ -55,6 +55,30 @@ def largest_estimates(
     )
 
 
+# Public-site palette (recorded in docs/DECISIONS.md D027). Neutral hairlines are derived locally.
+PALETTE_INK = "#333333"
+PALETTE_SECONDARY = "#3F5161"
+PALETTE_LINE = "#DDE3E8"
+PALETTE_SURFACE = "#FFFFFF"
+PALETTE_BAR = "#007BB6"
+PALETTE_ACCENT = "#012851"
+
+
+def apply_chart_theme(figure: go.Figure) -> go.Figure:
+    """Apply the public-site chart palette: dark ink, hairline axes, white surface."""
+    figure.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color=PALETTE_INK),
+        hoverlabel=dict(bgcolor=PALETTE_SURFACE, bordercolor=PALETTE_LINE, font=dict(color=PALETTE_INK)),
+    )
+    for axis in (figure.layout.xaxis, figure.layout.yaxis):
+        axis.update(
+            gridcolor=PALETTE_LINE, zerolinecolor=PALETTE_LINE, linecolor=PALETTE_LINE,
+            tickfont=dict(color=PALETTE_SECONDARY), title_font=dict(color=PALETTE_SECONDARY),
+        )
+    return figure
+
+
 def estimate_figure(ranking: EstimateRanking) -> go.Figure:
     """Convert only bar geometry to float; hover retains exact USD and evidence keys."""
     rows = ranking.rows
@@ -65,7 +89,8 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
             row["source_ref"], row["project_name"], format_usd(row["estimate_usd"]),
             row["pdf_page"],
         ] for row in rows],
-        marker_color="#1E6358",
+        marker=dict(color=PALETTE_BAR),
+        selected=dict(marker=dict(color=PALETTE_ACCENT)),
         hovertemplate=("<b>%{y}</b><br>%{customdata[1]}<br>Estimated cost: %{customdata[2]}"
                        "<br>PDF page %{customdata[3]}<extra></extra>"),
     ))
@@ -82,9 +107,9 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
             ],
         ),
         clickmode="event+select", dragmode=False,
-        font=dict(size=14, color="#152D36"), showlegend=False,
+        font=dict(size=14, color=PALETTE_INK), showlegend=False,
     )
-    return figure
+    return apply_chart_theme(figure)
 
 
 def selected_source_ref(event: Mapping[str, Any], ranking: EstimateRanking) -> str | None:
