@@ -17,7 +17,7 @@ cli = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(cli)
 
 
-def page_lines(extra_passenger=0, year_label=2024):
+def page_lines(extra_passenger=0, year_label=2024, trailing_cytd=True, month_end_day=31):
     lines = []
 
     def line(text, positions=None):
@@ -27,12 +27,14 @@ def page_lines(extra_passenger=0, year_label=2024):
         lines.append((text, cells))
 
     line("MIAMI INTERNATIONAL AIRPORT - TRAFFIC REPORT")
-    line("MONTH ENDED: JANUARY 31, 2025")
+    line(f"MONTH ENDED: JANUARY {month_end_day}, 2025")
     for market in traffic.MARKETS:
         combined = market == "COMBINED TOTALS"
         line("% CHG OVR 2025 2024 % CHG OVR")
-        header = f"{market} DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD {year_label} CYTD"
-        line(header, [10] * len(market.split()) + [100, 150, 200, 250, 260, 300, 310, 350, 400, 445, 450])
+        suffix = " CYTD" if trailing_cytd else ""
+        header = f"{market} DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD {year_label}{suffix}"
+        positions = [10] * len(market.split()) + [100, 150, 200, 250, 260, 300, 310, 350, 400, 445, 450]
+        line(header, positions if trailing_cytd else positions[:-1])
         for measure in traffic.MEASURES:
             amount = (2 if combined else 1) * (2 if measure == "TOTAL CARGO-TONS" else 1)
             extra = extra_passenger if measure == "PASSENGERS" and market != "DOMESTIC" else 0
@@ -91,3 +93,23 @@ def test_only_revised_month_reparsed_and_old_candidate_preserved(tmp_path, monke
     assert any(c["column"] == "month_total" and c["before"] == "4" and c["after"] == "5"
                for c in changed["changes"])
     assert any(json.loads(f.read_bytes()) == json.loads(before) for f in (tmp_path / "snapshots").glob("*.json"))
+
+
+def test_header_without_trailing_cytd_is_accepted():
+    rows = traffic.extract_rows(page_lines(trailing_cytd=False), "2025-01")
+    assert len(rows) == 18
+    assert all(row["held_fields"] == [] for row in rows)
+    assert rows[0]["month_end_note"] is None
+
+
+def test_printed_month_end_differing_from_calendar_is_kept_and_noted():
+    rows = traffic.extract_rows(page_lines(month_end_day=30), "2025-01")
+    assert rows[0]["period_evidence"] == "MONTH ENDED: JANUARY 30, 2025"
+    assert rows[0]["month_end_note"] == "printed month-end 30 differs from calendar 31"
+
+
+def test_wrong_printed_month_still_rejected():
+    lines = page_lines()
+    lines[1] = ("MONTH ENDED: FEBRUARY 28, 2025", lines[1][1])
+    with pytest.raises(ValueError, match="printed month-end"):
+        traffic.extract_rows(lines, "2025-01")
