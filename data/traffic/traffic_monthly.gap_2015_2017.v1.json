@@ -1,0 +1,486 @@
+{
+ "schema_version": "1.0",
+ "status": "admitted",
+ "admitted_by": "owner",
+ "admitted_at": "2026-11-22T03:47:25Z",
+ "dataset_version": "traffic-monthly-gap-2015-2017-v1",
+ "scope": "9 months: 2015-10, 2016-02, 2017-06 to 2017-12. 2017-12 from the 2018-12 report prior-year column. Held and gap months stay excluded.",
+ "rows": [
+  {
+   "period": "2015-10",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3545340,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/October%202015%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "f60bd2586c2b7163bb21c419e00b0ed882146893fc2a37407dda08f6cfc5ec92",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2015 2014 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 14 OCT 14 CYTD CYTD 2014 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2015",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2015-10",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 197277,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/October%202015%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "f60bd2586c2b7163bb21c419e00b0ed882146893fc2a37407dda08f6cfc5ec92",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2015 2014 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 14 OCT 14 CYTD CYTD 2014 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2015",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2016-02",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3518798,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/February%202016%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "a0ad2ad9dccf3709122c57784aefec62c151761e70c1b71572c53c647236d90b",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2016 2015 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 15 FEB 15 CYTD CYTD 2015 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: FEBRUARY 29, 2016",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2016-02",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 172216,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/February%202016%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "a0ad2ad9dccf3709122c57784aefec62c151761e70c1b71572c53c647236d90b",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2016 2015 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 15 FEB 15 CYTD CYTD 2015 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: FEBRUARY 29, 2016",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-06",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3752084,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/June%202017%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "9594bb295399bda88082e81bcff27437ec3b7d4172b933c01ee7d57f938b305d",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 16 JUN 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: JUNE 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-06",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 173796,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/June%202017%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "9594bb295399bda88082e81bcff27437ec3b7d4172b933c01ee7d57f938b305d",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 16 JUN 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: JUNE 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-07",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4089186,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/July%202017%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "af1b708d8a3f2720b4d2bd19f796696fa7fc155fef1153db54f0067796c63dac",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 16 JUL 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: JULY 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-07",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 174803,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/July%202017%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "source_sha256": "af1b708d8a3f2720b4d2bd19f796696fa7fc155fef1153db54f0067796c63dac",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 16 JUL 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: JULY 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-08",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3903469,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/August_2017_Monthly_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "7260196a937327e2f4f326bae7865bae892fed71edd1bb70b57adeea7a640b5b",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 16 AUG 16 CYTD CYTD 2015 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-08",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 184042,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/August_2017_Monthly_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "7260196a937327e2f4f326bae7865bae892fed71edd1bb70b57adeea7a640b5b",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 16 AUG 16 CYTD CYTD 2015 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-09",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2473265,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/September_%202017_Monthly%20_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "ad30e2fcf59e7914cee7cf8280b3c1ba98868c4a2aa3357fbab6f417de43f36e",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 16 SEP 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-09",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 159409,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/September_%202017_Monthly%20_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "ad30e2fcf59e7914cee7cf8280b3c1ba98868c4a2aa3357fbab6f417de43f36e",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 16 SEP 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-10",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3517238,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/October_2017_Traffic_Report.pdf",
+   "source_sha256": "7810c796340a8670c585b23c11c61866a8e6d6fc45b055a1a479f0ccf432ee5c",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 16 OCT 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-10",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 210450,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/October_2017_Traffic_Report.pdf",
+   "source_sha256": "7810c796340a8670c585b23c11c61866a8e6d6fc45b055a1a479f0ccf432ee5c",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 16 OCT 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-11",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3649847,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/November_2017_Monthly_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "a3263747b5c458e93828c36954c0e5c32e19b22deb39294c3342e17eae2a0f35",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 16 NOV 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-11",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 212391,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/November_2017_Monthly_Calendar_Yr_Traffic_Report.pdf",
+   "source_sha256": "a3263747b5c458e93828c36954c0e5c32e19b22deb39294c3342e17eae2a0f35",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2017 2016 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 16 NOV 16 CYTD CYTD 2016 CYTD"
+   ],
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2017",
+   "month_end_note": null,
+   "value_column": "month_total",
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   }
+  },
+  {
+   "period": "2017-12",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3997071,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/December%202018%20Moving%20Twelve%20Months%20Traffic%20Report.pdf",
+   "source_sha256": "8d8c98697de31f54116289b5af422da47a03d4e4726c0ca3e5e46d24525da1e1",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2018 2017 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 17 DEC 17 CYTD CYTD 2017"
+   ],
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2018",
+   "month_end_note": null,
+   "value_column": "same_month_prior_year",
+   "later_report_period": "2018-12",
+   "vintage": {
+    "first_published": {
+     "status": "not_obtained"
+    },
+    "revision_stamp_printed": false,
+    "printed_as": "same_month_prior_year column of the 2018-12 report"
+   }
+  },
+  {
+   "period": "2017-12",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 218248,
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "pdf_monthly_report",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/December%202018%20Moving%20Twelve%20Months%20Traffic%20Report.pdf",
+   "source_sha256": "8d8c98697de31f54116289b5af422da47a03d4e4726c0ca3e5e46d24525da1e1",
+   "pdf_page_index": 0,
+   "table_header_lines": [
+    "% CHG OVR 2018 2017 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 17 DEC 17 CYTD CYTD 2017"
+   ],
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2018",
+   "month_end_note": null,
+   "value_column": "same_month_prior_year",
+   "later_report_period": "2018-12",
+   "vintage": {
+    "first_published": {
+     "status": "not_obtained"
+    },
+    "revision_stamp_printed": false,
+    "printed_as": "same_month_prior_year column of the 2018-12 report"
+   }
+  }
+ ]
+}
