@@ -1,0 +1,2089 @@
+{
+ "schema_version": "1.0",
+ "dataset_version": "traffic-monthly-plan-a-v1",
+ "status": "admitted",
+ "series_id": "traffic_monthly",
+ "scope": "A1: 66 independently verified COMBINED TOTALS values; PASSENGERS and TOTAL CARGO-TONS; 2024-01 to 2026-09",
+ "revision_rule": "two_vintages",
+ "storage": "committed JSON in data/traffic/",
+ "hold_policy": "cytd_yoy_pct held for 2024-12 and 2025-06; monthly values admissible",
+ "admitted_by": "owner",
+ "admitted_at": "2026-11-22T02:55:34Z",
+ "rows": [
+  {
+   "period": "2024-01",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5035404,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "87a88ca1cb517bb809f18dd079451d98039e127ab4cc87a9aa4efd29e2af4c49",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/January%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(003).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 23 JAN 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "87a88ca1cb517bb809f18dd079451d98039e127ab4cc87a9aa4efd29e2af4c49",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/January%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(003).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 23 JAN 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-01",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 244568,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "87a88ca1cb517bb809f18dd079451d98039e127ab4cc87a9aa4efd29e2af4c49",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/January%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(003).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 23 JAN 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "87a88ca1cb517bb809f18dd079451d98039e127ab4cc87a9aa4efd29e2af4c49",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/January%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(003).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 23 JAN 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-02",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4659933,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "91fcac914a353979c3cbe5add707f0b3547346c1121e63bf5a33ec5d5c7ce1c0",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/February%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 23 FEB 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 29, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "91fcac914a353979c3cbe5add707f0b3547346c1121e63bf5a33ec5d5c7ce1c0",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/February%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 23 FEB 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-02",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 235679,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "91fcac914a353979c3cbe5add707f0b3547346c1121e63bf5a33ec5d5c7ce1c0",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/February%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 23 FEB 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 29, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "91fcac914a353979c3cbe5add707f0b3547346c1121e63bf5a33ec5d5c7ce1c0",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/February%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 23 FEB 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-03",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5204849,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "d618d825f3b4e60fb6521be1499d484fd77ef0b79f124fd28cad6393b7f1ef75",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/March%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 23 MAR 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "d618d825f3b4e60fb6521be1499d484fd77ef0b79f124fd28cad6393b7f1ef75",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/March%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 23 MAR 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-03",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 240659,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "d618d825f3b4e60fb6521be1499d484fd77ef0b79f124fd28cad6393b7f1ef75",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/March%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 23 MAR 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "d618d825f3b4e60fb6521be1499d484fd77ef0b79f124fd28cad6393b7f1ef75",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/March%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 23 MAR 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-04",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4664806,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "0351c11554ed634e284ab51164d5a7f3059d5716bc1b5e57439508cf852a166a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/April%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 23 APR 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "0351c11554ed634e284ab51164d5a7f3059d5716bc1b5e57439508cf852a166a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/April%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 23 APR 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-04",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 248923,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "0351c11554ed634e284ab51164d5a7f3059d5716bc1b5e57439508cf852a166a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/April%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 23 APR 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "0351c11554ed634e284ab51164d5a7f3059d5716bc1b5e57439508cf852a166a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/April%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 23 APR 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-05",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4784973,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "000840eb3b49abd161b4b10874eff1fb1a94549721c6573ab297fcccf231fe01",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/May%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 23 MAY 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "000840eb3b49abd161b4b10874eff1fb1a94549721c6573ab297fcccf231fe01",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/May%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 23 MAY 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-05",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 253032,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "000840eb3b49abd161b4b10874eff1fb1a94549721c6573ab297fcccf231fe01",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/May%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 23 MAY 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "000840eb3b49abd161b4b10874eff1fb1a94549721c6573ab297fcccf231fe01",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/May%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 23 MAY 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-06",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4570642,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "2c8c7247853d812431b562b2320b6e6b5f113c6395aea31e466c16bb2b03552e",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/June%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 23 JUN 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "2c8c7247853d812431b562b2320b6e6b5f113c6395aea31e466c16bb2b03552e",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/June%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 23 JUN 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-06",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 237109,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "2c8c7247853d812431b562b2320b6e6b5f113c6395aea31e466c16bb2b03552e",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/June%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 23 JUN 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "2c8c7247853d812431b562b2320b6e6b5f113c6395aea31e466c16bb2b03552e",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/June%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 23 JUN 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-07",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4920287,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "e7cc9ecf2104e7ef2d6eed7850fce967423646b70cb7f6f1957ef7c4dc7f1da9",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/July%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 23 JUL 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "e7cc9ecf2104e7ef2d6eed7850fce967423646b70cb7f6f1957ef7c4dc7f1da9",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/July%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 23 JUL 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-07",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 238307,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "e7cc9ecf2104e7ef2d6eed7850fce967423646b70cb7f6f1957ef7c4dc7f1da9",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/July%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 23 JUL 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "e7cc9ecf2104e7ef2d6eed7850fce967423646b70cb7f6f1957ef7c4dc7f1da9",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/July%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [
+    "Legacy crew-totals footnote dated 2009; not linked to any row marker. Applicability to passenger rows not confirmed by independent review; recorded for owner decision."
+   ],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 23 JUL 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-08",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4589478,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "3fa8a131bfdbbcb12292c2aadcba6c0ed3e6d167482fca0751ae5f49fc25b9fc",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/August%202024%20Monthly%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 23 AUG 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "3fa8a131bfdbbcb12292c2aadcba6c0ed3e6d167482fca0751ae5f49fc25b9fc",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/August%202024%20Monthly%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 23 AUG 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-08",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 246888,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "3fa8a131bfdbbcb12292c2aadcba6c0ed3e6d167482fca0751ae5f49fc25b9fc",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/August%202024%20Monthly%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 23 AUG 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "3fa8a131bfdbbcb12292c2aadcba6c0ed3e6d167482fca0751ae5f49fc25b9fc",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/August%202024%20Monthly%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 23 AUG 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-09",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3795959,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "312ec44ea2a3cbe93b91c2fb729ef92c382b320cb686e7870b7f53fff3ea4c96",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/September%202024%20Monthly%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 23 SEP 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "312ec44ea2a3cbe93b91c2fb729ef92c382b320cb686e7870b7f53fff3ea4c96",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/September%202024%20Monthly%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 23 SEP 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-09",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 238831,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "312ec44ea2a3cbe93b91c2fb729ef92c382b320cb686e7870b7f53fff3ea4c96",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/September%202024%20Monthly%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 23 SEP 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "312ec44ea2a3cbe93b91c2fb729ef92c382b320cb686e7870b7f53fff3ea4c96",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/September%202024%20Monthly%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 23 SEP 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-10",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4094636,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "0207580b672960c83cefd1f4ce86996a44818e33253e549965d036ed69fb1388",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/October%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 23 OCT 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "0207580b672960c83cefd1f4ce86996a44818e33253e549965d036ed69fb1388",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/October%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 23 OCT 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-10",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 282669,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "0207580b672960c83cefd1f4ce86996a44818e33253e549965d036ed69fb1388",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/October%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 23 OCT 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "0207580b672960c83cefd1f4ce86996a44818e33253e549965d036ed69fb1388",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/October%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 23 OCT 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-11",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4445042,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "61bd02412cc0b300b284cb3a2f3d764edf2fc95c5580465e22503f74dbc9147b",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/November%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 23 NOV 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "61bd02412cc0b300b284cb3a2f3d764edf2fc95c5580465e22503f74dbc9147b",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/November%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 23 NOV 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-11",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 287960,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "61bd02412cc0b300b284cb3a2f3d764edf2fc95c5580465e22503f74dbc9147b",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/November%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 23 NOV 23 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "61bd02412cc0b300b284cb3a2f3d764edf2fc95c5580465e22503f74dbc9147b",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/November%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 23 NOV 23 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2024-12",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5160557,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_sha256": "8779f5a47503c668c418417c466d9d1c4cb4e8686febb9d9c711bcfbd890b051",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/December%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 23 DEC 23 CYTD CYTD 2022 CYTD",
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "8779f5a47503c668c418417c466d9d1c4cb4e8686febb9d9c711bcfbd890b051",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/December%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 23 DEC 23 CYTD CYTD 2022 CYTD"
+   ]
+  },
+  {
+   "period": "2024-12",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 281153,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_sha256": "8779f5a47503c668c418417c466d9d1c4cb4e8686febb9d9c711bcfbd890b051",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/December%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 23 DEC 23 CYTD CYTD 2022 CYTD",
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2024",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "8779f5a47503c668c418417c466d9d1c4cb4e8686febb9d9c711bcfbd890b051",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2024/December%202024%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2024 2023 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 23 DEC 23 CYTD CYTD 2022 CYTD"
+   ]
+  },
+  {
+   "period": "2025-01",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5067376,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "d701d25cb4d9364053810d8ff7adcaa4cbcbedd27e20d97c81e5d83d87bc7c67",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/January%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "d701d25cb4d9364053810d8ff7adcaa4cbcbedd27e20d97c81e5d83d87bc7c67",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/January%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-01",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 274179,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "d701d25cb4d9364053810d8ff7adcaa4cbcbedd27e20d97c81e5d83d87bc7c67",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/January%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "d701d25cb4d9364053810d8ff7adcaa4cbcbedd27e20d97c81e5d83d87bc7c67",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/January%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 24 JAN 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-02",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4442257,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "04b71701aa04dd5ecd50802ac44e9fa25b0405a2de2eaa4eb3bc60e418d137bd",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/February%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 24 FEB 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 28, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "04b71701aa04dd5ecd50802ac44e9fa25b0405a2de2eaa4eb3bc60e418d137bd",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/February%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 24 FEB 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-02",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 261157,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "04b71701aa04dd5ecd50802ac44e9fa25b0405a2de2eaa4eb3bc60e418d137bd",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/February%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 24 FEB 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 28, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "04b71701aa04dd5ecd50802ac44e9fa25b0405a2de2eaa4eb3bc60e418d137bd",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/February%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 24 FEB 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-03",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5141796,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "cf19fcda96c78ec4c5dfa66d7ad2a6efbe89d638511b4c29e2d4fc2e15c6c954",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/March%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20Revised%20(002).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 24 MAR 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": true,
+    "first_published": {
+     "status": "not_obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "cf19fcda96c78ec4c5dfa66d7ad2a6efbe89d638511b4c29e2d4fc2e15c6c954",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/March%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20Revised%20(002).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 24 MAR 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-03",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 270818,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "cf19fcda96c78ec4c5dfa66d7ad2a6efbe89d638511b4c29e2d4fc2e15c6c954",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/March%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20Revised%20(002).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 24 MAR 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": true,
+    "first_published": {
+     "status": "not_obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "cf19fcda96c78ec4c5dfa66d7ad2a6efbe89d638511b4c29e2d4fc2e15c6c954",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/March%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20Revised%20(002).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 24 MAR 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-04",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4651902,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "54d39dbdc01421f59b2920a8007838af2c7365d4f060a7da5a99c79fff2c7659",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/April%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 24 APR 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "54d39dbdc01421f59b2920a8007838af2c7365d4f060a7da5a99c79fff2c7659",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/April%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 24 APR 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-04",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 300633,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "54d39dbdc01421f59b2920a8007838af2c7365d4f060a7da5a99c79fff2c7659",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/April%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 24 APR 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "54d39dbdc01421f59b2920a8007838af2c7365d4f060a7da5a99c79fff2c7659",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/April%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 24 APR 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-05",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4595305,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "77494d4d281d080de8c8cbdd11bdbf5d1f400998965125316268bf2d376ab974",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/May%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 24 MAY 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "77494d4d281d080de8c8cbdd11bdbf5d1f400998965125316268bf2d376ab974",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/May%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 24 MAY 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-05",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 279156,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "77494d4d281d080de8c8cbdd11bdbf5d1f400998965125316268bf2d376ab974",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/May%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 24 MAY 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "77494d4d281d080de8c8cbdd11bdbf5d1f400998965125316268bf2d376ab974",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/May%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 24 MAY 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-06",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4621771,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_sha256": "1c055398f5fd92f20d5688003f0cea2e5d1a42d63f6b4c20886562afc4208042",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/June%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 24 JUN 24 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "1c055398f5fd92f20d5688003f0cea2e5d1a42d63f6b4c20886562afc4208042",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/June%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 24 JUN 24 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2025-06",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 260513,
+   "status": "admitted",
+   "held_fields": [
+    "cytd_yoy_pct"
+   ],
+   "source_sha256": "1c055398f5fd92f20d5688003f0cea2e5d1a42d63f6b4c20886562afc4208042",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/June%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 24 JUN 24 CYTD CYTD 2023 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "1c055398f5fd92f20d5688003f0cea2e5d1a42d63f6b4c20886562afc4208042",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/June%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 24 JUN 24 CYTD CYTD 2023 CYTD"
+   ]
+  },
+  {
+   "period": "2025-07",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4830328,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 24 JUL 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 24 JUL 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-07",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 273082,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 24 JUL 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 24 JUL 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-08",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4548858,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 24 AUG 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 24 AUG 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-08",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 283469,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 24 AUG 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 24 AUG 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-09",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3640068,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 24 SEP 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 24 SEP 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-09",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 276847,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 24 SEP 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 24 SEP 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-10",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4149563,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 24 OCT 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 24 OCT 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-10",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 314321,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 24 OCT 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: OCTOBER 31, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL OCT 24 OCT 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-11",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4481967,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 24 NOV 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 24 NOV 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-11",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 329510,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 24 NOV 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: NOVEMBER 30, 2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL NOV 24 NOV 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-12",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5143470,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 24 DEC 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 24 DEC 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2025-12",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 325227,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 24 DEC 24 CYTD CYTD 2024 CYTD",
+   "period_evidence": "MONTH ENDED: DECEMBER 31,2025",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2025 2024 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL DEC 24 DEC 24 CYTD CYTD 2024 CYTD"
+   ]
+  },
+  {
+   "period": "2026-01",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5088634,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 25 JAN 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 25 JAN 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-01",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 303387,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 25 JAN 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JANUARY 31,2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JAN 25 JAN 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-02",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4469495,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 25 FEB 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 28, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 25 FEB 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-02",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 302438,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 25 FEB 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: FEBRUARY 28, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL FEB 25 FEB 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-03",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 5051489,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 25 MAR 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 25 MAR 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-03",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 323618,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 25 MAR 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: MARCH 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAR 25 MAR 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-04",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4558135,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 25 APR 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 25 APR 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-04",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 312608,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 25 APR 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: APRIL 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL APR 25 APR 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-05",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4619412,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 25 MAY 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 25 MAY 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-05",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 304708,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 25 MAY 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: MAY 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL MAY 25 MAY 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-06",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4555641,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 25 JUN 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 25 JUN 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-06",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 288968,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 25 JUN 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JUNE 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUN 25 JUN 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-07",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4834977,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 25 JUL 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 25 JUL 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-07",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 286784,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 25 JUL 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: JULY 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL JUL 25 JUL 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-08",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 4289986,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 25 AUG 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 25 AUG 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-08",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 312250,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 25 AUG 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: AUGUST 31, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL AUG 25 AUG 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-09",
+   "market": "COMBINED TOTALS",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3573815,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 25 SEP 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 25 SEP 25 CYTD CYTD 2025 CYTD"
+   ]
+  },
+  {
+   "period": "2026-09",
+   "market": "COMBINED TOTALS",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 300767,
+   "status": "admitted",
+   "held_fields": [],
+   "source_sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+   "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+   "pdf_page_index": 0,
+   "table_header": "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 25 SEP 25 CYTD CYTD 2025 CYTD",
+   "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2026",
+   "vintage": {
+    "revision_stamp_printed": false,
+    "first_published": {
+     "status": "single_version_observed",
+     "note": "no REVISED stamp; this is the only version obtained"
+    },
+    "latest_revised": {
+     "source_sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+     "source_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+     "publication_date": null
+    }
+   },
+   "footnotes": [],
+   "table_header_lines": [
+    "% CHG OVR 2026 2025 % CHG OVR",
+    "COMBINED TOTALS DEPLANED ENPLANED TOTAL SEP 25 SEP 25 CYTD CYTD 2025 CYTD"
+   ]
+  }
+ ],
+ "revision_rule_note": "First-published record kept when available; latest revised value is current for public display. 2025-03: first-published not obtained, revised value used as current and flagged.",
+ "dataset_notes": [
+  "Cargo tons: published COMBINED and per-cell totals can differ from component sums by 1 ton (rounding). Values stored as printed."
+ ],
+ "locator_note": "table_header_lines keeps both printed header lines: the year line and the block column line.",
+ "review_record": {
+  "independent_reviews": 2,
+  "first_review": "Findings: none blocking or major; the held-field set matched the header years.",
+  "second_review": "Findings: none blocking or major; header missing its upper line (fixed in this dataset).",
+  "open_observation": "Footnote applicability (2024-05 to 2024-07) recorded for owner decision."
+ }
+}
