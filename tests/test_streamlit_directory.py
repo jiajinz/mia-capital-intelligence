@@ -81,6 +81,14 @@ def test_dashboard_filter_preserves_versioned_project_and_memo_links():
     assert "$100M or more <strong>16</strong>" in html
 
 
+def test_dashboard_caption_credits_miami_dade_county_for_memo():
+    result = app()
+    captions = [item.value for item in result.tabs[1].caption if "Memo dated" in item.value]
+    assert len(captions) == 1
+    assert captions[0].startswith("Miami-Dade County · ")
+    assert "Miami International Airport" not in captions[0]
+
+
 def test_real_search_to_detail_preserves_estimate_and_official_page():
     result = search(app(), "CA176A")
     assert not result.exception
