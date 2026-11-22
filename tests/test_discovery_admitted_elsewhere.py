@@ -41,3 +41,23 @@ def test_admitted_series_is_rejected_for_other_statuses():
     errors = list(VALIDATOR.iter_errors({"schema_version": CATALOG["schema_version"], "documents": [doc],
                                          "locations": [], "events": []}))
     assert errors, "admitted_series must only accompany admitted_elsewhere"
+
+
+def test_new_candidate_with_admitted_bytes_is_recorded_as_admitted_elsewhere():
+    from datetime import datetime, timezone
+    from mia_capital_intelligence.discovery_catalog import observe
+    from mia_capital_intelligence.discovery_sources import PDFIdentity, ReportLink, TRAFFIC, TRAFFIC_INDEX  # noqa: F401
+    link = ReportLink(url="https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/x.pdf", series=TRAFFIC,
+                      matter_id=None, title="Jan", source_page=TRAFFIC_INDEX, link_text="Jan")
+    identity = PDFIdentity(sha256="c" * 64, size_bytes=1, page_count=1, period_start="2025-01-01",
+                           period_end="2025-01-31", period_evidence="MONTH ENDED: JANUARY 31, 2025", period_pdf_page=1,
+                           processing_status="candidate")
+    when = datetime(2026, 11, 22, tzinfo=timezone.utc)
+    admitted_catalog = {"schema_version": 1, "documents": [], "locations": [], "events": []}
+    observe(admitted_catalog, link, identity, {}, when, admitted={"c" * 64: "traffic_monthly"})
+    doc = admitted_catalog["documents"][0]
+    assert doc["dataset_status"] == "admitted_elsewhere" and doc["admitted_series"] == "traffic_monthly"
+    plain = {"schema_version": 1, "documents": [], "locations": [], "events": []}
+    observe(plain, link, identity, {}, when)
+    assert plain["documents"][0]["dataset_status"] == "not_included"
+    assert "admitted_series" not in plain["documents"][0]

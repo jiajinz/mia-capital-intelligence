@@ -111,8 +111,21 @@ def seed_catalog(root: Path) -> dict[str, Any]:
     return catalog
 
 
+def admitted_elsewhere_index(root: Path) -> dict[str, str]:
+    """Map SHA-256 to series for source bytes already admitted in data/traffic (read-only)."""
+    index: dict[str, str] = {}
+    for path in sorted((root / "data" / "traffic").glob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for row in payload.get("rows", []):
+            digest = row.get("source_sha256")
+            if digest:
+                index[digest] = payload["series_id"]
+    return index
+
+
 def observe(catalog: dict[str, Any], link: ReportLink, identity: PDFIdentity,
-            headers: dict[str, str], when: datetime, *, resolved_url: str | None = None) -> bool:
+            headers: dict[str, str], when: datetime, *, resolved_url: str | None = None,
+            admitted: dict[str, str] | None = None) -> bool:
     """Add immutable file versions and retain previous same-URL bytes by hash."""
     if when.utcoffset() is None:
         raise ValueError("Discovery timestamp requires a timezone")
@@ -134,9 +147,13 @@ def observe(catalog: dict[str, Any], link: ReportLink, identity: PDFIdentity,
     if resolved_url:
         provenance["resolved_url"] = official_url(resolved_url)
     if existing is None:
+        admitted_series = (admitted or {}).get(identity.sha256)
         document = {**asdict(identity), "series": link.series, "title": link.title[:300],
-                    "matter_id": link.matter_id, "dataset_status": "not_included",
+                    "matter_id": link.matter_id,
+                    "dataset_status": "admitted_elsewhere" if admitted_series else "not_included",
                     "first_seen_at": timestamp, "sources": [provenance]}
+        if admitted_series:
+            document["admitted_series"] = admitted_series
         catalog["documents"].append(document)
     elif url not in {source["url"] for source in existing["sources"]}:
         existing["sources"].append(provenance)
@@ -211,6 +228,9 @@ def render_log(baseline: str, catalog: dict[str, Any]) -> str:
             lines.append(f"- Previous version at this URL: `{event['previous_sha256']}`.")
         if document["dataset_status"] == "included":
             lines.append("- Dataset: this exact file version is already included; this event adds source provenance.")
+        elif document["dataset_status"] == "admitted_elsewhere":
+            lines.append(f"- Dataset: these exact bytes are admitted in the `{document['admitted_series']}` series "
+                         "(`data/traffic/`), not in the project registry. No project or financial records added by this event.")
         else:
             lines.append("- Dataset: not included. No project or financial records added by this event.")
         if event["pull_request_url"]:
