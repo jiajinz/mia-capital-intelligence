@@ -8,8 +8,9 @@ from urllib.parse import parse_qs
 import pytest
 
 from mia_capital_intelligence.discovery_sources import (
-    AGENDA_INDEX, KEYWORD_SEARCH, MONTHLY, MONTHLY_INDEX, QUARTERLY, OfficialClient, OfficialRedirects,
-    PartialDiscovery, ReportLink, Response, agenda_links, inspect_pdf, monthly_links, official_url, quarterly_links,
+    AGENDA_INDEX, KEYWORD_SEARCH, MONTHLY, MONTHLY_INDEX, QUARTERLY, TRAFFIC, TRAFFIC_INDEX, OfficialClient,
+    OfficialRedirects, PartialDiscovery, ReportLink, Response, agenda_links, inspect_pdf, monthly_links, official_url,
+    quarterly_links, traffic_links,
 )
 
 
@@ -199,3 +200,69 @@ def test_bcc_fallback_empty_meeting_list_is_a_failure():
         return Response(url, b'legistarfiles/SourceCode/searchforpdf.asp?documentKey=', {})
     with pytest.raises(ValueError, match="no recent meetings"):
         agenda_links(fetch, through=date(2026, 11, 17))
+
+
+def test_traffic_index_lists_candidate_months_inside_requested_years_only():
+    html = b'''<h2>Year 2026</h2>
+    <a href="/library/pdfdoc/Monthly Traffic Reports/April 2026 Monthly  Calendar Yr Traffic Report.pdf">April</a>
+    <a href="/library/pdfdoc/Monthly Traffic Reports/March 2026 Monthly Calendar Yr Traffic Report.pdf">March</a>
+    <a href="/library/pdfdoc/x.pdf">Annual Summary</a>
+    <h2>Year 2019</h2>
+    <a href="/library/pdfdoc/old.pdf">April</a>'''
+    result = traffic_links(html, {2025, 2026})
+    assert [link.listed_period for link in result] == ["2026-04", "2026-03"]
+    assert {link.series for link in result} == {TRAFFIC}
+    assert result[0].url == ("https://www.miami-airport.com/library/pdfdoc/Monthly%20Traffic%20Reports/"
+                             "April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf")
+    assert result[0].source_page == TRAFFIC_INDEX
+
+
+def test_traffic_index_conflicting_urls_for_one_month_fail():
+    html = b'''<h2>Year 2026</h2>
+    <a href="/a/April.pdf">April</a><a href="/b/April.pdf">April</a>'''
+    with pytest.raises(ValueError, match="Conflicting traffic index URLs"):
+        traffic_links(html, {2026})
+
+
+def test_traffic_index_without_requested_years_fails():
+    with pytest.raises(ValueError, match="no monthly reports"):
+        traffic_links(b'<h2>Year 2019</h2><a href="/old.pdf">April</a>', {2026})
+
+
+def test_traffic_pdf_identity_and_period_stay_candidate(synthetic_pdf):
+    body = synthetic_pdf("April 2026 Monthly Calendar Yr Traffic Report. Passengers and cargo.")
+    result = inspect_pdf(body, ReportLink(TRAFFIC, "t", "https://www.miami-airport.com/x.pdf", TRAFFIC_INDEX, "t",
+                                          listed_period="2026-04"))
+    assert (result.period_start, result.period_end) == ("2026-04-01", "2026-04-30")
+    assert result.processing_status == "candidate"
+
+
+def test_traffic_pdf_month_must_match_index_label(synthetic_pdf):
+    body = synthetic_pdf("April 2026 Monthly Calendar Yr Traffic Report")
+    with pytest.raises(ValueError, match="differs"):
+        inspect_pdf(body, ReportLink(TRAFFIC, "t", "https://www.miami-airport.com/x.pdf", TRAFFIC_INDEX, "t",
+                                     listed_period="2026-05"))
+
+
+def test_aviation_report_is_not_accepted_as_traffic(synthetic_pdf):
+    body = synthetic_pdf("Aviation Capital Program Report - July 2026")
+    with pytest.raises(ValueError, match="does not identify the traffic report series"):
+        inspect_pdf(body, ReportLink(TRAFFIC, "t", "https://www.miami-airport.com/x.pdf", TRAFFIC_INDEX, "t",
+                                     listed_period="2026-07"))
+
+
+def test_catalog_schema_admits_the_traffic_series_only_as_a_named_value():
+    import json
+    from pathlib import Path
+
+    schema = json.loads((Path(__file__).resolve().parents[1] / "schemas" / "discovery_catalog.schema.json").read_text())
+    series = schema["properties"]["documents"]["items"]["properties"]["series"]["enum"]
+    assert TRAFFIC in series and MONTHLY in series and QUARTERLY in series
+
+
+def test_traffic_pdf_month_ended_line_is_the_period_evidence(synthetic_pdf):
+    body = synthetic_pdf("MIAMI INTERNATIONAL AIRPORT - TRAFFIC REPORT MONTH ENDED: APRIL 30, 2019 PASSENGERS 959,969")
+    result = inspect_pdf(body, ReportLink(TRAFFIC, "t", "https://www.miami-airport.com/x.pdf", TRAFFIC_INDEX, "t",
+                                          listed_period="2019-04"))
+    assert (result.period_start, result.period_end, result.period_evidence) == ("2019-04-01", "2019-04-30", "MONTH ENDED: APRIL 30, 2019")
+    assert result.processing_status == "candidate"

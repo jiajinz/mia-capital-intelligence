@@ -13,7 +13,7 @@ from mia_capital_intelligence.discovery_catalog import (
 )
 from mia_capital_intelligence.discovery_scan import scan
 from mia_capital_intelligence.discovery_sources import (
-    KEYWORD_SEARCH, MONTHLY, MONTHLY_INDEX, QUARTERLY, ReportLink, Response, inspect_pdf,
+    KEYWORD_SEARCH, MONTHLY, MONTHLY_INDEX, QUARTERLY, TRAFFIC_INDEX, ReportLink, Response, inspect_pdf,
 )
 
 NOW = datetime(2026, 11, 17, 18, tzinfo=timezone.utc)
@@ -127,6 +127,10 @@ class FakeClient:
             if self.index_failure:
                 raise TimeoutError("monthly source down")
             return Response(url, b'<a href="/July.pdf">Aviation Capital Program Report July 2026</a>', {})
+        if url == TRAFFIC_INDEX:
+            if self.index_failure:
+                raise TimeoutError("traffic source down")
+            return Response(url, b'<h2>Year 2026</h2><a href="/traffic/April.pdf">April</a>', {})
         if url == KEYWORD_SEARCH:
             return Response(url, b'1 Records Found <a href="matter.asp?matter=261824">261824</a>', {})
         if "matter.asp" in url:
@@ -191,7 +195,8 @@ def test_invalid_pdf_does_not_create_candidate(scan_root, synthetic_pdf):
 def test_new_file_limit_defers_without_hiding_coverage(scan_root, synthetic_pdf):
     body = synthetic_pdf("Infrastructure 241354 Quarterly Report: 4/01/2026-06/30/2026")
     report = scan(scan_root, scan_root / "tmp/run", client=FakeClient(body), when=NOW, max_new_documents=1)
-    assert report["new_events"] == 1 and report["deferred_documents"] == 1
+    # The July monthly report and the April traffic candidate both wait for the next batch.
+    assert report["new_events"] == 1 and report["deferred_documents"] == 2
     assert report["status"] == "partial" and report["errors"] == []
 
 
