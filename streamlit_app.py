@@ -23,7 +23,8 @@ from mia_capital_intelligence.directory_queries import (  # noqa: E402
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
-    CHART_NAMES, EstimateRanking, estimate_figure, largest_estimates, selected_source_ref,
+    CHART_NAMES, EstimateRanking, apply_navy_theme, estimate_figure, largest_estimates,
+    selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
 from mia_capital_intelligence.operations_updates import (  # noqa: E402
@@ -146,13 +147,13 @@ def render_estimate_distribution(
         <style>
         .mia-estimate-bands { display:grid; gap:.35rem; max-width:52rem }
         .mia-estimate-bands a, .mia-band-zero { display:block; padding:.4rem .55rem;
-          color:#152D36; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
-        .mia-estimate-bands a:hover { background:#F4F7F8; text-decoration:underline }
-        .mia-estimate-bands a:focus-visible { outline:2px solid #1E6358 }
+          color:#EDF5FF; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
+        .mia-estimate-bands a:hover { background:#101F32; text-decoration:underline }
+        .mia-estimate-bands a:focus-visible { outline:2px solid #80C9FF }
         .mia-band-label { display:flex; justify-content:space-between; gap:1rem }
-        .mia-band-label strong { font-variant-numeric:tabular-nums }
-        .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#E6EFED; border-radius:2px }
-        .mia-band-track i { display:block; height:100%; background:#1E6358; border-radius:2px }
+        .mia-band-label strong { font-variant-numeric:tabular-nums; color:#80C9FF }
+        .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#1C324B; border-radius:2px }
+        .mia-band-track i { display:block; height:100%; background:#5581AA; border-radius:2px }
         </style>
         <div class="mia-estimate-bands" role="group" aria-label="Source record counts by estimate range in USD">'''
         + "".join(bars) + "</div>")
@@ -629,13 +630,14 @@ def render_contract_spending(view: FinancialView) -> None:
         customdata=[[f"${row.monthly_usd:,.2f}", "Summary confirms zero" if row.monthly_dash_corroborated
                      else "Financial table amount"] for row in rows],
         hovertemplate="%{x}<br>%{customdata[0]}<br>%{customdata[1]}<extra></extra>",
-        marker_color="#1E6358",
+        marker_color="#5581AA",
     ))
     figure.update_layout(
         title="Reported monthly expenditures", height=320, margin=dict(l=12, r=18, t=55, b=32),
         xaxis_title="Reported month", yaxis_title="Expenditures (USD)",
         yaxis_tickprefix="$", yaxis_rangemode="tozero", showlegend=False,
     )
+    apply_navy_theme(figure)
     st.plotly_chart(figure, width="stretch", config={"displayModeBar": False, "scrollZoom": False})
     with st.expander("How the cumulative amount adds up"):
         first, last = rows[0], rows[-1]
@@ -729,9 +731,9 @@ with explore_tab:
           white-space:normal; overflow:visible; overflow-wrap:anywhere; text-overflow:clip;
         }
         .st-key-ranked-record .mia-ranked-brief { margin:0; overflow-wrap:anywhere; }
-        .st-key-ranked-evidence-links a { color:#245587; padding:.25rem .5rem; min-height:2.75rem; }
+        .st-key-ranked-evidence-links a { color:#80C9FF; padding:.25rem .5rem; min-height:2.75rem; }
         .st-key-ranked-evidence-links a p { color:inherit; font-size:.875rem; text-decoration:underline; }
-        .st-key-ranked-evidence-links a:is(:hover,:focus-visible) { color:#183e67; }
+        .st-key-ranked-evidence-links a:is(:hover,:focus-visible) { color:#CDEBFF; }
         </style>
     """)
     render_directory(registry, latest_report=latest_report)

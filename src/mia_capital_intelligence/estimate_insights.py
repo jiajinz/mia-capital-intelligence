@@ -55,6 +55,29 @@ def largest_estimates(
     )
 
 
+NAVY_INK = "#EDF5FF"
+NAVY_SECONDARY = "#ACBFD6"
+NAVY_LINE = "#2B4058"
+NAVY_SURFACE = "#101F32"
+NAVY_BAR = "#5581AA"
+NAVY_ACCENT = "#80C9FF"
+
+
+def apply_navy_theme(figure: go.Figure) -> go.Figure:
+    """Apply the approved navy chart surface, ice-blue ink and hairline axes."""
+    figure.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color=NAVY_INK),
+        hoverlabel=dict(bgcolor=NAVY_SURFACE, bordercolor=NAVY_LINE, font=dict(color=NAVY_INK)),
+    )
+    for axis in (figure.layout.xaxis, figure.layout.yaxis):
+        axis.update(
+            gridcolor=NAVY_LINE, zerolinecolor=NAVY_LINE, linecolor=NAVY_LINE,
+            tickfont=dict(color=NAVY_SECONDARY), title_font=dict(color=NAVY_SECONDARY),
+        )
+    return figure
+
+
 def estimate_figure(ranking: EstimateRanking) -> go.Figure:
     """Convert only bar geometry to float; hover retains exact USD and evidence keys."""
     rows = ranking.rows
@@ -65,7 +88,8 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
             row["source_ref"], row["project_name"], format_usd(row["estimate_usd"]),
             row["pdf_page"],
         ] for row in rows],
-        marker_color="#1E6358",
+        marker=dict(color=NAVY_BAR),
+        selected=dict(marker=dict(color=NAVY_ACCENT)),
         hovertemplate=("<b>%{y}</b><br>%{customdata[1]}<br>Estimated cost: %{customdata[2]}"
                        "<br>PDF page %{customdata[3]}<extra></extra>"),
     ))
@@ -82,9 +106,9 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
             ],
         ),
         clickmode="event+select", dragmode=False,
-        font=dict(size=14, color="#152D36"), showlegend=False,
+        font=dict(size=14, color=NAVY_INK), showlegend=False,
     )
-    return figure
+    return apply_navy_theme(figure)
 
 
 def selected_source_ref(event: Mapping[str, Any], ranking: EstimateRanking) -> str | None:
