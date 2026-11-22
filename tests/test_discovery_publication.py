@@ -222,3 +222,21 @@ def test_api_mutations_use_json_body_and_content_type(monkeypatch):
     publisher.GitHub().call("POST", "git/trees", {"tree": []})
     assert requests[0].get_header("Content-type") == "application/json"
     assert json.loads(requests[0].data) == {"tree": []}
+
+
+def test_new_candidate_with_admitted_bytes_is_logged_as_admitted_elsewhere(bundle, synthetic_pdf):
+    """The public log must name the admitted series and must not call these bytes merely not included."""
+    folder, _ = bundle
+    link = ReportLink(QUARTERLY, "Infrastructure 241354", "https://www.miamidade.gov/report.pdf", KEYWORD_SEARCH, "PDF")
+    identity = inspect_pdf(synthetic_pdf("Infrastructure 241354 Quarterly Report: 4/01/2026-06/30/2026"), link)
+    base = json.loads((publisher.ROOT / "data/discovery/catalog.json").read_text())
+    catalog = copy.deepcopy(base)
+    observe(catalog, link, identity, {}, datetime(2026, 11, 22, tzinfo=timezone.utc),
+            admitted={identity.sha256: "traffic_monthly"})
+    (folder / "catalog.json").write_text(serialize_catalog(catalog))
+    api = FakeGitHub()
+    assert publisher.publish(api, folder)["status"] == "proposed"
+    log = api.files["docs/DATA_UPDATES.md"]
+    assert "these exact bytes are admitted in the `traffic_monthly` series" in log
+    assert "No project or financial records added by this event." in log
+    assert "- Dataset: not included." not in log
