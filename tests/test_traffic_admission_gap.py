@@ -48,7 +48,10 @@ def test_2017_12_is_taken_from_the_following_report_prior_year_column():
     assert {r["measure"]: r["value"] for r in rows} == {"PASSENGERS": 3997071, "TOTAL CARGO-TONS": 218248}
 
 
-def test_no_revision_stamp_and_no_holds_in_this_admission():
+def test_no_revision_stamp_and_only_the_2017_08_cytd_hold():
     rows = load()["rows"]
     assert all(r["vintage"]["revision_stamp_printed"] is False for r in rows)
-    assert all(r["held_fields"] == [] for r in rows)
+    held = [r for r in rows if r["held_fields"]]
+    assert {r["period"] for r in held} == {"2017-08"}
+    assert all(r["held_fields"] == ["cytd_yoy_pct"] for r in held)
+    assert len(held) == 2  # monthly values stay admitted

@@ -4,7 +4,7 @@
  "admitted_by": "owner",
  "admitted_at": "2026-11-22T03:47:25Z",
  "dataset_version": "traffic-monthly-gap-2015-2017-v1",
- "scope": "9 months: 2015-10, 2016-02, 2017-06 to 2017-12. 2017-12 from the 2018-12 report prior-year column. Held and gap months stay excluded.",
+ "scope": "9 months: 2015-10, 2016-02, 2017-06 to 2017-12. 2017-12 from the 2018-12 report prior-year column. Held and gap months stay excluded. Held: cytd_yoy_pct for 2017-08 (printed trailing year 2015 differs from prior-year column 2016). Monthly values admitted.",
  "rows": [
   {
    "period": "2015-10",
