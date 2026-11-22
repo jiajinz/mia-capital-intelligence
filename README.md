@@ -35,8 +35,6 @@ Monthly airport traffic reports (passengers, cargo, seats and aircraft movements
 
 - [Sources and methodology](docs/SOURCES_AND_METHODS.md): what each report covers, what each amount means, and how monthly and cumulative spending relate.
 - [Data updates](docs/DATA_UPDATES.md): the official files included, discovery events and dataset changes, with dates and source links.
-- [Product vision](docs/PRODUCT_VISION.md): scope, evidence boundaries and roadmap.
-- [Decisions](docs/DECISIONS.md) and [project state](docs/PROJECT_STATE.md): design decisions and current status.
 
 ## Engineering
 
