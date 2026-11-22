@@ -130,6 +130,15 @@ def test_duplicate_scan_after_another_publication_has_no_write(bundle):
     assert api.calls == []
 
 
+def test_branch_without_pull_request_is_proposed_on_retry(bundle):
+    """A run that pushed the branch but failed to open a PR must open it on the next run."""
+    folder, catalog = bundle
+    api = FakeGitHub(prior=catalog, state=None, branch="prior-head")
+    result = publisher.publish(api, folder)
+    assert result["status"] == "proposed"
+    assert any(method == "POST" and path == "pulls" for method, path, _ in api.calls)
+
+
 def test_pr_link_write_is_retried_after_an_interrupted_publication(bundle):
     folder, catalog = bundle
     (folder / "report.json").write_text(json.dumps({"changed": False, "new_events": 0, "status": "ok"}))
