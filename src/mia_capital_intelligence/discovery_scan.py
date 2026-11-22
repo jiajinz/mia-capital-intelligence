@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from mia_capital_intelligence.discovery_catalog import (
-    CATALOG_PATH, LOG_PATH, merge_catalogs, observe, read_catalog, render_log, serialize_catalog,
+    CATALOG_PATH, LOG_PATH, admitted_elsewhere_index, merge_catalogs, observe, read_catalog, render_log, serialize_catalog,
 )
 from mia_capital_intelligence.discovery_sources import (
     AGENDA_INDEX, KEYWORD_SEARCH, MONTHLY_INDEX, TRAFFIC_INDEX, OfficialClient, PartialDiscovery, ReportLink,
@@ -20,6 +20,7 @@ from mia_capital_intelligence.discovery_sources import (
 def scan(root: Path, output: Path, *, client: OfficialClient, when: datetime,
          previous: dict[str, Any] | None = None, max_new_documents: int = 15,
          full_hash_check: bool = False) -> dict[str, Any]:
+    admitted = admitted_elsewhere_index(root)
     if when.utcoffset() is None or max_new_documents < 1:
         raise ValueError("A timezone and positive document limit are required")
     when = when.astimezone(timezone.utc)
@@ -115,7 +116,8 @@ def scan(root: Path, output: Path, *, client: OfficialClient, when: datetime,
                 raw = output / "pdfs" / f"{identity.sha256}.pdf"
                 raw.parent.mkdir(parents=True, exist_ok=True)
                 raw.write_bytes(response.body)
-            changed = observe(catalog, link, identity, response.headers, when, resolved_url=response.url)
+            changed = observe(catalog, link, identity, response.headers, when, resolved_url=response.url,
+                              admitted=admitted)
             if not changed:
                 report["unchanged_documents"] += 1
         except Exception as error:
