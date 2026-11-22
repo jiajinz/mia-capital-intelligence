@@ -1,0 +1,148 @@
+{
+ "schema_version": "1.0",
+ "status": "admitted",
+ "admitted_by": "owner",
+ "admitted_at": "2026-11-22T03:55:07Z",
+ "dataset_version": "traffic-monthly-resolved-2012-2014-v1",
+ "scope": "2012-11, 2014-08, 2014-09 (COMBINED TOTALS). 2013-06 remains held. Corroborated by annual COMBINED totals.",
+ "rows": [
+  {
+   "period": "2012-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2012.asp",
+   "source_html_sha256": "a20c1eea25e67c8df3f58640cdc83cb1893d0ff9f7bd7beaf41efa23b89a01a0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "Deplaned and enplaned cells do not reconcile to the printed total (difference 15,394). The total is corroborated by the 2012 annual COMBINED total. Deplaned and enplaned are not stored.",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3185763
+  },
+  {
+   "period": "2012-11",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_nov_2012.asp",
+   "source_html_sha256": "a20c1eea25e67c8df3f58640cdc83cb1893d0ff9f7bd7beaf41efa23b89a01a0",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "Deplaned and enplaned cells do not reconcile to the printed total (difference 15,394). The total is corroborated by the 2012 annual COMBINED total. Deplaned and enplaned are not stored.",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 194117
+  },
+  {
+   "period": "2014-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2014.asp",
+   "source_html_sha256": "bb0688f3b1ab1dafea2f63e38331dfb578d4ae94b87f27186bde2ab75c597410",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "The printed August CYTD cell is 10 lower than the cumulative sum. The CYTD cell is not stored. The passenger total is corroborated as part of the 2014-08 and 2014-09 pair against the 2014 annual COMBINED total.",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 3520643
+  },
+  {
+   "period": "2014-08",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_aug_2014.asp",
+   "source_html_sha256": "bb0688f3b1ab1dafea2f63e38331dfb578d4ae94b87f27186bde2ab75c597410",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "The printed August CYTD cell is 10 lower than the cumulative sum. The CYTD cell is not stored. The passenger total is corroborated as part of the 2014-08 and 2014-09 pair against the 2014 annual COMBINED total.",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 178773
+  },
+  {
+   "period": "2014-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2014.asp",
+   "source_html_sha256": "1d78daa10dcc729b6bb1c7e56de421d831a24312b2470dd8d9abdb678351cf09",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "The passenger total is corroborated as part of the 2014-08 and 2014-09 pair against the 2014 annual COMBINED total. Cargo pair differs from the annual total by 2 tons (rounding).",
+   "measure": "PASSENGERS",
+   "unit": "passenger movements",
+   "value": 2841333
+  },
+  {
+   "period": "2014-09",
+   "market": "COMBINED TOTALS",
+   "status": "admitted",
+   "held_fields": [],
+   "source_type": "html_monthly_page",
+   "source_url": "https://www.miami-airport.com/monthly_traffic_sep_2014.asp",
+   "source_html_sha256": "1d78daa10dcc729b6bb1c7e56de421d831a24312b2470dd8d9abdb678351cf09",
+   "table_block": "COMBINED TOTALS",
+   "pdf_page_index": null,
+   "period_evidence": null,
+   "vintage": {
+    "first_published": {
+     "status": "single_version_observed"
+    },
+    "revision_stamp_printed": false
+   },
+   "corroboration": "annual COMBINED total (yearly traffic page)",
+   "notes": "The passenger total is corroborated as part of the 2014-08 and 2014-09 pair against the 2014 annual COMBINED total. Cargo pair differs from the annual total by 2 tons (rounding).",
+   "measure": "TOTAL CARGO-TONS",
+   "unit": "reported tons",
+   "value": 177859
+  }
+ ]
+}
