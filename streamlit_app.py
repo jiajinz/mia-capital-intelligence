@@ -50,6 +50,7 @@ st.html("""
       font-family: Roboto, "Helvetica Neue", sans-serif;
     }
     .stApp h1, .stApp h2, .stApp h3 { color:#012851; font-weight:700; }
+    .stApp [data-testid="stMarkdownContainer"] a { color:#337AB7; }
     </style>
 """)
 
@@ -61,7 +62,7 @@ def published_registry() -> PublicRegistry:
 
 
 def report_label(source: dict) -> str:
-    return f"{source['period_start']} to {source['period_end']} · {source['matter_id']}"
+    return f"{report_period(source['period_start'], source['period_end'])} · {source['matter_id']}"
 
 
 def report_period(start: str, end: str) -> str:
@@ -117,7 +118,7 @@ def render_record_summary(registry: PublicRegistry, reference: str, *, show_scop
                 st.html(f'<p class="mia-ranked-brief">{escape(detail["project_brief"])}</p>')
             with st.container(horizontal=True, gap=None, key="ranked-evidence-links"):
                 st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="tertiary")
-                st.link_button("Open profile permalink", profile_permalink(reference), type="tertiary")
+                st.link_button("Link to this record", profile_permalink(reference), type="tertiary")
             render_project_brief(detail, expanded=False, include_brief=False)
         return
     with st.container(border=True):
@@ -127,7 +128,7 @@ def render_record_summary(registry: PublicRegistry, reference: str, *, show_scop
         st.write("**Scope as described in the report**")
         st.text(detail["description_raw"])
         st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
-        st.link_button("Open profile permalink", profile_permalink(reference))
+        st.link_button("Link to this record", profile_permalink(reference))
 
 
 def render_estimate_distribution(
@@ -150,7 +151,7 @@ def render_estimate_distribution(
         content = f'<span class="mia-band-label">{label}</span>{track}'
         if count:
             noun = "record" if count == 1 else "records"
-            bars.append(f'<a href="{escape(route)}" target="_blank" rel="noopener" '
+            bars.append(f'<a href="{escape(route)}" '
                         f'aria-label="{escape(band)} · {count} {noun}">{content}</a>')
         else:
             bars.append(f'<div class="mia-band-zero">{content}</div>')
@@ -170,14 +171,14 @@ def render_estimate_distribution(
         + "".join(bars) + "</div>")
     if show_context:
         st.caption(
-            f"Miami-Dade County · Matter {source['matter_id']} · {known_count} records with estimates · "
+            f"Miami-Dade County · Report {source['matter_id']} · {known_count} records with estimates · "
             f"{ranking.missing_count} without. Select a range to see the records behind it."
         )
 
 
 def render_dashboard(registry: PublicRegistry, reports: dict, latest_report: str) -> None:
     st.header("Airport Operations")
-    st.write("See how MIA is upgrading the services passengers and aircraft rely on.")
+    st.write("Operations updates from the county's quarterly report, grouped by area.")
     source = reports.get(OPERATIONS_MATTER)
     if source:
         period = report_period(source["period_start"], source["period_end"])
@@ -233,11 +234,11 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
             f"Open official PDF · page {detail['pdf_page']}",
             detail["source_page_url"], type="primary",
         )
-        st.link_button("Open profile permalink", profile_permalink(detail["source_ref"]))
+        st.link_button("Link to this record", profile_permalink(detail["source_ref"]))
         render_project_brief(detail, expanded=True)
         with st.expander("Report and source details"):
             st.write(source["title"])
-            st.caption(f"{detail['reporting_agency']} · Matter {source['matter_id']} · Exhibit B")
+            st.caption(f"{detail['reporting_agency']} · Report {source['matter_id']} · Exhibit B")
             st.caption(f"Report coverage · {source['period_start']} to {source['period_end']}")
             st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
             st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
@@ -297,8 +298,8 @@ def render_estimate_ranking(registry: PublicRegistry, matter: str, source: dict)
     keyword = st.text_input("Find within this chart", key="chart_search", placeholder="Project ID or keyword")
     ranking = largest_estimates(registry, matter, airport, keyword, limit)
     st.caption(
-        f"Showing {len(ranking.rows)} largest of {ranking.matching_count} matching source records "
-        f"in {ranking.snapshot_count} indexed rows. {ranking.missing_count} matching records have unknown estimates."
+        f"Showing the {len(ranking.rows)} largest of {ranking.matching_count} records. "
+        f"{ranking.missing_count} records have no reported estimate."
     )
     if not ranking.rows:
         st.info("No known cost estimates match these chart filters. Try a different airport or keyword.")
@@ -405,7 +406,7 @@ def render_airport_overview(registry: PublicRegistry, matter: str, airport: str 
             reference = row["source_ref"]
             label = CHART_NAMES.get(row["project_id"], row["project_name"])
             st.button(
-                f"{escape(label)} · {usd_button_label(row['estimate_usd'])}", key=f"ranked-{reference}",
+                f"{escape(label)}  \n{usd_button_label(row['estimate_usd'])}", key=f"ranked-{reference}",
                 width="stretch", type="primary" if selected == reference else "secondary",
                 on_click=select_explore_record, args=(reference,),
             )
@@ -422,7 +423,7 @@ def render_result_table(records: list[dict], selected: str | None) -> str | None
     frame = pd.DataFrame([
         {"Project ID": row["project_id"], "Reported project description": row["project_name"],
          "Airport": row["airport_code"] or "Unknown",
-         "Reporting period": f"{row['period_start']} to {row['period_end']}",
+         "Reporting period": report_period(row["period_start"], row["period_end"]),
          "Reported estimate (USD)": format_usd(row["estimate_usd"]),
          "Source": row["matter_id"], "PDF page": row["pdf_page"]}
         for row in records
@@ -523,7 +524,7 @@ def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
         render_directory_matches(registry, query, airport, matter, coverage, latest_report)
     else:
         render_airport_overview(registry, matter, airport, coverage)
-    matters = f"Matter {matter}" if matter else "Matters " + ", ".join(reports)
+    matters = f"Report {matter}" if matter else "Reports " + ", ".join(reports)
     st.caption(f"Miami-Dade Aviation Department · Exhibit B · {matters}")
 
 
@@ -547,7 +548,7 @@ def render_directory_matches(
     records = search_records(registry, DirectoryFilters(query, airport, matter, sort))
     if band is not None:
         records = [row for row in records if estimate_band(row["estimate_usd"]) == band]
-    st.subheader("Search results" if query else "Project records")
+    st.subheader("Search results" if query else "Source records")
     noun = "source record" if len(records) == 1 else "source records"
     st.caption(f"{len(records)} matching {noun} · {coverage}")
     st.button(
@@ -561,8 +562,8 @@ def render_directory_matches(
 
 
 def render_coverage(registry: PublicRegistry) -> None:
-    st.subheader("Sources & data coverage")
-    st.caption(ATTRIBUTION + " Underlying records are published by Miami-Dade County.")
+    st.subheader("Sources & coverage")
+    st.caption("Underlying records are published by Miami-Dade County.")
     st.markdown("[Data update history](https://github.com/jiajinz/mia-capital-intelligence/blob/main/docs/DATA_UPDATES.md)")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
         with st.expander("Case study · Concourse D west extension"):
@@ -580,8 +581,8 @@ def render_coverage(registry: PublicRegistry) -> None:
         "Each record represents one entry in one report."
     )
     st.dataframe(pd.DataFrame([
-        {"Matter": row["matter_id"], "Report coverage": f"{row['period_start']} to {row['period_end']}",
-         "Project records": row["indexed_record_count"]}
+        {"Matter": row["matter_id"], "Report coverage": report_period(row["period_start"], row["period_end"]),
+         "Source records": row["indexed_record_count"]}
         for row in registry.catalog
     ]), hide_index=True, width="stretch")
     sources = {row["matter_id"]: row for row in registry.catalog}
@@ -598,7 +599,7 @@ def render_coverage(registry: PublicRegistry) -> None:
         st.write(f"**Memo date**  {source['memo_date']} · **Board acceptance**  {source['accepted_date']}")
         if source["indexed_pdf_pages"]:
             pages = ", ".join(map(str, source["indexed_pdf_pages"]))
-            st.write(f"**Project records**  {source['indexed_record_count']} entries from Exhibit B, PDF pages {pages}.")
+            st.write(f"**Source records**  {source['indexed_record_count']} source records from Exhibit B, PDF pages {pages}.")
         if matter == OPERATIONS_MATTER and (updates := operations_updates(registry)):
             st.write(f"**Dashboard**  {len(updates)} project updates from the report narrative, PDF pages 5–7.")
         if matter == "261400":
@@ -720,7 +721,7 @@ if not st.session_state.get("explore_initialized"):
     st.session_state["explore_initialized"] = True
 
 explore_tab, dashboard_tab, coverage_tab, spending_tab = st.tabs([
-    "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+    "Explore", "Dashboard", "Sources & coverage", "Spending",
 ], default="Explore")
 with explore_tab:
     st.html("""

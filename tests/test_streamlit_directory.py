@@ -41,7 +41,7 @@ def advanced_estimates(result):
 def test_directory_renders_controlled_records_and_public_context():
     result = app()
     assert [tab.label for tab in result.tabs] == [
-        "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+        "Explore", "Dashboard", "Sources & coverage", "Spending",
     ]
     assert result.tabs[1].header[0].value == "Airport Operations"
     assert result.selectbox(key="source_report").value == "261402"
@@ -65,6 +65,8 @@ def test_dashboard_filter_preserves_versioned_project_and_memo_links():
         "### Security checkpoint equipment replacement",
     ]
     assert "upgrade one checkpoint at a time" in visible_copy(dashboard)
+    assert "Operations updates from the county's quarterly report, grouped by area." in visible_copy(dashboard)
+    assert "See how MIA is upgrading" not in visible_copy(dashboard)
     actions = next(item.value for item in dashboard.markdown if item.value.startswith("[View project]"))
     profile, memo = re.findall(r"\]\(([^)]+)\)", actions)
     expected = next(row.source_ref for row in load_registry().records
@@ -144,7 +146,7 @@ def test_airport_and_source_filters_work():
     explore = result.tabs[0]
     assert any(heading.value == "Estimate ranges and interactive ranking" for heading in explore.subheader)
     assert all(item.label != "See the largest estimates" for item in explore.expander)
-    assert "3 largest of 3 matching source records" in visible_copy(explore)
+    assert "Showing the 3 largest of 3 records." in visible_copy(explore)
     assert any("range=%2450M+to+under+%24100M&amp;airport=TMB" in item.proto.body for item in explore.get("html"))
     assert result.button(key="browse-records").label == "Browse 3 source records"
     result.button(key="browse-records").click().run()
@@ -174,7 +176,7 @@ def test_all_reports_preserves_distinct_source_links_across_result_views():
         official = next(row.proto.url for row in links if row.proto.label.startswith("Open official PDF"))
         assert official.endswith(f"/{matter}.pdf#page={page}")
         expected = button.key.removeprefix("record-")
-        profile = next(row.proto.url for row in links if row.proto.label == "Open profile permalink")
+        profile = next(row.proto.url for row in links if row.proto.label == "Link to this record")
         assert parse_qs(urlsplit(profile).query)["record"] == [expected]
     result.toggle(key="explore_table").set_value(True).run()
     assert not result.exception
@@ -212,7 +214,7 @@ def test_cataloged_only_report_does_not_claim_full_indexing():
     assert not result.exception
     copy = visible_copy(result)
     assert "Contract spending**  Exhibit B, PDF page 30" in copy
-    assert result.tabs[2].dataframe[0].value["Project records"].tolist() == [110, 112, 0]
+    assert result.tabs[2].dataframe[0].value["Source records"].tolist() == [110, 112, 0]
 
 
 def test_versioned_record_deep_link_opens_individual_observation():
@@ -225,7 +227,7 @@ def test_versioned_record_deep_link_opens_individual_observation():
     assert not linked.exception
     assert not linked.text_input and not linked.tabs
     links = linked.get("link_button")
-    permalink = next(row.proto.url for row in links if row.proto.label == "Open profile permalink")
+    permalink = next(row.proto.url for row in links if row.proto.label == "Link to this record")
     assert parse_qs(urlsplit(permalink).query)["record"] == [source_ref]
     assert any(row.proto.url.endswith("/260526.pdf#page=11") for row in links)
 
@@ -263,10 +265,10 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
 def test_chart_filters_and_accessible_selection_open_original_record():
     result = app()
     assert len(advanced_estimates(result).get("plotly_chart")) == 1
-    assert "10 largest of 112 matching" in visible_copy(result)
+    assert "Showing the 10 largest of 112 records." in visible_copy(result)
     result.selectbox(key="chart_airport").set_value("TMB").run()
     assert not result.exception
-    assert "3 largest of 3 matching" in visible_copy(result)
+    assert "Showing the 3 largest of 3 records." in visible_copy(result)
     selector = next(row for row in result.selectbox if row.label == "Explore a chart record")
     from mia_capital_intelligence.estimate_insights import largest_estimates
     reference = largest_estimates(load_registry(), "261402", "TMB").rows[-1]["source_ref"]
@@ -275,7 +277,7 @@ def test_chart_filters_and_accessible_selection_open_original_record():
     assert not result.exception
     assert advanced_estimates(result).metric[0].value
     result.selectbox(key="chart_report").set_value("260526").run()
-    assert "110 indexed rows" in visible_copy(result)
+    assert "Showing the 3 largest of 3 records. 0 records have no reported estimate." in visible_copy(result)
     result.text_input(key="chart_search").input("not-a-real-project").run()
     assert not result.exception
     assert not advanced_estimates(result).get("plotly_chart")
@@ -313,7 +315,7 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     })
     result.run()
     assert not result.exception and not result.query_params.get("record")
-    explore_links = [row for row in result.tabs[0].get("link_button") if row.proto.label == "Open profile permalink"]
+    explore_links = [row for row in result.tabs[0].get("link_button") if row.proto.label == "Link to this record"]
     assert [parse_qs(urlsplit(link.proto.url).query)["record"][0] for link in explore_links] == [directory_ref, reference]
 
     linked = AppTest.from_file(APP, default_timeout=15)
@@ -366,7 +368,7 @@ def test_t180b_case_surfaces_published_amounts_and_sources():
 def test_default_explore_and_tab_routes_state_independent_notice():
     result = app()
     assert [tab.label for tab in result.tabs] == [
-        "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
+        "Explore", "Dashboard", "Sources & coverage", "Spending",
     ]
 
 
@@ -383,7 +385,7 @@ def test_valid_record_permalink_renders():
     linked.query_params["record"] = source_ref
     linked.run()
     assert not linked.exception
-    assert any(row.proto.label == "Open profile permalink" for row in linked.get("link_button"))
+    assert any(row.proto.label == "Link to this record" for row in linked.get("link_button"))
 
 
 def test_invalid_record_link_renders():
