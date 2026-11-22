@@ -1,6 +1,6 @@
 # Data updates
 
-This log records the official PDFs included in MIA Capital Intelligence and the data taken from them. Dates identify dataset updates; reporting periods describe the source material. Page numbers refer to PDF pages. An independent data project. Not affiliated with or endorsed by Miami International Airport or Miami-Dade County.
+This log records the official PDFs included in MIA Capital Intelligence and the data taken from them. Dates identify dataset updates; reporting periods describe the source material. Page numbers refer to PDF pages.
 
 ## 2026-11-17 — Current source inventory
 

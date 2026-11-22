@@ -41,10 +41,7 @@ ESTIMATE_SORT = "Reported estimate, highest first"
 ALL = "all"
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
-INDEPENDENT_NOTICE = (
-    "An independent data project. Not affiliated with or endorsed by Miami International Airport "
-    "or Miami-Dade County. Records are attributed to their publishing organizations."
-)
+ATTRIBUTION = "Records are attributed to their publishing organizations."
 st.html("""
     <style>
     @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
@@ -494,7 +491,6 @@ def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
     sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
     st.title("MIA Capital Intelligence")
     st.caption("Explore airport improvements and reported project costs.")
-    st.caption(INDEPENDENT_NOTICE)
     with st.form("explore-search", border=False):
         search_column, search_button = st.columns([5, 1], vertical_alignment="bottom")
         with search_column:
@@ -566,7 +562,7 @@ def render_directory_matches(
 
 def render_coverage(registry: PublicRegistry) -> None:
     st.subheader("Sources & data coverage")
-    st.caption(INDEPENDENT_NOTICE + " Underlying records are published by Miami-Dade County.")
+    st.caption(ATTRIBUTION + " Underlying records are published by Miami-Dade County.")
     st.markdown("[Data update history](https://github.com/jiajinz/mia-capital-intelligence/blob/main/docs/DATA_UPDATES.md)")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
         with st.expander("Case study · Concourse D west extension"):
@@ -697,8 +693,6 @@ try:
 except (ValueError, OSError, KeyError):
     st.title("MIA Capital Intelligence")
     st.error("The published data could not be validated. Project records are unavailable until the data is repaired.")
-    st.divider()
-    st.caption(INDEPENDENT_NOTICE)
     st.stop()
 
 if "record" in st.query_params:
@@ -709,8 +703,6 @@ if "record" in st.query_params:
         render_detail(registry, requested[0])
     else:
         st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
-    st.divider()
-    st.caption(INDEPENDENT_NOTICE)
     st.stop()
 
 reports = {source["matter_id"]: source for source in registry.catalog if source["indexed_record_count"]}
@@ -774,4 +766,4 @@ with spending_tab:
     ))
 
 st.divider()
-st.caption(INDEPENDENT_NOTICE)
+st.caption(ATTRIBUTION)

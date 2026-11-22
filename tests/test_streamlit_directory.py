@@ -25,16 +25,6 @@ def visible_copy(result):
     )
 
 
-INDEPENDENT_NOTICE = (
-    "An independent data project. Not affiliated with or endorsed by Miami International Airport "
-    "or Miami-Dade County. Records are attributed to their publishing organizations."
-)
-
-
-def states_notice(result):
-    return any(INDEPENDENT_NOTICE in str(element.value) for element in result.caption)
-
-
 def search(result, term):
     result.text_input(key="search").input(term)
     return result.button(key="FormSubmitter:explore-search-Search").click().run()
@@ -370,18 +360,15 @@ def test_default_explore_and_tab_routes_state_independent_notice():
     assert [tab.label for tab in result.tabs] == [
         "Explore", "Dashboard", "Sources & methodology", "Contract spending history",
     ]
-    # The page-level notice sits outside the tabs, so it applies to Dashboard, Sources and Contract spending.
-    assert states_notice(result)
 
 
-def test_empty_search_state_states_independent_notice():
+def test_empty_search_state_renders():
     result = search(app(), "not-a-real-project-xyz")
     assert not result.exception
     assert "No source records match these filters" in visible_copy(result)
-    assert states_notice(result)
 
 
-def test_valid_record_permalink_states_independent_notice():
+def test_valid_record_permalink_renders():
     source_ref = next(row.source_ref for row in load_registry().records
                       if row.project_id == "CA176A" and row.matter_id == "260526")
     linked = AppTest.from_file(APP, default_timeout=15)
@@ -389,19 +376,17 @@ def test_valid_record_permalink_states_independent_notice():
     linked.run()
     assert not linked.exception
     assert any(row.proto.label == "Open profile permalink" for row in linked.get("link_button"))
-    assert states_notice(linked)
 
 
-def test_invalid_record_link_states_independent_notice():
+def test_invalid_record_link_renders():
     result = AppTest.from_file(APP, default_timeout=15)
     result.query_params["record"] = "stale-source-version"
     result.run()
     assert not result.exception
     assert "outside the current registry version" in visible_copy(result)
-    assert states_notice(result)
 
 
-def test_registry_error_state_states_independent_notice(monkeypatch):
+def test_registry_error_state_renders(monkeypatch):
     import streamlit as st
     from mia_capital_intelligence import public_registry
 
@@ -414,6 +399,5 @@ def test_registry_error_state_states_independent_notice(monkeypatch):
         result = AppTest.from_file(APP, default_timeout=15).run()
         assert not result.exception
         assert "could not be validated" in result.error[0].value
-        assert states_notice(result)
     finally:
         st.cache_resource.clear()

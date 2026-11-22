@@ -1,6 +1,6 @@
 # Sources and methodology
 
-MIA Capital Intelligence brings Miami-Dade County airport reports into a searchable explorer. An independent data project. Not affiliated with or endorsed by Miami International Airport or Miami-Dade County. Project profiles link to the original pages so readers can check descriptions, estimates, and updates in context.
+MIA Capital Intelligence brings Miami-Dade County airport reports into a searchable explorer. Project profiles link to the original pages so readers can check descriptions, estimates, and updates in context.
 
 ## Report discovery and update history
 
