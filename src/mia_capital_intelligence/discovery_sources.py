@@ -18,6 +18,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 import pdfplumber
 
 MONTHLY_INDEX = "https://www.miami-airport.com/transparency_report.asp"
+TRAFFIC_INDEX = "https://www.miami-airport.com/airport_stats.asp"
 KEYWORD_SEARCH = "https://www.miamidade.gov/govaction/keywordsearch.asp"
 AGENDA_INDEX = "https://www.miamidade.gov/govaction/agendas.asp?Action=Agendas&Oper=DisplayList"
 ALLOWED_HOSTS = frozenset({"miami-airport.com", "www.miami-airport.com", "miamidade.gov", "www.miamidade.gov"})
@@ -25,6 +26,7 @@ MONTHS = {name.lower(): number for number, name in enumerate(calendar.month_name
 MONTH_PATTERN = "(?:" + "|".join(MONTHS) + ")"
 QUARTERLY = "infrastructure_241354"
 MONTHLY = "aviation_capital_monthly"
+TRAFFIC = "traffic_monthly"
 
 
 @dataclass(frozen=True)
@@ -168,6 +170,32 @@ def monthly_links(body: bytes, years: set[int]) -> list[ReportLink]:
                                  listed_period=f"{match[2]}-{MONTHS[match[1].lower()]:02}")
     if not result:
         raise ValueError("Monthly index contains no full reports in the requested years")
+    return sorted(result.values(), key=lambda link: (link.listed_period or "", link.url), reverse=True)
+
+
+def traffic_links(body: bytes, years: set[int]) -> list[ReportLink]:
+    """List candidate monthly traffic PDFs under year headings. Listing never admits a source."""
+    parts = re.split(rb"Year\s*(20\d{2})", body)
+    result: dict[str, ReportLink] = {}
+    periods: dict[str, str] = {}
+    for year, section in zip(parts[1::2], parts[2::2]):
+        if int(year) not in years:
+            continue
+        for href, label in Page(section).links:
+            name = label.strip().title()
+            if name not in {*calendar.month_name[1:], *calendar.month_abbr[1:]}:
+                continue
+            month = list(calendar.month_abbr).index(name[:3])
+            period = f"{int(year)}-{month:02}"
+            url = official_url(href, TRAFFIC_INDEX)
+            if not urlsplit(url).path.lower().endswith(".pdf"):
+                continue
+            if periods.get(period, url) != url:
+                raise ValueError(f"Conflicting traffic index URLs for {period}")
+            periods[period] = url
+            result[url] = ReportLink(TRAFFIC, label.strip(), url, TRAFFIC_INDEX, label.strip(), listed_period=period)
+    if not result:
+        raise ValueError("Traffic index contains no monthly reports in the requested years")
     return sorted(result.values(), key=lambda link: (link.listed_period or "", link.url), reverse=True)
 
 
@@ -320,6 +348,28 @@ def inspect_pdf(body: bytes, link: ReportLink) -> PDFIdentity:
                 start, end = period[:2]
                 if start.month not in {1, 4, 7, 10} or start.day != 1 or end != date(start.year, start.month + 2, calendar.monthrange(start.year, start.month + 2)[1]):
                     raise ValueError("Explicit reporting range is not a complete calendar quarter")
+        elif link.series == TRAFFIC:
+            combined = " ".join(text for _, text in texts)
+            if combined and not re.search(r"Traffic\s+Report", combined, re.I):
+                raise ValueError("PDF does not identify the traffic report series")
+            # Official pages print "TRAFFIC REPORT MONTH ENDED: APRIL 30, 2019"; older titles put the month first.
+            patterns = (
+                rf"Month\s+Ended\s*:?\s*({MONTH_PATTERN})\s+\d{{1,2}}\s*,?\s*(20\d{{2}})",
+                rf"({MONTH_PATTERN})\s+(20\d{{2}})\b[^\n]{{0,60}}?Traffic\s+Report",
+            )
+            matches = []
+            for number, text in texts:
+                for pattern in patterns:
+                    for match in re.finditer(pattern, text, re.I):
+                        month, year = MONTHS[match[1].lower()], int(match[2])
+                        matches.append((date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]),
+                                        match[0], number))
+            if matches:
+                if len({(start, end) for start, end, _, _ in matches}) != 1:
+                    raise ValueError("Conflicting traffic report labels")
+                period = matches[0]
+                if link.listed_period and period[0].strftime("%Y-%m") != link.listed_period:
+                    raise ValueError("PDF report month differs from the traffic index label")
         else:
             matches = []
             for number, text in texts:

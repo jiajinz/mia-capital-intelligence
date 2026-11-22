@@ -45,12 +45,19 @@ def read_page(body: bytes, period: str) -> list[dict]:
 def extract_rows(lines: list, period: str) -> list[dict]:
     year, month = map(int, period.split("-"))
     last_day = calendar.monthrange(year, month)[1]
-    ended = f"MONTH ENDED: {calendar.month_name[month].upper()} {last_day}, {year}"
     evidence = {text.replace(",", ", ").replace("  ", " ") for text, _ in lines}
-    if ended not in evidence or "MIAMI INTERNATIONAL AIRPORT - TRAFFIC REPORT" not in evidence:
+    month_name = calendar.month_name[month].upper()
+    # Printed month-end must name the right month and year. A printed day that differs from the
+    # calendar is kept as printed and recorded, not silently corrected (e.g. leap-year February).
+    printed = [m for text in evidence for m in [re.fullmatch(rf"MONTH ENDED: {month_name} (\d{{1,2}}), {year}", text)] if m]
+    if not printed or "MIAMI INTERNATIONAL AIRPORT - TRAFFIC REPORT" not in evidence:
         raise ValueError(f"Airport or printed month-end does not match {period}")
+    printed_day = int(printed[0][1])
+    ended = f"MONTH ENDED: {month_name} {printed_day}, {year}"
+    month_end_note = None if printed_day == last_day else f"printed month-end {printed_day} differs from calendar {last_day}"
     stamp = f"{calendar.month_abbr[month].upper()} {str(year-1)[-2:]}"
-    header_pattern = rf"DEPLANED ENPLANED TOTAL {stamp} {stamp} CYTD CYTD (\d{{4}}) CYTD$"
+    # Some 2017 to 2019 layouts omit the trailing CYTD label after the prior-year column.
+    header_pattern = rf"DEPLANED ENPLANED TOTAL {stamp} {stamp} CYTD CYTD (\d{{4}})( CYTD)?$"
     rows = {}
     prior_line = ""
     current = ""
@@ -91,7 +98,8 @@ def extract_rows(lines: list, period: str) -> list[dict]:
         held_fields = ["cytd_yoy_pct"] if footer_year != year - 1 else []
         rows[key] = dict(held_fields=held_fields, market=current, measure=label, unit=MEASURES[label],
                          raw=raw, value=cell_count(raw["month_total"]), table_header=header,
-                         period_evidence=ended, pdf_page_index=0, row_y=round(target["top"], 2),
+                         period_evidence=ended, month_end_note=month_end_note, pdf_page_index=0,
+                         row_y=round(target["top"], 2),
                          total_x=[round(target["x0"], 2), round(target["x1"], 2)])
     if tuple(seen) != MARKETS or set(rows) != {(m, k) for m in MARKETS for k in MEASURES}:
         raise ValueError(f"{period}: incomplete market or measure coverage")
