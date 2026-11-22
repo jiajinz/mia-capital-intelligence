@@ -112,7 +112,14 @@ def seed_catalog(root: Path) -> dict[str, Any]:
 
 
 def admitted_elsewhere_index(root: Path) -> dict[str, str]:
-    """Map SHA-256 to series for source bytes already admitted in data/traffic (read-only)."""
+    """Map SHA-256 to series for source bytes already admitted in data/traffic (read-only).
+
+    Key contract: only the top-level ``data/traffic/*.json`` files are read, and no other
+    directory is scanned. A row is indexed only when it has a truthy ``source_sha256``
+    field; rows that carry a different hash field (for example ``source_html_sha256`` in
+    the HTML-sourced traffic series) are skipped silently. A file without ``series_id``
+    is indexed under the default series ``traffic_monthly``.
+    """
     index: dict[str, str] = {}
     for path in sorted((root / "data" / "traffic").glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -125,6 +132,15 @@ def admitted_elsewhere_index(root: Path) -> dict[str, str]:
     return index
 
 
+def _promote_admitted(document: dict[str, Any], series: str | None) -> bool:
+    """Only a not_included candidate may become admitted_elsewhere; included rows are never changed."""
+    if series is None or document["dataset_status"] != "not_included":
+        return False
+    document["dataset_status"] = "admitted_elsewhere"
+    document["admitted_series"] = series
+    return True
+
+
 def observe(catalog: dict[str, Any], link: ReportLink, identity: PDFIdentity,
             headers: dict[str, str], when: datetime, *, resolved_url: str | None = None,
             admitted: dict[str, str] | None = None) -> bool:
@@ -135,7 +151,9 @@ def observe(catalog: dict[str, Any], link: ReportLink, identity: PDFIdentity,
     url = official_url(link.url)
     location = next((row for row in catalog["locations"] if row["url"] == url), None)
     if location and location["sha256"] == identity.sha256:
-        return False
+        # Same bytes at the same URL: only a later admission can change the recorded status.
+        known = next(row for row in catalog["documents"] if row["sha256"] == identity.sha256)
+        return _promote_admitted(known, (admitted or {}).get(identity.sha256))
     existing = next((row for row in catalog["documents"] if row["sha256"] == identity.sha256), None)
     if existing and existing["series"] != link.series:
         raise ValueError("Identical PDF bytes classified into conflicting report series")
@@ -159,6 +177,8 @@ def observe(catalog: dict[str, Any], link: ReportLink, identity: PDFIdentity,
         catalog["documents"].append(document)
     elif url not in {source["url"] for source in existing["sources"]}:
         existing["sources"].append(provenance)
+    if existing is not None:
+        _promote_admitted(existing, (admitted or {}).get(identity.sha256))
     new_location = {**provenance, "sha256": identity.sha256,
                     "etag": headers.get("etag"), "last_modified": headers.get("last-modified")}
     if location:
@@ -186,6 +206,8 @@ def merge_catalogs(base: dict[str, Any], previous: dict[str, Any]) -> dict[str, 
         elif published["dataset_status"] == "included":
             versions[published["sha256"]]["dataset_status"] = "included"
             versions[published["sha256"]]["processing_status"] = "included"
+        elif published["dataset_status"] == "admitted_elsewhere":
+            _promote_admitted(versions[published["sha256"]], published["admitted_series"])
     locations = {row["url"] for row in merged["locations"]}
     merged["locations"].extend(copy.deepcopy(row) for row in base["locations"] if row["url"] not in locations)
     ids = {row["id"] for row in merged["events"]}
