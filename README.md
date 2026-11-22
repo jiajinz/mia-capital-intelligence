@@ -2,7 +2,7 @@
 
 **An independent, read-only explorer of public records for Miami-Dade airport infrastructure.**
 
-Find airport improvements, see the costs and spending that official reports publish, and check every figure against the page it came from. This is an independent data project. It is not affiliated with or endorsed by Miami International Airport or Miami-Dade County. Its colors and typefaces follow the public website of Miami International Airport for familiarity only.
+Find airport improvements, see the costs and spending that official reports publish, and check every figure against the page it came from.
 
 **[🚀 Open the live explorer](https://mia-capital-intelligence.streamlit.app/)**
 
