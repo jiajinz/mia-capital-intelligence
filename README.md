@@ -29,7 +29,7 @@ The project uses AI agents as development tooling: monitoring official sources, 
 
 ## Monthly traffic and forecasts (internal research)
 
-Monthly airport traffic reports (passengers, cargo, seats and aircraft movements) are collected and verified for 2010 to 2026. They are not yet shown in the explorer. A separate forecasting track evaluates simple models on these series with pre-registered rules and reports every result, including the ones that do not beat the baseline. Forecasts stay internal until reviewed.
+Monthly airport traffic reports (passengers, cargo, seats and aircraft movements) are collected and verified for 199 of the 201 months from January 2010 to September 2026. July 2010 has no source page yet, and June 2013 is held for review. They are not yet shown in the explorer. A separate forecasting track evaluates simple models on these series with pre-registered rules and reports every result, including the ones that do not beat the baseline. Forecasts stay internal until reviewed.
 
 ## Repository guide
 
