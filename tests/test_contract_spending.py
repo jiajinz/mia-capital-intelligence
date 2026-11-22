@@ -114,6 +114,37 @@ def test_pinned_pdf_rebuild_is_reproducible_and_failure_preserves_valid_output(t
     assert output.read_bytes() == original.read_bytes()
 
 
+PENDING_MESSAGE = (
+    "Contract spending is not shown yet because no independent review has been recorded. "
+    "Ordinary display needs a named independent human review of the current financial input."
+)
+STALE_MESSAGE = (
+    "Contract spending is not shown because the recorded review was made for an earlier version of "
+    "the financial input. Ordinary display needs a new independent review of the current input."
+)
+INVALID_REVIEW_MESSAGE = (
+    "Contract spending is not shown because the recorded review did not pass validation. "
+    "Ordinary display needs a valid independent review that matches the current input."
+)
+INVALID_INPUT_MESSAGE = (
+    "Contract spending is not shown because the prepared financial input did not pass its integrity check. "
+    "The input must be rebuilt and independently reviewed before ordinary display."
+)
+STATUS_MESSAGES = {
+    "pending_review": PENDING_MESSAGE,
+    "stale_review": STALE_MESSAGE,
+    "invalid_review": INVALID_REVIEW_MESSAGE,
+    "invalid_input": INVALID_INPUT_MESSAGE,
+}
+
+
+def assert_no_financial_values(tab):
+    assert not tab.get("plotly_chart") and not tab.selectbox and not tab.dataframe
+    assert not tab.get("link_button") and not tab.get("expander")
+    text = " ".join(node.value for node in tab if isinstance(getattr(node, "value", None), str))
+    assert "$" not in text and "Synthetic Test Reviewer" not in text
+
+
 def app_for(monkeypatch, root, *, loopback=False):
     import streamlit as st
 
@@ -135,8 +166,8 @@ def test_browser_request_parameter_cannot_unlock_pending_data(monkeypatch, local
     app.run()
     assert not app.exception
     tab = app.tabs[3]
-    assert tab.info[0].value == "Contract spending data is currently unavailable."
-    assert not tab.get("plotly_chart") and not tab.selectbox and not tab.dataframe and not tab.get("link_button")
+    assert tab.info[0].value == PENDING_MESSAGE
+    assert_no_financial_values(tab)
 
 
 def test_local_preview_displays_banner_and_explicit_summary_zero(monkeypatch, local_root):
@@ -181,9 +212,13 @@ def test_streamlit_secret_approves_without_local_review_record(monkeypatch, loca
     assert not any("Synthetic Test Reviewer" in element.value for element in tab.markdown)
 
 
-@pytest.mark.parametrize("review_document", ["invalid JSON", 42, "stale"])
+@pytest.mark.parametrize(("review_document", "message"), [
+    ("invalid JSON", INVALID_REVIEW_MESSAGE),
+    (42, INVALID_REVIEW_MESSAGE),
+    ("stale", STALE_MESSAGE),
+])
 def test_invalid_streamlit_secret_does_not_fall_back_to_local_record(
-    monkeypatch, local_root, synthetic_review, review_document,
+    monkeypatch, local_root, synthetic_review, review_document, message,
 ):
     monkeypatch.delenv("MIA_FINANCIAL_LOCAL_REVIEW", raising=False)
     write_review(local_root, synthetic_review)
@@ -194,5 +229,29 @@ def test_invalid_streamlit_secret_does_not_fall_back_to_local_record(
     app.run()
     assert not app.exception
     tab = app.tabs[3]
-    assert tab.info[0].value == "Contract spending data is currently unavailable."
-    assert not tab.get("plotly_chart") and not tab.dataframe
+    assert tab.info[0].value == message
+    assert_no_financial_values(tab)
+
+
+def test_closed_gate_messages_are_distinct_and_hide_values(monkeypatch, local_root, synthetic_review):
+    monkeypatch.delenv("MIA_FINANCIAL_LOCAL_REVIEW", raising=False)
+    messages = {}
+    for status in ("pending_review", "stale_review", "invalid_review", "invalid_input"):
+        if status == "stale_review":
+            write_review(local_root, {**synthetic_review, "input_sha256": "0" * 64})
+        elif status == "invalid_review":
+            write_review(local_root, {**synthetic_review, "reviewer_name": " "})
+        elif status == "invalid_input":
+            (local_root / spending.REVIEW_PATH).unlink(missing_ok=True)
+            path = local_root / spending.INPUT_PATH
+            path.write_bytes(path.read_bytes() + b"\n")
+        else:
+            (local_root / spending.REVIEW_PATH).unlink(missing_ok=True)
+        app = app_for(monkeypatch, local_root).run()
+        assert not app.exception
+        tab = app.tabs[3]
+        assert tab.info[0].value == STATUS_MESSAGES[status]
+        assert_no_financial_values(tab)
+        messages[status] = tab.info[0].value
+    assert len(set(messages.values())) == 4
+    assert all("unavailable" not in message for message in messages.values())

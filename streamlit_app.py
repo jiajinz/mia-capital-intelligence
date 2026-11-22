@@ -624,10 +624,30 @@ def configured_financial_review() -> str | None:
     return document if isinstance(document, str) else ""
 
 
+CLOSED_SPENDING_MESSAGES = {
+    "pending_review": (
+        "Contract spending is not shown yet because no independent review has been recorded. "
+        "Ordinary display needs a named independent human review of the current financial input."
+    ),
+    "stale_review": (
+        "Contract spending is not shown because the recorded review was made for an earlier version of "
+        "the financial input. Ordinary display needs a new independent review of the current input."
+    ),
+    "invalid_review": (
+        "Contract spending is not shown because the recorded review did not pass validation. "
+        "Ordinary display needs a valid independent review that matches the current input."
+    ),
+    "invalid_input": (
+        "Contract spending is not shown because the prepared financial input did not pass its integrity check. "
+        "The input must be rebuilt and independently reviewed before ordinary display."
+    ),
+}
+
+
 def render_contract_spending(view: FinancialView) -> None:
     st.subheader("Contract spending history")
     if not view.rows:
-        st.info("Contract spending data is currently unavailable.")
+        st.info(CLOSED_SPENDING_MESSAGES.get(view.status, "Contract spending data is currently unavailable."))
         return
     if view.local_review and view.status != "approved":
         st.warning("Local review preview.")
