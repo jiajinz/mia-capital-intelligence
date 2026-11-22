@@ -116,10 +116,12 @@ def admitted_elsewhere_index(root: Path) -> dict[str, str]:
     index: dict[str, str] = {}
     for path in sorted((root / "data" / "traffic").glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
+        # Only some traffic files carry series_id; the others belong to the same monthly series.
+        series = payload.get("series_id", "traffic_monthly")
         for row in payload.get("rows", []):
             digest = row.get("source_sha256")
             if digest:
-                index[digest] = payload["series_id"]
+                index[digest] = series
     return index
 
 
