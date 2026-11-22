@@ -697,6 +697,8 @@ try:
 except (ValueError, OSError, KeyError):
     st.title("MIA Capital Intelligence")
     st.error("The published data could not be validated. Project records are unavailable until the data is repaired.")
+    st.divider()
+    st.caption(INDEPENDENT_NOTICE)
     st.stop()
 
 if "record" in st.query_params:
@@ -707,6 +709,8 @@ if "record" in st.query_params:
         render_detail(registry, requested[0])
     else:
         st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
+    st.divider()
+    st.caption(INDEPENDENT_NOTICE)
     st.stop()
 
 reports = {source["matter_id"]: source for source in registry.catalog if source["indexed_record_count"]}
