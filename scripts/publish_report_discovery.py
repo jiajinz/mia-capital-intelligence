@@ -119,7 +119,10 @@ def publish(api: GitHub, bundle: Path) -> dict:
         return {"status": "unchanged"}
     if previous and not known_events.issubset({row["id"] for row in catalog["events"]}):
         raise ValueError("Discovery history changed after this scan; rerun before publication")
-    if not actual_new and report["new_events"] and not link_repair:
+    # A branch without a pull request means an earlier publication stopped before PR creation.
+    # Its events are already on the branch, so they are not new, but the proposal is still unposted.
+    branch_without_pr = head is not None and latest is None
+    if not actual_new and report["new_events"] and not link_repair and not branch_without_pr:
         return {"status": "already_published"}
     baseline_log = (ROOT / LOG_PATH).read_text(encoding="utf-8")
     open_pr = latest if latest and latest["state"] == "open" else None
