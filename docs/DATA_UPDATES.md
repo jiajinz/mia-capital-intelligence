@@ -49,6 +49,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/April%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
 - SHA-256: `54d39dbdc01421f59b2920a8007838af2c7365d4f060a7da5a99c79fff2c7659`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T17:25:49+00:00 — Discovered
 
@@ -58,6 +59,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/May%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
 - SHA-256: `77494d4d281d080de8c8cbdd11bdbf5d1f400998965125316268bf2d376ab974`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T17:25:49+00:00 — Discovered
 
@@ -67,6 +69,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/March%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20Revised%20(002).pdf>) · 1 PDF pages.
 - SHA-256: `cf19fcda96c78ec4c5dfa66d7ad2a6efbe89d638511b4c29e2d4fc2e15c6c954`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T17:25:49+00:00 — Discovered
 
@@ -76,6 +79,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/February%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
 - SHA-256: `04b71701aa04dd5ecd50802ac44e9fa25b0405a2de2eaa4eb3bc60e418d137bd`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T17:25:49+00:00 — Discovered
 
@@ -85,6 +89,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/June%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
 - SHA-256: `1c055398f5fd92f20d5688003f0cea2e5d1a42d63f6b4c20886562afc4208042`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T17:25:49+00:00 — Discovered
 
@@ -94,6 +99,7 @@ These events track official files found by the source monitor. A discovered or r
 - [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/January%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
 - SHA-256: `d701d25cb4d9364053810d8ff7adcaa4cbcbedd27e20d97c81e5d83d87bc7c67`.
 - Dataset: not included. No project or financial records added by this event.
+- [Discovery pull request](https://github.com/jiajinz/mia-capital-intelligence/pull/23).
 
 ### 2026-11-22T02:20:20+00:00 — Discovered
 
