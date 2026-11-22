@@ -48,6 +48,29 @@
       ]
     },
     {
+      "sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+      "size_bytes": 88645,
+      "page_count": 1,
+      "period_start": "2025-09-01",
+      "period_end": "2025-09-30",
+      "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Sep",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Sep",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf"
+        }
+      ]
+    },
+    {
       "sha256": "117d7cbf8f4fc9f714c750ae4013c003108f89f2a3e6c4e3f43a48725676fd6b",
       "size_bytes": 1626263,
       "page_count": 40,
@@ -136,6 +159,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report June 2025",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/June%202025/Aviation%20Capital%20Program%20Report%20-%20June%202025.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+      "size_bytes": 90970,
+      "page_count": 1,
+      "period_start": "2026-05-01",
+      "period_end": "2026-05-31",
+      "period_evidence": "MONTH ENDED: MAY 31, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "May",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "May",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
         }
       ]
     },
@@ -323,6 +369,29 @@
       ]
     },
     {
+      "sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+      "size_bytes": 98664,
+      "page_count": 1,
+      "period_start": "2026-04-01",
+      "period_end": "2026-04-30",
+      "period_evidence": "MONTH ENDED: APRIL 30, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Apr",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Apr",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "6e24f37f806d115d5d08d8003d37b5d558c4b9043313dd5a912d998e7dd46206",
       "size_bytes": 1805167,
       "page_count": 33,
@@ -365,6 +434,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report November 2025",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Nov%202025/Aviation%20Capital%20Program%20Report%20-%20November%202025.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+      "size_bytes": 88460,
+      "page_count": 1,
+      "period_start": "2025-10-01",
+      "period_end": "2025-10-31",
+      "period_evidence": "MONTH ENDED: OCTOBER 31, 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Oct",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Oct",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
         }
       ]
     },
@@ -414,6 +506,29 @@
       ]
     },
     {
+      "sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+      "size_bytes": 88279,
+      "page_count": 1,
+      "period_start": "2026-01-01",
+      "period_end": "2026-01-31",
+      "period_evidence": "MONTH ENDED: JANUARY 31,2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Jan",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Jan",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "8c2653e7c73e31fc0fd2cfd09e5ab8c423788da5c96ce3bb45a50ec911947a4e",
       "size_bytes": 6387519,
       "page_count": 31,
@@ -433,6 +548,75 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report October 2025",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Oct%202025/Aviation%20Capital%20Program%20Report%20-%20October%202025.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+      "size_bytes": 83903,
+      "page_count": 1,
+      "period_start": "2026-08-01",
+      "period_end": "2026-08-31",
+      "period_evidence": "MONTH ENDED: AUGUST 31, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Aug",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Aug",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+      "size_bytes": 91144,
+      "page_count": 1,
+      "period_start": "2026-03-01",
+      "period_end": "2026-03-31",
+      "period_evidence": "MONTH ENDED: MARCH 31, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Mar",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Mar",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+      "size_bytes": 88478,
+      "page_count": 1,
+      "period_start": "2025-11-01",
+      "period_end": "2025-11-30",
+      "period_evidence": "MONTH ENDED: NOVEMBER 30, 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Nov",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Nov",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
         }
       ]
     },
@@ -482,6 +666,52 @@
       ]
     },
     {
+      "sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+      "size_bytes": 88685,
+      "page_count": 1,
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "period_evidence": "MONTH ENDED: DECEMBER 31,2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Dec",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Dec",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+      "size_bytes": 84127,
+      "page_count": 1,
+      "period_start": "2026-07-01",
+      "period_end": "2026-07-31",
+      "period_evidence": "MONTH ENDED: JULY 31, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Jul",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Jul",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "bc641aafc83b1c0593435350778aa2c8a190e8ed0e0a4a3d58709dc9ce79265c",
       "size_bytes": 2969801,
       "page_count": 37,
@@ -501,6 +731,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report February 2026",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2026/CIP%20Monthly%20Report%20-%20February%202026.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+      "size_bytes": 88800,
+      "page_count": 1,
+      "period_start": "2026-02-01",
+      "period_end": "2026-02-28",
+      "period_evidence": "MONTH ENDED: FEBRUARY 28, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Feb",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Feb",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
         }
       ]
     },
@@ -573,6 +826,52 @@
       ]
     },
     {
+      "sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+      "size_bytes": 84186,
+      "page_count": 1,
+      "period_start": "2026-09-01",
+      "period_end": "2026-09-30",
+      "period_evidence": "MONTH ENDED: SEPTEMBER 30, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Sep",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Sep",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+      "size_bytes": 88797,
+      "page_count": 1,
+      "period_start": "2025-08-01",
+      "period_end": "2025-08-31",
+      "period_evidence": "MONTH ENDED: AUGUST 31, 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Aug",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Aug",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "cd016776309074279ca1383b59270c771ea01557e20e09a08510465b9f8506d4",
       "size_bytes": 1812633,
       "page_count": 43,
@@ -615,6 +914,29 @@
           "source_page": "https://www.miami-airport.com/transparency_report.asp",
           "link_text": "Aviation Capital Program Report February 2025",
           "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Feb%202025/February%202025%20Aviation%20Capital%20Program%20Report.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+      "size_bytes": 83782,
+      "page_count": 1,
+      "period_start": "2026-06-01",
+      "period_end": "2026-06-30",
+      "period_evidence": "MONTH ENDED: JUNE 30, 2026",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Jun",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Jun",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
         }
       ]
     },
@@ -664,6 +986,29 @@
       ]
     },
     {
+      "sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+      "size_bytes": 88891,
+      "page_count": 1,
+      "period_start": "2025-07-01",
+      "period_end": "2025-07-31",
+      "period_evidence": "MONTH ENDED: JULY 31, 2025",
+      "period_pdf_page": 1,
+      "processing_status": "candidate",
+      "series": "traffic_monthly",
+      "title": "Jul",
+      "matter_id": null,
+      "dataset_status": "not_included",
+      "first_seen_at": "2026-11-22T02:20:20+00:00",
+      "sources": [
+        {
+          "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+          "source_page": "https://www.miami-airport.com/airport_stats.asp",
+          "link_text": "Jul",
+          "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf"
+        }
+      ]
+    },
+    {
       "sha256": "fcf814857da9d4e7dd0ce1c69cb44da5c1c5c5729fbdf50bc0cc33100211f68b",
       "size_bytes": 1955649,
       "page_count": 40,
@@ -688,6 +1033,141 @@
     }
   ],
   "locations": [
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Aug",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+      "etag": "\"8051d6cf212edc1:0\"",
+      "last_modified": "Thu, 25 Sep 2025 13:39:27 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Apr",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+      "etag": "\"0db8798afeedc1:0\"",
+      "last_modified": "Thu, 28 May 2026 14:38:06 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Aug",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+      "etag": "\"061371364cdd1:0\"",
+      "last_modified": "Thu, 24 Sep 2026 15:07:40 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Feb",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+      "etag": "\"0ac8fe8a5bbdc1:0\"",
+      "last_modified": "Tue, 24 Mar 2026 15:50:16 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Jan",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+      "etag": "\"0a902ea7bbdc1:0\"",
+      "last_modified": "Tue, 24 Mar 2026 15:59:22 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Jul",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+      "etag": "\"080921bf43add1:0\"",
+      "last_modified": "Wed, 02 Sep 2026 16:00:00 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Jun",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+      "etag": "\"8072a975dd1ddd1:0\"",
+      "last_modified": "Mon, 27 Jul 2026 15:34:49 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Mar",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+      "etag": "\"80ea756ad2dbdc1:0\"",
+      "last_modified": "Mon, 04 May 2026 14:29:29 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "May",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+      "etag": "\"807459fa64dd1:0\"",
+      "last_modified": "Thu, 25 Jun 2026 13:29:17 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Sep",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+      "etag": "\"046d41e5065dd1:0\"",
+      "last_modified": "Mon, 26 Oct 2026 13:44:28 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Jul",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+      "etag": "\"072fc7c6f17dc1:0\"",
+      "last_modified": "Wed, 27 Aug 2025 16:27:32 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Oct",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+      "etag": "\"0e6d54f9463dc1:0\"",
+      "last_modified": "Tue, 02 Dec 2025 14:02:36 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Sep",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+      "sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+      "etag": "\"03cd8c89a63dc1:0\"",
+      "last_modified": "Tue, 02 Dec 2025 14:48:56 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Dec",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+      "etag": "\"0d0df375391dc1:0\"",
+      "last_modified": "Thu, 29 Jan 2026 19:12:32 GMT"
+    },
+    {
+      "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "source_page": "https://www.miami-airport.com/airport_stats.asp",
+      "link_text": "Nov",
+      "resolved_url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+      "etag": "\"801baef9d774dc1:0\"",
+      "last_modified": "Wed, 24 Dec 2025 13:19:47 GMT"
+    },
     {
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/2025/Apr%202025/April%202025%20Aviation%20Capital%20Program%20Report.pdf",
       "source_page": "https://www.miami-airport.com/transparency_report.asp",
@@ -1179,6 +1659,141 @@
       "previous_sha256": null,
       "url": "https://www.miami-airport.com/library/pdfdoc/Transparency_Reports/Aviation%20Capital%20Program%20Report%20-%20January%202025.pdf",
       "pull_request_url": "https://github.com/jiajinz/mia-capital-intelligence/pull/12"
+    },
+    {
+      "id": "6c9b5071d884de2eb16ac9dcdb0f19f13b24880a3f4b9e94edf9e3b2dac000c5",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "a2999ed90952e81452a434dc991e6cd392992ce2ebe0bff96fa7d523429af4d0",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "5d182bf29efaf247192f91fdc4d5a15c5e7a01e21535de298dfba0e927b00299",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "04f888b5a4330454eb3cf48843a4ca8bffb86f2e5e6f9c205d70da449e702198",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "cc5bcdfb9c60c97eee2551c27173dfc17d631bc02a83beb680fa4628fe5d4dba",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "9fbff42d9721f1015285cadc6718fa231260c30ddd01c9cbb5a5a952847766bc",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "9870317e128f4821a46bda221570c7a4001d4ed12b1b880d3036c4302b41845c",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "e31d7585f807a69355f948c4bd8c5ec53e9be2ac33c90c9eb9b336b4faa0c8fa",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "665902375edf526a965f5c51381e37cc37202536be783b43e22f1dbae49c73d0",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "9d6442279a17cca6d29143a3fdd7abed673c439ed1bc487e0dc311a85527955d",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "4a748e1e0101fc9da524831f4c2d94068de7a0ef6a006741892c90dc19053eb6",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "f82532716fbfaa93765f2f799f33966e3e8cf12af6166dbaa494414d7265e3df",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "3bb0cd8729f1856be4f50765d13e327203b997884753b8aba661425d55f0349e",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "61b6c3b0615810416db46e8820fd7d5c823dc7a8c4f32531a83c010d05b8a172",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
+    },
+    {
+      "id": "f316ef91251f97bd898ef47eeea1ea42615c2b68ea51a5c58a9c9dd2df68fa4b",
+      "kind": "discovered",
+      "occurred_at": "2026-11-22T02:20:20+00:00",
+      "sha256": "fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239",
+      "previous_sha256": null,
+      "url": "https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf",
+      "pull_request_url": null
     }
   ]
 }

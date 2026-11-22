@@ -41,6 +41,141 @@ The Dashboard implementation is documented in [PR #8](https://github.com/jiajinz
 
 These events track official files found by the source monitor. A discovered or revised file is not added to the application dataset by this log.
 
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Oct**
+
+- Reporting period: 2025-10-01 to 2025-10-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/October%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `7e3368b0d52a6db994cfa88682193043d7d30dc7718b32d6efc16f5e8db877ee`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Jul**
+
+- Reporting period: 2025-07-01 to 2025-07-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/July%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `fcda35d15229611fc7a0f79222e13d828c227c2862559b95e34542eb2a027239`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Feb**
+
+- Reporting period: 2026-02-01 to 2026-02-28.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/February%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `bcd78015fd2526edb4328fdf0a3049d292f05df14f67baa8454a900ac70ea6c1`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**May**
+
+- Reporting period: 2026-05-01 to 2026-05-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/May%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `28b27b9678872627d51ae6cae6457ed69eed12180c938f39c4f947e2754192e0`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Aug**
+
+- Reporting period: 2026-08-01 to 2026-08-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/August%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `8c4da02bef5bfe276bb7111cf564deb4a816f292aab0cfdd3a393896c7bba7e8`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Apr**
+
+- Reporting period: 2026-04-01 to 2026-04-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/April%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `6643bd26aae19fa141bde4f3cf2d19a0a0f0beacac27d58aaf11a86b3e4acb3a`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Dec**
+
+- Reporting period: 2025-12-01 to 2025-12-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/December%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `b196b18fd716cf9136c8cc58a757a9d875a4602687dd9a35a3f05593bef5c5e9`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Mar**
+
+- Reporting period: 2026-03-01 to 2026-03-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/March%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `9291c0d6f847da1a778dc59489e04411c289751d45ba742e9e339f99076bae03`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Sep**
+
+- Reporting period: 2026-09-01 to 2026-09-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/September%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `c83971ae53024236c4532ac76512e9ca28eef864e86ea4f99215fb6388d825f4`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Jan**
+
+- Reporting period: 2026-01-01 to 2026-01-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/January%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `86bfac65411576b66676f1175277feb43918a84722960e8b63523306ecc477fc`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Aug**
+
+- Reporting period: 2025-08-01 to 2025-08-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/August%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `ca1e9f294c1a34cf47713269bc224d7504aaae75f9a2d8b6cf242204d7c1d75a`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Jul**
+
+- Reporting period: 2026-07-01 to 2026-07-31.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/July%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `bbeb9c0b864e1aec3f61e6f9a4e46aa624c19898ef261906c9ab4a28dfef8d1d`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Nov**
+
+- Reporting period: 2025-11-01 to 2025-11-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Traffic%20Reports/2025/November%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `a1d8d78fe82d132e84c63ed816040f1f1b7db7ed49fd232a0513e1d969f241f1`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Sep**
+
+- Reporting period: 2025-09-01 to 2025-09-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/September%202025%20Monthly%20%20Calendar%20Yr%20Traffic%20Report%20(002).pdf>) · 1 PDF pages.
+- SHA-256: `066a8c77226ecefea5d9cc38c6c93a11d59216c124fc1f53f9d8d61bf5743789`.
+- Dataset: not included. No project or financial records added by this event.
+
+### 2026-11-22T02:20:20+00:00 — Discovered
+
+**Jun**
+
+- Reporting period: 2026-06-01 to 2026-06-30.
+- [Official PDF](<https://www.miami-airport.com/library/pdfdoc/Airport%20Stats/FY%202025-2026/June%202026%20Monthly%20%20Calendar%20Yr%20Traffic%20Report.pdf>) · 1 PDF pages.
+- SHA-256: `da5577ed1f85fa11e75b40d28ec4c07396838fb40532978de61470cca16d81e4`.
+- Dataset: not included. No project or financial records added by this event.
+
 ### 2026-11-22T02:05:50+00:00 — Discovered
 
 **Aviation Capital Program Report March 2025**

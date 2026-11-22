@@ -18,7 +18,8 @@
           "series": {
             "enum": [
               "infrastructure_241354",
-              "aviation_capital_monthly"
+              "aviation_capital_monthly",
+              "traffic_monthly"
             ]
           },
           "title": {

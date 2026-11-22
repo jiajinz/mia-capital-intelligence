@@ -12,8 +12,8 @@ from mia_capital_intelligence.discovery_catalog import (
     CATALOG_PATH, LOG_PATH, merge_catalogs, observe, read_catalog, render_log, serialize_catalog,
 )
 from mia_capital_intelligence.discovery_sources import (
-    AGENDA_INDEX, KEYWORD_SEARCH, MONTHLY_INDEX, OfficialClient, PartialDiscovery, ReportLink,
-    agenda_links, inspect_pdf, monthly_links, quarterly_links,
+    AGENDA_INDEX, KEYWORD_SEARCH, MONTHLY_INDEX, TRAFFIC_INDEX, OfficialClient, PartialDiscovery, ReportLink,
+    agenda_links, inspect_pdf, monthly_links, quarterly_links, traffic_links,
 )
 
 
@@ -41,6 +41,14 @@ def scan(root: Path, output: Path, *, client: OfficialClient, when: datetime,
     except Exception as error:
         report["sources"].append({"url": MONTHLY_INDEX, "status": "failed"})
         report["errors"].append({"url": MONTHLY_INDEX, "stage": "index", "error": f"{type(error).__name__}: {error}"})
+    try:
+        response = client.fetch(TRAFFIC_INDEX, max_bytes=5 * 1024 * 1024)
+        found = traffic_links(response.body, years)
+        links.extend(found)
+        report["sources"].append({"url": TRAFFIC_INDEX, "status": "ok", "reports_found": len(found)})
+    except Exception as error:
+        report["sources"].append({"url": TRAFFIC_INDEX, "status": "failed"})
+        report["errors"].append({"url": TRAFFIC_INDEX, "stage": "index", "error": f"{type(error).__name__}: {error}"})
     try:
         found = quarterly_links(client.fetch, first_year=min(years), through=when.date())
         links.extend(found)
