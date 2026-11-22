@@ -23,7 +23,7 @@ from mia_capital_intelligence.directory_queries import (  # noqa: E402
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
-    CHART_NAMES, EstimateRanking, apply_navy_theme, estimate_figure, largest_estimates,
+    CHART_NAMES, EstimateRanking, apply_chart_theme, estimate_figure, largest_estimates,
     selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
@@ -41,6 +41,20 @@ ESTIMATE_SORT = "Reported estimate, highest first"
 ALL = "all"
 
 st.set_page_config(page_title="MIA Capital Intelligence", page_icon="✈", layout="wide")
+INDEPENDENT_NOTICE = (
+    "An independent data project. Not affiliated with or endorsed by Miami International Airport "
+    "or Miami-Dade County. Records are attributed to their publishing organizations."
+)
+st.html("""
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+    .stApp, .stApp p, .stApp label, .stApp li, .stApp td, .stApp th, .stApp input, .stApp textarea,
+    .stApp [data-testid="stMarkdownContainer"], .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+    .stApp h1, .stApp h2, .stApp h3 { color:#012851; font-weight:700; }
+    </style>
+""")
 
 
 @st.cache_resource(show_spinner=False)
@@ -147,13 +161,13 @@ def render_estimate_distribution(
         <style>
         .mia-estimate-bands { display:grid; gap:.35rem; max-width:52rem }
         .mia-estimate-bands a, .mia-band-zero { display:block; padding:.4rem .55rem;
-          color:#EDF5FF; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
-        .mia-estimate-bands a:hover { background:#101F32; text-decoration:underline }
-        .mia-estimate-bands a:focus-visible { outline:2px solid #80C9FF }
+          color:#333333; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
+        .mia-estimate-bands a:hover { background:#F4F7FA; text-decoration:underline }
+        .mia-estimate-bands a:focus-visible { outline:2px solid #337AB7 }
         .mia-band-label { display:flex; justify-content:space-between; gap:1rem }
-        .mia-band-label strong { font-variant-numeric:tabular-nums; color:#80C9FF }
-        .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#1C324B; border-radius:2px }
-        .mia-band-track i { display:block; height:100%; background:#5581AA; border-radius:2px }
+        .mia-band-label strong { font-variant-numeric:tabular-nums; color:#012851 }
+        .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#E4EAF0; border-radius:2px }
+        .mia-band-track i { display:block; height:100%; background:#007BB6; border-radius:2px }
         </style>
         <div class="mia-estimate-bands" role="group" aria-label="Source record counts by estimate range in USD">'''
         + "".join(bars) + "</div>")
@@ -480,6 +494,7 @@ def render_directory(registry: PublicRegistry, *, latest_report: str) -> None:
     sources = {row["matter_id"]: row for row in registry.catalog if row["indexed_record_count"]}
     st.title("MIA Capital Intelligence")
     st.caption("Explore airport improvements and reported project costs.")
+    st.caption(INDEPENDENT_NOTICE)
     with st.form("explore-search", border=False):
         search_column, search_button = st.columns([5, 1], vertical_alignment="bottom")
         with search_column:
@@ -551,7 +566,7 @@ def render_directory_matches(
 
 def render_coverage(registry: PublicRegistry) -> None:
     st.subheader("Sources & data coverage")
-    st.caption("An independent data project. Underlying records are published by Miami-Dade County.")
+    st.caption(INDEPENDENT_NOTICE + " Underlying records are published by Miami-Dade County.")
     st.markdown("[Data update history](https://github.com/jiajinz/mia-capital-intelligence/blob/main/docs/DATA_UPDATES.md)")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):
         with st.expander("Case study · Concourse D west extension"):
@@ -630,14 +645,14 @@ def render_contract_spending(view: FinancialView) -> None:
         customdata=[[f"${row.monthly_usd:,.2f}", "Summary confirms zero" if row.monthly_dash_corroborated
                      else "Financial table amount"] for row in rows],
         hovertemplate="%{x}<br>%{customdata[0]}<br>%{customdata[1]}<extra></extra>",
-        marker_color="#5581AA",
+        marker_color="#007BB6",
     ))
     figure.update_layout(
         title="Reported monthly expenditures", height=320, margin=dict(l=12, r=18, t=55, b=32),
         xaxis_title="Reported month", yaxis_title="Expenditures (USD)",
         yaxis_tickprefix="$", yaxis_rangemode="tozero", showlegend=False,
     )
-    apply_navy_theme(figure)
+    apply_chart_theme(figure)
     st.plotly_chart(figure, width="stretch", config={"displayModeBar": False, "scrollZoom": False})
     with st.expander("How the cumulative amount adds up"):
         first, last = rows[0], rows[-1]
@@ -731,9 +746,9 @@ with explore_tab:
           white-space:normal; overflow:visible; overflow-wrap:anywhere; text-overflow:clip;
         }
         .st-key-ranked-record .mia-ranked-brief { margin:0; overflow-wrap:anywhere; }
-        .st-key-ranked-evidence-links a { color:#80C9FF; padding:.25rem .5rem; min-height:2.75rem; }
+        .st-key-ranked-evidence-links a { color:#337AB7; padding:.25rem .5rem; min-height:2.75rem; }
         .st-key-ranked-evidence-links a p { color:inherit; font-size:.875rem; text-decoration:underline; }
-        .st-key-ranked-evidence-links a:is(:hover,:focus-visible) { color:#CDEBFF; }
+        .st-key-ranked-evidence-links a:is(:hover,:focus-visible) { color:#012851; }
         </style>
     """)
     render_directory(registry, latest_report=latest_report)
@@ -753,3 +768,6 @@ with spending_tab:
         server_address=st.get_option("server.address"),
         review_json=configured_financial_review(),
     ))
+
+st.divider()
+st.caption(INDEPENDENT_NOTICE)
