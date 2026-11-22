@@ -104,7 +104,8 @@
           "dataset_status": {
             "enum": [
               "included",
-              "not_included"
+              "not_included",
+              "admitted_elsewhere"
             ]
           },
           "first_seen_at": {
@@ -151,6 +152,11 @@
               ],
               "additionalProperties": false
             }
+          },
+          "admitted_series": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Admitted series that already holds these exact bytes. Required when dataset_status is admitted_elsewhere."
           }
         },
         "required": [
@@ -169,7 +175,29 @@
           "first_seen_at",
           "sources"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "dataset_status": {
+              "const": "admitted_elsewhere"
+            }
+          },
+          "required": [
+            "dataset_status"
+          ]
+        },
+        "then": {
+          "required": [
+            "admitted_series"
+          ]
+        },
+        "else": {
+          "not": {
+            "required": [
+              "admitted_series"
+            ]
+          }
+        }
       }
     },
     "locations": {
