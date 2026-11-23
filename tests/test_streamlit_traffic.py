@@ -1,16 +1,16 @@
-"""Streamlit's simulated runtime checks the read-only Traffic tab."""
+"""Streamlit's simulated runtime checks the read-only Traffic section."""
 
 import json
 import re
 from pathlib import Path
 
 import streamlit as st
+import pytest
 from streamlit.testing.v1 import AppTest
 
 from mia_capital_intelligence import traffic_view
 
 APP = Path(__file__).resolve().parents[1] / "streamlit_app.py"
-TRAFFIC_TAB = 4
 
 
 def app():
@@ -20,7 +20,10 @@ def app():
 
 
 def traffic(result):
-    return result.tabs[TRAFFIC_TAB]
+    """Open the Traffic section; it is the only section rendered, so the page is the section."""
+    result.radio(key="section").set_value("Traffic").run()
+    assert not result.exception
+    return result
 
 
 def tab_text(tab) -> str:
@@ -40,29 +43,103 @@ def chart_annotations(tab) -> list[str]:
     return [item.get("text", "") for item in chart_spec(tab)["layout"].get("annotations", [])]
 
 
-def test_traffic_tab_renders_its_sections_in_order():
-    result = app()
-    assert [tab.label for tab in result.tabs][TRAFFIC_TAB] == "Traffic"
-    tab = traffic(result)
-    assert tab.header[0].value == "Monthly airport traffic"
-    assert [item.value for item in tab.subheader] == [
-        "Method note", "Monthly passengers and cargo", "Year-on-year comparison", "Exact values and sources",
+def test_traffic_section_renders_its_sections_in_order():
+    result = traffic(app())
+    assert result.header[0].value == "Monthly airport traffic"
+    assert [item.value for item in result.subheader] == [
+        "Monthly passenger movements, 2010 to 2026", "Compare years", "Reference forecast",
     ]
-    assert len(tab.get("plotly_chart")) == 2
-    assert not tab.error
+    assert len(result.get("plotly_chart")) == 3
+    assert not result.error
 
 
-def test_method_note_states_series_source_gaps_break_and_limits_before_the_chart():
+def expander(tab, label: str):
+    return next(item for item in tab.expander if item.label == label)
+
+
+def test_monthly_figures_and_source_data_are_collapsed_by_default():
     tab = traffic(app())
-    notes = [item.value for item in tab.markdown]
-    assert notes[0].startswith("**What the series is.**")
-    for lead in ("**Where it comes from.**", "**What is missing.**", "**The pandemic break.**",
-                 "**What this tab does not do.**"):
-        assert any(note.startswith(lead) for note in notes), lead
+    assert not expander(tab, "Monthly figures").proto.expanded
+    assert not expander(tab, "Source data").proto.expanded
+    assert not expander(tab, "About these figures").proto.expanded
+    assert not expander(tab, "Reference values and error").proto.expanded
+    assert len(tab.dataframe) == 3
+    assert "Exact values and sources" not in tab_text(tab)
+
+
+def test_compare_years_offers_every_year_from_2011_including_2020_and_2021():
+    tab = traffic(app())
+    options = list(tab.radio(key="traffic_year").options)
+    assert options[0] == "2011" and options[-1] == "2026"
+    assert "2020" in options and "2021" in options
+
+
+def test_all_years_view_shows_one_small_chart_per_selected_year_on_one_scale():
+    result = traffic(app())
+    result.radio(key="traffic_view").set_value("All years together").run()
+    assert not result.exception
+    tab = traffic(result)
+    assert list(tab.multiselect(key="traffic_all_years").value) == [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+    # Traffic chart, seven year panels, and the reference chart.
+    assert len(tab.get("plotly_chart")) == 9
+    titles = [chart_spec(tab, index)["layout"]["title"]["text"] for index in range(1, 8)]
+    assert sorted(titles) == ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    ranges = {tuple(chart_spec(tab, index)["layout"]["yaxis"]["range"]) for index in range(1, 8)}
+    assert len(ranges) == 1
+    series = traffic_view.load_traffic_series()
+    expected_top = max(month.passengers.value for month in series.months if month.year >= 2020) * 1.08
+    assert ranges.pop()[1] == pytest.approx(expected_top)
+    monthly = expander(tab, "Monthly figures").dataframe[0].value
+    assert list(monthly.columns) == ["Month", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    assert monthly.iloc[6]["Month"] == "Jul"
+    assert monthly.iloc[0]["2020"] == f"{series.by_period()['2020-01'].passengers.value:,}"
+
+
+def test_all_years_view_can_include_the_earliest_year_and_handles_an_empty_choice():
+    result = traffic(app())
+    result.radio(key="traffic_view").set_value("All years together").run()
+    result.multiselect(key="traffic_all_years").set_value([2010, 2011]).run()
+    assert not result.exception
+    tab = traffic(result)
+    assert [chart_spec(tab, index)["layout"]["title"]["text"] for index in (1, 2)] == ["2010", "2011"]
+    assert len(tab.get("plotly_chart")) == 4
+    result.multiselect(key="traffic_all_years").set_value([]).run()
+    assert not result.exception
+    assert any("Choose at least one year" in item.value for item in traffic(result).info)
+    assert len(traffic(result).get("plotly_chart")) == 2
+
+
+def test_traffic_copy_is_plain_statements_without_questions():
+    tab = traffic(app())
     text = tab_text(tab)
-    assert "199 reported months" in text
-    assert "PDF page numbers count from 1" in text
-    assert "July 2010 is a gap" in text and "June 2013 is held" in text
+    assert "?" not in text
+    assert not re.search(r"\bwhat is\b|\bwhy\b|\bhow\b", text, re.IGNORECASE)
+    assert "Monthly passenger movements, 2010 to 2026" in text
+    assert "Monthly total cargo tons" in text or "monthly total cargo tons" in text
+
+
+def test_about_these_figures_is_the_last_element_before_the_site_footer():
+    tab = traffic(app())
+    children = list(tab.main.children.values())
+    footer = children[-2:]
+    assert [type(child).__name__ for child in footer] == ["Divider", "Caption"]
+    last = children[-3]
+    assert last.type == "expander" and last.label == "About these figures"
+    assert any(child is last for child in children[:-3]) is False
+
+
+def test_about_these_figures_states_the_plain_facts():
+    tab = traffic(app())
+    note = next(item for item in tab.expander if item.label == "About these figures")
+    copy = "\n".join(element.value for element in note.markdown)
+    assert "Miami International Airport" in copy
+    assert "**2010-07** (July 2010) has no source page" in copy
+    assert "**2013-06** (June 2013) is held" in copy
+    assert "**March 2025** comes from a revised report" in copy
+    assert "**March 2020 to December 2021** is the pandemic period" in copy
+    assert "199 reported months" in copy
+    assert "PDF page numbers count from 1" in copy
+    assert "?" not in copy and "Why" not in copy and "What is" not in copy
 
 
 def test_chart_labels_both_unavailable_months_and_the_pandemic_break():
@@ -79,12 +156,13 @@ def test_chart_labels_both_unavailable_months_and_the_pandemic_break():
 def test_tab_has_no_forecast_projection_cost_or_financial_text():
     tab = traffic(app())
     text = tab_text(tab)
-    assert not re.search(r"forecast|projection|predict|outlook|\bcost|spending|\$", text, re.IGNORECASE)
+    assert not re.search(r"projection|predict|outlook|\bcost|spending|\$", text, re.IGNORECASE)
+    assert "Model forecasts are not published." in text
 
 
 def test_exact_table_gives_source_file_and_pdf_page_for_each_value():
     tab = traffic(app())
-    table = tab.dataframe[1].value
+    table = next(frame.value for frame in tab.dataframe if "Passenger source file" in frame.value.columns)
     assert len(table) == 201
     rows = {row["Month"]: row for _, row in table.iterrows()}
     january_2024 = rows["2024-01"]
@@ -102,10 +180,9 @@ def test_exact_table_gives_source_file_and_pdf_page_for_each_value():
 
 
 def test_year_selector_and_measure_update_the_comparison_table():
-    result = app()
-    tab = traffic(result)
-    assert tab.selectbox(key="traffic_year").value == 2025
-    tab.selectbox(key="traffic_year").set_value(2019).run()
+    result = traffic(app())
+    assert result.radio(key="traffic_year").value == 2025
+    result.radio(key="traffic_year").set_value(2019).run()
     assert not result.exception
     comparison = traffic(result).dataframe[0].value
     assert list(comparison.columns) == ["Month", "2018", "2019", "Change", "Change (%)"]
@@ -118,7 +195,7 @@ def test_year_selector_and_measure_update_the_comparison_table():
     assert comparison.iloc[0]["2019"] == f"{series.by_period()['2019-01'].cargo_tons.value:,}"
 
 
-def test_traffic_tab_error_state_is_safe_and_scoped(monkeypatch):
+def test_traffic_error_state_is_safe_and_scoped(monkeypatch):
     def failed_input(data_dir=traffic_view.DATA_DIR):
         raise OSError("Could not read /private/synthetic-operator/traffic.json")
 
@@ -127,10 +204,49 @@ def test_traffic_tab_error_state_is_safe_and_scoped(monkeypatch):
     try:
         result = AppTest.from_file(APP, default_timeout=30).run()
         assert not result.exception
-        tab = traffic(result)
-        assert len(tab.error) == 1
-        assert "could not be validated" in tab.error[0].value
-        assert len(tab.get("plotly_chart")) == 0
-        assert "/private/" not in tab_text(tab)
+        assert len(result.error) == 1
+        assert "could not be validated" in result.error[0].value
+        result = traffic(result)
+        assert len(result.error) == 1
+        assert "could not be validated" in result.error[0].value
+        assert len(result.get("plotly_chart")) == 0
+        assert "/private/" not in tab_text(result)
     finally:
         st.cache_resource.clear()
+
+
+def test_reference_forecast_copies_the_same_month_of_the_prior_year():
+    series = traffic_view.load_traffic_series()
+    by_period = series.by_period()
+    rows = traffic_view.reference_forecast(series, "passengers")
+    assert [row.period for row in rows] == [
+        "2026-10", "2026-11", "2026-12", "2027-01", "2027-02", "2027-03",
+        "2027-04", "2027-05", "2027-06", "2027-07", "2027-08", "2027-09",
+    ]
+    october = rows[0]
+    assert october.source_period == "2025-10"
+    assert october.value == by_period["2025-10"].passengers.value == 4149563
+    assert all(row.value is not None for row in rows)
+
+
+def test_reference_error_is_exact_decimal_by_period_and_separates_the_pandemic():
+    from decimal import Decimal
+
+    series = traffic_view.load_traffic_series()
+    errors = {error.label: error for error in traffic_view.reference_errors(series, "cargo_tons")}
+    assert list(errors) == ["2011 to 2019", "2020 to 2021, pandemic period", "2022 to 2026"]
+    assert all(isinstance(error.mape, Decimal) for error in errors.values())
+    assert errors["2011 to 2019"].months == 105
+    assert errors["2020 to 2021, pandemic period"].months == 24
+    assert errors["2022 to 2026"].months == 57
+
+
+def test_reference_section_states_it_is_a_benchmark_with_its_error():
+    tab = traffic(app())
+    caption = " ".join(element.value for element in tab.caption)
+    assert "A benchmark, not a model." in caption
+    assert "Error on past months" in caption and "2011 to 2019" in caption and "2022 to 2026" in caption
+    chart_names = [trace["name"] for trace in chart_spec(tab, 2)["data"]]
+    assert chart_names == ["Admitted value", "Reference (same month last year)"]
+    reference = chart_spec(tab, 2)["data"][1]
+    assert reference["x"][0] == "2026-10" and reference["x"][-1] == "2027-09" and len(reference["x"]) == 12
