@@ -326,41 +326,29 @@ def _measure_value(month: TrafficMonth, measure: str) -> int:
     return month.passengers.value if measure == "passengers" else month.cargo_tons.value
 
 
-# One fixed colour per calendar year, so a year keeps its colour whichever years are selected.
-YEAR_COLOURS = (
-    "#1F77B4", "#FF7F0E", "#2CA02C", "#D62728", "#9467BD", "#8C564B", "#E377C2", "#7F7F7F", "#BCBD22",
-    "#17BECF", "#003F5C", "#BC5090", "#FFA600", "#58508D", "#2F9C95", "#7A5195", "#007BB6",
-)
+def shared_maximum(series: TrafficSeries, years: tuple[int, ...], measure: str) -> int:
+    """Largest value among the chosen years, so every year panel uses the same vertical scale."""
+    values = [_measure_value(month, measure) for month in series.months if month.year in years]
+    return max(values) if values else 0
 
 
-def year_colour(year: int) -> str:
-    """Colour for a year from 2010 to 2026; the palette has one distinct colour per year."""
-    return YEAR_COLOURS[(year - int(FIRST_PERIOD[:4])) % len(YEAR_COLOURS)]
-
-
-def all_years_figure(series: TrafficSeries, years: tuple[int, ...], measure: str) -> go.Figure:
-    """One line per selected year across the calendar months. Gaps and held months stay empty, not zero."""
+def year_panel_figure(series: TrafficSeries, year: int, measure: str, y_max: int) -> go.Figure:
+    """One small chart for one calendar year. Every panel uses the same scale from zero to y_max."""
     label = "Passenger movements" if measure == "passengers" else "Reported tons"
     by_period = series.by_period()
-    ordered = tuple(sorted(years))
-    figure = go.Figure()
-    for year in ordered:
-        values = []
-        for month in range(1, 13):
-            row = by_period.get(f"{year}-{month:02d}")
-            values.append(None if row is None else _measure_value(row, measure))
-        colour = year_colour(year)
-        newest = year == ordered[-1]
-        figure.add_trace(go.Scatter(
-            x=list(MONTH_NAMES), y=values, mode="lines+markers", name=str(year),
-            line=dict(color=colour, width=3 if newest else 2),
-            marker=dict(symbol="circle", size=6, color=colour), connectgaps=False,
-            hovertemplate=f"%{{x}} {year}<br>{label}: %{{y:,}}<extra></extra>",
-        ))
+    values = []
+    for month in range(1, 13):
+        row = by_period.get(f"{year}-{month:02d}")
+        values.append(None if row is None else _measure_value(row, measure))
+    figure = go.Figure(go.Scatter(
+        x=list(MONTH_NAMES), y=values, mode="lines+markers", name=str(year),
+        line=dict(color=PALETTE_BAR, width=2.5), marker=dict(size=5, color=PALETTE_BAR), connectgaps=False,
+        hovertemplate=f"%{{x}} {year}<br>{label}: %{{y:,}}<extra></extra>",
+    ))
     figure.update_layout(
-        height=380, margin=dict(l=12, r=18, t=20, b=40),
-        xaxis=dict(title="Calendar month"), yaxis=dict(title=label, rangemode="tozero", tickformat=","),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+        title=dict(text=str(year), x=0, xanchor="left", font=dict(size=15)),
+        height=230, margin=dict(l=8, r=12, t=40, b=28), showlegend=False,
+        xaxis=dict(title=None), yaxis=dict(range=[0, y_max * 1.08], rangemode="tozero", tickformat=","),
     )
     return apply_chart_theme(figure)
 

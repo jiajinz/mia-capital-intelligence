@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 import streamlit as st
+import pytest
 from streamlit.testing.v1 import AppTest
 
 from mia_capital_intelligence import traffic_view
@@ -73,29 +74,35 @@ def test_compare_years_offers_every_year_from_2011_including_2020_and_2021():
     assert "2020" in options and "2021" in options
 
 
-def test_all_years_view_shows_one_line_per_selected_year_and_its_figures():
+def test_all_years_view_shows_one_small_chart_per_selected_year_on_one_scale():
     result = traffic(app())
     result.radio(key="traffic_view").set_value("All years together").run()
     assert not result.exception
     tab = traffic(result)
     assert list(tab.multiselect(key="traffic_all_years").value) == [2020, 2021, 2022, 2023, 2024, 2025, 2026]
-    assert len(tab.get("plotly_chart")) == 3
-    spec = chart_spec(tab, 1)
-    assert [trace["name"] for trace in spec["data"]] == ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    # Traffic chart, seven year panels, and the reference chart.
+    assert len(tab.get("plotly_chart")) == 9
+    titles = [chart_spec(tab, index)["layout"]["title"]["text"] for index in range(1, 8)]
+    assert sorted(titles) == ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    ranges = {tuple(chart_spec(tab, index)["layout"]["yaxis"]["range"]) for index in range(1, 8)}
+    assert len(ranges) == 1
+    series = traffic_view.load_traffic_series()
+    expected_top = max(month.passengers.value for month in series.months if month.year >= 2020) * 1.08
+    assert ranges.pop()[1] == pytest.approx(expected_top)
     monthly = expander(tab, "Monthly figures").dataframe[0].value
     assert list(monthly.columns) == ["Month", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]
     assert monthly.iloc[6]["Month"] == "Jul"
-    series = traffic_view.load_traffic_series()
     assert monthly.iloc[0]["2020"] == f"{series.by_period()['2020-01'].passengers.value:,}"
 
 
 def test_all_years_view_can_include_the_earliest_year_and_handles_an_empty_choice():
     result = traffic(app())
     result.radio(key="traffic_view").set_value("All years together").run()
-    result.multiselect(key="traffic_all_years").set_value([2010, 2010 + 1]).run()
+    result.multiselect(key="traffic_all_years").set_value([2010, 2011]).run()
     assert not result.exception
     tab = traffic(result)
-    assert [trace["name"] for trace in chart_spec(tab, 1)["data"]] == ["2010", "2011"]
+    assert [chart_spec(tab, index)["layout"]["title"]["text"] for index in (1, 2)] == ["2010", "2011"]
+    assert len(tab.get("plotly_chart")) == 4
     result.multiselect(key="traffic_all_years").set_value([]).run()
     assert not result.exception
     assert any("Choose at least one year" in item.value for item in traffic(result).info)
@@ -243,13 +250,3 @@ def test_reference_section_states_it_is_a_benchmark_with_its_error():
     assert chart_names == ["Admitted value", "Reference (same month last year)"]
     reference = chart_spec(tab, 2)["data"][1]
     assert reference["x"][0] == "2026-10" and reference["x"][-1] == "2027-09" and len(reference["x"]) == 12
-
-
-def test_each_year_has_one_distinct_colour_that_does_not_depend_on_the_selection():
-    years = range(2010, 2027)
-    colours = [traffic_view.year_colour(year) for year in years]
-    assert len(set(colours)) == len(colours) == 17
-    series = traffic_view.load_traffic_series()
-    figure = traffic_view.all_years_figure(series, (2026, 2020), "passengers")
-    drawn = {trace.name: trace.line.color for trace in figure.data}
-    assert drawn == {"2020": traffic_view.year_colour(2020), "2026": traffic_view.year_colour(2026)}

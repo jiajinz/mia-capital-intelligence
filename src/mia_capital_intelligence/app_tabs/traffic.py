@@ -5,8 +5,8 @@ import streamlit as st
 
 from mia_capital_intelligence.app_tabs.app_common import TRAFFIC_METHOD_NOTE, published_traffic
 from mia_capital_intelligence.traffic_view import (
-    LAST_PERIOD, MONTH_NAMES, TrafficSeries, all_years_figure, comparable_years, reference_errors, reference_figure,
-    reference_forecast, series_years, traffic_figure, year_comparison, year_figure,
+    LAST_PERIOD, MONTH_NAMES, TrafficSeries, comparable_years, reference_errors, reference_figure,
+    reference_forecast, series_years, shared_maximum, traffic_figure, year_panel_figure, year_comparison, year_figure,
 )
 
 
@@ -56,8 +56,13 @@ def render_all_years(series: TrafficSeries, measure: str, value_of) -> None:
     if not chosen:
         st.info("Choose at least one year to show its line.")
         return
-    st.plotly_chart(all_years_figure(series, tuple(chosen), measure), width="stretch",
-                    config={"displayModeBar": False, "scrollZoom": False})
+    years = tuple(sorted(chosen))
+    y_max = shared_maximum(series, years, measure)
+    columns = st.columns(2)
+    for index, year in enumerate(years):
+        with columns[index % 2]:
+            st.plotly_chart(year_panel_figure(series, year, measure, y_max), width="stretch",
+                            config={"displayModeBar": False, "scrollZoom": False})
     table = {"Month": list(MONTH_NAMES)}
     for year in sorted(chosen):
         table[str(year)] = [traffic_cell(series, f"{year}-{month:02d}", value_of) for month in range(1, 13)]
