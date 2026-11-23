@@ -122,23 +122,20 @@ def render_search_results(registry: PublicRegistry, reports: dict, query: str) -
 
 
 def render_record_row(row: dict, reports: dict, prefix: str) -> None:
-    """One project in a list: name, report period and reported estimate, with the official PDF page and permalink."""
+    """One project in a list: name, report period and reported estimate, then small links to the PDF and permalink."""
     reference = row["source_ref"]
-    name_column, links_column = st.columns([3, 2], vertical_alignment="center")
-    with name_column:
-        st.html(
-            '<div class="mia-drill-row">'
-            f'<p class="mia-drill-name">{escape(row["project_name"])}</p>'
-            '<p class="mia-drill-meta">'
-            f'{escape(report_period(row["period_start"], row["period_end"]))} · '
-            f'Reported estimate <span style="white-space:nowrap">{escape(format_usd(row["estimate_usd"]))}</span></p></div>'
-        )
-    with links_column:
-        source_url = reports[row["matter_id"]]["url"]
-        st.link_button(
-            f"Open official PDF · page {row['pdf_page']}", f"{source_url}#page={row['pdf_page']}", type="tertiary",
-        )
-        st.link_button("Link to this record", profile_permalink(reference), type="tertiary")
+    source_url = reports[row["matter_id"]]["url"]
+    st.html(
+        '<div class="mia-drill-row">'
+        f'<p class="mia-drill-name">{escape(row["project_name"])}</p>'
+        '<p class="mia-drill-meta">'
+        f'{escape(report_period(row["period_start"], row["period_end"]))} · '
+        f'Reported estimate <span style="white-space:nowrap">{escape(format_usd(row["estimate_usd"]))}</span></p></div>'
+    )
+    st.caption(
+        f"[Open official PDF · page {row['pdf_page']}]({source_url}#page={row['pdf_page']}) · "
+        f"[Link to this record]({profile_permalink(reference)})"
+    )
 
 
 def render_service_areas(registry: PublicRegistry, reports: dict) -> None:

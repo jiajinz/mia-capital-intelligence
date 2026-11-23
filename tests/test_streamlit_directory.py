@@ -67,7 +67,10 @@ def record_links(result):
 
 
 def link_rows(result, prefix):
-    return [row.proto.url for row in result.get("link_button") if row.proto.label.startswith(prefix)]
+    """URLs of link buttons and one-line caption links whose label starts with prefix."""
+    buttons = [row.proto.url for row in result.get("link_button") if row.proto.label.startswith(prefix)]
+    captions = [url for label, url in record_links(result) if label.startswith(prefix)]
+    return buttons + captions
 
 
 def advanced_estimates(result):
