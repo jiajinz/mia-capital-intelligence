@@ -114,22 +114,10 @@ def test_pinned_pdf_rebuild_is_reproducible_and_failure_preserves_valid_output(t
     assert output.read_bytes() == original.read_bytes()
 
 
-PENDING_MESSAGE = (
-    "Contract spending is not shown yet because no independent review has been recorded. "
-    "Ordinary display needs a named independent human review of the current financial input."
-)
-STALE_MESSAGE = (
-    "Contract spending is not shown because the recorded review was made for an earlier version of "
-    "the financial input. Ordinary display needs a new independent review of the current input."
-)
-INVALID_REVIEW_MESSAGE = (
-    "Contract spending is not shown because the recorded review did not pass validation. "
-    "Ordinary display needs a valid independent review that matches the current input."
-)
-INVALID_INPUT_MESSAGE = (
-    "Contract spending is not shown because the prepared financial input did not pass its integrity check. "
-    "The input must be rebuilt and independently reviewed before ordinary display."
-)
+PENDING_MESSAGE = "Contract spending: pending review."
+STALE_MESSAGE = "Contract spending: pending review. The review on file is for an earlier version of the figures."
+INVALID_REVIEW_MESSAGE = "Contract spending: pending review. The review on file did not pass validation."
+INVALID_INPUT_MESSAGE = "Contract spending: unavailable until the figures are rebuilt and reviewed."
 STATUS_MESSAGES = {
     "pending_review": PENDING_MESSAGE,
     "stale_review": STALE_MESSAGE,
@@ -261,4 +249,4 @@ def test_closed_gate_messages_are_distinct_and_hide_values(monkeypatch, local_ro
         assert_no_financial_values(tab)
         messages[status] = tab.info[0].value
     assert len(set(messages.values())) == 4
-    assert all("unavailable" not in message for message in messages.values())
+    assert all("Contract spending data is currently unavailable." not in message for message in messages.values())
