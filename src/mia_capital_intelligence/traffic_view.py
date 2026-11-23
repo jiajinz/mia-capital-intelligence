@@ -326,12 +326,16 @@ def _measure_value(month: TrafficMonth, measure: str) -> int:
     return month.passengers.value if measure == "passengers" else month.cargo_tons.value
 
 
-def _year_colour(position: int, count: int) -> str:
-    """Blend from a light blue-grey to the palette bar colour; the most recent year is the strongest."""
-    light, strong = (0xB9, 0xCD, 0xDD), (0x00, 0x7B, 0xB6)
-    fraction = 1.0 if count == 1 else position / (count - 1)
-    channels = (round(a + (b - a) * fraction) for a, b in zip(light, strong, strict=True))
-    return "#" + "".join(f"{channel:02X}" for channel in channels)
+# One fixed colour per calendar year, so a year keeps its colour whichever years are selected.
+YEAR_COLOURS = (
+    "#1F77B4", "#FF7F0E", "#2CA02C", "#D62728", "#9467BD", "#8C564B", "#E377C2", "#7F7F7F", "#BCBD22",
+    "#17BECF", "#003F5C", "#BC5090", "#FFA600", "#58508D", "#2F9C95", "#7A5195", "#007BB6",
+)
+
+
+def year_colour(year: int) -> str:
+    """Colour for a year from 2010 to 2026; the palette has one distinct colour per year."""
+    return YEAR_COLOURS[(year - int(FIRST_PERIOD[:4])) % len(YEAR_COLOURS)]
 
 
 def all_years_figure(series: TrafficSeries, years: tuple[int, ...], measure: str) -> go.Figure:
@@ -340,13 +344,13 @@ def all_years_figure(series: TrafficSeries, years: tuple[int, ...], measure: str
     by_period = series.by_period()
     ordered = tuple(sorted(years))
     figure = go.Figure()
-    for position, year in enumerate(ordered):
+    for year in ordered:
         values = []
         for month in range(1, 13):
             row = by_period.get(f"{year}-{month:02d}")
             values.append(None if row is None else _measure_value(row, measure))
-        colour = _year_colour(position, len(ordered))
-        newest = position == len(ordered) - 1
+        colour = year_colour(year)
+        newest = year == ordered[-1]
         figure.add_trace(go.Scatter(
             x=list(MONTH_NAMES), y=values, mode="lines+markers", name=str(year),
             line=dict(color=colour, width=3 if newest else 2),

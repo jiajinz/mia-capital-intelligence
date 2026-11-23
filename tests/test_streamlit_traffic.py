@@ -243,3 +243,13 @@ def test_reference_section_states_it_is_a_benchmark_with_its_error():
     assert chart_names == ["Admitted value", "Reference (same month last year)"]
     reference = chart_spec(tab, 2)["data"][1]
     assert reference["x"][0] == "2026-10" and reference["x"][-1] == "2027-09" and len(reference["x"]) == 12
+
+
+def test_each_year_has_one_distinct_colour_that_does_not_depend_on_the_selection():
+    years = range(2010, 2027)
+    colours = [traffic_view.year_colour(year) for year in years]
+    assert len(set(colours)) == len(colours) == 17
+    series = traffic_view.load_traffic_series()
+    figure = traffic_view.all_years_figure(series, (2026, 2020), "passengers")
+    drawn = {trace.name: trace.line.color for trace in figure.data}
+    assert drawn == {"2020": traffic_view.year_colour(2020), "2026": traffic_view.year_colour(2026)}
