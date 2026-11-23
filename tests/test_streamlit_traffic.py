@@ -73,6 +73,7 @@ def test_chart_labels_both_unavailable_months_and_the_pandemic_break():
     assert "Pandemic break, Mar 2020 to Dec 2021" in annotations
     shapes = chart_spec(tab)["layout"].get("shapes", [])
     assert any(shape.get("x0") == "2020-03-01" and shape.get("x1") == "2022-01-01" for shape in shapes)
+    assert chart_spec(tab)["layout"]["xaxis"]["range"] == ["2009-12-15", "2026-10-15"]
 
 
 def test_tab_has_no_forecast_projection_cost_or_financial_text():

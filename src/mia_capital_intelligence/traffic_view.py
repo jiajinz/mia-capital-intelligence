@@ -34,6 +34,9 @@ CAPACITY_MEASURES = {SEATS: "seats", AIRCRAFT_MOVEMENTS: "commercial_movements"}
 PANDEMIC_START = "2020-03"
 # Exclusive end of the shaded band (March 2020 to December 2021), so December 2021 is covered.
 PANDEMIC_SHADE_END = "2022-01-01"
+# Monthly chart x-axis: half a month of padding either side of the first and last reported months.
+TRAFFIC_X_START = "2009-12-15"
+TRAFFIC_X_END = "2026-10-15"
 MONTH_NAMES = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 PERIOD = re.compile(r"^(\d{4})-(0[1-9]|1[0-2])$")
 PRIOR_YEAR_TEXT = re.compile(r"same_month_prior_year column of the (\d{4}-\d{2}) report")
@@ -225,6 +228,10 @@ def traffic_figure(series: TrafficSeries) -> go.Figure:
         rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.14,
         subplot_titles=("Passenger movements per month", "Cargo tons per month"),
     )
+    # Panel titles only (applied before other annotations exist): 16 px titles clip on a 320 px screen.
+    figure.update_annotations(font=dict(size=14))
+    # Alternate gap label heights so neighbouring labels do not overlap on narrow screens.
+    lane = {period: index % 2 for index, period in enumerate(p for p in periods if p in unavailable)}
     for row, measure, name, unit in ((1, "passengers", "Passengers", "Passenger movements"),
                                      (2, "cargo_tons", "Cargo", "Reported tons")):
         xs = [f"{period}-01" for period in periods]
@@ -264,20 +271,24 @@ def traffic_figure(series: TrafficSeries) -> go.Figure:
                     row=row, col=1,
                 )
                 figure.add_annotation(
-                    x=f"{period}-01", xref="x", yref=f"{'y' if row == 1 else 'y2'} domain", y=0.02,
+                    x=f"{period}-01", xref="x", yref=f"{'y' if row == 1 else 'y2'} domain",
+                    y=0.02 + 0.10 * lane[period],
                     text=label, showarrow=False, xanchor="left", font=dict(size=11, color=PALETTE_INK),
                     bgcolor="rgba(255,255,255,0.9)",
                 )
+    # Right-anchored at the end of the shaded band so it stays clear of the left-hand tick labels on a 320 px screen.
     figure.add_annotation(
-        x=f"{PANDEMIC_START}-01", xref="x", yref="y domain", y=0.98,
-        text="Pandemic break, Mar 2020 to Dec 2021", showarrow=False, xanchor="left",
+        x=PANDEMIC_SHADE_END, xref="x", yref="y domain", y=0.99,
+        text="Pandemic break, Mar 2020 to Dec 2021", showarrow=False, xanchor="right",
         font=dict(size=11, color=PALETTE_INK), bgcolor="rgba(255,255,255,0.9)",
     )
     figure.update_layout(
         height=640, margin=dict(l=12, r=18, t=60, b=110), hovermode="closest",
         legend=dict(orientation="h", yanchor="top", y=-0.12, xanchor="left", x=0),
     )
-    figure.update_xaxes(title_text="Month (each point is one reported month)", tickformat="%b %Y", row=2, col=1)
+    # Fixed range: the autoscaled axis ran to about 2053 in the 390 px browser check, compressing the data.
+    figure.update_xaxes(range=[TRAFFIC_X_START, TRAFFIC_X_END])
+    figure.update_xaxes(title_text="Month<br>(each point is one reported month)", tickformat="%b %Y", row=2, col=1)
     figure.update_xaxes(tickformat="%Y", row=1, col=1)
     return apply_chart_theme(figure)
 
