@@ -161,43 +161,33 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
 
 
 def render_estimate_distribution(
-    ranking: EstimateRanking, source: dict, airport: str | None, *, show_context: bool = True,
+    ranking: EstimateRanking, source: dict, *, show_context: bool = True,
 ) -> None:
+    """Display-only counts per estimate range. The bars are not links; the range list is a separate control."""
     known_count = ranking.matching_count - ranking.missing_count
     if not known_count:
-        st.info("No indexed records with a known estimate match the selected report and airport.")
+        st.info("No indexed records with a known estimate match this report.")
         return
     if show_context:
         st.markdown(f"**{ranking.band_counts[0]} of {ranking.matching_count} matching records** show estimates under $10 million.")
-    bars = []
+    rows = []
     for band, count in zip(ESTIMATE_BANDS, ranking.band_counts, strict=True):
-        filters = {"report": ranking.matter_id, "range": band}
-        if airport is not None:
-            filters["airport"] = airport
-        route = "?" + urlencode(filters)
-        label = f"{escape(band)} <strong>{count}</strong>"
+        label = f'<span class="mia-band-name">{escape(band)}</span><span class="mia-band-count">{count}</span>'
         track = f'<span class="mia-band-track" aria-hidden="true"><i style="width:{count / known_count:.2%}"></i></span>'
-        content = f'<span class="mia-band-label">{label}</span>{track}'
-        if count:
-            noun = "record" if count == 1 else "records"
-            bars.append(f'<a href="{escape(route)}" '
-                        f'aria-label="{escape(band)} · {count} {noun}">{content}</a>')
-        else:
-            bars.append(f'<div class="mia-band-zero">{content}</div>')
+        rows.append(f'<div class="mia-band-row"><span class="mia-band-label">{label}</span>{track}</div>')
     st.html('''
         <style>
         .mia-estimate-bands { display:grid; gap:.35rem; max-width:52rem }
-        .mia-estimate-bands a, .mia-band-zero { display:block; padding:.4rem .55rem;
-          color:#333333; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
-        .mia-estimate-bands a:hover { background:#F4F7FA; text-decoration:underline }
-        .mia-estimate-bands a:focus-visible { outline:2px solid #337AB7 }
-        .mia-band-label { display:flex; justify-content:space-between; gap:1rem }
-        .mia-band-label strong { font-variant-numeric:tabular-nums; color:#012851 }
+        .mia-band-row { display:block; padding:.4rem .55rem; font-size:1rem; line-height:1.4;
+          font-weight:400; color:#333333; border:1px solid transparent; border-radius:.35rem }
+        .mia-band-label { display:flex; justify-content:space-between; align-items:baseline; gap:1rem }
+        .mia-band-name { font-weight:400 }
+        .mia-band-count { font-weight:700; font-variant-numeric:tabular-nums; text-align:right; color:#012851 }
         .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#E4EAF0; border-radius:2px }
         .mia-band-track i { display:block; height:100%; background:#007BB6; border-radius:2px }
         </style>
         <div class="mia-estimate-bands" role="group" aria-label="Source record counts by estimate range in USD">'''
-        + "".join(bars) + "</div>")
+        + "".join(rows) + "</div>")
     if show_context:
         st.caption(
             f"Miami-Dade County · Report {source['matter_id']} · {known_count} records with estimates · "

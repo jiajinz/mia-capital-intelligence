@@ -1,16 +1,20 @@
 """Overview: the first section a visitor sees. Search, service-area tiles and three at-a-glance panels."""
 
 from datetime import date
+from html import escape
 from pathlib import Path
 
 import streamlit as st
 
 from mia_capital_intelligence.app_tabs.app_common import (
-    SECTIONS, open_section, published_traffic, render_estimate_distribution, report_period,
+    SECTIONS, open_section, published_traffic, render_estimate_distribution, report_label, report_period,
 )
-from mia_capital_intelligence.app_tabs.explore import open_projects_search, open_service_area
+from mia_capital_intelligence.app_tabs.explore import (
+    markdown_label, open_projects_range, open_projects_search, open_service_area,
+)
 from mia_capital_intelligence.app_tabs.spending import render_spending_summary
-from mia_capital_intelligence.estimate_insights import largest_estimates
+from mia_capital_intelligence.directory_queries import ESTIMATE_BANDS, format_usd
+from mia_capital_intelligence.estimate_insights import largest_estimates, range_records
 from mia_capital_intelligence.operations_updates import OPERATING_AREAS, OPERATIONS_MATTER, operations_updates
 from mia_capital_intelligence.public_registry import PublicRegistry
 from mia_capital_intelligence.traffic_view import MONTH_NAMES, TrafficSeries, year_comparison
@@ -20,8 +24,16 @@ OVERVIEW_CSS = """
     .st-key-service-tiles button[data-testid^="stBaseButton"] {
       min-height:5rem; justify-content:flex-start; text-align:left; padding:.8rem 1rem; }
     .st-key-service-tiles button[data-testid^="stBaseButton"] p { overflow-wrap:anywhere; }
+    .mia-range-list { list-style:none; margin:.25rem 0 0; padding:0; max-width:52rem }
+    .mia-range-row { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:1rem;
+      padding:.5rem 0; border-top:1px solid #DDE3E8; font-size:.9375rem; line-height:1.4; color:#333333 }
+    .mia-range-name { overflow-wrap:anywhere }
+    .mia-range-meta { grid-column:1; font-size:.8125rem; color:#3F5161 }
+    .mia-range-amount { grid-column:2; grid-row:1; text-align:right; font-variant-numeric:tabular-nums }
     </style>
 """
+OVERVIEW_RANGE_ALL = "All"
+OVERVIEW_RANGE_ROWS = 10
 
 
 def render_overview(registry: PublicRegistry, reports: dict, latest_report: str, root: Path) -> None:
@@ -84,8 +96,39 @@ def render_estimate_glance(registry: PublicRegistry, reports: dict, latest_repor
     period = report_period(source["period_start"], source["period_end"])
     st.markdown("**Reported estimates by size**")
     st.caption(f"{period} · All airports · {ranking.snapshot_count} report entries")
-    render_estimate_distribution(ranking, source, None, show_context=False)
+    render_estimate_distribution(ranking, source, show_context=False)
     st.caption("Select a range to list its records.")
+    choice = st.radio(
+        "Reported estimate range", [OVERVIEW_RANGE_ALL, *ESTIMATE_BANDS], key="overview_range", horizontal=True,
+        label_visibility="collapsed", format_func=markdown_label,
+    )
+    band = None if choice == OVERVIEW_RANGE_ALL else choice
+    known_count = ranking.matching_count - ranking.missing_count
+    total = known_count if band is None else ranking.band_counts[ESTIMATE_BANDS.index(band)]
+    render_range_list(registry, source, latest_report, band, total)
+    st.button(
+        "Show all in Projects", key="overview-show-all", on_click=open_projects_range, args=(latest_report, band),
+    )
+
+
+def render_range_list(registry: PublicRegistry, source: dict, latest_report: str, band: str | None, total: int) -> None:
+    """Plain rows for the chosen range. Names are text, not links; the Projects section opens only from the button."""
+    rows = range_records(registry, latest_report, band)[:OVERVIEW_RANGE_ROWS]
+    if not rows:
+        st.caption("No records with a known estimate in this range.")
+        return
+    shown = f"Showing {len(rows)} of {total} records, largest first." if total > len(rows) else (
+        f"{total} records, largest first.")
+    st.caption(shown)
+    items = "".join(
+        '<li class="mia-range-row">'
+        f'<span class="mia-range-name">{escape(row["project_name"])}</span>'
+        f'<span class="mia-range-amount">{escape(format_usd(row["estimate_usd"]))}</span>'
+        f'<span class="mia-range-meta">{escape(report_label(source))}</span>'
+        "</li>"
+        for row in rows
+    )
+    st.html(f'<ul class="mia-range-list" aria-label="Projects in this estimate range">{items}</ul>')
 
 
 def change_text(change: int | None, percent, prior_label: str) -> str | None:

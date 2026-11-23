@@ -1,6 +1,6 @@
 """Streamlit's simulated runtime checks the overview-first public directory and its evidence flows."""
 
-from html import unescape
+from html import escape
 from pathlib import Path
 import re
 from urllib.parse import parse_qs, urlsplit
@@ -8,6 +8,9 @@ from urllib.parse import parse_qs, urlsplit
 from streamlit.testing.v1 import AppTest
 
 from mia_capital_intelligence.app_tabs.app_common import CLOSED_SPENDING_MESSAGES
+from mia_capital_intelligence.app_tabs.explore import markdown_label
+from mia_capital_intelligence.directory_queries import ESTIMATE_BANDS
+from mia_capital_intelligence.estimate_insights import range_records
 from mia_capital_intelligence.operations_updates import OPERATING_AREAS
 from mia_capital_intelligence.public_registry import load_registry
 
@@ -89,7 +92,8 @@ def test_overview_panels_show_estimates_spending_gate_and_latest_traffic():
     result = app()
     html = [item.proto.body for item in result.get("html") if "mia-estimate-bands" in item.proto.body]
     assert len(html) == 1
-    assert re.search(r'aria-label="\$100M or more · 16 records"', html[0])
+    assert re.search(r'<span class="mia-band-name">\$100M or more</span><span class="mia-band-count">16</span>', html[0])
+    assert "<a " not in html[0]
     assert "Select a range to list its records." in visible_copy(result)
     spending_text = [item.value for item in result.info] + [item.value for item in result.warning]
     closed = [text for text in spending_text if text in CLOSED_SPENDING_MESSAGES.values()]
@@ -405,13 +409,9 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     assert any(row.proto.url.endswith("/261402.pdf#page=13") for row in linked.get("link_button"))
 
 
-def test_estimate_distribution_opens_same_report_directory_and_pair():
-    result = app()
-    chart = next(item.proto.body for item in result.get("html") if "mia-estimate-bands" in item.proto.body)
-    range_link = re.search(r'href="([^"]+)"[^>]+aria-label="\$100M or more · 16 records"', chart)
-    assert range_link
-    params = parse_qs(urlsplit(unescape(range_link.group(1))).query)
-    assert params == {"report": ["261402"], "range": ["$100M or more"]}
+def test_projects_deep_link_opens_same_report_directory_and_pair():
+    # The Overview bars are no longer links; this query route stays valid for shared links.
+    params = {"report": ["261402"], "range": ["$100M or more"]}
 
     linked = AppTest.from_file(APP, default_timeout=15)
     for name, values in params.items():
@@ -433,6 +433,59 @@ def test_estimate_distribution_opens_same_report_directory_and_pair():
     linked.radio(key="source_report").set_value("all").run()
     assert not linked.exception
     assert not any((group.key or "").startswith("same-report-pair-") for group in linked.button_group)
+
+
+def estimate_html(result):
+    return next(item.proto.body for item in result.get("html") if "mia-estimate-bands" in item.proto.body)
+
+
+def range_list_html(result):
+    return next((item.proto.body for item in result.get("html") if "mia-range-list" in item.proto.body), "")
+
+
+def test_overview_range_click_stays_on_overview_and_lists_matching_projects():
+    result = app()
+    result.radio(key="overview_range").set_value("$100M or more").run()
+    assert not result.exception
+    assert result.radio(key="section").value == "Overview"
+    assert not record_buttons(result)
+    listed = range_list_html(result)
+    rows = range_records(load_registry(), "261402", "$100M or more")
+    assert listed.count('class="mia-range-row"') == 10
+    for row in rows[:10]:
+        assert escape(row["project_name"]) in listed
+    assert "Showing 10 of 16 records, largest first." in visible_copy(result)
+
+
+def test_show_all_in_projects_is_the_only_control_that_changes_the_section():
+    result = app()
+    result.radio(key="overview_range").set_value("$100M or more").run()
+    assert result.radio(key="section").value == "Overview"
+    result.button(key="overview-show-all").click().run()
+    assert not result.exception
+    assert result.radio(key="section").value == "Projects"
+    assert result.radio(key="source_report").value == "261402"
+    assert result.radio(key="estimate_range").value == "$100M or more"
+    assert "16 matching source records" in visible_copy(result)
+
+
+def test_range_bars_and_range_list_are_not_links():
+    result = app()
+    assert "<a " not in estimate_html(result) and "href=" not in estimate_html(result)
+    for band in ESTIMATE_BANDS:
+        assert band in estimate_html(result)
+    result.radio(key="overview_range").set_value("Under $10M").run()
+    assert "<a " not in range_list_html(result) and "href=" not in range_list_html(result)
+    assert not any("$" in button.label for button in result.button)
+
+
+def test_projects_range_labels_use_one_format_for_every_band():
+    result = go(app(), "Projects")
+    result.button(key="browse-records").click().run()
+    assert not result.exception
+    labels = list(result.radio(key="estimate_range").options)[1:]
+    assert labels == [markdown_label(band) for band in ESTIMATE_BANDS]
+    assert all(label.count("\\$") == band.count("$") for label, band in zip(labels, ESTIMATE_BANDS, strict=True))
 
 
 def test_t180b_case_surfaces_published_amounts_and_sources():

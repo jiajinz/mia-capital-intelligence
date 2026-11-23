@@ -100,6 +100,21 @@ def open_service_area(area: str) -> None:
     open_section(SECTIONS[1])
 
 
+def open_projects_range(matter_id: str, band: str | None) -> None:
+    """Callback for the Overview range list: open the same report and estimate range in Projects."""
+    st.session_state.update(
+        source_report=matter_id, estimate_range=ALL_RANGES if band is None else band,
+        area=None, search="", explore_browse=True,
+    )
+    reset_explore_selection()
+    open_section(SECTIONS[1])
+
+
+def markdown_label(text: str) -> str:
+    """Escape dollar signs so Streamlit's Markdown widget labels do not read '$...$' pairs as math."""
+    return text.replace("$", r"\$")
+
+
 def open_projects_search(query: str) -> None:
     """Callback for the overview search: show the matching projects and reports in the Projects section."""
     st.session_state.update(search=query.strip(), area=None, explore_browse=False)
@@ -137,8 +152,7 @@ def render_service_area(registry: PublicRegistry, area: str) -> None:
 
 
 def usd_button_label(value) -> str:
-    # Escape the dollar sign for Streamlit's Markdown widget labels.
-    return format_usd(value).replace("$", r"\$")
+    return markdown_label(format_usd(value))
 
 
 def render_report_matches(sources: dict[str, dict], query: str) -> None:
@@ -241,7 +255,7 @@ def render_record_list(registry: PublicRegistry, sources: dict[str, dict], query
         st.session_state.setdefault("estimate_range", ALL_RANGES)
         band_choice = st.radio(
             "Reported estimate range", [ALL_RANGES, *ESTIMATE_BANDS], key="estimate_range", horizontal=True,
-            on_change=reset_explore_selection,
+            on_change=reset_explore_selection, format_func=markdown_label,
         )
         band = None if band_choice == ALL_RANGES else band_choice
     st.session_state.setdefault("sort", ESTIMATE_SORT)

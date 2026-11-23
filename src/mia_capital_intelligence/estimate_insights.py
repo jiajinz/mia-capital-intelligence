@@ -37,6 +37,15 @@ class EstimateRanking:
     band_counts: tuple[int, ...]
 
 
+def range_records(registry: PublicRegistry, matter_id: str, band: str | None = None) -> tuple[dict[str, Any], ...]:
+    """Records with a known estimate in one indexed report, largest first, optionally in one estimate range."""
+    results = search_records(registry, DirectoryFilters("", None, matter_id, "Reported estimate, highest first"))
+    return tuple(
+        row for row in results
+        if row["estimate_usd"] is not None and (band is None or estimate_band(row["estimate_usd"]) == band)
+    )
+
+
 def largest_estimates(
     registry: PublicRegistry, matter_id: str, airport: str | None = None,
     search: str = "", limit: int = 10,
