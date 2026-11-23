@@ -4,7 +4,10 @@ from decimal import Decimal
 
 import pytest
 
-from mia_capital_intelligence.estimate_insights import estimate_figure, largest_estimates, selected_source_ref
+from mia_capital_intelligence.directory_queries import format_usd
+from mia_capital_intelligence.estimate_insights import (
+    CHART_LABEL_MAX_CHARS, CHART_NAMES, ESTIMATE_AXIS_TITLE, estimate_figure, largest_estimates, selected_source_ref,
+)
 from mia_capital_intelligence.public_registry import METRIC, load_registry
 
 
@@ -62,8 +65,43 @@ def test_plot_geometry_and_hover_keep_exact_evidence(registry):
     assert trace.customdata[0][0] == ranking.rows[0]['source_ref']
     assert trace.customdata[0][2] == '$ 1,066,231,593'
     assert trace.x[0] == 1066.231593
-    assert figure.layout.xaxis.title.text == 'Estimated cost (USD millions)'
+    assert figure.layout.xaxis.title.text is None  # title is shown below the plot by the app
+    assert ESTIMATE_AXIS_TITLE == 'Estimated cost (USD millions)'
     assert 'Estimated cost' in trace.hovertemplate
+
+
+def test_hover_keeps_full_project_names_even_when_labels_are_truncated(registry):
+    ranking = largest_estimates(registry, '261402')
+    trace = estimate_figure(ranking).data[0]
+    assert [custom[1] for custom in trace.customdata] == [row['project_name'] for row in ranking.rows]
+    assert any(len(row['project_name']) > CHART_LABEL_MAX_CHARS for row in ranking.rows)
+    assert '%{customdata[1]}' in trace.hovertemplate
+    assert list(trace.y) == [row['project_id'] for row in ranking.rows]
+
+
+def test_displayed_labels_truncate_only_long_names_with_an_ellipsis(registry):
+    ranking = largest_estimates(registry, '261402')
+    labels = estimate_figure(ranking).layout.yaxis.ticktext
+    assert len(labels) == len(ranking.rows)
+    for row, label in zip(ranking.rows, labels):
+        full = CHART_NAMES.get(row['project_id'], row['project_name'])
+        if len(full) <= CHART_LABEL_MAX_CHARS:
+            assert label == full
+        else:
+            assert label == full[:CHART_LABEL_MAX_CHARS - 1].rstrip() + '…'
+        assert len(label) <= CHART_LABEL_MAX_CHARS
+    assert any(label.endswith('…') for label in labels)
+
+
+def test_truncation_changes_no_values_table_or_financial_figures(registry):
+    ranking = largest_estimates(registry, '261402')
+    before = [dict(row) for row in ranking.rows]
+    trace = estimate_figure(ranking).data[0]
+    assert ranking.rows == tuple(before)
+    assert list(trace.x) == [float(row['estimate_usd'] / Decimal('1000000')) for row in ranking.rows]
+    assert [custom[0] for custom in trace.customdata] == [row['source_ref'] for row in ranking.rows]
+    assert [custom[2] for custom in trace.customdata] == [format_usd(row['estimate_usd']) for row in ranking.rows]
+    assert [custom[3] for custom in trace.customdata] == [row['pdf_page'] for row in ranking.rows]
 
 
 def test_selection_rejects_stale_foreign_and_multiple_points(registry):

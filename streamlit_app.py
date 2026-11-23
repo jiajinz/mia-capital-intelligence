@@ -23,8 +23,8 @@ from mia_capital_intelligence.directory_queries import (  # noqa: E402
 )
 from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry, load_registry  # noqa: E402
 from mia_capital_intelligence.estimate_insights import (  # noqa: E402
-    CHART_NAMES, EstimateRanking, apply_chart_theme, estimate_figure, largest_estimates,
-    selected_source_ref,
+    CHART_NAMES, ESTIMATE_AXIS_TITLE, EstimateRanking, apply_chart_theme, estimate_figure,
+    largest_estimates, selected_source_ref,
 )
 from mia_capital_intelligence.contract_spending import FinancialView, financial_view  # noqa: E402
 from mia_capital_intelligence.operations_updates import (  # noqa: E402
@@ -317,6 +317,8 @@ def render_estimate_ranking(registry: PublicRegistry, matter: str, source: dict)
             estimate_figure(ranking), width="stretch", key=f"estimates-{token}",
             on_select="rerun", selection_mode="points", config={"displayModeBar": False, "scrollZoom": False},
         )
+        # The axis title sits below the plot so it stays whole on narrow screens.
+        st.caption(ESTIMATE_AXIS_TITLE)
         selected = selected_source_ref(event, ranking)
         detail_key, event_key = f"chart-detail-{token}", f"chart-event-{token}"
         if selected and st.session_state.get(event_key) != selected:
