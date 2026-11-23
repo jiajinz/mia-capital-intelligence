@@ -249,7 +249,7 @@ def render_insights(registry: PublicRegistry, sources: dict[str, dict]) -> None:
         )
     with evidence:
         render_record_summary(registry, reference)
-    with st.popover("Exact values and source pages"):
+    with st.popover("Source pages"):
         st.dataframe(pd.DataFrame([
             {"Project ID": row["project_id"], "Description": row["project_name"],
              "Estimated cost (USD)": format_usd(row["estimate_usd"]),

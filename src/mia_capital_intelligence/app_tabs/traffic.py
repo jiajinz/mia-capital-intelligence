@@ -10,6 +10,9 @@ from mia_capital_intelligence.traffic_view import (
 )
 
 
+# About five rows are visible; the rest scroll inside the table.
+TABLE_HEIGHT = 230
+
 def traffic_cell(series: TrafficSeries, period: str, value_of) -> str:
     """Name the state of one month without guessing: a value, a gap, held, or outside the series."""
     month = series.by_period().get(period)
@@ -39,7 +42,7 @@ def render_prior_year(series: TrafficSeries, measure: str, value_of) -> None:
             "Change (%)": "" if change.percent is None else f"{change.percent:+.1f}%",
         })
     with st.expander("Monthly figures"):
-        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch", height=TABLE_HEIGHT)
         st.caption(
             "Change compares each month with the same month of the prior year. Blank change means one of the two "
             "months has no value. Percent changes are rounded to one decimal place."
@@ -59,7 +62,7 @@ def render_all_years(series: TrafficSeries, measure: str, value_of) -> None:
     for year in sorted(chosen):
         table[str(year)] = [traffic_cell(series, f"{year}-{month:02d}", value_of) for month in range(1, 13)]
     with st.expander("Monthly figures"):
-        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch", height=TABLE_HEIGHT)
 
 
 def render_reference_forecast(series: TrafficSeries, measure: str) -> None:
@@ -82,7 +85,7 @@ def render_reference_forecast(series: TrafficSeries, measure: str) -> None:
             "Copied from": row.source_period,
         })
     with st.expander("Reference values and error"):
-        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch", height=TABLE_HEIGHT)
         st.caption(
             "Error is measured on months where both the month and the same month of the prior year have values. "
             "The pandemic period is shown separately because traffic fell sharply and the percentages are large."
@@ -121,7 +124,7 @@ def render_source_table(series: TrafficSeries) -> None:
             f"{len(series.months)} months with admitted values · {len(unavailable)} months without a value · "
             "PDF page numbers count from 1 · HTML pages have no PDF page."
         )
-        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch", height=TABLE_HEIGHT)
 
 
 def render_traffic(series: TrafficSeries) -> None:
