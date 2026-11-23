@@ -355,11 +355,11 @@
       "period_end": "2026-06-30",
       "period_evidence": "Quarterly Report: 4/01/2026-06/30/2026",
       "period_pdf_page": 2,
-      "processing_status": "candidate",
+      "processing_status": "included",
       "series": "infrastructure_241354",
       "title": "FIFTH QUARTERLY REPORT: INVESTIGATIONS OF INTERNAL INFRASTRUCTURE AT MIAMI INTERNATIONAL AIRPORT: DIRECTIVE NO. 241354",
       "matter_id": "261824",
-      "dataset_status": "not_included",
+      "dataset_status": "included",
       "first_seen_at": "2026-11-22T01:57:34+00:00",
       "sources": [
         {

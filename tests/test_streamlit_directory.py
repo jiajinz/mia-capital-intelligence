@@ -167,8 +167,8 @@ def test_service_tile_shows_its_projects_on_the_overview():
 def test_projects_opens_the_latest_report_without_a_search_step():
     result = go(app(), "Projects")
     assert not result.exception
-    assert result.radio(key="source_report").value == "261402"
-    assert "112 matching source records" in visible_copy(result)
+    assert result.radio(key="source_report").value == "261824"
+    assert "110 matching source records" in visible_copy(result)
     assert len(record_buttons(result)) == 5
     assert not result.text_input
 
@@ -268,13 +268,13 @@ def test_airport_and_report_filters_work_in_the_projects_list():
     result.radio(key="airport").set_value("TMB").run()
     assert not result.exception
     assert len(record_buttons(result)) == 3
-    assert all("Miami Executive Airport · Jan–Mar 2026" in row.label for row in record_buttons(result))
+    assert all("Miami Executive Airport · Apr–Jun 2026" in row.label for row in record_buttons(result))
     result.toggle(key="explore_table").set_value(True).run()
     assert not result.exception
     assert result.dataframe[0].value.shape[0] == 3
     assert set(result.dataframe[0].value["Airport"]) == {"TMB"}
     result.radio(key="source_report").set_value("all").run()
-    assert result.dataframe[0].value.shape[0] == 6
+    assert result.dataframe[0].value.shape[0] == 9
 
 
 
@@ -283,12 +283,13 @@ def test_all_reports_preserves_distinct_source_links_across_result_views():
     result = overview_search(app(), "X078A")
     assert not result.exception
     official = link_rows(result, "Open official PDF")
-    assert len(official) == 2
+    assert len(official) == 3
+    assert any(url.endswith("/261824.pdf#page=16") for url in official)
     assert any(url.endswith("/261402.pdf#page=13") for url in official)
     assert any(url.endswith("/260526.pdf#page=12") for url in official)
     permalinks = {parse_qs(urlsplit(url).query)["record"][0] for url in link_rows(result, "Link to this record")}
     assert permalinks == {row.source_ref for row in registry.records
-                          if row.project_id == "X078A" and row.matter_id in {"261402", "260526"}}
+                          if row.project_id == "X078A" and row.matter_id in {"261824", "261402", "260526"}}
 
 
 def test_unknown_airport_records_and_missing_fields_remain_visible():
@@ -298,7 +299,7 @@ def test_unknown_airport_records_and_missing_fields_remain_visible():
     record_buttons(result)[0].click().run()
     result.toggle(key="explore_table").set_value(True).run()
     assert not result.exception
-    assert result.dataframe[0].value.shape[0] == 15
+    assert result.dataframe[0].value.shape[0] == 23
     assert set(result.dataframe[0].value["Airport"]) == {"Unknown"}
     assert "The description does not identify a single airport." in visible_copy(result)
 
@@ -310,7 +311,7 @@ def test_empty_search_has_meaningful_message_and_keeps_source_catalog():
     assert not link_rows(result, "Link to this record")
     assert "No source records match this search" in visible_copy(result)
     go(result, "Sources & Coverage")
-    assert result.dataframe[0].value.shape[0] == 3
+    assert result.dataframe[0].value.shape[0] == 4
 
 
 def test_cataloged_only_report_does_not_claim_full_indexing():
@@ -319,7 +320,7 @@ def test_cataloged_only_report_does_not_claim_full_indexing():
     assert not result.exception
     copy = visible_copy(result)
     assert "Contract spending**  Exhibit B, PDF page 30" in copy
-    assert result.dataframe[0].value["Source records"].tolist() == [110, 112, 0]
+    assert result.dataframe[0].value["Source records"].tolist() == [110, 112, 0, 110]
 
 
 def test_versioned_record_deep_link_opens_individual_observation():
@@ -370,13 +371,13 @@ def test_invalid_published_input_has_a_safe_error_state(monkeypatch):
 def test_chart_filters_and_accessible_selection_open_original_record():
     result = go(app(), "Projects")
     assert len(advanced_estimates(result).get("plotly_chart")) == 1
-    assert "Showing the 10 largest of 112 records." in visible_copy(result)
+    assert "Showing the 10 largest of 110 records." in visible_copy(result)
     result.radio(key="chart_airport").set_value("TMB").run()
     assert not result.exception
     assert "Showing the 3 largest of 3 records." in visible_copy(result)
     selector = next(row for row in result.radio if row.label == "Explore a chart record")
     from mia_capital_intelligence.estimate_insights import largest_estimates
-    reference = largest_estimates(load_registry(), "261402", "TMB").rows[-1]["source_ref"]
+    reference = largest_estimates(load_registry(), "261824", "TMB").rows[-1]["source_ref"]
     selector.set_value(reference).run()
     assert next(row for row in result.radio if row.label == "Explore a chart record").value == reference
     assert not result.exception
@@ -390,13 +391,13 @@ def test_chart_event_resolves_to_detail_and_selection_can_override(monkeypatch):
     import streamlit as st
     registry = load_registry()
     reference = next(row.source_ref for row in registry.records
-                     if row.matter_id == "261402" and row.project_id == "V008B")
+                     if row.matter_id == "261824" and row.project_id == "V008B")
     monkeypatch.setattr(st, "plotly_chart", lambda *a, **kw: {"selection":{"points":[{"customdata":[reference]}]}})
     result = go(app(), "Projects")
     selector = next(row for row in result.radio if row.label == "Explore a chart record")
     assert selector.value == reference
     from mia_capital_intelligence.estimate_insights import largest_estimates
-    other = largest_estimates(registry, "261402").rows[0]["source_ref"]
+    other = largest_estimates(registry, "261824").rows[0]["source_ref"]
     selector.set_value(other).run()
     assert not result.exception
     assert next(row for row in result.radio if row.label == "Explore a chart record").value == other
@@ -408,7 +409,7 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
 
     registry = load_registry()
     reference = next(row.source_ref for row in registry.records
-                     if row.matter_id == "261402" and row.project_id == "V008B")
+                     if row.matter_id == "261824" and row.project_id == "V008B")
     result = go(app(), "Projects")
     button = record_buttons(result)[0]
     directory_ref = button.key.removeprefix("record-")
@@ -426,7 +427,7 @@ def test_chart_permalink_is_independent_of_directory_search(monkeypatch):
     linked.run()
     assert not linked.exception and not linked.tabs
     assert linked.metric[0].value == "$ 896,021,864"
-    assert any(url.endswith("/261402.pdf#page=13") for label, url in record_links(linked))
+    assert any(url.endswith("/261824.pdf#page=16") for label, url in record_links(linked))
 
 
 def test_projects_deep_link_opens_same_report_directory_and_pair():
@@ -472,7 +473,7 @@ def test_overview_range_click_opens_a_sub_dashboard_with_count_total_and_origina
     assert not result.exception
     assert result.radio(key="section").value == "Overview"
     assert not record_buttons(result)
-    rows = range_records(registry, "261402", "$100M or more")
+    rows = range_records(registry, "261824", "$100M or more")
     assert len(rows) == 16
     assert markdown_label("$100M or more") in [row.value for row in result.subheader]
     metrics = {metric.label: metric.value for metric in result.metric}
@@ -482,7 +483,7 @@ def test_overview_range_click_opens_a_sub_dashboard_with_count_total_and_origina
     permalinks = link_rows(result, "Link to this record")
     assert len(official) == len(permalinks) == 16
     for row, url in zip(rows, official, strict=True):
-        assert url.endswith(f"/261402.pdf#page={row['pdf_page']}")
+        assert url.endswith(f"/261824.pdf#page={row['pdf_page']}")
     for row, url in zip(rows, permalinks, strict=True):
         assert parse_qs(urlsplit(url).query)["record"] == [row["source_ref"]]
     listed = drilldown_html(result)
@@ -496,7 +497,7 @@ def test_all_range_lists_every_record_with_a_known_estimate():
     result = app()
     result.radio(key="overview_range").set_value("All").run()
     assert not result.exception
-    rows = range_records(registry, "261402")
+    rows = range_records(registry, "261824")
     metrics = {metric.label: metric.value for metric in result.metric}
     assert metrics["Records in this range"] == f"{len(rows):,}"
     assert len(link_rows(result, "Link to this record")) == len(rows)

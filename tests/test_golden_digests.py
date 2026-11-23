@@ -21,10 +21,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # SHA-256 of each tracked artifact, from origin/main.
 ARTIFACT_SHA256 = {
-    "data/public/registry.json": "56882b86f80101623eca8f33bf0cd8918c67cde588a3f55487d9f0cf7a72c5ab",
+    "data/public/registry.json": "4d8b44bb6791777e3107395609f607dfcd5908fa24954864c039df79d665a438",
     "data/financial/snapshots.v1.json": "3c90df7ea841061823781be3aa6a388f18c82d51fcf317c3d7f7b261a11622be",
-    "data/audit/exhibit_b_row_controls.csv": "3a28e092151c46491ebfa58a2f103d4eecf46c4eaf67e2d3c3521c86e4025b67",
-    "data/source_inventory.json": "ef805c5ebcdf8338245131ba6e3457ea08d49763df5a7bc99eba2572ef6229a9",
+    "data/audit/exhibit_b_row_controls.csv": "4c83db3fb8de3d7faff428ed45e27f7ca1eb938f29da1185e0d1cbfb10e58627",
+    "data/source_inventory.json": "ac4659ffb63c7be3b02e8809ea7041e93113aedc89d5c62d5c8879dd51f92437",
     "data/traffic/traffic_capacity.v1.json": "61300ccd834befa201796397d636d3acad3e9b0b3e7970e8f51f6b7d2be3ce30",
     "data/traffic/traffic_monthly.expansion_2018_2023.v1.json": "cd25590807f196f407e7b152df4dc6e8f42205e8649fa708b3cd1ce38be62de2",
     "data/traffic/traffic_monthly.gap_2015_2017.v1.json": "4e96aa95fb0adfac14228e305c679c0aa40d5402f60d50c741357f77eb5c9d51",
@@ -36,9 +36,9 @@ ARTIFACT_SHA256 = {
 # Control totals derived from the tracked files above.
 # Registry records: len(records) in data/public/registry.json (222, matching the indexed
 # Exhibit B rows asserted by tests/test_public_registry.py).
-REGISTRY_RECORD_COUNT = 222
+REGISTRY_RECORD_COUNT = 332
 # Row controls: data rows, excluding the header, in data/audit/exhibit_b_row_controls.csv.
-ROW_CONTROL_COUNT = 222
+ROW_CONTROL_COUNT = 332
 # Admitted traffic months: distinct periods across the admitted rows of
 # data/traffic/traffic_monthly.*.json. The union equals the 199 distinct periods of
 # data/traffic/traffic_capacity.v1.json (its scope text says 199 admitted months).
@@ -138,12 +138,12 @@ def test_financial_snapshot_loads_through_pinned_reader():
     )
 
 
-def test_source_inventory_has_three_sources_and_expected_keys():
+def test_source_inventory_has_four_sources_and_expected_keys():
     payload = _json("data/source_inventory.json")
     assert "sources" in payload, "data/source_inventory.json: missing 'sources' key"
     matters = sorted(source["matter_id"] for source in payload["sources"])
-    assert matters == ["260526", "261400", "261402"], (
-        f"data/source_inventory.json matter_ids: expected ['260526', '261400', '261402'], found {matters}"
+    assert matters == ["260526", "261400", "261402", "261824"], (
+        f"data/source_inventory.json matter_ids: expected four sources, found {matters}"
     )
 
 

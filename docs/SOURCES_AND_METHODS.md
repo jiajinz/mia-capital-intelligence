@@ -18,7 +18,7 @@ A scheduled browser check visits the public app every six hours and verifies tha
 
 ## Projects and estimates
 
-The directory shows **222 report entries** from the Capital Improvement Program tables in two quarterly infrastructure reports. Each entry is one row in one report. An ID can appear in both reports, so the entry count does not represent a count of unique projects.
+The directory shows **332 report entries** from the Capital Improvement Program tables in three quarterly infrastructure reports: the Third (110), Fourth (112) and Fifth (110) Quarterly Reports. Each entry is one row in one report. An ID can appear in more than one report, so the entry count does not represent a count of unique projects. The gate compares each adjacent pair of reports: Third to Fourth, then Fourth to Fifth. Every pair is held until an independent review records a disposition.
 
 - **October–December 2025:** 110 entries from [matter 260526, Exhibit B, pages 11–12](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/260526.pdf#page=11).
 - **January–March 2026:** 112 entries from [matter 261402, Exhibit B, pages 12–13](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf#page=12).

@@ -27,17 +27,18 @@ def real_audit():
 @pytest.mark.integration
 def test_real_counts_controls_and_no_approval_leakage(real_audit):
     assert real_audit["summary"] == {
-        "source_rows": 222, "candidate_pairs": 107, "held": 107, "approved": 0,
-        "excluded": 0, "approved_metrics": 0, "earlier_only": 3, "later_only": 5,
+        "source_rows": 332, "candidate_pairs": 214, "held": 214, "approved": 0,
+        "excluded": 0, "approved_metrics": 0, "earlier_only": 8, "later_only": 8,
         "input_valid": True,
     }
     assert [(row["row_count"], row["numeric_estimate_sum_usd"], row["missing_estimates"])
             for row in real_audit["page_controls"]] == [
         (66, Decimal("2955660025"), 0), (44, Decimal("3446491140"), 0),
         (68, Decimal("3356850420"), 0), (44, Decimal("3406481145"), 0),
+        (65, Decimal("2946454813"), 0), (45, Decimal("3455696352"), 0),
     ]
     assert real_audit["approved_comparisons"] == []
-    assert len(real_audit["blocked_comparisons"]) == 107
+    assert len(real_audit["blocked_comparisons"]) == 214
     assert real_audit["submitted_review_bundle"]["decisions"] == []
     assert all(pair["review_status"] == "held" and not pair["approved_metrics"]
                and pair["reviewer"] is None and pair["decided_at"] is None
@@ -49,14 +50,16 @@ def test_real_counts_controls_and_no_approval_leakage(real_audit):
 
 @pytest.mark.integration
 def test_real_phase_and_d60_examples_are_held(real_audit):
-    pairs = {row["project_id"]: row for row in real_audit["candidates"]}
+    # Q3 to Q4 pairs only; the Q4 to Q5 pairs are checked by their own tests.
+    pairs = {row["project_id"]: row for row in real_audit["candidates"] if row["earlier_ref"].startswith("260526:")}
     assert pairs["CA176A"]["review_status"] == pairs["T180B"]["review_status"] == "held"
     observations = {row["source_ref"]: row for row in real_audit["source_observations"]}
     seating = pairs["CA176A"]
     assert observations[seating["earlier_ref"]]["metrics"]["total_estimated_cost_usd"]["value"] == Decimal("3191832")
     assert observations[seating["later_ref"]]["metrics"]["total_estimated_cost_usd"]["value"] == Decimal("3191832")
     assert "Ph2" in observations[seating["later_ref"]]["description_raw"]
-    one_sided = {row["project_id"]: row["presence"] for row in real_audit["unmatched_records"]}
+    one_sided = {row["project_id"]: row["presence"] for row in real_audit["unmatched_records"]
+                 if row["comparison"] == "260526 to 261402"}
     assert one_sided["CA176B"] == "later_only"
     assert one_sided["T180D"] == "earlier_only"
 
@@ -76,7 +79,7 @@ def test_real_cli_invalid_status_returns_nonzero_and_no_approvals(tmp_path):
     assert process.returncode == 1, process.stderr
     result = json.loads(process.stdout)
     assert result["approved_comparisons"] == []
-    assert result["summary"]["held"] == 107
+    assert result["summary"]["held"] == 214
     assert result["validation_errors"]
 
 

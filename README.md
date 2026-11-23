@@ -8,7 +8,7 @@ Find airport improvements, see the costs and spending that official reports publ
 
 ## What you can explore today
 
-- **Project directory.** Search and filter 222 source records from two quarterly infrastructure reports. Each record shows its original wording, reported estimate, report period and page link.
+- **Project directory.** Search and filter 332 source records from three quarterly infrastructure reports. Each record shows its original wording, reported estimate, report period and page link.
 - **Airport operations.** Five reported improvements at Miami International Airport, grouped by service area: security, gates and connections, baggage and runways. Each links to the memo page and the exhibit row it comes from.
 - **Estimate distribution.** See how reported cost estimates are spread within one quarterly report. Selecting a range opens the matching records.
 - **Contract spending.** Reported monthly and cumulative expenditures for four contracts, July to September 2026. Ordinary display of financial values requires an independent review record; without one, the view stays closed.

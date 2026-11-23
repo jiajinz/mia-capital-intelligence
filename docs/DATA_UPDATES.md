@@ -6,7 +6,7 @@ This log records the official PDFs included in MIA Capital Intelligence and the 
 
 This entry documents the existing dataset as of November 17, 2026. It does not represent five PDFs newly added on this date. Their original ingestion dates are not recorded here.
 
-The dataset uses **five distinct PDFs**: two quarterly infrastructure reports and three monthly Aviation Capital Program reports. They provide **222 quarterly report entries**, **12 contract-month records covering four contracts**, and **five airport operations updates**. Operations updates reuse one of the quarterly PDFs.
+The dataset uses **six distinct PDFs**: three quarterly infrastructure reports and three monthly Aviation Capital Program reports. They provide **332 quarterly report entries**, **12 contract-month records covering four contracts**, and **five airport operations updates**. Operations updates reuse one of the quarterly PDFs.
 
 ### Quarterly project records
 
@@ -14,8 +14,11 @@ The dataset uses **five distinct PDFs**: two quarterly infrastructure reports an
   - File version (SHA-256): `eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878`.
 - **Fourth Quarterly Report — January–March 2026.** [Official PDF, matter 261402](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261402.pdf#page=12). Exhibit B, pages 12–13: **112 report entries**, including project IDs, descriptions and reported total cost estimates.
   - File version (SHA-256): `84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a`.
+- **Fifth Quarterly Report — April–June 2026.** [Official PDF, matter 261824](https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2026/261824.pdf#page=15). Memo dated November 17, 2026 (Agenda Item 2(B)(6)), accepted by the Board of County Commissioners on November 17, 2026. Exhibit B, pages 15–16: **110 report entries**, including project IDs, descriptions and reported total cost estimates.
+  - File version (SHA-256): `63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6`.
+  - Verification: an independent reviewer accepted the source with conditions. Every Exhibit B row was extracted twice, by a table-grid extractor and by a character-position extractor, and the two agreed on all 110 IDs and amounts. Pages 1, 2, 12, 13, 15 and 16 were checked by eye; pages 3 to 11 and 14 were rendered only.
 
-Each entry is one row in one report. The same project ID can appear in both periods; 222 entries is not a count of unique projects.
+Each entry is one row in one report. The same project ID can appear in more than one period; 332 entries is not a count of unique projects.
 
 ### Contract spending records
 

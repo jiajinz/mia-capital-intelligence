@@ -748,6 +748,755 @@
       "identity_status": "candidate_unverified",
       "later_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:44",
       "project_id": "Y145A"
+    },
+    {
+      "candidate_id": "pair-17bb69c8b2fda924687ac6ec7360e8fe21c3c6494a7c15b6238056e31a75cd2b",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:1",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:1",
+      "project_id": "AA005A"
+    },
+    {
+      "candidate_id": "pair-1bff71f8fa1d1bb097bd45252b9902786d6c0a130e386b5844010a9cd29d3aad",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:2",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:2",
+      "project_id": "AA022A"
+    },
+    {
+      "candidate_id": "pair-eda79c7f61d77cdb6b3bf96240378c937ca609b8a99c4ae07e59eda932aa3d67",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:3",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:3",
+      "project_id": "AA039A"
+    },
+    {
+      "candidate_id": "pair-ce2ab84c0e34dc3406b64e47171b9163f42e8e448565130142081ca4ad50ab8c",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:4",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:4",
+      "project_id": "AA048A"
+    },
+    {
+      "candidate_id": "pair-6153c13a8716eff26feffb3fd8091cedac3ffa9a43c1ef47aac9cebf29493c4a",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:5",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:5",
+      "project_id": "AA048B"
+    },
+    {
+      "candidate_id": "pair-f310f326d8a91506628edca178459a3826bd90d4d3a3177579743a0b61fa8e96",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:6",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:6",
+      "project_id": "AA058A"
+    },
+    {
+      "candidate_id": "pair-784b5f0e5584d09c09177c5030fa7a47d31fb990821c9d99a07749afd6f0ddfa",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:7",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:7",
+      "project_id": "AA058B"
+    },
+    {
+      "candidate_id": "pair-e76a425d60e9a53d26b7f38ab450292473e85da27541fda0c93f14b5648902d8",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:8",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:8",
+      "project_id": "AA058C"
+    },
+    {
+      "candidate_id": "pair-a5eb2936ccc9b5dabd3965c7dc42303affffdf7b774779d8be67891186a5d663",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:9",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:9",
+      "project_id": "AA126A"
+    },
+    {
+      "candidate_id": "pair-606d75867a12c70785303e11ec92cfbff509ec7face438f750d944698ddd95e6",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:10",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:10",
+      "project_id": "AB016A"
+    },
+    {
+      "candidate_id": "pair-8676f4b2f2c477e4e3f1c05d52d8d3addbd044fbe3589b283ba6d3c7f765eb70",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:11",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:11",
+      "project_id": "AB016B"
+    },
+    {
+      "candidate_id": "pair-6f7f7d120ddb51ff8d313a4b6be2fa362ece3546864de2443cfa3fac717abf45",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:12",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:12",
+      "project_id": "AB040A"
+    },
+    {
+      "candidate_id": "pair-6ed0eff1d60365dc4be819717d3520d17238494553de1d7df0f317275c3d230e",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:13",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:13",
+      "project_id": "AB041A"
+    },
+    {
+      "candidate_id": "pair-6ee3e3a76c4b58e8e1d8be8ebf6a9a41136960d2ade64ad1939e9200212e36cb",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:14",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:14",
+      "project_id": "AB041A-1"
+    },
+    {
+      "candidate_id": "pair-568349abc94efc60a5bace77355dcb4c4fe004b2a1435822d0edcf4c98902ef6",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:15",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:15",
+      "project_id": "AB048B"
+    },
+    {
+      "candidate_id": "pair-8d3979e81f3eead9c6335cc582cb961bf6cc8dbb1e01151a70d3cfdf6efde576",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:16",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:16",
+      "project_id": "AB050A"
+    },
+    {
+      "candidate_id": "pair-74c81fa4a8391fd1338be315d9282eecd00ad351881a64c23ce8d5a377907966",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:17",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:17",
+      "project_id": "AC001A"
+    },
+    {
+      "candidate_id": "pair-e09dcc3998394c0b356f2bb0536dd42219ff6a2cb39d764b306d2ef9aee2ce3e",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:18",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:18",
+      "project_id": "AC002A"
+    },
+    {
+      "candidate_id": "pair-6a3c1b4cda6eb94ea556bdcd28a6677bf930958d220270c31fa3748f8b20561f",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:19",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:19",
+      "project_id": "AC007B"
+    },
+    {
+      "candidate_id": "pair-192fd24a3be88c00caac7fbc203a30b1eb148d04f3146cee31df23bb400364c0",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:20",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:20",
+      "project_id": "AC040A"
+    },
+    {
+      "candidate_id": "pair-8089e32a8c4a65c97e8e00ed9a8effd79899445784e0df7a1f29bce08e0d7ed3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:21",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:21",
+      "project_id": "AC042A"
+    },
+    {
+      "candidate_id": "pair-a025094f74fc858f8ca3929831891bf5627bbe34ad4fdce5efbcc225b36c866b",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:22",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:23",
+      "project_id": "AC086A"
+    },
+    {
+      "candidate_id": "pair-9a8649ae61dd50c90de19a24b6f4337fc7cda20e40117c1f2c70d1e9b978d212",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:23",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:24",
+      "project_id": "AC087A"
+    },
+    {
+      "candidate_id": "pair-c151c599964cb4eff93e2aad9304f597e88e2178d489d1496ba4c305c24ef783",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:24",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:25",
+      "project_id": "AC088A"
+    },
+    {
+      "candidate_id": "pair-9e5e9c51ffccdb46201dff37eef931f31da392c19fa3dcd071e7721b7f125ebc",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:25",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:26",
+      "project_id": "BA001A"
+    },
+    {
+      "candidate_id": "pair-ad40136a669f81e42689d77f1e9123f64a9dad167b392f587e79b85871948750",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:26",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:27",
+      "project_id": "BA013A"
+    },
+    {
+      "candidate_id": "pair-4a66b8c8cc7f47d98b251ab07be5ed1d82b095475a3c3d8a6f26d0a7c8380f94",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:27",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:29",
+      "project_id": "BA027A"
+    },
+    {
+      "candidate_id": "pair-2cbf4217bd298c5a614dc81aeb598ecf16fb7411bffeaa438d536e222b817d81",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:28",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:30",
+      "project_id": "BA029A"
+    },
+    {
+      "candidate_id": "pair-af50ae6d73575e86060aecdc7b8ee2492f25ec96225819fac68042d676902250",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:29",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:31",
+      "project_id": "BA054A"
+    },
+    {
+      "candidate_id": "pair-60b43f1045d07cfcbd4480839f253a112c5a91db409ec9baec21927575418aa3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:30",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:32",
+      "project_id": "BA055A"
+    },
+    {
+      "candidate_id": "pair-3d787e9cff8976673f9da3164d8994beb511faea18ba2cd57400b11abf59fa6a",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:31",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:33",
+      "project_id": "BA057A"
+    },
+    {
+      "candidate_id": "pair-9dddedb991226722f068b0e2a8cd85c5082fdb9cafe4ceb44437479b931f2e42",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:32",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:34",
+      "project_id": "BA059A"
+    },
+    {
+      "candidate_id": "pair-36757f8eec06aed88835aa6ff04913ee854320cf820b91502a2fac5f6a55db0a",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:33",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:35",
+      "project_id": "BA061A"
+    },
+    {
+      "candidate_id": "pair-a82f779d28ec7299024b809b6d0c8e68112de8922b4cad9bb2124f42fec5a546",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:34",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:36",
+      "project_id": "BA133A"
+    },
+    {
+      "candidate_id": "pair-e35de499d8d9aceea3efa15e98f2cffbd9ad9ae71d2d7e02e79b1c71763e0d48",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:35",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:37",
+      "project_id": "CA004A"
+    },
+    {
+      "candidate_id": "pair-e6f08b0c986c6fa8db0ad7110781c516e5a5b8eac14282232a968b8c41d90090",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:36",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:38",
+      "project_id": "CA010A"
+    },
+    {
+      "candidate_id": "pair-d53d937b421912dda06867de3c4ff1fb90a22fb5d86307f1096a284396000bf0",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:37",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:39",
+      "project_id": "CA033A"
+    },
+    {
+      "candidate_id": "pair-a6a1ce0f9246961329996efd7737dbecf95050e020890803357cefce999af261",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:39",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:40",
+      "project_id": "CA100A"
+    },
+    {
+      "candidate_id": "pair-441306673b0f951ad307f424836d175c0c8c00682cfffb3680a4eb8c96624d0e",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:40",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:41",
+      "project_id": "CA113A"
+    },
+    {
+      "candidate_id": "pair-c3c150155ab7206cfc7c3b5592ae0c57c57d3e4ff2bff287c3f89694fb39b926",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:41",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:42",
+      "project_id": "CA176A"
+    },
+    {
+      "candidate_id": "pair-6f0e702285840687278e22c88926e4a31b58155e9eb1435997ceb0a6298898e3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:43",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:43",
+      "project_id": "CA179A"
+    },
+    {
+      "candidate_id": "pair-6cf3a93e472dfef7d7b3b5733728b8b2fb6d15cc3d91822553cab9597fc189bb",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:44",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:44",
+      "project_id": "D105C-I"
+    },
+    {
+      "candidate_id": "pair-fa6785b7606883440674c0005cb22319ae83bf12e46d910ea800590438217ce6",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:45",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:45",
+      "project_id": "D105C-IA"
+    },
+    {
+      "candidate_id": "pair-60dc46e1e953ad0ad43177be68300bca4734b1b438e918073e966fcd7506f450",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:46",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:46",
+      "project_id": "D105C-IB"
+    },
+    {
+      "candidate_id": "pair-0aeda9ec28a85c0da6735850a7dc2defca0a73203f045e3c343cb0b53669e52e",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:47",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:47",
+      "project_id": "DA059A"
+    },
+    {
+      "candidate_id": "pair-9b29ef52343ce3f659c1ee1ec9fcb16ee1f367733d688f798bd79b0b2f14906d",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:48",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:48",
+      "project_id": "DA076A"
+    },
+    {
+      "candidate_id": "pair-0364d7d55e3cbe184b6a7102ab72a62566953c0e74d58141f4cef996ee6ffd25",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:49",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:49",
+      "project_id": "DA076B"
+    },
+    {
+      "candidate_id": "pair-777a21009d24f0d6cb20fb5fce6dfbacdf73808656291c4ed1cd14f08be03367",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:50",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:50",
+      "project_id": "DA083A"
+    },
+    {
+      "candidate_id": "pair-b2bbe24c6d63263d88f061ff02a6795132f8055e7cd34be7acb4970ad82731c4",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:51",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:51",
+      "project_id": "DA094A"
+    },
+    {
+      "candidate_id": "pair-d8a251890c379d883bb4b51b785ecc02fc2a1c510760c3617c5a65c540b1d5fc",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:52",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:52",
+      "project_id": "DA095A"
+    },
+    {
+      "candidate_id": "pair-939d35c363afbca27272f7e1da7ae571b13267c3309172f1bed546911582ef44",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:54",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:53",
+      "project_id": "EA004A"
+    },
+    {
+      "candidate_id": "pair-45d64dad3092c06347888373828d3292fb73ff75ef39c72fdef1cbae64f32344",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:56",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:54",
+      "project_id": "P250A"
+    },
+    {
+      "candidate_id": "pair-8938889d7ce33b05492694048e3835c93793528ec9406f28ed5db078af5412c4",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:57",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:55",
+      "project_id": "P259A"
+    },
+    {
+      "candidate_id": "pair-e2a79210e4a6edc6a41d01858090cc1a757a5dd779f687e67f5b569113062425",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:58",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:56",
+      "project_id": "T012A"
+    },
+    {
+      "candidate_id": "pair-7480a0978827daf07de70a13d0f1aa6aa19e5bfe742c0019658b46eaa0732d59",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:59",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:57",
+      "project_id": "T042B"
+    },
+    {
+      "candidate_id": "pair-3b53a62358b6d9e22c240d8a271d71a2a5a9e1c13ace0dffb25636c4bdf7914f",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:60",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:58",
+      "project_id": "T042C"
+    },
+    {
+      "candidate_id": "pair-7bebb710b4835f6cad9e01194e309ad2fed337a56fa032307c6bfd5906f79455",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:61",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:59",
+      "project_id": "T072B-3"
+    },
+    {
+      "candidate_id": "pair-acd56a728c43f8353d433c3db7e2ac9666d401699ccfd691af6726e4ce3b0b5a",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:62",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:60",
+      "project_id": "T072F-2"
+    },
+    {
+      "candidate_id": "pair-6afc8a61f308ea2130cf65d7137f17c4c838233af7f60eedac88a438530cebfb",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:63",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:61",
+      "project_id": "T072F-4"
+    },
+    {
+      "candidate_id": "pair-c345859c16342e77dbc7476a0c3fd5a8730b8ae408b52e6193afeb991b7aa326",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:64",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:62",
+      "project_id": "T072L"
+    },
+    {
+      "candidate_id": "pair-9319885495ad82ebc75e6f55e57060cb2ed08497559db37c671bbede86f2119f",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:65",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:63",
+      "project_id": "T180B"
+    },
+    {
+      "candidate_id": "pair-dade769129a11ae75ad9d56148c88b275d3a386edef4d600d1f19cd797bc06e0",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:66",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:65",
+      "project_id": "U010D-I"
+    },
+    {
+      "candidate_id": "pair-85160b3ffc1580fc359fab5c60f78c15582a701a772fe24386e5dad2e5ad58ee",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:67",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:1",
+      "project_id": "U010F"
+    },
+    {
+      "candidate_id": "pair-ff4bceef3de08f4c896ed9bbbeb6ff7fe50da85d87eaa33c76e002a1b56934c8",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:12:68",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:2",
+      "project_id": "U010F-5"
+    },
+    {
+      "candidate_id": "pair-c508e5ff8f48cb7e64d1ec9d28d741d4dabeb18d4df320b2fba4c0e869fd879b",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:1",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:3",
+      "project_id": "U010F-7.1"
+    },
+    {
+      "candidate_id": "pair-69ba11432676625daeb8c52c7e2b1c65e3f764e6bff841c0de2883c4067899c5",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:2",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:4",
+      "project_id": "U010F-7.2"
+    },
+    {
+      "candidate_id": "pair-cfae850dd5ee1d933024ec09ba7d979c079a014eea36177ed3fc2f890362a882",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:3",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:5",
+      "project_id": "U023A"
+    },
+    {
+      "candidate_id": "pair-6bf529d18b68e300608c9b59173ec8981ec65cf5fef6df58b5f5df795274ef4f",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:4",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:6",
+      "project_id": "U040A"
+    },
+    {
+      "candidate_id": "pair-b191a68724f1951ef89b857050171b006a7b1e7eae8f2d883e5d2354457f82e3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:5",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:7",
+      "project_id": "U128A"
+    },
+    {
+      "candidate_id": "pair-8bc8e619c0c0a4123209d6b7f86486ec2be0f685401157a132e4e4750d089a4d",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:6",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:8",
+      "project_id": "V008B"
+    },
+    {
+      "candidate_id": "pair-d16a113829ac0e653575e718ea2f2ff83b9810f0e10b551c9ff40c87c1427bf9",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:7",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:9",
+      "project_id": "V008C"
+    },
+    {
+      "candidate_id": "pair-29529375f66b759261b0bbed0623d58f6d686e6b3077b8535f89013eaafc490a",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:8",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:10",
+      "project_id": "V008E"
+    },
+    {
+      "candidate_id": "pair-86453ba128cd624d3088f33121422d69fe7e0320af4c5a5eb20582fbb0a53ac1",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:9",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:11",
+      "project_id": "V008F-1"
+    },
+    {
+      "candidate_id": "pair-c482c9aba2e1a82fe08bf95c77180f510c71d86426e7c008394a334e86a4e9dd",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:10",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:12",
+      "project_id": "V008F-2"
+    },
+    {
+      "candidate_id": "pair-8acbc1db293a2f62da267dcaa3e1fc8d65d3c43e4ae5fc157014975f71363448",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:11",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:13",
+      "project_id": "V008F-3"
+    },
+    {
+      "candidate_id": "pair-c56d5b58ca7829e53d1f4505a44f48ecfd281df575ca5e72270109070130c3d5",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:12",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:14",
+      "project_id": "V008F-4"
+    },
+    {
+      "candidate_id": "pair-68673cd152267ce93af400fee3e10a14525b6c76a545ce79d9536992407fdf21",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:13",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:15",
+      "project_id": "V008F-5"
+    },
+    {
+      "candidate_id": "pair-929446f94a4651ba30011dec10dac5a2b965a44c70232d3c9308c0459e08d096",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:14",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:16",
+      "project_id": "V013A"
+    },
+    {
+      "candidate_id": "pair-2397dfd70da5adeed4a9fb27d304d080032908078044e1edcb0e4ae380ee1434",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:15",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:17",
+      "project_id": "V013B"
+    },
+    {
+      "candidate_id": "pair-64d9637d7d15dffeb7a54ee90a89771159b54799bdd98bed030853fea53890e4",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:16",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:18",
+      "project_id": "V013C"
+    },
+    {
+      "candidate_id": "pair-eb2c47c9dc6ecabf58e7f6cee4b9c2d9cb2e989dc06f2b5f7b13a4e8dd5a7b47",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:17",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:19",
+      "project_id": "V037A"
+    },
+    {
+      "candidate_id": "pair-97fe48de19094243bba30bb2e33f9b63491cb9a159e333c5f35f0edb6bf5cff1",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:18",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:20",
+      "project_id": "V038A"
+    },
+    {
+      "candidate_id": "pair-aa2587b391a6d9808651880d69c36565c20d58f9e1e9e1d3dbd5f16215693b64",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:19",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:21",
+      "project_id": "V042A"
+    },
+    {
+      "candidate_id": "pair-f28d4659d0725194892ddb19ac778afb3fe2e6f3cbbbaeeb05854faa90121b40",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:20",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:22",
+      "project_id": "V043A-4"
+    },
+    {
+      "candidate_id": "pair-3c2b72563cf8f4e4f7fac8ec40c62379da14bca39144abb18bd27bd1c6cfb364",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:21",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:23",
+      "project_id": "V043A-5"
+    },
+    {
+      "candidate_id": "pair-1e8c434f29ac05d12faddc754163391d971a11068f22c8a7adcd1ec18cfaa6f3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:22",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:24",
+      "project_id": "V043A-6"
+    },
+    {
+      "candidate_id": "pair-780e64a72c1a2327efbdea94d13f10c7362def1e97db50ca041171c663702f82",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:23",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:25",
+      "project_id": "V043A-7"
+    },
+    {
+      "candidate_id": "pair-fce1a244b7ff976163f5a21f3df6a572f30351fcd8218244175b288d5289ed3d",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:24",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:26",
+      "project_id": "V100A"
+    },
+    {
+      "candidate_id": "pair-2134b8426a3cf1275924631598105689780fa46203387974b8f5bdecb0fd7108",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:25",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:27",
+      "project_id": "V102A"
+    },
+    {
+      "candidate_id": "pair-72bd6817e2b1364a17dc07ebb5386947b5f5f1fec43fc21e46e32eac085c65d7",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:26",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:28",
+      "project_id": "W016B"
+    },
+    {
+      "candidate_id": "pair-5781aacb58d7ab5fb85ed69e1cb3fe80e190720da629730629cff0fd52e6afc7",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:27",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:29",
+      "project_id": "W019A"
+    },
+    {
+      "candidate_id": "pair-3e11a92c37af860d9962c856de4662f6d01a809e231e639a93da7469b65656d5",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:28",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:30",
+      "project_id": "W019C"
+    },
+    {
+      "candidate_id": "pair-8acb443a40d0380df27fe1abff1cad172965f9b32123b6ce4843fce5d6649dcf",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:30",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:31",
+      "project_id": "W125A"
+    },
+    {
+      "candidate_id": "pair-37e1e1927f2a335c0732518f2e66c8b6309e16733bdb5886fe316a8f3ebc81b6",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:31",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:32",
+      "project_id": "X005A"
+    },
+    {
+      "candidate_id": "pair-1c81b8339f0e69b6bbd7aa7d6189cbc64affa661e394f12ec00ed3b72f4702b3",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:32",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:33",
+      "project_id": "X009A"
+    },
+    {
+      "candidate_id": "pair-04f3d2e93337e572dc7c054c2f9f19bcc1284b9fc3251405fa444d0e4dad7a32",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:33",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:34",
+      "project_id": "X010A"
+    },
+    {
+      "candidate_id": "pair-4f31dc36218d37a158c6abde7831b7f4803446b96144106c5be5451678f00f06",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:34",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:35",
+      "project_id": "X035A"
+    },
+    {
+      "candidate_id": "pair-ed9c96f6d8036e7538b08e603d695dfc3164f0460a0e9299580bdaab8b53f785",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:35",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:36",
+      "project_id": "X035C"
+    },
+    {
+      "candidate_id": "pair-9e7f2d87aa137a470d191d84456aaf825225f0d633c5e2e5a140ba2132126813",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:36",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:37",
+      "project_id": "X035E"
+    },
+    {
+      "candidate_id": "pair-4087010c6c4f93a9a915003713617929108f2aaf582e828a951f29e11367a594",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:37",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:38",
+      "project_id": "X061A"
+    },
+    {
+      "candidate_id": "pair-f27950c26606f98c7aa1f99a3844316c7259eadd92f98348c73a5a9c7b6c92f0",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:38",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:39",
+      "project_id": "X071A"
+    },
+    {
+      "candidate_id": "pair-86788f33119a2ce74ce2e70656bab840d9bd53e7d2cc0a37c4ba5441333704cc",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:39",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:40",
+      "project_id": "X078A"
+    },
+    {
+      "candidate_id": "pair-56f8a404421998d679dfbb0d9c58cc713972639c849a33eac1baacc8930b53d7",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:40",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:41",
+      "project_id": "X079A"
+    },
+    {
+      "candidate_id": "pair-59d906c8698b7fec1af87cf281227042a47c2703e62ba96325879c99e57c3552",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:41",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:42",
+      "project_id": "X116A"
+    },
+    {
+      "candidate_id": "pair-d14ee9bfe32ebe88850d88f42175a535587aa12c0054ac559ed7acab65454b8d",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:42",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:43",
+      "project_id": "X116B"
+    },
+    {
+      "candidate_id": "pair-39fa0655fc0f303e211b3e869485385e23ccf8203c7e3ced621dbc374ecc65de",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:43",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:44",
+      "project_id": "Y118A"
+    },
+    {
+      "candidate_id": "pair-6fdc4fa17f3598bd2c4bf3f4c30e8b1efc73264a98d1cd935c5e93d9ef4a96ca",
+      "earlier_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:44",
+      "identity_status": "candidate_unverified",
+      "later_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:45",
+      "project_id": "Y145A"
     }
   ],
   "project_memberships": [],
@@ -6301,14 +7050,2765 @@
       "project_id": "Y145A",
       "row_ordinal": 44,
       "source_ref": "261402:84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a:B:13:44"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        103.60839999999995,
+        547.731,
+        121.00240000000005
+      ],
+      "description_raw": "MIA Lower Cc E, E Satellite and DE Connector Stucco Replacement, Exterior Painting,\nLightning Protection and VDGS",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "25,292,434",
+          "unit": "USD",
+          "value": "25292434.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA005A",
+      "row_ordinal": 1,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:1"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        121.00240000000005,
+        547.731,
+        129.64240000000004
+      ],
+      "description_raw": "TMB New ATCT",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "65,890,331",
+          "unit": "USD",
+          "value": "65890331.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA022A",
+      "row_ordinal": 2,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:2"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        129.64240000000004,
+        547.731,
+        138.28240000000002
+      ],
+      "description_raw": "MIA West Cargo Truck Parking MIA Westside Fuel Truck Staging Area",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "14,948,241",
+          "unit": "USD",
+          "value": "14948241.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA039A",
+      "row_ordinal": 3,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:3"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        138.28240000000002,
+        547.731,
+        146.9224
+      ],
+      "description_raw": "MIA North Terminal Gate Optimization Phase 1 & 2",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "29,940,326",
+          "unit": "USD",
+          "value": "29940326.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA048A",
+      "row_ordinal": 4,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:4"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        146.9224,
+        547.731,
+        155.5624
+      ],
+      "description_raw": "MIA North Terminal Gate Infrastructure Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "38,139,470",
+          "unit": "USD",
+          "value": "38139470.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA048B",
+      "row_ordinal": 5,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:5"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        155.5624,
+        547.731,
+        172.96214999999998
+      ],
+      "description_raw": "MIA Consolidated Office Complex (Demo & Finishes Cc D Landside & Admin Offices\nRelocation) Building 5A Tenants Relocation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "5,595,881",
+          "unit": "USD",
+          "value": "5595881.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA058A",
+      "row_ordinal": 6,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:6"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        172.96214999999998,
+        547.731,
+        181.60214999999997
+      ],
+      "description_raw": "MIA Building 5A Demolition",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,806,599",
+          "unit": "USD",
+          "value": "9806599.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA058B",
+      "row_ordinal": 7,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:7"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        181.60214999999997,
+        547.731,
+        199.00240000000005
+      ],
+      "description_raw": "MIA Build. 3050 Interior Demolition and Refurbishment Finance Division Offices\nRelocation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "15,517,134",
+          "unit": "USD",
+          "value": "15517134.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA058C",
+      "row_ordinal": 8,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:8"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        199.00240000000005,
+        547.731,
+        207.64240000000004
+      ],
+      "description_raw": "MIA North Terminal Ramp Level Restroom Modernization",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,714,082",
+          "unit": "USD",
+          "value": "9714082.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AA126A",
+      "row_ordinal": 9,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:9"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        207.64240000000004,
+        547.731,
+        216.2824
+      ],
+      "description_raw": "MIA AOA Perimeter Security Hardening Program - Phase 1 MIA South Perimeter Road",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "37,825,754",
+          "unit": "USD",
+          "value": "37825754.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB016A",
+      "row_ordinal": 10,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:10"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        216.2824,
+        547.731,
+        224.9224
+      ],
+      "description_raw": "MIA Airside Operating Area (AOA) Perimeter Security Hardening Program - Phases 2-6",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "25,853,052",
+          "unit": "USD",
+          "value": "25853052.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB016B",
+      "row_ordinal": 11,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:11"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        224.9224,
+        547.731,
+        233.56239999999997
+      ],
+      "description_raw": "MIA NTD Baggage Handling System Modifications to the lnline CBIS",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "95,183,870",
+          "unit": "USD",
+          "value": "95183870.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB040A",
+      "row_ordinal": 12,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:12"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        233.56239999999997,
+        547.731,
+        242.20239999999998
+      ],
+      "description_raw": "MIA Bldg. 3032 Replacement and New Building",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "36,389,547",
+          "unit": "USD",
+          "value": "36389547.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB041A",
+      "row_ordinal": 13,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:13"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        242.20239999999998,
+        547.731,
+        250.84239999999994
+      ],
+      "description_raw": "MIA Bldg. 3032 Demolition and Replacement - Demolition",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,686,860",
+          "unit": "USD",
+          "value": "4686860.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB041A-1",
+      "row_ordinal": 14,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:14"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        250.84239999999994,
+        547.731,
+        268.24240000000003
+      ],
+      "description_raw": "MIA Building 3051 Demolition (Gas Station) and Building 3045 (Car Wash) - South\nTerminal Enabling Project",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,351,463",
+          "unit": "USD",
+          "value": "1351463.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB048B",
+      "row_ordinal": 15,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:15"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        268.24240000000003,
+        547.731,
+        276.8824000000001
+      ],
+      "description_raw": "MIA Building 3050 Demolition - South Terminal Enabling",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "5,927,949",
+          "unit": "USD",
+          "value": "5927949.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AB050A",
+      "row_ordinal": 16,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:16"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        276.8824000000001,
+        547.731,
+        285.5224
+      ],
+      "description_raw": "MIA - Central Base AOA Construction Gate",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "13,448,476",
+          "unit": "USD",
+          "value": "13448476.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC001A",
+      "row_ordinal": 17,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:17"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        285.5224,
+        547.731,
+        294.16240000000005
+      ],
+      "description_raw": "OPF - Runway Incursion Mitigation (RIM 20)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "22,928,420",
+          "unit": "USD",
+          "value": "22928420.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC002A",
+      "row_ordinal": 18,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:18"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        294.16240000000005,
+        547.731,
+        302.8024
+      ],
+      "description_raw": "MIA Bldg. 3030 SITA Demolition & Renovation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "947,346",
+          "unit": "USD",
+          "value": "947346.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC007B",
+      "row_ordinal": 19,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:19"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        302.8024,
+        547.731,
+        311.4424
+      ],
+      "description_raw": "MIA Terminal-Wide Two-Way Emergency Radio Communication System",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "10,272,013",
+          "unit": "USD",
+          "value": "10272013.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC040A",
+      "row_ordinal": 20,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:20"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        311.4424,
+        547.731,
+        320.0824000000001
+      ],
+      "description_raw": "OPF Runway Incursion Mitigation Hot Spot 3 (RIM-03)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "11,474,240",
+          "unit": "USD",
+          "value": "11474240.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC042A",
+      "row_ordinal": 21,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:21"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        320.0824000000001,
+        547.731,
+        328.72240000000005
+      ],
+      "description_raw": "MIA Dolphin/Flamingo & New Employee Parking Garage 6 Exterior Cladding",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "35,003,838",
+          "unit": "USD",
+          "value": "35003838.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC053A",
+      "row_ordinal": 22,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:22"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        328.72240000000005,
+        547.731,
+        337.3624000000001
+      ],
+      "description_raw": "MIA South Terminal Cc J South Checkpoint Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "779,318",
+          "unit": "USD",
+          "value": "779318.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC086A",
+      "row_ordinal": 23,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:23"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        337.3624000000001,
+        547.731,
+        346.0024
+      ],
+      "description_raw": "MIA Central Terminal CC H Checkpoint Modifications",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,344,548",
+          "unit": "USD",
+          "value": "3344548.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC087A",
+      "row_ordinal": 24,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:24"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        346.0024,
+        547.731,
+        354.64240000000007
+      ],
+      "description_raw": "MIA North Terminal D2 Checkpoint Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,708,925",
+          "unit": "USD",
+          "value": "2708925.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "AC088A",
+      "row_ordinal": 25,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:25"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        354.64240000000007,
+        547.731,
+        363.2824
+      ],
+      "description_raw": "TMB New AGS III Taxilane And Access Road (ROM)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "14,768,080",
+          "unit": "USD",
+          "value": "14768080.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA001A",
+      "row_ordinal": 26,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:26"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        363.2824,
+        547.731,
+        371.92240000000004
+      ],
+      "description_raw": "MIA Security Checkpoints Equipment Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "50,729,289",
+          "unit": "USD",
+          "value": "50729289.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA013A",
+      "row_ordinal": 27,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:27"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        371.92240000000004,
+        547.731,
+        380.56239999999997
+      ],
+      "description_raw": "MIA MIC Passenger Remote Parking Lot",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "20,919,386",
+          "unit": "USD",
+          "value": "20919386.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA026A",
+      "row_ordinal": 28,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:28"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        380.56239999999997,
+        547.731,
+        389.2024
+      ],
+      "description_raw": "MIA Police/ Fire Microwave Relocation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,751,324",
+          "unit": "USD",
+          "value": "1751324.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA027A",
+      "row_ordinal": 29,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:29"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        389.2024,
+        547.731,
+        397.8424000000001
+      ],
+      "description_raw": "MIA Marketplace Art Vitrines Remediation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "667,507",
+          "unit": "USD",
+          "value": "667507.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA029A",
+      "row_ordinal": 30,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:30"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        397.8424000000001,
+        547.731,
+        406.48240000000004
+      ],
+      "description_raw": "MIA South Terminal Cc J Central Checkpoint Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,727,173",
+          "unit": "USD",
+          "value": "1727173.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA054A",
+      "row_ordinal": 31,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:31"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        406.48240000000004,
+        547.731,
+        415.1224
+      ],
+      "description_raw": "MIA Central Terminal Cc G Checkpoint Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,088,377",
+          "unit": "USD",
+          "value": "3088377.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA055A",
+      "row_ordinal": 32,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:32"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        415.1224,
+        547.731,
+        423.76240000000007
+      ],
+      "description_raw": "MIA South Terminal Cc J FIS Checkpoint Upgrade/Refurbishment",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,830,961",
+          "unit": "USD",
+          "value": "3830961.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA057A",
+      "row_ordinal": 33,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:33"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        423.76240000000007,
+        547.731,
+        432.40240000000006
+      ],
+      "description_raw": "MIA Central and South Terminal Bag Claim Optimization Phase 2",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "18,399,914",
+          "unit": "USD",
+          "value": "18399914.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA059A",
+      "row_ordinal": 34,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:34"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        432.40240000000006,
+        547.731,
+        441.0424
+      ],
+      "description_raw": "MIA Central Terminal Redevelopment Phase 1",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3 45,382,437",
+          "unit": "USD",
+          "value": "345382437.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA061A",
+      "row_ordinal": 35,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:35"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        441.0424,
+        547.731,
+        449.6824
+      ],
+      "description_raw": "MIA Perimeter Protection Project",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "6,300,001",
+          "unit": "USD",
+          "value": "6300001.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "BA133A",
+      "row_ordinal": 36,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:36"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        449.6824,
+        547.731,
+        458.3224
+      ],
+      "description_raw": "MIA Cc. F to H Interconnector",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 04,015,126",
+          "unit": "USD",
+          "value": "104015126.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA004A",
+      "row_ordinal": 37,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:37"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        458.3224,
+        547.731,
+        475.72215000000006
+      ],
+      "description_raw": "MIA Cc Low E and E Satellite Mechanical and Electrical Rooms Upgrades (Consolidated\nScope)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 28,996,480",
+          "unit": "USD",
+          "value": "128996480.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA010A",
+      "row_ordinal": 38,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:38"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        475.72215000000006,
+        547.731,
+        484.3621500000001
+      ],
+      "description_raw": "MIA Building 3030 Intelligent Peripheral Equipment (IPE) Room Expansion",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,473,715",
+          "unit": "USD",
+          "value": "3473715.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA033A",
+      "row_ordinal": 39,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:39"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        484.3621500000001,
+        547.731,
+        493.0021500000001
+      ],
+      "description_raw": "MIA North Terminal Central Chiller Plant 1 (CP1) Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,898,667",
+          "unit": "USD",
+          "value": "4898667.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA100A",
+      "row_ordinal": 40,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:40"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        493.0021500000001,
+        547.731,
+        502.1224
+      ],
+      "description_raw": "MIA Cc D CBP Passport Processing Area",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,318,100",
+          "unit": "USD",
+          "value": "2318100.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA113A",
+      "row_ordinal": 41,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:41"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        502.1224,
+        547.731,
+        510.76240000000007
+      ],
+      "description_raw": "MIA E Satellite Terminal Seating",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,191,832",
+          "unit": "USD",
+          "value": "3191832.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA176A",
+      "row_ordinal": 42,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:42"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        510.76240000000007,
+        547.731,
+        519.4024000000001
+      ],
+      "description_raw": "MIA CBP Office and Mechanical Room C-Type Door Installation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "156,484",
+          "unit": "USD",
+          "value": "156484.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "CA179A",
+      "row_ordinal": 43,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:43"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        519.4024000000001,
+        547.731,
+        528.0424
+      ],
+      "description_raw": "MIA Parking Garage Elevators Modernization",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "19,797,252",
+          "unit": "USD",
+          "value": "19797252.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "D105C-I",
+      "row_ordinal": 44,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:44"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        528.0424,
+        547.731,
+        536.6824
+      ],
+      "description_raw": "MIA Parking Garage 40 Year Recertification",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "8,480,088",
+          "unit": "USD",
+          "value": "8480088.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "D105C-IA",
+      "row_ordinal": 45,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:45"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        536.6824,
+        547.731,
+        545.3224
+      ],
+      "description_raw": "Flamingo & Dolphin Garages Repairs and Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "61,416,159",
+          "unit": "USD",
+          "value": "61416159.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "D105C-IB",
+      "row_ordinal": 46,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:46"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        545.3224,
+        547.731,
+        553.9624000000001
+      ],
+      "description_raw": "MIA Advanced Visual Docking Guidance System (ADVGS) Cc F Gates (21 gates)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,970,024",
+          "unit": "USD",
+          "value": "9970024.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA059A",
+      "row_ordinal": 47,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:47"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        553.9624000000001,
+        547.731,
+        562.6024
+      ],
+      "description_raw": "MIA Central Terminal Cc. F New Piers & South to Central Terminal Crossover",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "28,967,319",
+          "unit": "USD",
+          "value": "28967319.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA076A",
+      "row_ordinal": 48,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:48"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        562.6024,
+        547.731,
+        571.2424000000001
+      ],
+      "description_raw": "MIA Concourse H Temporary Carrousel Retrofit",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "856,644",
+          "unit": "USD",
+          "value": "856644.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA076B",
+      "row_ordinal": 49,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:49"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        571.2424000000001,
+        547.731,
+        579.8824000000001
+      ],
+      "description_raw": "MIA Central Terminal Parking Garage Bridge Connections",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,239,907",
+          "unit": "USD",
+          "value": "1239907.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA083A",
+      "row_ordinal": 50,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:50"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        579.8824000000001,
+        547.731,
+        588.5224000000001
+      ],
+      "description_raw": "Miami Bldg. 3030 E-Wing Renovation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "6,084,061",
+          "unit": "USD",
+          "value": "6084061.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA094A",
+      "row_ordinal": 51,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:51"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        588.5224000000001,
+        547.731,
+        597.1623999999999
+      ],
+      "description_raw": "MIA Central Terminal Cc E Door Sets E4551, E4651, & E4656 Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "914,047",
+          "unit": "USD",
+          "value": "914047.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "DA095A",
+      "row_ordinal": 52,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:52"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        597.1623999999999,
+        547.731,
+        605.8024
+      ],
+      "description_raw": "MIA ELBC System Furnishing and Installation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,499,204",
+          "unit": "USD",
+          "value": "9499204.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "EA004A",
+      "row_ordinal": 53,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:53"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        605.8024,
+        547.731,
+        614.4424000000001
+      ],
+      "description_raw": "MIA Airport Operations Center (AOC)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "35,088,402",
+          "unit": "USD",
+          "value": "35088402.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "P250A",
+      "row_ordinal": 54,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:54"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        614.4424000000001,
+        547.731,
+        623.0824
+      ],
+      "description_raw": "MIA Concourse \"E\" and \"F\" Taxilane and Apron Rehabilitation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 14,663,597",
+          "unit": "USD",
+          "value": "114663597.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "P259A",
+      "row_ordinal": 55,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:55"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        623.0824,
+        547.731,
+        631.7224000000001
+      ],
+      "description_raw": "MIA Cc H Gate & Internationalization",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "8,302,839",
+          "unit": "USD",
+          "value": "8302839.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T012A",
+      "row_ordinal": 56,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:56"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        631.7224000000001,
+        547.731,
+        640.3624000000001
+      ],
+      "description_raw": "MIA BHS Central Terminal to South Terminal Crossover",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "6,566,593",
+          "unit": "USD",
+          "value": "6566593.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T042B",
+      "row_ordinal": 57,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:57"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        640.3624000000001,
+        547.731,
+        657.7624000000001
+      ],
+      "description_raw": "MIA Bag Claim Carousels Optimization In Central and South MIA Central and South\nTerminal Bag Claim Optimization Phase 1",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "5,214,247",
+          "unit": "USD",
+          "value": "5214247.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T042C",
+      "row_ordinal": 58,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:58"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        657.7624000000001,
+        547.731,
+        666.4024000000001
+      ],
+      "description_raw": "Lower Concourse E 400 Hz Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,587,940",
+          "unit": "USD",
+          "value": "1587940.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T072B-3",
+      "row_ordinal": 59,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:59"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        666.4024000000001,
+        547.731,
+        675.0424
+      ],
+      "description_raw": "MIA Cc Lower E Glazing",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,422,280",
+          "unit": "USD",
+          "value": "4422280.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T072F-2",
+      "row_ordinal": 60,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:60"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        675.0424,
+        547.731,
+        683.6824
+      ],
+      "description_raw": "Lower Cc. E Mechanical & Electrical Equipment Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "10,542,482",
+          "unit": "USD",
+          "value": "10542482.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T072F-4",
+      "row_ordinal": 61,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:61"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        683.6824,
+        547.731,
+        692.3224
+      ],
+      "description_raw": "MIA Lower Cc E FIS Renovation - Phase 2",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2 57,739,575",
+          "unit": "USD",
+          "value": "257739575.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T072L",
+      "row_ordinal": 62,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:62"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        692.3224,
+        547.731,
+        700.9624000000001
+      ],
+      "description_raw": "MIA Cc D - West Extension D60 Ph 2 (Bldg. Expansion & Apron)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9 14,627,764",
+          "unit": "USD",
+          "value": "914627764.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T180B",
+      "row_ordinal": 63,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:63"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        700.9624000000001,
+        547.731,
+        709.6024
+      ],
+      "description_raw": "MIA Concourse D West Extension (D60) Apron and Utilities",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 63,567,943",
+          "unit": "USD",
+          "value": "163567943.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "T180D",
+      "row_ordinal": 64,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:64"
+    },
+    {
+      "bbox": [
+        38.79385714285714,
+        709.6024,
+        547.731,
+        718.2424000000001
+      ],
+      "description_raw": "MIA Satellite E New Chiller Plant",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "39,321,476",
+          "unit": "USD",
+          "value": "39321476.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 15,
+      "project_id": "U010D-I",
+      "row_ordinal": 65,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:15:65"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        103.62300869565215,
+        547.7349230769231,
+        112.26040000000005
+      ],
+      "description_raw": "MIA E Satellite Roofing, Mechanical & Electrical Equipment Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,205,212",
+          "unit": "USD",
+          "value": "9205212.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U010F",
+      "row_ordinal": 1,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:1"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        112.26040000000005,
+        547.7349230769231,
+        129.66040000000004
+      ],
+      "description_raw": "MIA Satellite E Mechanical and Electrical Equipment Replacement Group No. 02 - Rooftop\n& APM Area & Satellite E Structural Repairs",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "23,357,387",
+          "unit": "USD",
+          "value": "23357387.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U010F-5",
+      "row_ordinal": 2,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:2"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        129.66040000000004,
+        547.7349230769231,
+        138.30040000000002
+      ],
+      "description_raw": "MIA New Elevator at E Satellite",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,763,809",
+          "unit": "USD",
+          "value": "4763809.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U010F-7.1",
+      "row_ordinal": 3,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:3"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        138.30040000000002,
+        547.7349230769231,
+        146.9404
+      ],
+      "description_raw": "MIA ADA Ramp Level Elevator Vestibule",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "323,851",
+          "unit": "USD",
+          "value": "323851.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U010F-7.2",
+      "row_ordinal": 4,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:4"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        146.9404,
+        547.7349230769231,
+        155.5804
+      ],
+      "description_raw": "MIA South Terminal Smoke Evacuation Modifications",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,470,195",
+          "unit": "USD",
+          "value": "1470195.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U023A",
+      "row_ordinal": 5,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:5"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        155.5804,
+        547.7349230769231,
+        164.22039999999998
+      ],
+      "description_raw": "New Parking Access & Revenue Control System",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "10,177,254",
+          "unit": "USD",
+          "value": "10177254.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U040A",
+      "row_ordinal": 6,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:6"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        164.22039999999998,
+        547.7349230769231,
+        172.86039999999997
+      ],
+      "description_raw": "MIA Central Terminal CCTV and Access Control",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,411,983",
+          "unit": "USD",
+          "value": "4411983.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "U128A",
+      "row_ordinal": 7,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:7"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        172.86039999999997,
+        547.7349230769231,
+        190.2600428571429
+      ],
+      "description_raw": "MIA New Concourse F MIA Concourse F Modernization (Gates&nbsp; F4,F6, F8 Gates\nBuilding Expansion)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "8 96,021,864",
+          "unit": "USD",
+          "value": "896021864.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008B",
+      "row_ordinal": 8,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:8"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        190.2600428571429,
+        547.7349230769231,
+        207.66040000000004
+      ],
+      "description_raw": "MIA Central Terminal Redevelopment-Phase 2 (Checkpoint, Vertical Core, E-F TC, Roof\nBump Up)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3 72,303,247",
+          "unit": "USD",
+          "value": "372303247.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008C",
+      "row_ordinal": 9,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:9"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        207.66040000000004,
+        547.7349230769231,
+        216.30040000000002
+      ],
+      "description_raw": "MIA Concourse F Enabling Gate Modifications",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,595,596",
+          "unit": "USD",
+          "value": "2595596.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008E",
+      "row_ordinal": 10,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:10"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        216.30040000000002,
+        547.7349230769231,
+        233.7004
+      ],
+      "description_raw": "MIA Concourse F Refurbishment - Checkpoint Relocation Improvements Work Demolition",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1,969,561",
+          "unit": "USD",
+          "value": "1969561.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008F-1",
+      "row_ordinal": 11,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:11"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        233.7004,
+        547.7349230769231,
+        251.10004285714285
+      ],
+      "description_raw": "MIA Concourse F Refurbishment - Checkpoint Relocation Improvements Work Finishes",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "8,381,657",
+          "unit": "USD",
+          "value": "8381657.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008F-2",
+      "row_ordinal": 12,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:12"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        251.10004285714285,
+        547.7349230769231,
+        268.50039999999996
+      ],
+      "description_raw": "MIA Concourse F Refurbishment - F4 Holdroom Structural Repairs & F4, F6, and F8\nRehabilitation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,446,421",
+          "unit": "USD",
+          "value": "3446421.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008F-3",
+      "row_ordinal": 13,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:13"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        268.50039999999996,
+        547.7349230769231,
+        277.14040000000006
+      ],
+      "description_raw": "MIA Concourse F Refurbishment - Access Control & Camera Upgrades",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "9,147,803",
+          "unit": "USD",
+          "value": "9147803.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008F-4",
+      "row_ordinal": 14,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:14"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        277.14040000000006,
+        547.7349230769231,
+        285.78040000000004
+      ],
+      "description_raw": "MIA Concourse F Refurbishment - 3rd Floor Restrooms",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,905,348",
+          "unit": "USD",
+          "value": "2905348.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V008F-5",
+      "row_ordinal": 15,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:15"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        285.78040000000004,
+        547.7349230769231,
+        294.42040000000003
+      ],
+      "description_raw": "MIA Concourse F New Apron Phase 1 and Phase 2 MIA Cc F Apron & Utilities",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 56,486,511",
+          "unit": "USD",
+          "value": "156486511.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V013A",
+      "row_ordinal": 16,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:16"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        294.42040000000003,
+        547.7349230769231,
+        303.0604
+      ],
+      "description_raw": "MIA Concourse F Demo Phase 1- Headhouse Demo & New Hardstand Area",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 33,784,172",
+          "unit": "USD",
+          "value": "133784172.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V013B",
+      "row_ordinal": 17,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:17"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        303.0604,
+        547.7349230769231,
+        311.7004
+      ],
+      "description_raw": "MIA Concourse F Demo Phase 2 - Cc F Pier Demo & New Cc F Apron Phase 3",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 73,204,418",
+          "unit": "USD",
+          "value": "173204418.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V013C",
+      "row_ordinal": 18,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:18"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        311.7004,
+        547.7349230769231,
+        320.3404
+      ],
+      "description_raw": "MIA Central Base Apron and Utilities Modifications and Expansion",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "97,549,692",
+          "unit": "USD",
+          "value": "97549692.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V037A",
+      "row_ordinal": 19,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:19"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        320.3404,
+        547.7349230769231,
+        328.98040000000003
+      ],
+      "description_raw": "MIA Multi-level GSE Facility for North Terminal",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 63,003,484",
+          "unit": "USD",
+          "value": "163003484.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V038A",
+      "row_ordinal": 20,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:20"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        328.98040000000003,
+        547.7349230769231,
+        337.6204000000001
+      ],
+      "description_raw": "MIA Employee Parking Garage",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 36,148,597",
+          "unit": "USD",
+          "value": "136148597.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V042A",
+      "row_ordinal": 21,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:21"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        337.6204000000001,
+        547.7349230769231,
+        346.26040000000006
+      ],
+      "description_raw": "Central Terminal Ticket Counters, Conveyors and K-1 Doors for TC12 thru TC17",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "25,165,138",
+          "unit": "USD",
+          "value": "25165138.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V043A-4",
+      "row_ordinal": 22,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:22"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        346.26040000000006,
+        547.7349230769231,
+        363.66040000000004
+      ],
+      "description_raw": "MIA South Terminal Ticket Counters, Conveyors and K-1 Doors - New Soffit Over\nCheckpoint 'H'",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "5,281,946",
+          "unit": "USD",
+          "value": "5281946.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V043A-5",
+      "row_ordinal": 23,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:23"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        363.66040000000004,
+        547.7349230769231,
+        372.3004
+      ],
+      "description_raw": "Central Terminal Ticket Counters Area B TC 11 Conveyor-Dog House",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,364,067",
+          "unit": "USD",
+          "value": "2364067.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V043A-6",
+      "row_ordinal": 24,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:24"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        372.3004,
+        547.7349230769231,
+        380.9404
+      ],
+      "description_raw": "MDAD/Others - Terrazo Lobby & TSA Equipment",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "8,422,494",
+          "unit": "USD",
+          "value": "8422494.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V043A-7",
+      "row_ordinal": 25,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:25"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        380.9404,
+        547.7349230769231,
+        389.5804
+      ],
+      "description_raw": "MIA Terminal Gates J (VDGS)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "7,956,776",
+          "unit": "USD",
+          "value": "7956776.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V100A",
+      "row_ordinal": 26,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:26"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        389.5804,
+        547.7349230769231,
+        398.2204
+      ],
+      "description_raw": "OPF Customs Building Remodel",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,674,747",
+          "unit": "USD",
+          "value": "2674747.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "V102A",
+      "row_ordinal": 27,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:27"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        398.2204,
+        547.7349230769231,
+        406.8604000000001
+      ],
+      "description_raw": "MIA Parking Lot Road Improvements",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "99,098",
+          "unit": "USD",
+          "value": "99098.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "W016B",
+      "row_ordinal": 28,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:28"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        406.8604000000001,
+        547.7349230769231,
+        415.50040000000007
+      ],
+      "description_raw": "MIA Fuel Storage Facility Expansion (Phase 1)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "39,223,742",
+          "unit": "USD",
+          "value": "39223742.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "W019A",
+      "row_ordinal": 29,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:29"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        415.50040000000007,
+        547.7349230769231,
+        424.14040000000006
+      ],
+      "description_raw": "MIA Fuel Storage Facility Expansion (Phase 2)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "28,526,167",
+          "unit": "USD",
+          "value": "28526167.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "W019C",
+      "row_ordinal": 30,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:30"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        424.14040000000006,
+        547.7349230769231,
+        432.78040000000004
+      ],
+      "description_raw": "TMB Taxiway C East Extension",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "38,138,896",
+          "unit": "USD",
+          "value": "38138896.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "W125A",
+      "row_ordinal": 31,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:31"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        432.78040000000004,
+        547.7349230769231,
+        441.42040000000003
+      ],
+      "description_raw": "OPF Blast Fence",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "2,177,788",
+          "unit": "USD",
+          "value": "2177788.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X005A",
+      "row_ordinal": 32,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:32"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        441.42040000000003,
+        547.7349230769231,
+        450.0604
+      ],
+      "description_raw": "OPF Runway 9L/27R Rehabilitation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "36,746,855",
+          "unit": "USD",
+          "value": "36746855.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X009A",
+      "row_ordinal": 33,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:33"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        450.0604,
+        547.7349230769231,
+        458.7004
+      ],
+      "description_raw": "OPF Engine Run-Up Pad",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "6,695,352",
+          "unit": "USD",
+          "value": "6695352.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X010A",
+      "row_ordinal": 34,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:34"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        458.7004,
+        547.7349230769231,
+        467.3404
+      ],
+      "description_raw": "MIA Building 702 Apron & Airside Improvements",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "99,804,970",
+          "unit": "USD",
+          "value": "99804970.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X035A",
+      "row_ordinal": 35,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:35"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        467.3404,
+        547.7349230769231,
+        475.98040000000003
+      ],
+      "description_raw": "MIA Bldg 703 & 703A Demolition and Environmental Assessment & Remediation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "7,101,293",
+          "unit": "USD",
+          "value": "7101293.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X035C",
+      "row_ordinal": 36,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:36"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        475.98040000000003,
+        547.7349230769231,
+        484.6204000000001
+      ],
+      "description_raw": "MIA Bldg 704 Demolition",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "5,120,000",
+          "unit": "USD",
+          "value": "5120000.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X035E",
+      "row_ordinal": 37,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:37"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        484.6204000000001,
+        547.7349230769231,
+        493.26040000000006
+      ],
+      "description_raw": "MIA Employee Parking Lot Bridge Replacement",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "27,537,078",
+          "unit": "USD",
+          "value": "27537078.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X061A",
+      "row_ordinal": 38,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:38"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        493.26040000000006,
+        547.7349230769231,
+        501.90040000000005
+      ],
+      "description_raw": "MIA Vehicle Fueling and Car Wash Facility-South Terminal Enabling",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "10,829,393",
+          "unit": "USD",
+          "value": "10829393.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X071A",
+      "row_ordinal": 39,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:39"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        501.90040000000005,
+        547.7349230769231,
+        510.54040000000003
+      ],
+      "description_raw": "MIA South Terminal Expansion East (new Gates) Phase 1",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "7 46,358,427",
+          "unit": "USD",
+          "value": "746358427.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X078A",
+      "row_ordinal": 40,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:40"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        510.54040000000003,
+        547.7349230769231,
+        519.1804
+      ],
+      "description_raw": "MIA Concourse \"G\" Demolition",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "35,975,817",
+          "unit": "USD",
+          "value": "35975817.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X079A",
+      "row_ordinal": 41,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:41"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        519.1804,
+        547.7349230769231,
+        527.8204
+      ],
+      "description_raw": "MIA Cc H Restrooms Renovation",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "4,586,174",
+          "unit": "USD",
+          "value": "4586174.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X116A",
+      "row_ordinal": 42,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:42"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        527.8204,
+        547.7349230769231,
+        536.4604000000002
+      ],
+      "description_raw": "MIA Cc H Restrooms Clean Outs",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "61,925",
+          "unit": "USD",
+          "value": "61925.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "X116B",
+      "row_ordinal": 43,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:43"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        536.4604000000002,
+        547.7349230769231,
+        545.1004
+      ],
+      "description_raw": "MIA RIM Hot Spot #4 (Corral Area)",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "1 01,137,969",
+          "unit": "USD",
+          "value": "101137969.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "Y118A",
+      "row_ordinal": 44,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:44"
+    },
+    {
+      "bbox": [
+        38.75030769230769,
+        545.1004,
+        547.7349230769231,
+        554.4304000000001
+      ],
+      "description_raw": "MiamiHomestead General Aviation (X51) Security Project",
+      "document_sha256": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6",
+      "exhibit": "B",
+      "matter_id": "261824",
+      "metrics": {
+        "total_estimated_cost_usd": {
+          "original_header": "Total Estimated Cost",
+          "raw_value": "3,052,178",
+          "unit": "USD",
+          "value": "3052178.00",
+          "verification_status": "machine_cross_checked"
+        }
+      },
+      "pdf_page": 16,
+      "project_id": "Y145A",
+      "row_ordinal": 45,
+      "source_ref": "261824:63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6:B:16:45"
     }
   ],
   "schema_version": "1.0",
-  "source_inventory_sha256": "ef805c5ebcdf8338245131ba6e3457ea08d49763df5a7bc99eba2572ef6229a9",
+  "source_inventory_sha256": "ac4659ffb63c7be3b02e8809ea7041e93113aedc89d5c62d5c8879dd51f92437",
   "source_versions": {
     "260526": "eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878",
     "261400": "ae45ec3eeaf1f54df04ad2255ed9ec3c0f3f647d3b2570b39272ff75efe9f9ae",
-    "261402": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a"
+    "261402": "84751b451da8b7d5e06cad6b1c24c870e563de5669c5f07325033c446bbaeb2a",
+    "261824": "63ebc1cea03e8bdc7a557c3af66d3df050fd01ea3cb38bc4e0f74a2e7e6cfbd6"
   },
   "verified_projects": []
 }

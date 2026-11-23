@@ -233,7 +233,7 @@ def test_one_sided_records_retain_presence_only(documents, records):
     report = evaluate_gate(documents, records, empty_bundle())
     assert report["summary"]["earlier_only"] == report["summary"]["later_only"] == 1
     assert {row["presence"] for row in report["unmatched_records"]} == {"earlier_only", "later_only"}
-    assert all(set(row) == {"project_id", "source_ref", "presence", "reason"}
+    assert all(set(row) == {"project_id", "source_ref", "presence", "reason", "comparison"}
                for row in report["unmatched_records"])
     assert_blocked(report)
 

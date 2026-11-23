@@ -28,15 +28,15 @@ def payload():
 
 
 def test_public_coverage_counts_reconcile_without_project_deduplication(registry):
-    assert len(registry.records) == 222
-    assert len(registry.candidate_links) == 107
+    assert len(registry.records) == 332
+    assert len(registry.candidate_links) == 214
     assert registry.verified_projects == ()
     assert [(row["matter_id"], row["indexed_record_count"]) for row in registry.catalog] == [
-        ("260526", 110), ("261402", 112), ("261400", 0),
+        ("260526", 110), ("261402", 112), ("261400", 0), ("261824", 110),
     ]
     assert sum(row["indexed_record_count"] for row in registry.catalog) == len(registry.records)
-    assert len({row.source_ref for row in registry.records}) == 222
-    assert len(search_records(registry)) == 222
+    assert len({row.source_ref for row in registry.records}) == 332
+    assert len(search_records(registry)) == 332
 
 
 @pytest.mark.parametrize("mutation", [
@@ -89,16 +89,16 @@ def test_airport_classification_uses_documented_tokens_only(description, code):
 
 def test_airport_coverage_and_unknowns(registry):
     counts = Counter(airport_classification(row.description_raw)[0] for row in registry.records)
-    assert counts == {"MIA": 187, "OPF": 12, "TMB": 6, "X51": 2, None: 15}
+    assert counts == {"MIA": 279, "OPF": 18, "TMB": 9, "X51": 3, None: 23}
     unknown = search_records(registry, DirectoryFilters(airport="Unknown"))
-    assert len(unknown) == 15
+    assert len(unknown) == 23
     assert all(row["airport_code"] is None for row in unknown)
 
 
 def test_id_search_retains_two_unverified_observations(registry):
     results = search_records(registry, DirectoryFilters(search="ca176a"))
     assert [(row["project_id"], row["matter_id"]) for row in results] == [
-        ("CA176A", "261402"), ("CA176A", "260526"),
+        ("CA176A", "261824"), ("CA176A", "261402"), ("CA176A", "260526"),
     ]
     assert all(row["estimate_usd"] == Decimal("3191832.00") for row in results)
     detail = source_detail(registry, results[0]["source_ref"])
@@ -111,7 +111,7 @@ def test_keyword_facility_airport_and_source_filters(registry):
     rows = search_records(registry, DirectoryFilters(search="Satellite Seating", matter_id="261402", airport="MIA"))
     assert {row["project_id"] for row in rows} == {"CA176A", "CA176B"}
     rows = search_records(registry, DirectoryFilters(search="Miami Executive Airport", airport="TMB"))
-    assert len(rows) == 6
+    assert len(rows) == 9
     assert all(row["airport_code"] == "TMB" for row in rows)
 
 
@@ -169,7 +169,7 @@ def test_public_runtime_does_not_require_raw_pdfs_or_review_approvals(tmp_path):
     assert not (tmp_path / "data/raw").exists()
     assert not (tmp_path / "data/review_dispositions.json").exists()
     registry = load_registry(tmp_path)
-    assert len(search_records(registry, DirectoryFilters(search="CA176A"))) == 2
+    assert len(search_records(registry, DirectoryFilters(search="CA176A"))) == 3
 
 
 @pytest.mark.integration
