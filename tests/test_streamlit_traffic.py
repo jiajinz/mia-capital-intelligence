@@ -46,10 +46,59 @@ def test_traffic_section_renders_its_sections_in_order():
     result = traffic(app())
     assert result.header[0].value == "Monthly airport traffic"
     assert [item.value for item in result.subheader] == [
-        "Monthly passenger movements, 2010 to 2026", "Year-on-year comparison", "Exact values and sources",
+        "Monthly passenger movements, 2010 to 2026", "Compare years",
     ]
     assert len(result.get("plotly_chart")) == 2
     assert not result.error
+
+
+def expander(tab, label: str):
+    return next(item for item in tab.expander if item.label == label)
+
+
+def test_monthly_figures_and_source_data_are_collapsed_by_default():
+    tab = traffic(app())
+    assert not expander(tab, "Monthly figures").proto.expanded
+    assert not expander(tab, "Source data").proto.expanded
+    assert not expander(tab, "About these figures").proto.expanded
+    assert len(tab.dataframe) == 2
+    assert "Exact values and sources" not in tab_text(tab)
+
+
+def test_compare_years_offers_every_year_from_2011_including_2020_and_2021():
+    tab = traffic(app())
+    options = list(tab.radio(key="traffic_year").options)
+    assert options[0] == "2011" and options[-1] == "2026"
+    assert "2020" in options and "2021" in options
+
+
+def test_all_years_view_shows_one_line_per_selected_year_and_its_figures():
+    result = traffic(app())
+    result.radio(key="traffic_view").set_value("All years together").run()
+    assert not result.exception
+    tab = traffic(result)
+    assert list(tab.multiselect(key="traffic_all_years").value) == [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+    assert len(tab.get("plotly_chart")) == 2
+    spec = chart_spec(tab, 1)
+    assert [trace["name"] for trace in spec["data"]] == ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    monthly = expander(tab, "Monthly figures").dataframe[0].value
+    assert list(monthly.columns) == ["Month", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]
+    assert monthly.iloc[6]["Month"] == "Jul"
+    series = traffic_view.load_traffic_series()
+    assert monthly.iloc[0]["2020"] == f"{series.by_period()['2020-01'].passengers.value:,}"
+
+
+def test_all_years_view_can_include_the_earliest_year_and_handles_an_empty_choice():
+    result = traffic(app())
+    result.radio(key="traffic_view").set_value("All years together").run()
+    result.multiselect(key="traffic_all_years").set_value([2010, 2010 + 1]).run()
+    assert not result.exception
+    tab = traffic(result)
+    assert [trace["name"] for trace in chart_spec(tab, 1)["data"]] == ["2010", "2011"]
+    result.multiselect(key="traffic_all_years").set_value([]).run()
+    assert not result.exception
+    assert any("Choose at least one year" in item.value for item in traffic(result).info)
+    assert len(traffic(result).get("plotly_chart")) == 1
 
 
 def test_traffic_copy_is_plain_statements_without_questions():

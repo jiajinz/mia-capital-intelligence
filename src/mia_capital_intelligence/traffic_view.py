@@ -315,3 +315,47 @@ def year_figure(series: TrafficSeries, year: int, measure: str) -> go.Figure:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
     )
     return apply_chart_theme(figure)
+
+
+def series_years(series: TrafficSeries) -> tuple[int, ...]:
+    """Every calendar year that has at least one admitted month, oldest first."""
+    return tuple(sorted({month.year for month in series.months}))
+
+
+def _measure_value(month: TrafficMonth, measure: str) -> int:
+    return month.passengers.value if measure == "passengers" else month.cargo_tons.value
+
+
+def _year_colour(position: int, count: int) -> str:
+    """Blend from a light blue-grey to the palette bar colour; the most recent year is the strongest."""
+    light, strong = (0xB9, 0xCD, 0xDD), (0x00, 0x7B, 0xB6)
+    fraction = 1.0 if count == 1 else position / (count - 1)
+    channels = (round(a + (b - a) * fraction) for a, b in zip(light, strong, strict=True))
+    return "#" + "".join(f"{channel:02X}" for channel in channels)
+
+
+def all_years_figure(series: TrafficSeries, years: tuple[int, ...], measure: str) -> go.Figure:
+    """One line per selected year across the calendar months. Gaps and held months stay empty, not zero."""
+    label = "Passenger movements" if measure == "passengers" else "Reported tons"
+    by_period = series.by_period()
+    ordered = tuple(sorted(years))
+    figure = go.Figure()
+    for position, year in enumerate(ordered):
+        values = []
+        for month in range(1, 13):
+            row = by_period.get(f"{year}-{month:02d}")
+            values.append(None if row is None else _measure_value(row, measure))
+        colour = _year_colour(position, len(ordered))
+        newest = position == len(ordered) - 1
+        figure.add_trace(go.Scatter(
+            x=list(MONTH_NAMES), y=values, mode="lines+markers", name=str(year),
+            line=dict(color=colour, width=3 if newest else 2),
+            marker=dict(symbol="circle", size=6, color=colour), connectgaps=False,
+            hovertemplate=f"%{{x}} {year}<br>{label}: %{{y:,}}<extra></extra>",
+        ))
+    figure.update_layout(
+        height=380, margin=dict(l=12, r=18, t=20, b=40),
+        xaxis=dict(title="Calendar month"), yaxis=dict(title=label, rangemode="tozero", tickformat=","),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    return apply_chart_theme(figure)

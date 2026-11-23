@@ -5,7 +5,8 @@ import streamlit as st
 
 from mia_capital_intelligence.app_tabs.app_common import TRAFFIC_METHOD_NOTE, published_traffic
 from mia_capital_intelligence.traffic_view import (
-    LAST_PERIOD, MONTH_NAMES, TrafficSeries, comparable_years, traffic_figure, year_comparison, year_figure,
+    LAST_PERIOD, MONTH_NAMES, TrafficSeries, all_years_figure, comparable_years, series_years, traffic_figure,
+    year_comparison, year_figure,
 )
 
 
@@ -20,26 +21,13 @@ def traffic_cell(series: TrafficSeries, period: str, value_of) -> str:
     return "Not in series" if period > LAST_PERIOD else "No value"
 
 
-def render_traffic(series: TrafficSeries) -> None:
-    st.header("Monthly airport traffic")
-    st.subheader("Monthly passenger movements, 2010 to 2026")
-    st.caption(
-        "Each point is one reported month. Dotted lines mark months without a value. The shaded band marks "
-        "March 2020 to December 2021. Open diamonds mark values from a revised report. The lower panel shows "
-        "monthly total cargo tons."
-    )
-    st.plotly_chart(traffic_figure(series), width="stretch", config={"displayModeBar": False, "scrollZoom": False})
-
-    st.subheader("Year-on-year comparison")
+def render_prior_year(series: TrafficSeries, measure: str, value_of) -> None:
     years = comparable_years(series)
     year = st.radio("Year, compared with the prior year", years, index=years.index(2025), format_func=str,
                     key="traffic_year", horizontal=True)
-    measure_label = st.radio("Measure", ("Passengers", "Cargo tons"), horizontal=True, key="traffic_measure")
-    measure = "passengers" if measure_label == "Passengers" else "cargo_tons"
     st.plotly_chart(year_figure(series, year, measure), width="stretch",
                     config={"displayModeBar": False, "scrollZoom": False})
     rows = []
-    value_of = (lambda month: month.passengers) if measure == "passengers" else (lambda month: month.cargo_tons)
     for change in year_comparison(series, year, measure):
         period_prior = f"{year - 1}-{change.month:02d}"
         period_current = f"{year}-{change.month:02d}"
@@ -50,19 +38,33 @@ def render_traffic(series: TrafficSeries) -> None:
             "Change": "" if change.change is None else f"{change.change:+,}",
             "Change (%)": "" if change.percent is None else f"{change.percent:+.1f}%",
         })
-    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
-    st.caption(
-        "Change compares each month with the same month of the prior year. Blank change means one of the two "
-        "months has no value. Percent changes are rounded to one decimal place."
-    )
+    with st.expander("Monthly figures"):
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.caption(
+            "Change compares each month with the same month of the prior year. Blank change means one of the two "
+            "months has no value. Percent changes are rounded to one decimal place."
+        )
 
-    st.subheader("Exact values and sources")
+
+def render_all_years(series: TrafficSeries, measure: str, value_of) -> None:
+    all_years = series_years(series)
+    chosen = st.multiselect("Years shown", all_years, default=[year for year in all_years if year >= 2020],
+                            format_func=str, key="traffic_all_years")
+    if not chosen:
+        st.info("Choose at least one year to show its line.")
+        return
+    st.plotly_chart(all_years_figure(series, tuple(chosen), measure), width="stretch",
+                    config={"displayModeBar": False, "scrollZoom": False})
+    table = {"Month": list(MONTH_NAMES)}
+    for year in sorted(chosen):
+        table[str(year)] = [traffic_cell(series, f"{year}-{month:02d}", value_of) for month in range(1, 13)]
+    with st.expander("Monthly figures"):
+        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+
+def render_source_table(series: TrafficSeries) -> None:
     unavailable = {item.period: item for item in series.unavailable}
     by_period = series.by_period()
-    st.caption(
-        f"{len(series.months)} months with admitted values · {len(unavailable)} months without a value · "
-        "PDF page numbers count from 1 · HTML pages have no PDF page."
-    )
     table = []
     for period in series.all_periods():
         month = by_period.get(period)
@@ -87,7 +89,34 @@ def render_traffic(series: TrafficSeries) -> None:
             "Cargo PDF page": "HTML page" if month.cargo_tons.pdf_page is None else str(month.cargo_tons.pdf_page),
             "Notes": "; ".join(notes) if notes else "",
         })
-    st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+    with st.expander("Source data"):
+        st.caption(
+            f"{len(series.months)} months with admitted values · {len(unavailable)} months without a value · "
+            "PDF page numbers count from 1 · HTML pages have no PDF page."
+        )
+        st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+
+def render_traffic(series: TrafficSeries) -> None:
+    st.header("Monthly airport traffic")
+    st.subheader("Monthly passenger movements, 2010 to 2026")
+    st.caption(
+        "Each point is one reported month. Dotted lines mark months without a value. The shaded band marks "
+        "March 2020 to December 2021. Open diamonds mark values from a revised report. The lower panel shows "
+        "monthly total cargo tons."
+    )
+    st.plotly_chart(traffic_figure(series), width="stretch", config={"displayModeBar": False, "scrollZoom": False})
+
+    st.subheader("Compare years")
+    view = st.radio("View", ("Against the prior year", "All years together"), horizontal=True, key="traffic_view")
+    measure_label = st.radio("Measure", ("Passengers", "Cargo tons"), horizontal=True, key="traffic_measure")
+    measure = "passengers" if measure_label == "Passengers" else "cargo_tons"
+    value_of = (lambda month: month.passengers) if measure == "passengers" else (lambda month: month.cargo_tons)
+    if view == "All years together":
+        render_all_years(series, measure, value_of)
+    else:
+        render_prior_year(series, measure, value_of)
+    render_source_table(series)
 
     with st.expander("About these figures"):
         for paragraph in TRAFFIC_METHOD_NOTE:
