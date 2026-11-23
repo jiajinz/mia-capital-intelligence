@@ -359,3 +359,102 @@ def all_years_figure(series: TrafficSeries, years: tuple[int, ...], measure: str
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
     )
     return apply_chart_theme(figure)
+
+
+REFERENCE_MONTHS = 12
+ERROR_GROUPS = (
+    ("2011 to 2019", 2011, 2019),
+    ("2020 to 2021, pandemic period", 2020, 2021),
+    ("2022 to 2026", 2022, 2026),
+)
+
+
+@dataclass(frozen=True)
+class ReferenceMonth:
+    """One month of the reference forecast: the same month of the prior year, copied exactly."""
+
+    period: str
+    value: int | None
+    source_period: str
+
+
+@dataclass(frozen=True)
+class ReferenceError:
+    """Mean absolute percentage error of the reference over past months that have both values."""
+
+    label: str
+    months: int
+    mape: Decimal | None
+
+
+def shift_period(period: str, months: int) -> str:
+    year, month = int(period[:4]), int(period[5:7])
+    index = year * 12 + (month - 1) + months
+    return f"{index // 12:04d}-{index % 12 + 1:02d}"
+
+
+def _measure_value(month: TrafficMonth, measure: str) -> int:
+    return month.passengers.value if measure == "passengers" else month.cargo_tons.value
+
+
+def reference_forecast(series: TrafficSeries, measure: str) -> tuple[ReferenceMonth, ...]:
+    """Reference for the months after the last admitted month: the same month of the prior year, 12 months ahead.
+
+    The reference uses values at least 12 months old, so its inputs are not affected by publication timing.
+    """
+    by_period = series.by_period()
+    rows = []
+    for step in range(1, REFERENCE_MONTHS + 1):
+        period = shift_period(LAST_PERIOD, step)
+        source = shift_period(period, -12)
+        prior = by_period.get(source)
+        rows.append(ReferenceMonth(period, None if prior is None else _measure_value(prior, measure), source))
+    return tuple(rows)
+
+
+def reference_errors(series: TrafficSeries, measure: str) -> tuple[ReferenceError, ...]:
+    """Mean absolute percentage error of the same-month-last-year reference, exact Decimal arithmetic."""
+    by_period = series.by_period()
+    errors: dict[str, list[Decimal]] = {label: [] for label, _, _ in ERROR_GROUPS}
+    for period, month in by_period.items():
+        prior = by_period.get(shift_period(period, -12))
+        actual = _measure_value(month, measure)
+        if prior is None or actual == 0:
+            continue
+        percent = Decimal(abs(actual - _measure_value(prior, measure))) * 100 / Decimal(actual)
+        for label, first, last in ERROR_GROUPS:
+            if first <= month.year <= last:
+                errors[label].append(percent)
+    result = []
+    for label, _, _ in ERROR_GROUPS:
+        values = errors[label]
+        mape = (sum(values, Decimal(0)) / len(values)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP) if values else None
+        result.append(ReferenceError(label, len(values), mape))
+    return tuple(result)
+
+
+def reference_figure(series: TrafficSeries, measure: str) -> go.Figure:
+    """Last 24 admitted months as a solid line, then the 12 reference months as a dashed line."""
+    label = "Passenger movements" if measure == "passengers" else "Reported tons"
+    by_period = series.by_period()
+    actual_periods = [shift_period(LAST_PERIOD, -offset) for offset in range(23, -1, -1)]
+    actual_values = [None if by_period.get(p) is None else _measure_value(by_period[p], measure) for p in actual_periods]
+    reference = reference_forecast(series, measure)
+    figure = go.Figure()
+    figure.add_trace(go.Scatter(
+        x=actual_periods, y=actual_values, mode="lines+markers", name="Admitted value",
+        line=dict(color=PALETTE_BAR, width=3), marker=dict(size=6, color=PALETTE_BAR), connectgaps=False,
+        hovertemplate=f"%{{x}}<br>{label}: %{{y:,}}<extra></extra>",
+    ))
+    figure.add_trace(go.Scatter(
+        x=[row.period for row in reference], y=[row.value for row in reference], mode="lines+markers",
+        name="Reference (same month last year)", line=dict(color=PALETTE_SECONDARY, dash="dash", width=2),
+        marker=dict(symbol="circle-open", size=6, color=PALETTE_SECONDARY), connectgaps=False,
+        hovertemplate=f"%{{x}} reference<br>{label}: %{{y:,}}<extra></extra>",
+    ))
+    figure.update_layout(
+        height=380, margin=dict(l=12, r=18, t=20, b=40),
+        xaxis=dict(title="Month"), yaxis=dict(title=label, rangemode="tozero", tickformat=","),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    return apply_chart_theme(figure)

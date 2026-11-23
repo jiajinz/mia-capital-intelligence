@@ -5,8 +5,8 @@ import streamlit as st
 
 from mia_capital_intelligence.app_tabs.app_common import TRAFFIC_METHOD_NOTE, published_traffic
 from mia_capital_intelligence.traffic_view import (
-    LAST_PERIOD, MONTH_NAMES, TrafficSeries, all_years_figure, comparable_years, series_years, traffic_figure,
-    year_comparison, year_figure,
+    LAST_PERIOD, MONTH_NAMES, TrafficSeries, all_years_figure, comparable_years, reference_errors, reference_figure,
+    reference_forecast, series_years, traffic_figure, year_comparison, year_figure,
 )
 
 
@@ -60,6 +60,33 @@ def render_all_years(series: TrafficSeries, measure: str, value_of) -> None:
         table[str(year)] = [traffic_cell(series, f"{year}-{month:02d}", value_of) for month in range(1, 13)]
     with st.expander("Monthly figures"):
         st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+
+def render_reference_forecast(series: TrafficSeries, measure: str) -> None:
+    st.subheader("Reference forecast")
+    st.caption(
+        "A benchmark, not a model. Each month from October 2026 to September 2027 equals the same month of the "
+        "prior year. Model forecasts are not published."
+    )
+    st.plotly_chart(reference_figure(series, measure), width="stretch",
+                    config={"displayModeBar": False, "scrollZoom": False})
+    errors = {error.label: error for error in reference_errors(series, measure)}
+    normal = [errors["2011 to 2019"], errors["2022 to 2026"]]
+    error_text = " · ".join(f"{error.label}: {error.mape}%" for error in normal)
+    st.caption(f"Error on past months, mean absolute percentage error · {error_text}. The pandemic period is in the table.")
+    rows = []
+    for row in reference_forecast(series, measure):
+        rows.append({
+            "Month": row.period,
+            "Reference value": "No value" if row.value is None else f"{row.value:,}",
+            "Copied from": row.source_period,
+        })
+    with st.expander("Reference values and error"):
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+        st.caption(
+            "Error is measured on months where both the month and the same month of the prior year have values. "
+            "The pandemic period is shown separately because traffic fell sharply and the percentages are large."
+        )
 
 
 def render_source_table(series: TrafficSeries) -> None:
@@ -116,6 +143,7 @@ def render_traffic(series: TrafficSeries) -> None:
         render_all_years(series, measure, value_of)
     else:
         render_prior_year(series, measure, value_of)
+    render_reference_forecast(series, measure)
     render_source_table(series)
 
     with st.expander("About these figures"):

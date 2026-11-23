@@ -224,6 +224,8 @@ TRAFFIC_METHOD_NOTE = (
     "**March 2025** comes from a revised report. Its first-published version was not obtained.",
     "**March 2020 to December 2021** is the pandemic period. Values inside it are shown as published, without adjustment.",
     "December 2017, October 2018 and June 2022 appear only as the prior-year column of a later report. The table labels them.",
+    "**Reference forecast.** Each month from October 2026 to September 2027 equals the same month of the prior year. It is a benchmark, not a model. Its error is measured on past months where both values exist. "
+    "Model forecasts are not published.",
     "The Traffic section does not link traffic to projects or contracts.",
 )
 

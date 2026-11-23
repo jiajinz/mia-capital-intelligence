@@ -46,9 +46,9 @@ def test_traffic_section_renders_its_sections_in_order():
     result = traffic(app())
     assert result.header[0].value == "Monthly airport traffic"
     assert [item.value for item in result.subheader] == [
-        "Monthly passenger movements, 2010 to 2026", "Compare years",
+        "Monthly passenger movements, 2010 to 2026", "Compare years", "Reference forecast",
     ]
-    assert len(result.get("plotly_chart")) == 2
+    assert len(result.get("plotly_chart")) == 3
     assert not result.error
 
 
@@ -61,7 +61,8 @@ def test_monthly_figures_and_source_data_are_collapsed_by_default():
     assert not expander(tab, "Monthly figures").proto.expanded
     assert not expander(tab, "Source data").proto.expanded
     assert not expander(tab, "About these figures").proto.expanded
-    assert len(tab.dataframe) == 2
+    assert not expander(tab, "Reference values and error").proto.expanded
+    assert len(tab.dataframe) == 3
     assert "Exact values and sources" not in tab_text(tab)
 
 
@@ -78,7 +79,7 @@ def test_all_years_view_shows_one_line_per_selected_year_and_its_figures():
     assert not result.exception
     tab = traffic(result)
     assert list(tab.multiselect(key="traffic_all_years").value) == [2020, 2021, 2022, 2023, 2024, 2025, 2026]
-    assert len(tab.get("plotly_chart")) == 2
+    assert len(tab.get("plotly_chart")) == 3
     spec = chart_spec(tab, 1)
     assert [trace["name"] for trace in spec["data"]] == ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]
     monthly = expander(tab, "Monthly figures").dataframe[0].value
@@ -98,7 +99,7 @@ def test_all_years_view_can_include_the_earliest_year_and_handles_an_empty_choic
     result.multiselect(key="traffic_all_years").set_value([]).run()
     assert not result.exception
     assert any("Choose at least one year" in item.value for item in traffic(result).info)
-    assert len(traffic(result).get("plotly_chart")) == 1
+    assert len(traffic(result).get("plotly_chart")) == 2
 
 
 def test_traffic_copy_is_plain_statements_without_questions():
@@ -148,12 +149,13 @@ def test_chart_labels_both_unavailable_months_and_the_pandemic_break():
 def test_tab_has_no_forecast_projection_cost_or_financial_text():
     tab = traffic(app())
     text = tab_text(tab)
-    assert not re.search(r"forecast|projection|predict|outlook|\bcost|spending|\$", text, re.IGNORECASE)
+    assert not re.search(r"projection|predict|outlook|\bcost|spending|\$", text, re.IGNORECASE)
+    assert "Model forecasts are not published." in text
 
 
 def test_exact_table_gives_source_file_and_pdf_page_for_each_value():
     tab = traffic(app())
-    table = tab.dataframe[1].value
+    table = next(frame.value for frame in tab.dataframe if "Passenger source file" in frame.value.columns)
     assert len(table) == 201
     rows = {row["Month"]: row for _, row in table.iterrows()}
     january_2024 = rows["2024-01"]
@@ -204,3 +206,40 @@ def test_traffic_error_state_is_safe_and_scoped(monkeypatch):
         assert "/private/" not in tab_text(result)
     finally:
         st.cache_resource.clear()
+
+
+def test_reference_forecast_copies_the_same_month_of_the_prior_year():
+    series = traffic_view.load_traffic_series()
+    by_period = series.by_period()
+    rows = traffic_view.reference_forecast(series, "passengers")
+    assert [row.period for row in rows] == [
+        "2026-10", "2026-11", "2026-12", "2027-01", "2027-02", "2027-03",
+        "2027-04", "2027-05", "2027-06", "2027-07", "2027-08", "2027-09",
+    ]
+    october = rows[0]
+    assert october.source_period == "2025-10"
+    assert october.value == by_period["2025-10"].passengers.value == 4149563
+    assert all(row.value is not None for row in rows)
+
+
+def test_reference_error_is_exact_decimal_by_period_and_separates_the_pandemic():
+    from decimal import Decimal
+
+    series = traffic_view.load_traffic_series()
+    errors = {error.label: error for error in traffic_view.reference_errors(series, "cargo_tons")}
+    assert list(errors) == ["2011 to 2019", "2020 to 2021, pandemic period", "2022 to 2026"]
+    assert all(isinstance(error.mape, Decimal) for error in errors.values())
+    assert errors["2011 to 2019"].months == 105
+    assert errors["2020 to 2021, pandemic period"].months == 24
+    assert errors["2022 to 2026"].months == 57
+
+
+def test_reference_section_states_it_is_a_benchmark_with_its_error():
+    tab = traffic(app())
+    caption = " ".join(element.value for element in tab.caption)
+    assert "A benchmark, not a model." in caption
+    assert "Error on past months" in caption and "2011 to 2019" in caption and "2022 to 2026" in caption
+    chart_names = [trace["name"] for trace in chart_spec(tab, 2)["data"]]
+    assert chart_names == ["Admitted value", "Reference (same month last year)"]
+    reference = chart_spec(tab, 2)["data"][1]
+    assert reference["x"][0] == "2026-10" and reference["x"][-1] == "2027-09" and len(reference["x"]) == 12
