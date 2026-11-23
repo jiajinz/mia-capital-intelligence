@@ -1,0 +1,269 @@
+"""Shared render helpers, notice text, cached loaders and query routing for the public explorer tabs."""
+
+from datetime import date
+from html import escape
+from pathlib import Path
+from urllib.parse import urlencode
+
+import streamlit as st
+
+from mia_capital_intelligence import public_registry, traffic_view
+from mia_capital_intelligence.directory_queries import ESTIMATE_BANDS, format_usd, source_detail
+from mia_capital_intelligence.estimate_insights import EstimateRanking
+from mia_capital_intelligence.public_registry import AIRPORTS, PublicRegistry
+from mia_capital_intelligence.traffic_view import TrafficSeries
+
+ROOT = Path(__file__).resolve().parents[3]
+
+
+PAGE_STYLE = """
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+    .stApp, .stApp p, .stApp label, .stApp li, .stApp td, .stApp th, .stApp input, .stApp textarea,
+    .stApp [data-testid="stMarkdownContainer"], .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+    .stApp h1, .stApp h2, .stApp h3 { color:#012851; font-weight:700; }
+    .stApp [data-testid="stMarkdownContainer"] a { color:#337AB7; }
+    </style>
+"""
+
+
+@st.cache_resource(show_spinner=False)
+def published_registry() -> PublicRegistry:
+    """Cache immutable published inputs, with a fresh in-memory SQL query per search."""
+    return public_registry.load_registry(ROOT)
+
+
+@st.cache_resource(show_spinner=False)
+def published_traffic() -> TrafficSeries:
+    return traffic_view.load_traffic_series()
+
+
+def report_label(source: dict) -> str:
+    return f"{report_period(source['period_start'], source['period_end'])} · {source['matter_id']}"
+
+
+def report_period(start: str, end: str) -> str:
+    first, last = date.fromisoformat(start), date.fromisoformat(end)
+    if first.year == last.year:
+        return f"{first:%b}–{last:%b %Y}"
+    return f"{first:%b %Y}–{last:%b %Y}"
+
+
+def profile_permalink(source_ref: str) -> str:
+    return "?" + urlencode({"record": source_ref})
+
+
+def render_project_brief(detail: dict, *, expanded: bool, include_brief: bool = True) -> None:
+    delivery = detail["delivery"]
+    has_brief = include_brief and detail["project_brief"] != detail["project_name"]
+    if not has_brief and not delivery:
+        return
+    title = "Project brief and delivery team" if delivery and (delivery.lead or delivery.award) else "Project brief"
+    if not include_brief:
+        title = "Delivery team"
+    with st.expander(title, expanded=expanded):
+        if has_brief:
+            st.html(f'<p style="margin:0; overflow-wrap:anywhere">{escape(detail["project_brief"])}</p>')
+        st.markdown(f"**Reporting agency** · {detail['reporting_agency']}")
+        if delivery is None:
+            return
+        if lead := delivery.lead:
+            st.markdown(f"**Project lead** · {lead.name}")
+            st.caption(
+                f"MDAD project manager named in the {delivery.adopted_on:%B %Y} "
+                f"[award memo]({delivery.packet_url}#page={lead.memo_page})."
+            )
+        if award := delivery.award:
+            st.markdown(f"**Awarded contractor** · {award.company}")
+            st.caption(
+                f"{award.scope} · {award.contract_id} · "
+                f"[Board award]({delivery.board_url}) · {delivery.adopted_on:%B %d, %Y}"
+            )
+
+
+def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:
+    detail = source_detail(registry, reference)
+    source = detail["source"]
+    if not show_scope:
+        with st.container(border=True, key="ranked-record"):
+            st.subheader(detail["project_name"])
+            period = report_period(source["period_start"], source["period_end"])
+            st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
+            st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+            if detail["project_brief"] != detail["project_name"]:
+                st.markdown("**Project brief**")
+                st.html(f'<p class="mia-ranked-brief">{escape(detail["project_brief"])}</p>')
+            with st.container(horizontal=True, gap=None, key="ranked-evidence-links"):
+                st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="tertiary")
+                st.link_button("Link to this record", profile_permalink(reference), type="tertiary")
+            render_project_brief(detail, expanded=False, include_brief=False)
+        return
+    with st.container(border=True):
+        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(source)}")
+        st.subheader(detail["project_name"])
+        st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+        st.write("**Scope as described in the report**")
+        st.text(detail["description_raw"])
+        st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
+        st.link_button("Link to this record", profile_permalink(reference))
+
+
+def render_detail(registry: PublicRegistry, source_ref: str) -> None:
+    detail = source_detail(registry, source_ref)
+    source = detail["source"]
+    with st.container(border=True):
+        st.subheader(detail["project_name"])
+        period = report_period(source["period_start"], source["period_end"])
+        st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
+        st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+        st.link_button(
+            f"Open official PDF · page {detail['pdf_page']}",
+            detail["source_page_url"], type="primary",
+        )
+        st.link_button("Link to this record", profile_permalink(detail["source_ref"]))
+        render_project_brief(detail, expanded=True)
+        with st.expander("Report and source details"):
+            st.write(source["title"])
+            st.caption(f"{detail['reporting_agency']} · Report {source['matter_id']} · Exhibit B")
+            st.caption(f"Report coverage · {source['period_start']} to {source['period_end']}")
+            st.write(f"Memo · {source['memo_date']} · Board acceptance · {source['accepted_date']}")
+            st.write(f"PDF page {detail['pdf_page']} · printed {detail['printed_page']} · data row {detail['row_ordinal']}")
+            st.caption("The reported amount is a planning estimate.")
+            st.write("**Original project description**")
+            st.text(detail["description_raw"])
+            if detail["airport_code"] is None:
+                st.caption("Airport: unknown. The description does not identify a single airport.")
+            st.write("**Original estimate header and cell**")
+            st.text(detail["estimate_header"] + "\n" + detail["estimate_raw"])
+        if detail["candidate_source_refs"]:
+            with st.expander("Same ID in another report"):
+                st.caption("Whether these entries describe the same project scope is unknown.")
+                for related_ref in detail["candidate_source_refs"]:
+                    related = source_detail(registry, related_ref)
+                    st.write(
+                        f"**{related['project_id']} · {related['source']['matter_id']}**  "
+                        f"{related['project_name']}"
+                    )
+                    st.write(
+                        f"{related['source']['period_start']} to {related['source']['period_end']} · "
+                        f"Source-reported estimate {format_usd(related['estimate_usd'])}"
+                    )
+                    st.link_button(
+                        f"Open related official source · page {related['pdf_page']}",
+                        related["source_page_url"],
+                    )
+                    st.link_button(
+                        "Explore this related source record",
+                        profile_permalink(related_ref),
+                    )
+
+
+def render_estimate_distribution(
+    ranking: EstimateRanking, source: dict, airport: str | None, *, show_context: bool = True,
+) -> None:
+    known_count = ranking.matching_count - ranking.missing_count
+    if not known_count:
+        st.info("No indexed records with a known estimate match the selected report and airport.")
+        return
+    if show_context:
+        st.markdown(f"**{ranking.band_counts[0]} of {ranking.matching_count} matching records** show estimates under $10 million.")
+    bars = []
+    for band, count in zip(ESTIMATE_BANDS, ranking.band_counts, strict=True):
+        filters = {"report": ranking.matter_id, "range": band}
+        if airport is not None:
+            filters["airport"] = airport
+        route = "?" + urlencode(filters)
+        label = f"{escape(band)} <strong>{count}</strong>"
+        track = f'<span class="mia-band-track" aria-hidden="true"><i style="width:{count / known_count:.2%}"></i></span>'
+        content = f'<span class="mia-band-label">{label}</span>{track}'
+        if count:
+            noun = "record" if count == 1 else "records"
+            bars.append(f'<a href="{escape(route)}" '
+                        f'aria-label="{escape(band)} · {count} {noun}">{content}</a>')
+        else:
+            bars.append(f'<div class="mia-band-zero">{content}</div>')
+    st.html('''
+        <style>
+        .mia-estimate-bands { display:grid; gap:.35rem; max-width:52rem }
+        .mia-estimate-bands a, .mia-band-zero { display:block; padding:.4rem .55rem;
+          color:#333333; text-decoration:none; border:1px solid transparent; border-radius:.35rem }
+        .mia-estimate-bands a:hover { background:#F4F7FA; text-decoration:underline }
+        .mia-estimate-bands a:focus-visible { outline:2px solid #337AB7 }
+        .mia-band-label { display:flex; justify-content:space-between; gap:1rem }
+        .mia-band-label strong { font-variant-numeric:tabular-nums; color:#012851 }
+        .mia-band-track { display:block; margin-top:.2rem; height:.45rem; background:#E4EAF0; border-radius:2px }
+        .mia-band-track i { display:block; height:100%; background:#007BB6; border-radius:2px }
+        </style>
+        <div class="mia-estimate-bands" role="group" aria-label="Source record counts by estimate range in USD">'''
+        + "".join(bars) + "</div>")
+    if show_context:
+        st.caption(
+            f"Miami-Dade County · Report {source['matter_id']} · {known_count} records with estimates · "
+            f"{ranking.missing_count} without. Select a range to see the records behind it."
+        )
+
+
+CLOSED_SPENDING_MESSAGES = {
+    "pending_review": (
+        "Contract spending is not shown yet because no independent review has been recorded. "
+        "Ordinary display needs a named independent human review of the current financial input."
+    ),
+    "stale_review": (
+        "Contract spending is not shown because the recorded review was made for an earlier version of "
+        "the financial input. Ordinary display needs a new independent review of the current input."
+    ),
+    "invalid_review": (
+        "Contract spending is not shown because the recorded review did not pass validation. "
+        "Ordinary display needs a valid independent review that matches the current input."
+    ),
+    "invalid_input": (
+        "Contract spending is not shown because the prepared financial input did not pass its integrity check. "
+        "The input must be rebuilt and independently reviewed before ordinary display."
+    ),
+}
+
+
+TRAFFIC_METHOD_NOTE = (
+    "**What the series is.** Monthly passenger movements (deplaned plus enplaned) and total cargo tons at "
+    "Miami International Airport, COMBINED TOTALS for international and domestic traffic. The series covers "
+    "January 2010 to September 2026 and holds 199 reported months.",
+    "**Where it comes from.** Monthly traffic reports published by Miami International Airport. Early months come "
+    "from monthly web pages and later months from PDF monthly reports. The table gives the source file name and "
+    "PDF page for every value; PDF page numbers count from 1.",
+    "**What is missing.** July 2010 is a gap: no admitted value exists. June 2013 is held: its year-to-date totals "
+    "did not pass an internal check, so no value is shown. Some values appear only as the prior-year column of a "
+    "later report (December 2017, October 2018 and June 2022); the table labels them. March 2025 comes from a "
+    "revised report, and its first-published version was not obtained.",
+    "**The pandemic break.** The shaded band from March 2020 to December 2021 marks the pandemic break. Values "
+    "inside the band are shown as published, without adjustment.",
+    "**What this tab does not do.** It shows no future months, estimates or scenarios. It does not link traffic to "
+    "capital investment, contracts or individual projects, and it does not set passengers against seat or aircraft "
+    "counts. Year-on-year changes compare the same calendar month of the same measure with the prior year and do "
+    "not adjust for other factors. It makes no financial claim.",
+)
+
+
+def render_record_page(registry: PublicRegistry) -> None:
+    st.title("MIA Capital Intelligence")
+    requested = st.query_params.get_all("record")
+    st.link_button("Browse project records", "?")
+    if len(requested) == 1 and any(row.source_ref == requested[0] for row in registry.records):
+        render_detail(registry, requested[0])
+    else:
+        st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
+
+
+def initialize_explore_route(reports: dict) -> None:
+    report_route = st.query_params.get_all("report")
+    range_route = st.query_params.get_all("range")
+    airport_route = st.query_params.get_all("airport")
+    if not st.session_state.get("explore_initialized"):
+        if (len(report_route) == len(range_route) == 1
+                and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS):
+            st.session_state.update(source_report=report_route[0], chart_report=report_route[0],
+                                    estimate_range=range_route[0], explore_browse=True)
+            if len(airport_route) == 1 and airport_route[0] in (*AIRPORTS, "Unknown"):
+                st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])
+        st.session_state["explore_initialized"] = True
