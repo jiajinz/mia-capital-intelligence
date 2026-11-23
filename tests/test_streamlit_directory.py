@@ -41,7 +41,7 @@ def advanced_estimates(result):
 def test_directory_renders_controlled_records_and_public_context():
     result = app()
     assert [tab.label for tab in result.tabs] == [
-        "Explore", "Dashboard", "Sources & coverage", "Spending",
+        "Explore", "Dashboard", "Sources & coverage", "Spending", "Traffic",
     ]
     assert result.tabs[1].header[0].value == "Airport Operations"
     assert result.selectbox(key="source_report").value == "261402"
@@ -368,7 +368,7 @@ def test_t180b_case_surfaces_published_amounts_and_sources():
 def test_default_explore_and_tab_routes_state_independent_notice():
     result = app()
     assert [tab.label for tab in result.tabs] == [
-        "Explore", "Dashboard", "Sources & coverage", "Spending",
+        "Explore", "Dashboard", "Sources & coverage", "Spending", "Traffic",
     ]
 
 

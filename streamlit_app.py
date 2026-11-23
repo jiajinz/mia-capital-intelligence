@@ -30,6 +30,10 @@ from mia_capital_intelligence.contract_spending import FinancialView, financial_
 from mia_capital_intelligence.operations_updates import (  # noqa: E402
     OPERATING_AREAS, OPERATIONS_MATTER, operations_updates,
 )
+from mia_capital_intelligence.traffic_view import (  # noqa: E402
+    LAST_PERIOD, MONTH_NAMES, TrafficSeries, comparable_years, load_traffic_series,
+    traffic_figure, year_comparison, year_figure,
+)
 
 CASE_REFS = (
     "260526:eaf845f4fb746a69940f38fe4655d27b56ab42effdbf9cfdd1dbc746a0fba878:B:11:63",
@@ -709,6 +713,123 @@ def render_contract_spending(view: FinancialView) -> None:
             st.caption("Airport: unknown. The financial table and monthly summary give different locations.")
 
 
+TRAFFIC_METHOD_NOTE = (
+    "**What the series is.** Monthly passenger movements (deplaned plus enplaned) and total cargo tons at "
+    "Miami International Airport, COMBINED TOTALS for international and domestic traffic. The series covers "
+    "January 2010 to September 2026 and holds 199 reported months.",
+    "**Where it comes from.** Monthly traffic reports published by Miami International Airport. Early months come "
+    "from monthly web pages and later months from PDF monthly reports. The table gives the source file name and "
+    "PDF page for every value; PDF page numbers count from 1.",
+    "**What is missing.** July 2010 is a gap: no admitted value exists. June 2013 is held: its year-to-date totals "
+    "did not pass an internal check, so no value is shown. Some values appear only as the prior-year column of a "
+    "later report (December 2017, October 2018 and June 2022); the table labels them. March 2025 comes from a "
+    "revised report, and its first-published version was not obtained.",
+    "**The pandemic break.** The shaded band from March 2020 to December 2021 marks the pandemic break. Values "
+    "inside the band are shown as published, without adjustment.",
+    "**What this tab does not do.** It shows no future months, estimates or scenarios. It does not link traffic to "
+    "capital investment, contracts or individual projects, and it does not set passengers against seat or aircraft "
+    "counts. Year-on-year changes compare the same calendar month of the same measure with the prior year and do "
+    "not adjust for other factors. It makes no financial claim.",
+)
+
+
+@st.cache_resource(show_spinner=False)
+def published_traffic() -> TrafficSeries:
+    return load_traffic_series()
+
+
+def traffic_cell(series: TrafficSeries, period: str, value_of) -> str:
+    """Name the state of one month without guessing: a value, a gap, held, or outside the series."""
+    month = series.by_period().get(period)
+    if month is not None:
+        return f"{value_of(month).value:,}"
+    for item in series.unavailable:
+        if item.period == period:
+            return "Gap (no value)" if item.status == "gap" else "Held (no value)"
+    return "Not in series" if period > LAST_PERIOD else "No value"
+
+
+def render_traffic(series: TrafficSeries) -> None:
+    st.header("Monthly airport traffic")
+    st.subheader("Method note")
+    for paragraph in TRAFFIC_METHOD_NOTE:
+        st.markdown(paragraph)
+    st.subheader("Monthly passengers and cargo")
+    st.caption(
+        "Each point is one reported month. The dotted lines mark the unavailable months, the shaded band is the "
+        "pandemic break, and diamonds mark values from a revised report. The table below gives every value."
+    )
+    st.plotly_chart(traffic_figure(series), width="stretch", config={"displayModeBar": False, "scrollZoom": False})
+
+    st.subheader("Year-on-year comparison")
+    years = comparable_years(series)
+    year = st.selectbox("Year, compared with the prior year", years, index=years.index(2025), key="traffic_year")
+    measure_label = st.radio("Measure", ("Passengers", "Cargo tons"), horizontal=True, key="traffic_measure")
+    measure = "passengers" if measure_label == "Passengers" else "cargo_tons"
+    st.plotly_chart(year_figure(series, year, measure), width="stretch",
+                    config={"displayModeBar": False, "scrollZoom": False})
+    rows = []
+    value_of = (lambda month: month.passengers) if measure == "passengers" else (lambda month: month.cargo_tons)
+    for change in year_comparison(series, year, measure):
+        period_prior = f"{year - 1}-{change.month:02d}"
+        period_current = f"{year}-{change.month:02d}"
+        rows.append({
+            "Month": MONTH_NAMES[change.month - 1],
+            f"{year - 1}": traffic_cell(series, period_prior, value_of),
+            f"{year}": traffic_cell(series, period_current, value_of),
+            "Change": "" if change.change is None else f"{change.change:+,}",
+            "Change (%)": "" if change.percent is None else f"{change.percent:+.1f}%",
+        })
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+    st.caption(
+        "Change compares each month with the same month of the prior year. Blank change means one of the two "
+        "months has no value. Percent changes are rounded to one decimal place."
+    )
+
+    st.subheader("Exact values and sources")
+    unavailable = {item.period: item for item in series.unavailable}
+    by_period = series.by_period()
+    st.caption(
+        f"{len(series.months)} months with admitted values · {len(unavailable)} months without a value · "
+        "PDF page numbers count from 1 · HTML pages have no PDF page."
+    )
+    table = []
+    for period in series.all_periods():
+        month = by_period.get(period)
+        if month is None:
+            item = unavailable[period]
+            table.append({
+                "Month": period, "Passenger movements": "Gap (no value)" if item.status == "gap" else "Held (no value)",
+                "Passenger source file": "", "Passenger PDF page": "",
+                "Cargo tons": "Gap (no value)" if item.status == "gap" else "Held (no value)",
+                "Cargo source file": "", "Cargo PDF page": "",
+                "Notes": item.reason,
+            })
+            continue
+        notes = list(dict.fromkeys(note for note in (month.passengers.note, month.cargo_tons.note) if note))
+        table.append({
+            "Month": period,
+            "Passenger movements": f"{month.passengers.value:,}",
+            "Passenger source file": month.passengers.source_file,
+            "Passenger PDF page": "HTML page" if month.passengers.pdf_page is None else str(month.passengers.pdf_page),
+            "Cargo tons": f"{month.cargo_tons.value:,}",
+            "Cargo source file": month.cargo_tons.source_file,
+            "Cargo PDF page": "HTML page" if month.cargo_tons.pdf_page is None else str(month.cargo_tons.pdf_page),
+            "Notes": "; ".join(notes) if notes else "",
+        })
+    st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+
+def render_traffic_tab() -> None:
+    try:
+        series = published_traffic()
+    except (ValueError, OSError, KeyError):
+        st.header("Monthly airport traffic")
+        st.error("The traffic data could not be validated. The Traffic tab is unavailable until the data is repaired.")
+        return
+    render_traffic(series)
+
+
 try:
     registry = published_registry()
 except (ValueError, OSError, KeyError):
@@ -740,8 +861,8 @@ if not st.session_state.get("explore_initialized"):
             st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])
     st.session_state["explore_initialized"] = True
 
-explore_tab, dashboard_tab, coverage_tab, spending_tab = st.tabs([
-    "Explore", "Dashboard", "Sources & coverage", "Spending",
+explore_tab, dashboard_tab, coverage_tab, spending_tab, traffic_tab = st.tabs([
+    "Explore", "Dashboard", "Sources & coverage", "Spending", "Traffic",
 ], default="Explore")
 with explore_tab:
     st.html("""
@@ -785,6 +906,8 @@ with spending_tab:
         server_address=st.get_option("server.address"),
         review_json=configured_financial_review(),
     ))
+with traffic_tab:
+    render_traffic_tab()
 
 st.divider()
 st.caption(ATTRIBUTION)
