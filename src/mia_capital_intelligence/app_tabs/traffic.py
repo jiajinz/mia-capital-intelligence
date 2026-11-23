@@ -1,0 +1,101 @@
+"""Traffic tab: monthly passenger and cargo series with year-on-year comparison."""
+
+import pandas as pd
+import streamlit as st
+
+from mia_capital_intelligence.app_tabs.app_common import TRAFFIC_METHOD_NOTE, published_traffic
+from mia_capital_intelligence.traffic_view import (
+    LAST_PERIOD, MONTH_NAMES, TrafficSeries, comparable_years, traffic_figure, year_comparison, year_figure,
+)
+
+
+def traffic_cell(series: TrafficSeries, period: str, value_of) -> str:
+    """Name the state of one month without guessing: a value, a gap, held, or outside the series."""
+    month = series.by_period().get(period)
+    if month is not None:
+        return f"{value_of(month).value:,}"
+    for item in series.unavailable:
+        if item.period == period:
+            return "Gap (no value)" if item.status == "gap" else "Held (no value)"
+    return "Not in series" if period > LAST_PERIOD else "No value"
+
+
+def render_traffic(series: TrafficSeries) -> None:
+    st.header("Monthly airport traffic")
+    st.subheader("Method note")
+    for paragraph in TRAFFIC_METHOD_NOTE:
+        st.markdown(paragraph)
+    st.subheader("Monthly passengers and cargo")
+    st.caption(
+        "Each point is one reported month. The dotted lines mark the unavailable months, the shaded band is the "
+        "pandemic break, and diamonds mark values from a revised report. The table below gives every value."
+    )
+    st.plotly_chart(traffic_figure(series), width="stretch", config={"displayModeBar": False, "scrollZoom": False})
+
+    st.subheader("Year-on-year comparison")
+    years = comparable_years(series)
+    year = st.selectbox("Year, compared with the prior year", years, index=years.index(2025), key="traffic_year")
+    measure_label = st.radio("Measure", ("Passengers", "Cargo tons"), horizontal=True, key="traffic_measure")
+    measure = "passengers" if measure_label == "Passengers" else "cargo_tons"
+    st.plotly_chart(year_figure(series, year, measure), width="stretch",
+                    config={"displayModeBar": False, "scrollZoom": False})
+    rows = []
+    value_of = (lambda month: month.passengers) if measure == "passengers" else (lambda month: month.cargo_tons)
+    for change in year_comparison(series, year, measure):
+        period_prior = f"{year - 1}-{change.month:02d}"
+        period_current = f"{year}-{change.month:02d}"
+        rows.append({
+            "Month": MONTH_NAMES[change.month - 1],
+            f"{year - 1}": traffic_cell(series, period_prior, value_of),
+            f"{year}": traffic_cell(series, period_current, value_of),
+            "Change": "" if change.change is None else f"{change.change:+,}",
+            "Change (%)": "" if change.percent is None else f"{change.percent:+.1f}%",
+        })
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+    st.caption(
+        "Change compares each month with the same month of the prior year. Blank change means one of the two "
+        "months has no value. Percent changes are rounded to one decimal place."
+    )
+
+    st.subheader("Exact values and sources")
+    unavailable = {item.period: item for item in series.unavailable}
+    by_period = series.by_period()
+    st.caption(
+        f"{len(series.months)} months with admitted values · {len(unavailable)} months without a value · "
+        "PDF page numbers count from 1 · HTML pages have no PDF page."
+    )
+    table = []
+    for period in series.all_periods():
+        month = by_period.get(period)
+        if month is None:
+            item = unavailable[period]
+            table.append({
+                "Month": period, "Passenger movements": "Gap (no value)" if item.status == "gap" else "Held (no value)",
+                "Passenger source file": "", "Passenger PDF page": "",
+                "Cargo tons": "Gap (no value)" if item.status == "gap" else "Held (no value)",
+                "Cargo source file": "", "Cargo PDF page": "",
+                "Notes": item.reason,
+            })
+            continue
+        notes = list(dict.fromkeys(note for note in (month.passengers.note, month.cargo_tons.note) if note))
+        table.append({
+            "Month": period,
+            "Passenger movements": f"{month.passengers.value:,}",
+            "Passenger source file": month.passengers.source_file,
+            "Passenger PDF page": "HTML page" if month.passengers.pdf_page is None else str(month.passengers.pdf_page),
+            "Cargo tons": f"{month.cargo_tons.value:,}",
+            "Cargo source file": month.cargo_tons.source_file,
+            "Cargo PDF page": "HTML page" if month.cargo_tons.pdf_page is None else str(month.cargo_tons.pdf_page),
+            "Notes": "; ".join(notes) if notes else "",
+        })
+    st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+
+def render_traffic_tab() -> None:
+    try:
+        series = published_traffic()
+    except (ValueError, OSError, KeyError):
+        st.header("Monthly airport traffic")
+        st.error("The traffic data could not be validated. The Traffic tab is unavailable until the data is repaired.")
+        return
+    render_traffic(series)
