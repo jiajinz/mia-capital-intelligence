@@ -3,7 +3,6 @@
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
-from textwrap import shorten
 from typing import Any, Mapping
 
 import plotly.graph_objects as go
@@ -20,6 +19,10 @@ CHART_NAMES = {
     "BA061A": "Central Terminal redevelopment · Phase 1",
     "V008C": "Central Terminal redevelopment · Phase 2",
 }
+# Display-only: at 320 CSS px the chart plot is about 220 px wide, so bar labels are capped
+# at 16 characters including the ellipsis. Hover and the selected record keep the full name.
+CHART_LABEL_MAX_CHARS = 16
+ESTIMATE_AXIS_TITLE = "Estimated cost (USD millions)"
 
 
 @dataclass(frozen=True)
@@ -79,8 +82,19 @@ def apply_chart_theme(figure: go.Figure) -> go.Figure:
     return figure
 
 
+def chart_label(name: str) -> str:
+    """Truncate a display label with an ellipsis; the underlying data is never changed."""
+    if len(name) <= CHART_LABEL_MAX_CHARS:
+        return name
+    return name[:CHART_LABEL_MAX_CHARS - 1].rstrip() + "…"
+
+
 def estimate_figure(ranking: EstimateRanking) -> go.Figure:
-    """Convert only bar geometry to float; hover retains exact USD and evidence keys."""
+    """Convert only bar geometry to float; hover retains exact USD and evidence keys.
+
+    The axis title is shown below the chart by the app, not inside the plot: Plotly centers
+    an axis title on the plot area, which clips it when the plot is narrow.
+    """
     rows = ranking.rows
     figure = go.Figure(go.Bar(
         x=[float(row["estimate_usd"] / Decimal("1000000")) for row in rows],
@@ -97,13 +111,12 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
     figure.update_layout(
         height=max(300, 38 * len(rows) + 90),
         margin=dict(l=15, r=25, t=15, b=45),
-        xaxis=dict(title="Estimated cost (USD millions)", tickformat=",~f", rangemode="tozero"),
+        xaxis=dict(tickformat=",~f", rangemode="tozero"),
         yaxis=dict(
             title=None, autorange="reversed", type="category", automargin=True,
             tickvals=[row["project_id"] for row in rows],
             ticktext=[
-                shorten(CHART_NAMES.get(row["project_id"], row["project_name"]), width=32, placeholder="…")
-                for row in rows
+                chart_label(CHART_NAMES.get(row["project_id"], row["project_name"])) for row in rows
             ],
         ),
         clickmode="event+select", dragmode=False,
