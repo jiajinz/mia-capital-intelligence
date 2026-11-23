@@ -1,4 +1,4 @@
-"""Sources and coverage tab: source documents, record counts and the Concourse D case study."""
+"""Sources & Coverage tab: source documents, record counts and the Concourse D case study."""
 
 import pandas as pd
 import streamlit as st
@@ -19,7 +19,7 @@ CASE_REFS = (
 
 
 def render_coverage(registry: PublicRegistry) -> None:
-    st.subheader("Sources & coverage")
+    st.subheader("Sources & Coverage")
     st.caption("Underlying records are published by Miami-Dade County.")
     st.markdown("[Data update history](https://github.com/jiajinz/mia-capital-intelligence/blob/main/docs/DATA_UPDATES.md)")
     if set(CASE_REFS).issubset(row.source_ref for row in registry.records):

@@ -83,6 +83,14 @@ def render_project_brief(detail: dict, *, expanded: bool, include_brief: bool = 
             )
 
 
+def render_record_links(detail: dict, reference: str) -> None:
+    """One caption line of plain links: the official PDF page and this record's permalink."""
+    st.caption(
+        f"[Open official PDF · page {detail['pdf_page']}]({detail['source_page_url']}) · "
+        f"[Link to this record]({profile_permalink(reference)})"
+    )
+
+
 def render_record_summary(registry: PublicRegistry, reference: str, *, show_scope: bool = False) -> None:
     detail = source_detail(registry, reference)
     source = detail["source"]
@@ -92,22 +100,19 @@ def render_record_summary(registry: PublicRegistry, reference: str, *, show_scop
             period = report_period(source["period_start"], source["period_end"])
             st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
             st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+            render_record_links(detail, reference)
             if detail["project_brief"] != detail["project_name"]:
                 st.markdown("**Project brief**")
                 st.html(f'<p class="mia-ranked-brief">{escape(detail["project_brief"])}</p>')
-            with st.container(horizontal=True, gap=None, key="ranked-evidence-links"):
-                st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="tertiary")
-                st.link_button("Link to this record", profile_permalink(reference), type="tertiary")
             render_project_brief(detail, expanded=False, include_brief=False)
         return
     with st.container(border=True):
         st.caption(f"{detail['project_id']} · {detail['airport_name']} · {report_label(source)}")
         st.subheader(detail["project_name"])
         st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
+        render_record_links(detail, reference)
         st.write("**Scope as described in the report**")
         st.text(detail["description_raw"])
-        st.link_button(f"Open official PDF · page {detail['pdf_page']}", detail["source_page_url"], type="primary")
-        st.link_button("Link to this record", profile_permalink(reference))
 
 
 def render_detail(registry: PublicRegistry, source_ref: str) -> None:
@@ -118,11 +123,11 @@ def render_detail(registry: PublicRegistry, source_ref: str) -> None:
         period = report_period(source["period_start"], source["period_end"])
         st.caption(f"{detail['project_id']} · {detail['airport_name']} · {period}")
         st.metric("Reported total cost estimate · USD", format_usd(detail["estimate_usd"]))
-        st.link_button(
-            f"Open official PDF · page {detail['pdf_page']}",
-            detail["source_page_url"], type="primary",
+        render_record_links(detail, detail["source_ref"])
+        st.html(
+            '<p class="mia-source-hash" style="margin:0; overflow-wrap:anywhere; font-size:.875rem; color:#3F5161">'
+            f'Source document SHA-256 · <code>{escape(source["sha256"])}</code></p>'
         )
-        st.link_button("Link to this record", profile_permalink(detail["source_ref"]))
         render_project_brief(detail, expanded=True)
         with st.expander("Report and source details"):
             st.write(source["title"])
@@ -203,7 +208,8 @@ CLOSED_SPENDING_MESSAGES = {
 }
 
 
-SECTIONS = ("Overview", "Projects", "Sources & coverage", "Spending", "Traffic")
+SECTIONS = ("Overview", "Projects", "Traffic", "Spending", "Sources & Coverage")
+SECTION_OVERVIEW, SECTION_PROJECTS, SECTION_TRAFFIC, SECTION_SPENDING, SECTION_COVERAGE = SECTIONS
 SECTION_KEY = "section"
 
 # Plain facts only, shown at the bottom of the Traffic section.
@@ -238,9 +244,9 @@ def open_section(name: str) -> None:
 
 
 def open_report(matter_id: str) -> None:
-    """Callback helper: open one source document in Sources & coverage."""
+    """Callback helper: open one source document in Sources & Coverage."""
     st.session_state["coverage_source"] = matter_id
-    open_section("Sources & coverage")
+    open_section(SECTION_COVERAGE)
 
 
 def initialize_explore_route(reports: dict) -> None:
@@ -251,8 +257,8 @@ def initialize_explore_route(reports: dict) -> None:
     if not st.session_state.get("explore_initialized"):
         if (len(report_route) == len(range_route) == 1
                 and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS):
-            st.session_state.update(section=SECTIONS[1], source_report=report_route[0],
-                                    estimate_range=range_route[0], explore_browse=True)
+            st.session_state.update(section=SECTION_PROJECTS, source_report=report_route[0],
+                                    estimate_range=range_route[0])
             if len(airport_route) == 1 and airport_route[0] in (*AIRPORTS, "Unknown"):
                 st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])
         st.session_state["explore_initialized"] = True

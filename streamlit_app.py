@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from mia_capital_intelligence.app_tabs.app_common import (  # noqa: E402
-    PAGE_STYLE, SECTION_KEY, SECTIONS, initialize_explore_route, published_registry, render_record_page,
+    PAGE_STYLE, SECTION_COVERAGE, SECTION_KEY, SECTION_OVERVIEW, SECTION_PROJECTS, SECTION_SPENDING,
+    SECTION_TRAFFIC, SECTIONS, initialize_explore_route, published_registry, render_record_page,
 )
 from mia_capital_intelligence.app_tabs.explore import render_explore_tab  # noqa: E402
 from mia_capital_intelligence.app_tabs.overview import render_overview  # noqa: E402
@@ -38,16 +39,16 @@ initialize_explore_route(reports)
 
 st.title("MIA Capital Intelligence")
 section = st.radio("Section", SECTIONS, horizontal=True, key=SECTION_KEY, label_visibility="collapsed")
-if section == SECTIONS[0]:
+if section == SECTION_OVERVIEW:
     render_overview(registry, reports, latest_report, ROOT)
-elif section == SECTIONS[1]:
+elif section == SECTION_PROJECTS:
     render_explore_tab(registry, latest_report)
-elif section == SECTIONS[2]:
-    render_coverage(registry)
-elif section == SECTIONS[3]:
-    render_spending_tab(ROOT)
-else:
+elif section == SECTION_TRAFFIC:
     render_traffic_tab()
+elif section == SECTION_SPENDING:
+    render_spending_tab(ROOT)
+elif section == SECTION_COVERAGE:
+    render_coverage(registry)
 
 st.divider()
 st.caption(ATTRIBUTION)

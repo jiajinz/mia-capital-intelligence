@@ -1,19 +1,21 @@
-"""Overview: the first section a visitor sees. Search, service-area tiles and three at-a-glance panels."""
+"""Overview: the first section a visitor sees. Search, service areas, an estimate range drill-down and three panels."""
 
 from datetime import date
+from decimal import Decimal
 from html import escape
 from pathlib import Path
 
 import streamlit as st
 
 from mia_capital_intelligence.app_tabs.app_common import (
-    SECTIONS, open_section, published_traffic, render_estimate_distribution, report_label, report_period,
+    SECTION_TRAFFIC, open_report, open_section, profile_permalink, published_traffic, render_detail,
+    render_estimate_distribution, report_label, report_period,
 )
-from mia_capital_intelligence.app_tabs.explore import (
-    markdown_label, open_projects_range, open_projects_search, open_service_area,
-)
+from mia_capital_intelligence.app_tabs.explore import ESTIMATE_SORT, markdown_label
 from mia_capital_intelligence.app_tabs.spending import render_spending_summary
-from mia_capital_intelligence.directory_queries import ESTIMATE_BANDS, format_usd
+from mia_capital_intelligence.directory_queries import (
+    ESTIMATE_BANDS, DirectoryFilters, format_usd, search_records,
+)
 from mia_capital_intelligence.estimate_insights import largest_estimates, range_records
 from mia_capital_intelligence.operations_updates import OPERATING_AREAS, OPERATIONS_MATTER, operations_updates
 from mia_capital_intelligence.public_registry import PublicRegistry
@@ -24,38 +26,61 @@ OVERVIEW_CSS = """
     .st-key-service-tiles button[data-testid^="stBaseButton"] {
       min-height:5rem; justify-content:flex-start; text-align:left; padding:.8rem 1rem; }
     .st-key-service-tiles button[data-testid^="stBaseButton"] p { overflow-wrap:anywhere; }
-    .mia-range-list { list-style:none; margin:.25rem 0 0; padding:0; max-width:52rem }
-    .mia-range-row { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:1rem;
-      padding:.5rem 0; border-top:1px solid #DDE3E8; font-size:.9375rem; line-height:1.4; color:#333333 }
-    .mia-range-name { overflow-wrap:anywhere }
-    .mia-range-meta { grid-column:1; font-size:.8125rem; color:#3F5161 }
-    .mia-range-amount { grid-column:2; grid-row:1; text-align:right; font-variant-numeric:tabular-nums }
+    .st-key-overview-cards button[data-testid^="stBaseButton"] { justify-content:flex-start; text-align:left; }
+    .st-key-overview-cards button[data-testid^="stBaseButton"] p { overflow-wrap:anywhere; }
+    .mia-drill-row { padding:.5rem 0; border-top:1px solid #DDE3E8; }
+    .mia-drill-name { margin:0; font-weight:700; color:#333333; overflow-wrap:anywhere; }
+    .mia-drill-meta { margin:0; font-size:.875rem; line-height:1.4; color:#3F5161; }
     </style>
 """
 OVERVIEW_RANGE_ALL = "All"
-OVERVIEW_RANGE_ROWS = 10
 
 
 def render_overview(registry: PublicRegistry, reports: dict, latest_report: str, root: Path) -> None:
     st.html(OVERVIEW_CSS)
     st.caption("Explore airport improvements and reported project costs.")
-    render_overview_search()
+    render_overview_search(registry, reports)
     render_service_areas(registry, reports)
     estimates, spending, traffic = st.columns(3, gap="medium")
     with estimates, st.container(border=True, key="glance-estimates"):
-        render_estimate_glance(registry, reports, latest_report)
+        choice = render_estimate_glance(registry, reports, latest_report)
     with spending, st.container(border=True, key="glance-spending"):
         st.markdown("**Contract spending**")
         render_spending_summary(root)
     with traffic, st.container(border=True, key="glance-traffic"):
         render_traffic_glance()
+    if choice is not None:
+        render_range_drilldown(registry, reports, latest_report, choice)
 
 
-def search_from_overview() -> None:
-    open_projects_search(st.session_state.get("overview_search", ""))
+def submit_overview_search() -> None:
+    st.session_state.update(
+        overview_query=st.session_state.get("overview_search", "").strip(), overview_area=None,
+    )
+    st.session_state.pop("overview_record", None)
 
 
-def render_overview_search() -> None:
+def clear_overview_search() -> None:
+    st.session_state.update(overview_query="", overview_search="")
+    st.session_state.pop("overview_record", None)
+
+
+def open_service_area(area: str) -> None:
+    """Callback for a service tile: show that area's updates below the tiles, on this page."""
+    st.session_state.update(overview_area=area, overview_query="", overview_search="")
+    st.session_state.pop("overview_record", None)
+
+
+def select_overview_record(reference: str) -> None:
+    st.session_state["overview_record"] = reference
+
+
+def close_range_drilldown() -> None:
+    """Callback for Back to overview: clear the range choice so the sub-dashboard closes."""
+    st.session_state["overview_range"] = None
+
+
+def render_overview_search(registry: PublicRegistry, reports: dict) -> None:
     with st.form("overview-search", border=False):
         search_column, search_button = st.columns([5, 1], vertical_alignment="bottom")
         with search_column:
@@ -64,7 +89,56 @@ def render_overview_search() -> None:
                 key="overview_search",
             )
         with search_button:
-            st.form_submit_button("Search", type="primary", on_click=search_from_overview, width="stretch")
+            st.form_submit_button("Search", type="primary", on_click=submit_overview_search, width="stretch")
+    query = st.session_state.get("overview_query", "")
+    if query:
+        render_search_results(registry, reports, query)
+
+
+def matches_report(source: dict, query: str) -> bool:
+    text = f"{report_label(source)} {source['title']}".lower()
+    return all(word in text for word in query.lower().split())
+
+
+def render_search_results(registry: PublicRegistry, reports: dict, query: str) -> None:
+    matches = [source for source in reports.values() if matches_report(source, query)]
+    records = search_records(registry, DirectoryFilters(query, None, None, ESTIMATE_SORT))
+    st.subheader("Search results")
+    noun = "source record" if len(records) == 1 else "source records"
+    st.caption(f"{len(records)} matching {noun} · {len(reports)} indexed reports")
+    if matches:
+        st.markdown("**Reports matching this search**")
+        for source in matches:
+            st.button(
+                f"{report_label(source)} · {source['title']}", key=f"report-{source['matter_id']}",
+                width="stretch", on_click=open_report, args=(source["matter_id"],),
+            )
+    if records:
+        for row in records:
+            render_record_row(row, reports, "search")
+    else:
+        st.info("No source records match this search. Try a shorter keyword.")
+    st.button("Clear search", key="overview-clear-search", on_click=clear_overview_search)
+
+
+def render_record_row(row: dict, reports: dict, prefix: str) -> None:
+    """One project in a list: name, report period and reported estimate, with the official PDF page and permalink."""
+    reference = row["source_ref"]
+    name_column, links_column = st.columns([3, 2], vertical_alignment="center")
+    with name_column:
+        st.html(
+            '<div class="mia-drill-row">'
+            f'<p class="mia-drill-name">{escape(row["project_name"])}</p>'
+            '<p class="mia-drill-meta">'
+            f'{escape(report_period(row["period_start"], row["period_end"]))} · '
+            f'Reported estimate <span style="white-space:nowrap">{escape(format_usd(row["estimate_usd"]))}</span></p></div>'
+        )
+    with links_column:
+        source_url = reports[row["matter_id"]]["url"]
+        st.link_button(
+            f"Open official PDF · page {row['pdf_page']}", f"{source_url}#page={row['pdf_page']}", type="tertiary",
+        )
+        st.link_button("Link to this record", profile_permalink(reference), type="tertiary")
 
 
 def render_service_areas(registry: PublicRegistry, reports: dict) -> None:
@@ -88,9 +162,35 @@ def render_service_areas(registry: PublicRegistry, reports: dict) -> None:
                     f"**{area}**  \n{count} {noun}", key=f"area-tile-{index}", width="stretch",
                     on_click=open_service_area, args=(area,),
                 )
+    if selected_area := st.session_state.get("overview_area"):
+        render_service_area(registry, source, selected_area)
 
 
-def render_estimate_glance(registry: PublicRegistry, reports: dict, latest_report: str) -> None:
+def render_service_area(registry: PublicRegistry, source: dict, area: str) -> None:
+    updates = [update for update in operations_updates(registry) if update.area == area]
+    st.subheader(area)
+    noun = "project update" if len(updates) == 1 else "project updates"
+    st.caption(f"{len(updates)} {noun} from the county's quarterly report")
+    selected = st.session_state.get("overview_record")
+    with st.container(key="overview-cards"):
+        for update in updates:
+            reference = update.source_ref
+            with st.container(border=True):
+                st.caption(f"{update.area} · {update.project_id}")
+                st.markdown(f"**{update.title}**")
+                st.write(update.description)
+                st.markdown(f"[Read report update]({source['url']}#page={update.memo_page})")
+                st.button(
+                    "Open project record", key=f"open-{reference}",
+                    type="primary" if selected == reference else "secondary",
+                    on_click=select_overview_record, args=(reference,),
+                )
+    if selected in {update.source_ref for update in updates}:
+        render_detail(registry, selected)
+
+
+def render_estimate_glance(registry: PublicRegistry, reports: dict, latest_report: str) -> str | None:
+    """Show the estimate distribution and return the range the visitor chose, if any."""
     source = reports[latest_report]
     ranking = largest_estimates(registry, latest_report, limit=1)
     period = report_period(source["period_start"], source["period_end"])
@@ -98,45 +198,30 @@ def render_estimate_glance(registry: PublicRegistry, reports: dict, latest_repor
     st.caption(f"{period} · All airports · {ranking.snapshot_count} report entries")
     render_estimate_distribution(ranking, source, show_context=False)
     st.caption("Select a range to list its records.")
-    choice = st.radio(
-        "Reported estimate range", [OVERVIEW_RANGE_ALL, *ESTIMATE_BANDS], key="overview_range", horizontal=True,
-        label_visibility="collapsed", format_func=markdown_label,
+    return st.radio(
+        "Reported estimate range", [OVERVIEW_RANGE_ALL, *ESTIMATE_BANDS], key="overview_range", index=None,
+        horizontal=True, label_visibility="collapsed", format_func=markdown_label,
     )
+
+
+def render_range_drilldown(registry: PublicRegistry, reports: dict, latest_report: str, choice: str) -> None:
+    """Sub-dashboard for one estimate range. It opens inside the Overview; the section does not change."""
     band = None if choice == OVERVIEW_RANGE_ALL else choice
-    known_count = ranking.matching_count - ranking.missing_count
-    total = known_count if band is None else ranking.band_counts[ESTIMATE_BANDS.index(band)]
-    render_range_list(registry, source, latest_report, band, total)
-    st.button(
-        "Show all in Projects", key="overview-show-all", on_click=open_projects_range, args=(latest_report, band),
-    )
-
-
-def render_range_list(registry: PublicRegistry, source: dict, latest_report: str, band: str | None, total: int) -> None:
-    """Plain rows for the chosen range. Names are text, not links; the Projects section opens only from the button."""
-    rows = range_records(registry, latest_report, band)[:OVERVIEW_RANGE_ROWS]
-    if not rows:
-        st.caption("No records with a known estimate in this range.")
-        return
-    shown = f"Showing {len(rows)} of {total} records, largest first." if total > len(rows) else (
-        f"{total} records, largest first.")
-    st.caption(shown)
-    items = "".join(
-        '<li class="mia-range-row">'
-        f'<span class="mia-range-name">{escape(row["project_name"])}</span>'
-        f'<span class="mia-range-amount">{escape(format_usd(row["estimate_usd"]))}</span>'
-        f'<span class="mia-range-meta">{escape(report_label(source))}</span>'
-        "</li>"
-        for row in rows
-    )
-    st.html(f'<ul class="mia-range-list" aria-label="Projects in this estimate range">{items}</ul>')
-
-
-def change_text(change: int | None, percent, prior_label: str) -> str | None:
-    if change is None:
-        return None
-    if percent is None:
-        return f"{change:+,} vs {prior_label}"
-    return f"{change:+,} ({percent:+.1f}%) vs {prior_label}"
+    rows = range_records(registry, latest_report, band)
+    total = sum((row["estimate_usd"] for row in rows), Decimal("0"))
+    source = reports[latest_report]
+    period = report_period(source["period_start"], source["period_end"])
+    with st.container(border=True, key="overview-drilldown"):
+        st.button("Back to overview", key="overview-range-back", on_click=close_range_drilldown)
+        st.subheader(markdown_label("All estimates" if band is None else band))
+        st.caption(f"{period} · All airports · Report {latest_report}")
+        count, amount = st.columns(2)
+        count.metric("Records in this range", f"{len(rows):,}")
+        amount.metric("Total reported estimate · USD", format_usd(total))
+        if not rows:
+            st.caption("No records with a known estimate in this range.")
+        for row in rows:
+            render_record_row(row, reports, "range")
 
 
 def render_traffic_glance() -> None:
@@ -155,4 +240,12 @@ def render_traffic_glance() -> None:
               delta=change_text(passengers.change, passengers.percent, prior_label))
     st.metric(f"Total cargo tons, {label}", f"{cargo.current:,}",
               delta=change_text(cargo.change, cargo.percent, prior_label))
-    st.button("See the Traffic section", key="open-traffic", on_click=open_section, args=(SECTIONS[4],))
+    st.button("See the Traffic section", key="open-traffic", on_click=open_section, args=(SECTION_TRAFFIC,))
+
+
+def change_text(change: int | None, percent, prior_label: str) -> str | None:
+    if change is None:
+        return None
+    if percent is None:
+        return f"{change:+,} vs {prior_label}"
+    return f"{change:+,} ({percent:+.1f}%) vs {prior_label}"
