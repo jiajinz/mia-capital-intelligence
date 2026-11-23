@@ -158,6 +158,13 @@ def app_for(monkeypatch, root, *, loopback=False):
     return AppTest.from_file(ROOT / "streamlit_app.py", default_timeout=15)
 
 
+def open_spending(app):
+    """Open the Spending section and return its page content (the section is the only one rendered)."""
+    app.radio(key="section").set_value("Spending").run()
+    assert not app.exception
+    return app.main
+
+
 def test_browser_request_parameter_cannot_unlock_pending_data(monkeypatch, local_root):
     monkeypatch.delenv("MIA_FINANCIAL_LOCAL_REVIEW", raising=False)
     app = app_for(monkeypatch, local_root, loopback=True)
@@ -165,7 +172,7 @@ def test_browser_request_parameter_cannot_unlock_pending_data(monkeypatch, local
     app.query_params["local_review"] = "1"
     app.run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     assert tab.info[0].value == PENDING_MESSAGE
     assert_no_financial_values(tab)
 
@@ -174,12 +181,12 @@ def test_local_preview_displays_banner_and_explicit_summary_zero(monkeypatch, lo
     monkeypatch.setenv("MIA_FINANCIAL_LOCAL_REVIEW", "1")
     app = app_for(monkeypatch, local_root, loopback=True).run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     assert tab.warning[0].value == "Local review preview."
     assert tab.dataframe[0].value["Monthly expenditures"].tolist() == ["$80,212.05", "$103,511.27", "$98,135.01"]
-    app.selectbox(key="spending_contract").set_value("E20-MDAD-03").run()
+    app.radio(key="spending_contract").set_value("E20-MDAD-03").run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     last = tab.dataframe[0].value.iloc[-1]
     assert last["Monthly expenditures"] == "$0.00"
     assert last["Monthly cell evidence"] == "Dash corroborated by summary zero"
@@ -192,7 +199,7 @@ def test_ordinary_reviewed_app_shows_chart_without_preview_banner(monkeypatch, l
     write_review(local_root, synthetic_review)
     app = app_for(monkeypatch, local_root).run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     assert len(tab.get("plotly_chart")) == 1 and not tab.warning
     assert tab.dataframe[0].value.iloc[-1]["Cumulative expenditures"] == "$13,671,042.69"
     bridge = next(item for item in tab.expander if item.label == "How the cumulative amount adds up")
@@ -206,7 +213,7 @@ def test_streamlit_secret_approves_without_local_review_record(monkeypatch, loca
     app.secrets["financial_review"] = {"attestation_json": json.dumps(synthetic_review)}
     app.run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     assert len(tab.get("plotly_chart")) == 1 and not tab.warning
     assert tab.dataframe[0].value.iloc[-1]["Cumulative expenditures"] == "$13,671,042.69"
     assert not any("Synthetic Test Reviewer" in element.value for element in tab.markdown)
@@ -228,7 +235,7 @@ def test_invalid_streamlit_secret_does_not_fall_back_to_local_record(
     app.secrets["financial_review"] = {"attestation_json": review_document}
     app.run()
     assert not app.exception
-    tab = app.tabs[3]
+    tab = open_spending(app)
     assert tab.info[0].value == message
     assert_no_financial_values(tab)
 
@@ -249,7 +256,7 @@ def test_closed_gate_messages_are_distinct_and_hide_values(monkeypatch, local_ro
             (local_root / spending.REVIEW_PATH).unlink(missing_ok=True)
         app = app_for(monkeypatch, local_root).run()
         assert not app.exception
-        tab = app.tabs[3]
+        tab = open_spending(app)
         assert tab.info[0].value == STATUS_MESSAGES[status]
         assert_no_financial_values(tab)
         messages[status] = tab.info[0].value

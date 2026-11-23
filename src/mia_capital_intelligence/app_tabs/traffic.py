@@ -1,4 +1,4 @@
-"""Traffic tab: monthly passenger and cargo series with year-on-year comparison."""
+"""Traffic section: monthly passenger and cargo series with year-on-year comparison."""
 
 import pandas as pd
 import streamlit as st
@@ -22,19 +22,18 @@ def traffic_cell(series: TrafficSeries, period: str, value_of) -> str:
 
 def render_traffic(series: TrafficSeries) -> None:
     st.header("Monthly airport traffic")
-    st.subheader("Method note")
-    for paragraph in TRAFFIC_METHOD_NOTE:
-        st.markdown(paragraph)
-    st.subheader("Monthly passengers and cargo")
+    st.subheader("Monthly passenger movements, 2010 to 2026")
     st.caption(
-        "Each point is one reported month. The dotted lines mark the unavailable months, the shaded band is the "
-        "pandemic break, and diamonds mark values from a revised report. The table below gives every value."
+        "Each point is one reported month. Dotted lines mark months without a value. The shaded band marks "
+        "March 2020 to December 2021. Open diamonds mark values from a revised report. The lower panel shows "
+        "monthly total cargo tons."
     )
     st.plotly_chart(traffic_figure(series), width="stretch", config={"displayModeBar": False, "scrollZoom": False})
 
     st.subheader("Year-on-year comparison")
     years = comparable_years(series)
-    year = st.selectbox("Year, compared with the prior year", years, index=years.index(2025), key="traffic_year")
+    year = st.radio("Year, compared with the prior year", years, index=years.index(2025), format_func=str,
+                    key="traffic_year", horizontal=True)
     measure_label = st.radio("Measure", ("Passengers", "Cargo tons"), horizontal=True, key="traffic_measure")
     measure = "passengers" if measure_label == "Passengers" else "cargo_tons"
     st.plotly_chart(year_figure(series, year, measure), width="stretch",
@@ -89,6 +88,10 @@ def render_traffic(series: TrafficSeries) -> None:
             "Notes": "; ".join(notes) if notes else "",
         })
     st.dataframe(pd.DataFrame(table), hide_index=True, width="stretch")
+
+    with st.expander("About these figures"):
+        for paragraph in TRAFFIC_METHOD_NOTE:
+            st.markdown(paragraph)
 
 
 def render_traffic_tab() -> None:

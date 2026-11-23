@@ -225,23 +225,22 @@ CLOSED_SPENDING_MESSAGES = {
 }
 
 
+SECTIONS = ("Overview", "Projects", "Sources & coverage", "Spending", "Traffic")
+SECTION_KEY = "section"
+
+# Plain facts only, shown at the bottom of the Traffic section.
 TRAFFIC_METHOD_NOTE = (
-    "**What the series is.** Monthly passenger movements (deplaned plus enplaned) and total cargo tons at "
-    "Miami International Airport, COMBINED TOTALS for international and domestic traffic. The series covers "
-    "January 2010 to September 2026 and holds 199 reported months.",
-    "**Where it comes from.** Monthly traffic reports published by Miami International Airport. Early months come "
-    "from monthly web pages and later months from PDF monthly reports. The table gives the source file name and "
-    "PDF page for every value; PDF page numbers count from 1.",
-    "**What is missing.** July 2010 is a gap: no admitted value exists. June 2013 is held: its year-to-date totals "
-    "did not pass an internal check, so no value is shown. Some values appear only as the prior-year column of a "
-    "later report (December 2017, October 2018 and June 2022); the table labels them. March 2025 comes from a "
-    "revised report, and its first-published version was not obtained.",
-    "**The pandemic break.** The shaded band from March 2020 to December 2021 marks the pandemic break. Values "
-    "inside the band are shown as published, without adjustment.",
-    "**What this tab does not do.** It shows no future months, estimates or scenarios. It does not link traffic to "
-    "capital investment, contracts or individual projects, and it does not set passengers against seat or aircraft "
-    "counts. Year-on-year changes compare the same calendar month of the same measure with the prior year and do "
-    "not adjust for other factors. It makes no financial claim.",
+    "**Source.** Monthly traffic reports published by Miami International Airport. Early months come from monthly "
+    "web pages and later months from PDF reports. The table gives the source file and PDF page for each value. "
+    "PDF page numbers count from 1.",
+    "**Series.** Passenger movements are deplaned plus enplaned. Cargo is total cargo tons. Both are combined totals "
+    "for international and domestic traffic. The series holds 199 reported months, from January 2010 to September 2026.",
+    "**2010-07** (July 2010) has no source page, so no value is shown.",
+    "**2013-06** (June 2013) is held. Its year-to-date totals did not pass an internal check, so no value is shown.",
+    "**March 2025** comes from a revised report. Its first-published version was not obtained.",
+    "**March 2020 to December 2021** is the pandemic period. Values inside it are shown as published, without adjustment.",
+    "December 2017, October 2018 and June 2022 appear only as the prior-year column of a later report. The table labels them.",
+    "The Traffic section does not link traffic to projects or contracts.",
 )
 
 
@@ -255,14 +254,26 @@ def render_record_page(registry: PublicRegistry) -> None:
         st.warning("This record link is outside the current registry version or is invalid. Open the directory to choose an available record.")
 
 
+def open_section(name: str) -> None:
+    """Callback helper: move the visitor to another top-level section."""
+    st.session_state[SECTION_KEY] = name
+
+
+def open_report(matter_id: str) -> None:
+    """Callback helper: open one source document in Sources & coverage."""
+    st.session_state["coverage_source"] = matter_id
+    open_section("Sources & coverage")
+
+
 def initialize_explore_route(reports: dict) -> None:
+    """Honor the same-report estimate links: ?report=...&range=... opens the Projects list for that range."""
     report_route = st.query_params.get_all("report")
     range_route = st.query_params.get_all("range")
     airport_route = st.query_params.get_all("airport")
     if not st.session_state.get("explore_initialized"):
         if (len(report_route) == len(range_route) == 1
                 and report_route[0] in reports and range_route[0] in ESTIMATE_BANDS):
-            st.session_state.update(source_report=report_route[0], chart_report=report_route[0],
+            st.session_state.update(section=SECTIONS[1], source_report=report_route[0],
                                     estimate_range=range_route[0], explore_browse=True)
             if len(airport_route) == 1 and airport_route[0] in (*AIRPORTS, "Unknown"):
                 st.session_state.update(airport=airport_route[0], chart_airport=airport_route[0])

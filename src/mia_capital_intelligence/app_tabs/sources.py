@@ -43,10 +43,10 @@ def render_coverage(registry: PublicRegistry) -> None:
         for row in registry.catalog
     ]), hide_index=True, width="stretch")
     sources = {row["matter_id"]: row for row in registry.catalog}
-    matter = st.selectbox(
-        "Inspect a source document", list(sources),
-        format_func=lambda key: f"{key} · {sources[key]['title']}",
-        key="coverage_source",
+    st.session_state.setdefault("coverage_source", next(iter(sources)))
+    matter = st.radio(
+        "Inspect a source document", list(sources), horizontal=True,
+        format_func=lambda key: f"{key} · {sources[key]['title']}", key="coverage_source",
     )
     source = sources[matter]
     with st.container(border=True):

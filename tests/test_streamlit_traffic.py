@@ -1,4 +1,4 @@
-"""Streamlit's simulated runtime checks the read-only Traffic tab."""
+"""Streamlit's simulated runtime checks the read-only Traffic section."""
 
 import json
 import re
@@ -10,7 +10,6 @@ from streamlit.testing.v1 import AppTest
 from mia_capital_intelligence import traffic_view
 
 APP = Path(__file__).resolve().parents[1] / "streamlit_app.py"
-TRAFFIC_TAB = 4
 
 
 def app():
@@ -20,7 +19,10 @@ def app():
 
 
 def traffic(result):
-    return result.tabs[TRAFFIC_TAB]
+    """Open the Traffic section; it is the only section rendered, so the page is the section."""
+    result.radio(key="section").set_value("Traffic").run()
+    assert not result.exception
+    return result
 
 
 def tab_text(tab) -> str:
@@ -40,29 +42,47 @@ def chart_annotations(tab) -> list[str]:
     return [item.get("text", "") for item in chart_spec(tab)["layout"].get("annotations", [])]
 
 
-def test_traffic_tab_renders_its_sections_in_order():
-    result = app()
-    assert [tab.label for tab in result.tabs][TRAFFIC_TAB] == "Traffic"
-    tab = traffic(result)
-    assert tab.header[0].value == "Monthly airport traffic"
-    assert [item.value for item in tab.subheader] == [
-        "Method note", "Monthly passengers and cargo", "Year-on-year comparison", "Exact values and sources",
+def test_traffic_section_renders_its_sections_in_order():
+    result = traffic(app())
+    assert result.header[0].value == "Monthly airport traffic"
+    assert [item.value for item in result.subheader] == [
+        "Monthly passenger movements, 2010 to 2026", "Year-on-year comparison", "Exact values and sources",
     ]
-    assert len(tab.get("plotly_chart")) == 2
-    assert not tab.error
+    assert len(result.get("plotly_chart")) == 2
+    assert not result.error
 
 
-def test_method_note_states_series_source_gaps_break_and_limits_before_the_chart():
+def test_traffic_copy_is_plain_statements_without_questions():
     tab = traffic(app())
-    notes = [item.value for item in tab.markdown]
-    assert notes[0].startswith("**What the series is.**")
-    for lead in ("**Where it comes from.**", "**What is missing.**", "**The pandemic break.**",
-                 "**What this tab does not do.**"):
-        assert any(note.startswith(lead) for note in notes), lead
     text = tab_text(tab)
-    assert "199 reported months" in text
-    assert "PDF page numbers count from 1" in text
-    assert "July 2010 is a gap" in text and "June 2013 is held" in text
+    assert "?" not in text
+    assert not re.search(r"\bwhat is\b|\bwhy\b|\bhow\b", text, re.IGNORECASE)
+    assert "Monthly passenger movements, 2010 to 2026" in text
+    assert "Monthly total cargo tons" in text or "monthly total cargo tons" in text
+
+
+def test_about_these_figures_is_the_last_element_before_the_site_footer():
+    tab = traffic(app())
+    children = list(tab.main.children.values())
+    footer = children[-2:]
+    assert [type(child).__name__ for child in footer] == ["Divider", "Caption"]
+    last = children[-3]
+    assert last.type == "expander" and last.label == "About these figures"
+    assert any(child is last for child in children[:-3]) is False
+
+
+def test_about_these_figures_states_the_plain_facts():
+    tab = traffic(app())
+    note = next(item for item in tab.expander if item.label == "About these figures")
+    copy = "\n".join(element.value for element in note.markdown)
+    assert "Miami International Airport" in copy
+    assert "**2010-07** (July 2010) has no source page" in copy
+    assert "**2013-06** (June 2013) is held" in copy
+    assert "**March 2025** comes from a revised report" in copy
+    assert "**March 2020 to December 2021** is the pandemic period" in copy
+    assert "199 reported months" in copy
+    assert "PDF page numbers count from 1" in copy
+    assert "?" not in copy and "Why" not in copy and "What is" not in copy
 
 
 def test_chart_labels_both_unavailable_months_and_the_pandemic_break():
@@ -102,10 +122,9 @@ def test_exact_table_gives_source_file_and_pdf_page_for_each_value():
 
 
 def test_year_selector_and_measure_update_the_comparison_table():
-    result = app()
-    tab = traffic(result)
-    assert tab.selectbox(key="traffic_year").value == 2025
-    tab.selectbox(key="traffic_year").set_value(2019).run()
+    result = traffic(app())
+    assert result.radio(key="traffic_year").value == 2025
+    result.radio(key="traffic_year").set_value(2019).run()
     assert not result.exception
     comparison = traffic(result).dataframe[0].value
     assert list(comparison.columns) == ["Month", "2018", "2019", "Change", "Change (%)"]
@@ -118,7 +137,7 @@ def test_year_selector_and_measure_update_the_comparison_table():
     assert comparison.iloc[0]["2019"] == f"{series.by_period()['2019-01'].cargo_tons.value:,}"
 
 
-def test_traffic_tab_error_state_is_safe_and_scoped(monkeypatch):
+def test_traffic_error_state_is_safe_and_scoped(monkeypatch):
     def failed_input(data_dir=traffic_view.DATA_DIR):
         raise OSError("Could not read /private/synthetic-operator/traffic.json")
 
@@ -127,10 +146,12 @@ def test_traffic_tab_error_state_is_safe_and_scoped(monkeypatch):
     try:
         result = AppTest.from_file(APP, default_timeout=30).run()
         assert not result.exception
-        tab = traffic(result)
-        assert len(tab.error) == 1
-        assert "could not be validated" in tab.error[0].value
-        assert len(tab.get("plotly_chart")) == 0
-        assert "/private/" not in tab_text(tab)
+        assert len(result.error) == 1
+        assert "could not be validated" in result.error[0].value
+        result = traffic(result)
+        assert len(result.error) == 1
+        assert "could not be validated" in result.error[0].value
+        assert len(result.get("plotly_chart")) == 0
+        assert "/private/" not in tab_text(result)
     finally:
         st.cache_resource.clear()
