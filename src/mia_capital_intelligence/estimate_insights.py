@@ -3,7 +3,7 @@
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
 import plotly.graph_objects as go
 
@@ -82,11 +82,31 @@ def apply_chart_theme(figure: go.Figure) -> go.Figure:
     return figure
 
 
-def chart_label(name: str) -> str:
+def chart_label(name: str, max_chars: int = CHART_LABEL_MAX_CHARS) -> str:
     """Truncate a display label with an ellipsis; the underlying data is never changed."""
-    if len(name) <= CHART_LABEL_MAX_CHARS:
+    if len(name) <= max_chars:
         return name
-    return name[:CHART_LABEL_MAX_CHARS - 1].rstrip() + "…"
+    return name[:max_chars - 1].rstrip() + "…"
+
+
+def chart_labels(rows: Sequence[Mapping[str, Any]]) -> tuple[str, ...]:
+    """Display labels for one chart, in ranking order, that are distinct within the chart.
+
+    A name that would appear more than once after truncation gets a display-only suffix,
+    " · N", where N is its 1-based ranking position. The stem is shortened so the whole
+    label stays within CHART_LABEL_MAX_CHARS. Rows that are already distinct are unchanged.
+    """
+    names = [CHART_NAMES.get(row["project_id"], row["project_name"]) for row in rows]
+    plain = [chart_label(name) for name in names]
+    counts = Counter(plain)
+    labels = []
+    for position, (name, label) in enumerate(zip(names, plain), start=1):
+        if counts[label] == 1:
+            labels.append(label)
+            continue
+        suffix = f" · {position}"
+        labels.append(chart_label(name, CHART_LABEL_MAX_CHARS - len(suffix)) + suffix)
+    return tuple(labels)
 
 
 def estimate_figure(ranking: EstimateRanking) -> go.Figure:
@@ -115,9 +135,7 @@ def estimate_figure(ranking: EstimateRanking) -> go.Figure:
         yaxis=dict(
             title=None, autorange="reversed", type="category", automargin=True,
             tickvals=[row["project_id"] for row in rows],
-            ticktext=[
-                chart_label(CHART_NAMES.get(row["project_id"], row["project_name"])) for row in rows
-            ],
+            ticktext=list(chart_labels(rows)),
         ),
         clickmode="event+select", dragmode=False,
         font=dict(size=14, color=PALETTE_INK), showlegend=False,
