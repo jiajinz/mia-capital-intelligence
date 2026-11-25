@@ -16,21 +16,25 @@ from mia_capital_intelligence.row_controls import ProfileRow, load_page_controls
 from mia_capital_intelligence.source_identity import verify_pdf
 
 
-def load_exhibit_b(root: Path) -> tuple[tuple[SourceDocument, SourceDocument], list[SourceRecord]]:
+# Quarterly reports in the order they are compared. Each adjacent pair is compared by the gate.
+EXHIBIT_B_MATTERS = (
+    ("260526", "FY 2024- 2025; for Period October 2025 - December 2025", (11, 12)),
+    ("261402", "FY 2025- 2026", (12, 13)),
+    ("261824", "FY 2025- 2026", (15, 16)),
+)
+
+
+def load_exhibit_b(root: Path) -> tuple[tuple[SourceDocument, ...], list[SourceRecord]]:
     """Verify pinned bytes and every controlled row before returning observations."""
     inventory = json.loads((root / "data/source_inventory.json").read_text(encoding="utf-8"))
     sources = {row["matter_id"]: row for row in inventory["sources"]}
     documents = []
     records = []
-    for matter, caption in (
-        ("260526", "FY 2024- 2025; for Period October 2025 - December 2025"),
-        ("261402", "FY 2025- 2026"),
-    ):
+    for matter, caption, expected_pages in EXHIBIT_B_MATTERS:
         source = sources[matter]
         exhibit = source["tables"][1]
-        expected_pages = [11, 12] if matter == "260526" else [12, 13]
         if (exhibit["label"] != "Exhibit B - Capital Improvement Program"
-                or exhibit["pdf_pages"] != expected_pages):
+                or exhibit["pdf_pages"] != list(expected_pages)):
             raise ValueError(f"{matter}: unexpected Exhibit B identity")
         path = root / f"data/raw/{matter}.pdf"
         verify_pdf(path, expected_size=source["size_bytes"], expected_sha256=source["sha256"])
@@ -48,11 +52,14 @@ def load_exhibit_b(root: Path) -> tuple[tuple[SourceDocument, SourceDocument], l
                 if table is None:
                     raise ValueError(f"{matter} p.{number}: table grid missing")
                 cells = table.extract()
-                cost_column = 2 if matter == "260526" else 3
-                if "Total Estimated" not in cells[0][cost_column]:
+                # The header is the first row that names the estimate column; some reports add a title row above it.
+                header_index = next((index for index in (0, 1) if index < len(cells) and any(
+                    cell and "Total Estimated" in cell for cell in cells[index])), None)
+                if header_index is None:
                     raise ValueError(f"{matter} p.{number}: estimate header differs")
+                cost_column = next(index for index, cell in enumerate(cells[header_index]) if cell and "Total Estimated" in cell)
                 page_records = []
-                for ordinal, row in enumerate(cells[1:], 1):
+                for ordinal, row in enumerate(cells[header_index + 1:], 1):
                     if not row[0]:
                         raise ValueError(f"{matter} p.{number} row {ordinal}: missing ID cell")
                     project_id, _, merged_description = row[0].partition(" ")
@@ -62,12 +69,12 @@ def load_exhibit_b(root: Path) -> tuple[tuple[SourceDocument, SourceDocument], l
                         raise ValueError(f"{matter} p.{number} row {ordinal}: missing estimate")
                     amount = int("".join(raw_amount.split()).removeprefix("$").replace(",", ""))
                     metric = AmountObservation(
-                        Decimal(amount), raw_amount, cells[0][cost_column]
+                        Decimal(amount), raw_amount, cells[header_index][cost_column]
                     )
                     page_records.append(SourceRecord(
                         matter, source["sha256"], "B", number, ordinal, project_id,
                         description, {"total_estimated_cost_usd": metric},
-                        tuple(table.rows[ordinal].bbox),
+                        tuple(table.rows[ordinal + header_index].bbox),
                     ))
                 expected = load_page_controls(
                     root / "data/audit/exhibit_b_row_controls.csv", matter_id=matter,
@@ -79,4 +86,4 @@ def load_exhibit_b(root: Path) -> tuple[tuple[SourceDocument, SourceDocument], l
                     expected, context=f"{matter} B p.{number}",
                 )
                 records.extend(page_records)
-    return (documents[0], documents[1]), records
+    return tuple(documents), records

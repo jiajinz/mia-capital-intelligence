@@ -16,7 +16,7 @@ SOURCES = json.loads(INVENTORY.read_text(encoding="utf-8"))["sources"]
 
 def test_inventory_has_three_distinct_sources() -> None:
     assert sorted(source["matter_id"] for source in SOURCES) == [
-        "260526", "261400", "261402"
+        "260526", "261400", "261402", "261824"
     ]
     assert len({source["sha256"] for source in SOURCES}) == len(SOURCES)
 
@@ -50,14 +50,16 @@ def test_inventory_metadata(source: dict[str, Any]) -> None:
 
 
 def test_infrastructure_coverage_is_adjacent() -> None:
-    first, second = sorted(
+    quarterly = sorted(
         (source for source in SOURCES if source["series"] == "infrastructure_241354"),
         key=lambda source: source["period_start"],
     )
-    assert first["reporting_basis"] == second["reporting_basis"] == "explicit_memo_period"
-    assert date.fromisoformat(first["period_end"]) + timedelta(days=1) == date.fromisoformat(
-        second["period_start"]
-    )
+    assert len(quarterly) == 3
+    for first, second in zip(quarterly, quarterly[1:]):
+        assert first["reporting_basis"] == second["reporting_basis"] == "explicit_memo_period"
+        assert date.fromisoformat(first["period_end"]) + timedelta(days=1) == date.fromisoformat(
+            second["period_start"]
+        )
 
 
 def test_verify_pdf_matches_expected_bytes(tmp_path: Path) -> None:

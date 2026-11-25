@@ -19,7 +19,7 @@ from mia_capital_intelligence.source_identity import verify_pdf
 from mia_capital_intelligence.source_records import load_exhibit_b
 
 ROOT = Path(__file__).resolve().parents[2]
-INDEXED_PAGES = {"260526": (11, 12), "261402": (12, 13)}
+INDEXED_PAGES = {"260526": (11, 12), "261402": (12, 13), "261824": (15, 16)}
 METRIC = "total_estimated_cost_usd"
 AIRPORTS = {
     "MIA": "Miami International Airport",
@@ -49,10 +49,14 @@ def registry_candidate_links(records: tuple[SourceRecord, ...]) -> list[dict[str
             connection.executemany("INSERT INTO source_rows VALUES (?, ?, ?, ?)", [
                 (row.source_ref, row.matter_id, row.exhibit, row.project_id) for row in records
             ])
-        matches = connection.execute(
-            (Path(__file__).with_name("sql") / "candidates.sql").read_text(),
-            list(INDEXED_PAGES),
-        ).fetchall()
+        # Same-ID links are made for each adjacent pair of reports, in report order (Q3 to Q4, Q4 to Q5).
+        matches = []
+        matters = list(INDEXED_PAGES)
+        for earlier_matter, later_matter in zip(matters, matters[1:]):
+            matches.extend(connection.execute(
+                (Path(__file__).with_name("sql") / "candidates.sql").read_text(),
+                [earlier_matter, later_matter],
+            ).fetchall())
     return [
         {"candidate_id": candidate_id(earlier, later), "project_id": project_id,
          "earlier_ref": earlier, "later_ref": later, "identity_status": "candidate_unverified"}

@@ -35,7 +35,9 @@ def identity(synthetic_pdf):
 
 def test_seed_covers_both_inventories_without_inventing_dates():
     catalog = seed_catalog(Path(__file__).resolve().parents[1])
-    assert {row["matter_id"] for row in catalog["documents"]} == {"260526", "261402", "261147", "261399", "261400"}
+    assert {row["matter_id"] for row in catalog["documents"]} == {
+        "260526", "261402", "261824", "261147", "261399", "261400",
+    }
     assert all(row["first_seen_at"] is None and row["dataset_status"] == "included" for row in catalog["documents"])
     assert catalog["events"] == []
 

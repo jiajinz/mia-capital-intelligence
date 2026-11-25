@@ -31,12 +31,12 @@ def _error(code: str, location: str, message: str) -> dict[str, str]:
 
 
 def _source_errors(
-    documents: tuple[SourceDocument, SourceDocument], records: list[SourceRecord]
+    documents: tuple[SourceDocument, ...], records: list[SourceRecord]
 ) -> list[dict[str, str]]:
     errors = []
-    earlier, later = documents
-    if earlier.matter_id == later.matter_id or earlier.period_end >= later.period_start:
-        errors.append(_error("period_order", "documents", "Expected distinct ordered, nonoverlapping reports"))
+    for earlier, later in zip(documents, documents[1:]):
+        if earlier.matter_id == later.matter_id or earlier.period_end >= later.period_start:
+            errors.append(_error("period_order", "documents", "Expected distinct ordered, nonoverlapping reports"))
     documents_by_id = {doc.matter_id: doc for doc in documents}
     for doc in documents:
         if doc.period_start > doc.period_end or not re.fullmatch(r"[0-9a-f]{64}", doc.sha256):
@@ -177,7 +177,7 @@ def _page_controls(records: list[SourceRecord]) -> list[dict[str, Any]]:
 
 
 def evaluate_gate(
-    documents: tuple[SourceDocument, SourceDocument],
+    documents: tuple[SourceDocument, ...],
     records: list[SourceRecord],
     review_bundle: dict[str, Any],
     *,
@@ -217,29 +217,32 @@ def evaluate_gate(
     by_ref = {row.source_ref: row for row in records}
     with duckdb.connect(":memory:") as connection:
         _insert_sources(connection, records)
-        matched = connection.execute(
-            (SQL / "candidates.sql").read_text(), [doc.matter_id for doc in documents]
-        ).fetchall()
-        for project_id, earlier_ref, later_ref in matched:
-            if earlier_ref is None or later_ref is None:
-                report["unmatched_records"].append({
-                    "project_id": project_id, "source_ref": earlier_ref or later_ref,
-                    "presence": "later_only" if earlier_ref is None else "earlier_only",
-                    "reason": "Listed in only one selected Exhibit B report",
-                })
-            else:
-                report["candidates"].append({
-                    "candidate_id": candidate_id(earlier_ref, later_ref), "project_id": project_id,
-                    "earlier_ref": earlier_ref, "later_ref": later_ref,
-                    "matching_method": "same_exhibit_exact_project_id",
-                    "default_review_status": "held",
-                    "earlier_period": {
-                        "start": documents[0].period_start, "end": documents[0].period_end,
-                    },
-                    "later_period": {
-                        "start": documents[1].period_start, "end": documents[1].period_end,
-                    },
-                })
+        # Each adjacent pair of reports in the order given is compared: Q3 to Q4, then Q4 to Q5.
+        for earlier_doc, later_doc in zip(documents, documents[1:]):
+            matched = connection.execute(
+                (SQL / "candidates.sql").read_text(), [earlier_doc.matter_id, later_doc.matter_id]
+            ).fetchall()
+            for project_id, earlier_ref, later_ref in matched:
+                if earlier_ref is None or later_ref is None:
+                    report["unmatched_records"].append({
+                        "project_id": project_id, "source_ref": earlier_ref or later_ref,
+                        "presence": "later_only" if earlier_ref is None else "earlier_only",
+                        "reason": "Listed in only one selected Exhibit B report",
+                        "comparison": f"{earlier_doc.matter_id} to {later_doc.matter_id}",
+                    })
+                else:
+                    report["candidates"].append({
+                        "candidate_id": candidate_id(earlier_ref, later_ref), "project_id": project_id,
+                        "earlier_ref": earlier_ref, "later_ref": later_ref,
+                        "matching_method": "same_exhibit_exact_project_id",
+                        "default_review_status": "held",
+                        "earlier_period": {
+                            "start": earlier_doc.period_start, "end": earlier_doc.period_end,
+                        },
+                        "later_period": {
+                            "start": later_doc.period_start, "end": later_doc.period_end,
+                        },
+                    })
         pairs = {row["candidate_id"]: row for row in report["candidates"]}
         report["validation_errors"].extend(_review_errors(validated_bundle, pairs))
         decisions = {row["candidate_id"]: row for row in validated_bundle["decisions"]}
