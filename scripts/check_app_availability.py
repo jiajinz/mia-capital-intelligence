@@ -24,7 +24,7 @@ def visit_app(browser: Browser, url: str, timeout_ms: int) -> bool:
     try:
         page = context.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=remaining())
-        search = page.get_by_role("textbox", name="Search projects", exact=True)
+        search = page.get_by_role("textbox", name="Search projects and reports", exact=True)
         wake = page.get_by_role("button", name=re.compile("get this app back up", re.I))
         app_frame = page.locator('iframe[src*="/~/+/"]')
         search.or_(wake).or_(app_frame).first.wait_for(state="visible", timeout=remaining())
@@ -33,11 +33,10 @@ def visit_app(browser: Browser, url: str, timeout_ms: int) -> bool:
             wake.click(timeout=remaining())
         search.or_(app_frame).first.wait_for(state="visible", timeout=remaining())
         app = page.frame_locator('iframe[src*="/~/+/"]') if app_frame.is_visible() else page
-        search = app.get_by_role("textbox", name="Search projects", exact=True)
+        search = app.get_by_role("textbox", name="Search projects and reports", exact=True)
         expect(search).to_be_visible(timeout=remaining())
-        records = app.get_by_role("button", name=re.compile(r"^Browse [1-9][0-9]* source records?$"))
-        expect(records).to_be_visible(timeout=remaining())
-        expect(records).to_be_enabled(timeout=remaining())
+        records = app.get_by_text(re.compile(r"[1-9][0-9]* report entries"))
+        expect(records.first).to_be_visible(timeout=remaining())
         return woke
     finally:
         context.close()
